@@ -67,7 +67,8 @@ appointments, contract wins) that a generic query would miss:
 
 Wee Hur &middot; BRC Asia &middot; Lian Beng &middot; Koh Brothers &middot;
 Hock Lian Seng &middot; CSC Holdings &middot; Chip Eng Seng &middot; UOL
-Group &middot; CapitaLand &middot; City Developments
+Group &middot; CapitaLand &middot; City Developments &middot; Tiong Seng
+&middot; BBR &middot; Hwa Seng
 
 To add, remove, or adjust the list, edit it in both CLAUDE.md and the
 routine's prompt (Step 1) via the `schedule` skill — keep the two in sync.

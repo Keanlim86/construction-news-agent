@@ -28,9 +28,10 @@
   surfacing. Step 1 now also runs one search pass per watchlisted company.
   Watchlist (SGX-listed contractors/developers with active construction
   arms): **Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC
-  Holdings, Chip Eng Seng, UOL Group, CapitaLand, City Developments**. To
-  add/remove a company, edit this list and the routine's prompt (Step 1) to
-  match — see [README.md](README.md#adjusting-sources).
+  Holdings, Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong
+  Seng, BBR, Hwa Seng**. To add/remove a company, edit this list and the
+  routine's prompt (Step 1) to match — see
+  [README.md](README.md#adjusting-sources).
 
 ## Context
 
