@@ -59,6 +59,19 @@ Asia, and similar) plus Bloomberg for international/regional stories, via
 reweight a source, edit the routine's prompt (via the `schedule` skill) —
 its "Gather candidates" step lists the search queries.
 
+## Company watchlist
+
+Beyond source/category searches, the routine also runs one search pass per
+company on a short watchlist, to catch routine company news (earnings,
+appointments, contract wins) that a generic query would miss:
+
+Wee Hur &middot; BRC Asia &middot; Lian Beng &middot; Koh Brothers &middot;
+Hock Lian Seng &middot; CSC Holdings &middot; Chip Eng Seng &middot; UOL
+Group &middot; CapitaLand &middot; City Developments
+
+To add, remove, or adjust the list, edit it in both CLAUDE.md and the
+routine's prompt (Step 1) via the `schedule` skill — keep the two in sync.
+
 ## History / retention
 
 - **`news_store.json`** (active, drives the dashboard): an article is kept
