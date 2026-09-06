@@ -1,8 +1,26 @@
 # Construction News Agent (Singapore) — Daily Scheduled Digest
 
-> Status: **Planned, not yet built.** This file is the approved implementation
-> plan. Open a Claude Code session in this folder and say something like
-> "build the construction news agent per CLAUDE.md" to resume/execute it.
+> Status: **Live.** Built and running as of 2026-09-06. This file remains the
+> design reference the daily routine reads each run — treat the rest of this
+> document as historical intent, and the notes below as what actually shipped
+> and has changed since.
+
+## Post-launch amendments
+
+- **Execution model differs from the original plan below**: instead of a
+  local `.claude\scheduled-tasks\` routine, this runs as a **cloud routine**
+  (`construction-news-agent`, created via the `schedule` skill's RemoteTrigger
+  flow) on a public GitHub repo,
+  [Keanlim86/construction-news-agent](https://github.com/Keanlim86/construction-news-agent).
+  Each scheduled fire clones that repo fresh, does the day's work, commits the
+  result back, and publishes the dashboard — there is no local persistence on
+  this PC and no `SKILL.md` file; the routine's full instructions live as the
+  routine's own prompt (edit via the `schedule` skill or claude.ai/code/routines).
+- **`news_archive.json` added (2026-09-06)**: a permanent, append-only record
+  of every article that ages out of `news_store.json`'s 90-day window,
+  instead of those articles being dropped outright. See the updated Step 4
+  below and [README.md](README.md#history--retention) for the schema and
+  rationale.
 
 ## Context
 
@@ -96,6 +114,34 @@ else in the design.
   sticky flag — it drives the dashboard's "NEW" badge.
 - `date_published` falls back to `date_found` if genuinely unavailable.
 
+## Data schema — `news_archive.json` (added 2026-09-06)
+
+```json
+{
+  "schema_version": 1,
+  "articles": [
+    {
+      "url": "https://www.straitstimes.com/singapore/...",
+      "title": "BCA awards $200m tender for Tuas mega hospital",
+      "source": "The Straits Times",
+      "category": "Project Awards/Tenders",
+      "summary": "BCA has awarded a $200m construction tender for a new hospital in Tuas, with completion slated for 2029.",
+      "date_published": "2026-08-17",
+      "date_found": "2026-08-18",
+      "archived_on": "2026-11-16"
+    }
+  ]
+}
+```
+
+Same article shape as `news_store.json` minus `is_new_today` (meaningless
+once archived) plus `archived_on` (the date it was moved here, i.e. when it
+crossed the 90-day threshold in the active store). Append-only — nothing
+ever removes an entry from this file, and nothing reads it back into
+`news_store.json` automatically. It does not feed the dashboard; it exists
+purely as a durable history for anyone who wants to look further back than
+90 days.
+
 ## The 10 fixed categories (with priority order for ambiguous articles)
 
 Categories 1–9 are for **Singapore** construction/built-environment news.
@@ -168,9 +214,13 @@ via the priority rubric above for Singapore-relevant stories, else category
 editorializing.
 
 **Step 4 — Update store**: Append new entries (`date_found` = today,
-`is_new_today` = true); set `is_new_today` = false on all others; drop
-entries with `date_found` older than 90 days; back up the current file to
-`backups/` before overwriting; write updated store with new `last_run`.
+`is_new_today` = true); set `is_new_today` = false on all others; for any
+entry with `date_found` older than 90 days, append it to
+`news_archive.json` (adding an `archived_on` = today field; create the file
+with `{"schema_version": 1, "articles": []}` if missing) and then drop it
+from the active store — never delete an article without archiving it first;
+back up the current `news_store.json` to `backups/` before overwriting;
+write updated store with new `last_run`.
 
 **Step 5 — Regenerate dashboard**: Rebuild `dashboard.html` from the *full*
 retained store, grouped by the 10 categories, newest-first by
