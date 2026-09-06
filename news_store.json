@@ -1,5 +1,86 @@
 {
   "schema_version": 1,
-  "last_run": null,
-  "articles": []
+  "last_run": "2026-09-06T07:00:00+08:00",
+  "articles": [
+    {
+      "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
+      "title": "Four arrested, 21 assisting MOM investigation into construction-sector \"phantom worker\" scheme",
+      "source": "Ministry of Manpower",
+      "category": "Manpower/Labour",
+      "summary": "MOM arrested two company directors and two staff from a construction firm for allegedly making false declarations and collecting kickbacks by creating \"phantom workers\" to inflate the company's foreign worker quota. A further 21 people are assisting with the investigation.",
+      "date_published": "2026-09-04",
+      "date_found": "2026-09-06",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/new-initiatives-to-strengthen-singapore-s-built-environment-capabilities-and-professions-unveiled-amidst-celebration-of-sector-excellence/",
+      "title": "BCA unveils Quantity Surveyors Workgroup recommendations to attract and develop built-environment talent",
+      "source": "Building and Construction Authority",
+      "category": "Manpower/Labour",
+      "summary": "BCA announced new initiatives to strengthen built environment professions, including recommendations from a Quantity Surveyors Workgroup to attract talent and develop professionals, plus measures to enhance regulatory competency among Qualified Persons, alongside sector excellence awards.",
+      "date_published": "2026-09-04",
+      "date_found": "2026-09-06",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/next-phase-of-research-and-innovation-funding-initiatives--refreshed-green-mark-and-new-accreditation-scheme-drive-singapore-s-built-environment-forward/",
+      "title": "BCA commits $112m to R&D and launches Green Mark Version 7",
+      "source": "Building and Construction Authority",
+      "category": "Sustainability/Green Building",
+      "summary": "BCA announced $112 million in new Research, Innovation and Enterprise 2030 funding and launched Green Mark Version 7, a refreshed certification scheme with performance-based pathways aimed at accelerating building decarbonisation.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-06",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/singapore-accelerates-innovation-and-technology-adoption-to-drive-productivity-in-the-built-environment-sector/",
+      "title": "BCA launches Robot Leasing Support Scheme and virtual TOP/CSC inspections",
+      "source": "Building and Construction Authority",
+      "category": "New Technology/Innovation",
+      "summary": "BCA unveiled a Robot Leasing Support Scheme offering up to 50% co-funding for construction robotics, alongside a new whole-of-government virtual inspection process for Temporary Occupation Permit and Certificate of Statutory Completion approvals expected to cut approval times by up to two months.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-06",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/winner-of-the-inaugural-asia-pacific-edition-of-the-world-s-largest-competition-for-construction-start-ups/",
+      "title": "Civils.ai crowned gold winner of inaugural Asia Pacific Construction Startup Competition",
+      "source": "Building and Construction Authority",
+      "category": "New Technology/Innovation",
+      "summary": "ConTech startup Civils.ai won the Gold award at the inaugural Asia Pacific Pitch Day of the Construction Startup Competition, beating four other finalists in the regional contest for construction technology innovation.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-06",
+      "is_new_today": true
+    },
+    {
+      "url": "https://highways.today/2026/08/27/singapore-ai-ibew-2026/",
+      "title": "International Built Environment Week 2026 puts AI at the centre of Singapore's construction industry",
+      "source": "Highways Today",
+      "category": "New Technology/Innovation",
+      "summary": "International Built Environment Week 2026, held 2-4 September at Marina Bay Sands alongside BEX Asia, focused on AI deployment across design, planning, robotics and building operations, featuring 174 exhibitors including 47 with AI-related offerings.",
+      "date_published": "2026-08-27",
+      "date_found": "2026-09-06",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.edgeprop.sg/property-news/uol-capitaland-singland-jv-tops-four-bids-new-upper-changi-road-gls-site-1537-psf-ppr",
+      "title": "UOL-CapitaLand-SingLand JV wins record $1.43b bid for New Upper Changi Road GLS site",
+      "source": "EdgeProp Singapore",
+      "category": "Project Awards/Tenders",
+      "summary": "A joint venture of UOL Group, CapitaLand Development and Singapore Land Group won URA's tender for a 99-year leasehold residential site at New Upper Changi Road with a top bid of $1.425 billion ($1,537 psf ppr), a record for Outside Central Region land, beating three other bidders when the tender closed on 1 September 2026.",
+      "date_published": "2026-09-01",
+      "date_found": "2026-09-06",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0828-enhancements-to-heat-stress-framework",
+      "title": "MOM to make four heat stress protection measures mandatory for outdoor workers from December 2026",
+      "source": "Ministry of Manpower",
+      "category": "Policy/Regulatory",
+      "summary": "MOM announced that cool drinking water, ice packs, breathable clothing and heat training will become mandatory workplace requirements for outdoor workers, alongside hourly rest breaks when the Wet Bulb Globe Temperature hits 32 degrees C. The measures, which affect construction and other outdoor sectors, take effect from 1 December 2026.",
+      "date_published": "2026-08-28",
+      "date_found": "2026-09-06",
+      "is_new_today": true
+    }
+  ]
 }
