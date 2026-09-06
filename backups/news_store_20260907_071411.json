@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-07T07:14:08+08:00",
+  "last_run": "2026-09-06T15:21:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -100,7 +100,7 @@
       "summary": "Canberra Residences' management corporation is suing contractor MCC Engineering, alleging breach of a 2020 settlement meant to fix defects -- including water seepage, ponding and shattered balcony glass -- dating back to the condo's 2013 completion. An 11-day trial is set to begin on 20 October 2026.",
       "date_published": "2026-08-30",
       "date_found": "2026-09-06",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.theedgesingapore.com/capital/results/wee-hur-reports-1hfy2026-earnings-453-mil-171-sees-recurring-income-base-broaden",
@@ -110,16 +110,6 @@
       "summary": "Wee Hur Holdings reported 1HFY2026 (ended 30 June) earnings of $45.3 million, up 17.1% year-on-year, on revenue of $163.6 million, driven by a 162.5% surge in construction revenue and a 50.7% jump in workers' dormitory revenue from Pioneer Lodge's ramp-up. The group is broadening its recurring income base via student-accommodation expansion, the upcoming DoubleTree by Hilton Singapore Robertson Quay, and its stake in Wycombe Abbey International School Singapore.",
       "date_published": "2026-08-16",
       "date_found": "2026-09-06",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.aljazeera.com/news/2026/8/28/singapores-plans-to-clear-forest-for-homes-lead-to-rare-public-protests",
-      "title": "Singapore's plans to clear forest for homes lead to rare public protests",
-      "source": "Al Jazeera",
-      "category": "Public Feedback/Community",
-      "summary": "HDB's plans to clear about 15 of Maju Forest's 23 hectares and part of Gillman Barracks forest for public housing have drawn unusually vocal opposition, including over 60,000 petition signatures and a rally of more than 2,000 people at Speakers' Corner. The government has since pledged to retain more green space than originally planned, at the cost of fewer homes on both sites.",
-      "date_published": "2026-08-28",
-      "date_found": "2026-09-07",
       "is_new_today": true
     }
   ]
