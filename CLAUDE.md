@@ -166,7 +166,11 @@ already failed the Singapore test.
 7. **New Technology/Innovation** — BIM, robotics, prefab/DfMA, AI in
    construction, when the innovation is the story.
 8. **Public Feedback/Community** — resident objections, public consultations,
-   community impact.
+   community impact; also environmental/green-space clearing backlash (e.g.
+   public uproar or nature-group petitions over clearing a forest/green site
+   such as Clementi/Maju Forest for a development) — distinct from category 5
+   (Sustainability/Green Building), which is for a building's own green
+   credentials, not objections to clearing land for one.
 9. **Media Features/Company News** — default bucket: profiles, executive
    moves, PR, earnings, awards/rankings not covered above.
 10. **International/Regional News** — major global/regional construction,
