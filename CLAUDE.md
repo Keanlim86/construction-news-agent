@@ -17,13 +17,18 @@ directly reusable code, since that project scrapes one structured API while
 this one aggregates many news sources via search).
 
 Confirmed with the user:
-- **Scope**: Singapore-focused construction industry news.
+- **Scope**: Singapore-focused construction industry news, plus a dedicated
+  bucket for major international/regional construction-industry news (see
+  category 10 below) even without a direct Singapore angle.
 - **Sourcing**: Web search + RSS/press-release pages across a default set of
   SG sources (Straits Times, Business Times, CNA, BCA newsroom, HDB/URA press
   releases, Construction Plus Asia, and similar), refined over time — not
-  fixed per-site HTML scrapers.
+  fixed per-site HTML scrapers. Also searches **Bloomberg** (`site:bloomberg.com`)
+  for major international/regional construction, property and real-estate
+  finance stories (e.g. a large developer's insolvency, a private-credit
+  fund's exposure) to feed category 10.
 - **Categorization**: The scheduled Claude agent itself reads and classifies
-  each article (no separate classifier/API) into 9 fixed categories.
+  each article (no separate classifier/API) into 10 fixed categories.
 - **Output**: A published Artifact dashboard, grouped by category, updated in
   place daily (stable URL) — plus a brief daily push notification.
 - **Schedule**: Daily, 7:00 AM Singapore time (UTC+8).
@@ -91,7 +96,14 @@ else in the design.
   sticky flag — it drives the dashboard's "NEW" badge.
 - `date_published` falls back to `date_found` if genuinely unavailable.
 
-## The 9 fixed categories (with priority order for ambiguous articles)
+## The 10 fixed categories (with priority order for ambiguous articles)
+
+Categories 1–9 are for **Singapore** construction/built-environment news.
+Category 10 is a separate catch-all for major **international/regional**
+construction-industry news that has no direct Singapore angle — it sits
+outside the 1–9 priority order (which exists only to resolve ambiguity
+*within* Singapore-relevant stories) and is only reached once an article has
+already failed the Singapore test.
 
 1. **Accidents/Workplace Safety** — any injury/death/safety incident always
    wins, even if it also touches policy or a named company.
@@ -111,9 +123,18 @@ else in the design.
    community impact.
 9. **Media Features/Company News** — default bucket: profiles, executive
    moves, PR, earnings, awards/rankings not covered above.
+10. **International/Regional News** — major global/regional construction,
+    property-development or real-estate-finance stories with no direct
+    Singapore link but clear relevance to the industry (a large developer's
+    insolvency, a private-credit fund's exposure, a major cross-border
+    infrastructure award, a regional regulatory shift). Sourced mainly via
+    Bloomberg; keep the bar high — this is not a catch-all for every
+    non-Singapore construction story, only ones a Singapore industry reader
+    would want to know about.
 
-Off-topic results (not Singapore, not construction/built-environment) are
-discarded, not force-fit into a category.
+Results that are neither Singapore-relevant (1–9) nor a major
+international/regional story clearing category 10's bar are discarded, not
+force-fit into a category.
 
 ## Daily routine logic (becomes the body of `SKILL.md`)
 
@@ -126,15 +147,25 @@ seed (e.g. `site:straitstimes.com construction Singapore`,
 `site:businesstimes.com.sg construction OR "built environment" Singapore`,
 BCA/HDB/URA press releases, `site:constructionplusasia.com Singapore`, plus
 category-seeded queries for safety, sustainability, manpower, disputes).
-Window: last 24–48h on normal runs; last 7 days on first run. Don't abort the
-run if one source is unreachable/paywalled — skip it and continue.
+Also run a `site:bloomberg.com` pass for major international/regional
+construction, property-development or real-estate-finance stories (category
+10 candidates) — e.g. `site:bloomberg.com construction OR property developer
+insolvency Asia`. Window: last 24–48h on normal runs; last 7 days on first
+run. Don't abort the run if one source is unreachable/paywalled — skip it
+and continue.
 
-**Step 2 — Filter**: Discard off-topic results. Normalize URLs and drop
-anything already in `known_urls`. For survivors, use WebFetch (or a
-sufficient search snippet) to confirm title/date/content.
+**Step 2 — Filter**: Discard results that are neither Singapore-relevant nor
+a major international/regional story clearing category 10's bar. Normalize
+URLs and drop anything already in `known_urls`. For survivors, use WebFetch
+(or a sufficient search snippet) to confirm title/date/content — Bloomberg is
+often paywalled, so a clear, specific search snippet plus a cross-check
+against one freely-accessible outlet reporting the same facts is sufficient
+if the article itself 403s.
 
-**Step 3 — Classify & summarize**: One category per article via the priority
-rubric above; factual 1–2 sentence summary, no editorializing.
+**Step 3 — Classify & summarize**: One category per article — categories 1–9
+via the priority rubric above for Singapore-relevant stories, else category
+10 if it clears that category's bar; factual 1–2 sentence summary, no
+editorializing.
 
 **Step 4 — Update store**: Append new entries (`date_found` = today,
 `is_new_today` = true); set `is_new_today` = false on all others; drop
@@ -142,7 +173,7 @@ entries with `date_found` older than 90 days; back up the current file to
 `backups/` before overwriting; write updated store with new `last_run`.
 
 **Step 5 — Regenerate dashboard**: Rebuild `dashboard.html` from the *full*
-retained store, grouped by the 9 categories, newest-first by
+retained store, grouped by the 10 categories, newest-first by
 `date_published` within each, "NEW" badges, per-category + total counts.
 Consult the `artifact-design` skill for styling/theme/responsive/favicon
 conventions before finalizing markup. Publish via the Artifact tool using

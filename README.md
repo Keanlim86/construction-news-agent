@@ -24,7 +24,11 @@ short push notification each day.
 Runs daily at **7:00 AM Singapore time (UTC+8)**, i.e. 23:00 UTC the
 previous day.
 
-## The 9 categories (priority order when an article touches more than one)
+## The 10 categories (priority order when an article touches more than one)
+
+Categories 1–9 cover Singapore construction/built-environment news; category
+10 is a separate bucket for major international/regional industry news with
+no direct Singapore link.
 
 1. Accidents/Workplace Safety
 2. Legal & Disputes/Arbitration
@@ -34,18 +38,23 @@ previous day.
 6. Manpower/Labour
 7. New Technology/Innovation
 8. Public Feedback/Community
-9. Media Features/Company News (default bucket)
+9. Media Features/Company News (default bucket for Singapore stories)
+10. International/Regional News (major global/regional stories — e.g. a large
+    developer's insolvency or a private-credit fund's exposure — sourced
+    mainly via Bloomberg; kept to a high bar, not a catch-all)
 
-Articles not about Singapore or not construction/built-environment related
-are discarded rather than force-fit into a category.
+Articles that are neither about Singapore nor a major international/regional
+story clearing category 10's bar are discarded rather than force-fit into a
+category.
 
 ## Adjusting sources
 
 The routine searches a default set of Singapore sources (Straits Times,
 Business Times, CNA, BCA newsroom, HDB/URA press releases, Construction Plus
-Asia, and similar) via `WebSearch`/`WebFetch`, not fixed per-site scrapers.
-To add, remove, or reweight a source, edit the search queries in
-`SKILL.md`'s "Gather candidates" step.
+Asia, and similar) plus Bloomberg for international/regional stories, via
+`WebSearch`/`WebFetch`, not fixed per-site scrapers. To add, remove, or
+reweight a source, edit the search queries in `SKILL.md`'s "Gather
+candidates" step.
 
 ## History / retention
 
