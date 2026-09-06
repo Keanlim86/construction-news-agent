@@ -21,6 +21,17 @@
   instead of those articles being dropped outright. See the updated Step 4
   below and [README.md](README.md#history--retention) for the schema and
   rationale.
+- **Company watchlist added (2026-09-06)**: category 9 (Media Features/
+  Company News) was going empty most days — the search queries are
+  source-based and category-seeded, not company-name-based, so routine items
+  like an earnings report (e.g. Wee Hur's 1HFY2026 results) weren't
+  surfacing. Step 1 now also runs one search pass per watchlisted company.
+  Watchlist (SGX-listed contractors/developers with active construction
+  arms): **Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC
+  Holdings, Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong
+  Seng, BBR, Hwa Seng**. To add/remove a company, edit this list and the
+  routine's prompt (Step 1) to match — see
+  [README.md](README.md#adjusting-sources).
 
 ## Context
 
