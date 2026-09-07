@@ -50,6 +50,19 @@
   directly to the routine's prompt by the user via the `schedule` skill /
   claude.ai/code/routines (this session has no tool that reaches the
   persistent routine config directly).
+- **Changi Airport Group newsroom added as a source (2026-09-08, not yet
+  applied to the routine's prompt)**: backfilled one article the existing
+  queries had missed — CAG's 16 July 2026 release announcing a contract award
+  to Nakano Singapore for a new six-storey office development at Terminal 3
+  (Project Awards/Tenders). CAG's newsroom
+  (changiairport.com/en/corporate/our-media-hub/newsroom.html) is a major
+  Singapore construction/infrastructure source in its own right (Terminal 5,
+  landside developments, contract awards) that Step 1's source list didn't
+  cover. **Proposed fix, not yet made**: add `site:changiairport.com
+  newsroom` (or the newsroom URL directly, since CAG's site doesn't always
+  index well via `site:`) to Step 1's list of Singapore construction sources,
+  alongside the BCA/HDB/URA newsroom passes. Whoever next edits the routine's
+  prompt via the `schedule` skill or claude.ai/code/routines should add this.
 
 ## Context
 
