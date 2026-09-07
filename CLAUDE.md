@@ -32,6 +32,26 @@
   Seng, BBR, Hwa Seng**. To add/remove a company, edit this list and the
   routine's prompt (Step 1) to match — see
   [README.md](README.md#adjusting-sources).
+- **Data centre coverage gap flagged (2026-09-08, not yet applied to the
+  routine's prompt)**: the 2026-09-08 run included an ad hoc addition — a CNA
+  story on Bangkok data centres facing safety/regulatory scrutiny (category
+  10, International/Regional News: a regional construction-regulatory shift,
+  no direct SG link) — after the user pointed out that data centre
+  construction, safety and community-reaction stories are a coverage gap,
+  both internationally and **locally in Singapore** (e.g. Keppel DC Singapore
+  9, the JTC/NUS Jurong Island low-carbon data centre park, DayOne's
+  hydrogen-powered facility, and any future site-level safety incidents or
+  resident objections near one). None of Step 1's existing queries are
+  data-centre-seeded, so this class of story is currently only caught
+  incidentally (e.g. via the BCA/URA/company-watchlist passes) or when
+  manually flagged, as it was this run. **Proposed fix, not yet made**: add a
+  dedicated query pair to Step 1, e.g. `data centre Singapore construction OR
+  safety OR tender OR community` (Singapore angle — routes to whichever of
+  categories 1/4/7/8/9 fits the story) and `data centre Asia safety OR
+  regulatory OR community reaction` (category 10 angle, alongside the
+  existing Bloomberg pass). Whoever next edits the routine's prompt via the
+  `schedule` skill or claude.ai/code/routines should add these — this session
+  has no tool that reaches the persistent routine config directly.
 
 ## Context
 
