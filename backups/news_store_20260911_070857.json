@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-11T07:10:00+08:00",
+  "last_run": "2026-09-08T07:14:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -73,16 +73,6 @@
       "is_new_today": false
     },
     {
-      "url": "https://www.keppel.com/media/keppel-awarded-50-mw-new-data-centre-capacity-under-singapores-second-data-centre-call-for-application/",
-      "title": "Keppel awarded 50MW data centre capacity for S$1b AI-ready facility on Jurong Island",
-      "source": "Keppel",
-      "category": "Project Awards/Tenders",
-      "summary": "Keppel was awarded 50MW of new data centre capacity on Jurong Island under Singapore's second Data Centre Call for Application, beating more than 20 other proposals to build the AI-ready Keppel DC SGP 11 facility, with an expected investment of more than S$1 billion and a targeted PUE under 1.2 with over half its power from green energy sources.",
-      "date_published": "2026-08-21",
-      "date_found": "2026-09-09",
-      "is_new_today": false
-    },
-    {
       "url": "https://www.changiairport.com/en/corporate/our-media-hub/newsroom/2026/changi-airport-group-new-office-building-t3.html",
       "title": "Changi Airport Group awards contract for new office development at Terminal 3",
       "source": "Changi Airport Group",
@@ -90,6 +80,16 @@
       "summary": "Changi Airport Group awarded Nakano Singapore a contract to build a six-storey landside office development at Terminal 3, providing about 9,600 sq m of office space across five levels plus a revamped coach stand, to ease capacity constraints as existing T1-T4 landside office space nears its limits. The office block is due for completion in H1 2028 and the coach stand works in H2 2028.",
       "date_published": "2026-07-16",
       "date_found": "2026-09-08",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-09-02/builder-s-bust-jolts-private-lenders-drawn-by-15-yearly-returns",
+      "title": "Bathla Group's collapse jolts Australia's private credit lenders",
+      "source": "Bloomberg",
+      "category": "International/Regional News",
+      "summary": "Sydney developer Bathla Group collapsed into voluntary administration owing about A$3.4 billion (A$3.08b to secured lenders), rattling private-credit funds that had financed its projects on promises of roughly 15% annual returns. Administrators have warned that construction on sites whose lenders don't join an emergency funding deal may not be able to continue.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-06",
       "is_new_today": false
     },
     {
@@ -100,16 +100,6 @@
       "summary": "MOM announced that cool drinking water, ice packs, breathable clothing and heat training will become mandatory workplace requirements for outdoor workers, alongside hourly rest breaks when the Wet Bulb Globe Temperature hits 32 degrees C. The measures, which affect construction and other outdoor sectors, take effect from 1 December 2026.",
       "date_published": "2026-08-28",
       "date_found": "2026-09-06",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.malaymail.com/news/singapore/2026/09/08/singapore-workplace-fatalities-rise-in-first-half-of-2026-as-ministry-of-manpower-reviews-tougher-safety-measures/234420",
-      "title": "Singapore workplace fatalities rise in first half of 2026 as Ministry of Manpower reviews tougher safety measures",
-      "source": "Malay Mail",
-      "category": "Policy/Regulatory",
-      "summary": "MOM reported 21 workplace deaths in Singapore in H1 2026, an annualised fatal injury rate of 1.1 per 100,000 workers, with construction recording 69 fatal and major injuries (a rate of 24.1, the sector's lowest since 2020) even as smaller-scale renovation works saw a slight uptick. The ministry is reviewing a strengthened safety demerit points system and the bizSAFE programme, and has launched a Platform Worker Safety Workgroup alongside an expanded Multi-Agency Taskforce to tackle vehicular risks.",
-      "date_published": "2026-09-08",
-      "date_found": "2026-09-09",
       "is_new_today": false
     },
     {
@@ -150,17 +140,7 @@
       "summary": "A 23-year-old worker died on 3 August 2026 after a formwork structure fell from the fifth storey of a building under construction and struck the lorry he was seated in, at the Jurong Port Integrated Construction and Prefabrication Hub project. Main contractor HPC Builders was instructed to cease all formwork activities as MOM investigates.",
       "date_published": "2026-08-03",
       "date_found": "2026-09-08",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.bloomberg.com/news/articles/2026-09-09/china-sours-on-tool-that-helped-real-estate-firms-overhaul-debt",
-      "title": "China's securities regulator balks at bonds that helped property developers restructure debt",
-      "source": "Bloomberg",
-      "category": "International/Regional News",
-      "summary": "China's CSRC has begun declining to register mandatory convertible bonds -- a debt-to-equity tool central to several developers' offshore restructurings -- rejecting Country Garden's filing over its status as a discredited entity and pushing back on Sino-Ocean Group's plans. Bloomberg Intelligence estimates the affected restructurings could have created over 27 billion new shares, adding fresh uncertainty for an industry that has defaulted on roughly $130 billion of debt.",
-      "date_published": "2026-09-09",
-      "date_found": "2026-09-09",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.bloomberg.com/news/articles/2026-09-07/bathla-s-2-5-billion-property-debt-crisis-faces-fresh-tests",
@@ -170,7 +150,7 @@
       "summary": "Insolvent Australian developer Bathla Group secured a temporary funding agreement with five lenders on 7 September 2026, buying two more weeks of survival after standing down about 213 of its 350 staff and halting work at most of its sites, with only 14 continuing; the group carries roughly $3.4 billion in total debt.",
       "date_published": "2026-09-07",
       "date_found": "2026-09-08",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.channelnewsasia.com/asia/bangkok-data-centres-scrutiny-safety-regulatory-gaps-6366791",
@@ -180,46 +160,6 @@
       "summary": "Bangkok's more than 30 data centres are under scrutiny after regulators found some operators classifying their buildings as warehouses to skirt stricter industrial rules, with backup diesel stores as high as 429,000 litres escaping fuel-depot classification under Thailand's 500,000-litre threshold. The Thai government has suspended new standalone data centre projects and formed a Data Centre Business Policy Committee to set unified national standards on safety, energy, water and land use.",
       "date_published": "2026-09-07",
       "date_found": "2026-09-08",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.bloomberg.com/news/articles/2026-09-07/china-property-moves-to-fuel-30-hit-to-land-sales-goldman-says",
-      "title": "China's property presale overhaul threatens 30% hit to land sale revenue, Goldman says",
-      "source": "Bloomberg",
-      "category": "International/Regional News",
-      "summary": "Goldman Sachs economists estimate China's shift away from presales toward a completed-homes sales model -- which historically funded roughly 40% of developers' construction capital -- will cut government land sale revenue by 30%, worsening pressure on already-stretched local government finances after land sale revenue fell 30.8% year-on-year in the first seven months of 2026. The overhaul raises the presale threshold to topping out a building's main structure, curbing cash-strapped developers' ability to buy new land.",
-      "date_published": "2026-09-07",
-      "date_found": "2026-09-09",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.bloomberg.com/news/articles/2026-09-02/builder-s-bust-jolts-private-lenders-drawn-by-15-yearly-returns",
-      "title": "Bathla Group's collapse jolts Australia's private credit lenders",
-      "source": "Bloomberg",
-      "category": "International/Regional News",
-      "summary": "Sydney developer Bathla Group collapsed into voluntary administration owing about A$3.4 billion (A$3.08b to secured lenders), rattling private-credit funds that had financed its projects on promises of roughly 15% annual returns. Administrators have warned that construction on sites whose lenders don't join an emergency funding deal may not be able to continue.",
-      "date_published": "2026-09-02",
-      "date_found": "2026-09-06",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.bloomberg.com/news/articles/2026-09-07/capitaland-targets-500-million-for-third-asian-credit-fund",
-      "title": "CapitaLand Targets $500 Million for Third Asian Credit Fund",
-      "source": "Bloomberg",
-      "category": "Media Features/Company News",
-      "summary": "CapitaLand Investment is seeking $500 million in investor commitments for its third Asia Pacific credit fund (ACP III), following the $320 million close of its second vehicle in April 2026, continuing a strategy focused on senior secured, asset-backed real estate credit investments.",
-      "date_published": "2026-09-07",
-      "date_found": "2026-09-11",
-      "is_new_today": true
-    },
-    {
-      "url": "https://mothership.sg/2026/09/capitaland-investment-lays-off-90-employees-singapore/",
-      "title": "CapitaLand Investment retrenches about 90 employees in Singapore",
-      "source": "Mothership.SG",
-      "category": "Media Features/Company News",
-      "summary": "CapitaLand Investment announced on 3 September 2026 that it is retrenching about 90 employees in Singapore, roughly 4% of its Singapore workforce, as part of a periodic organisational restructuring. The Singapore Industrial and Services Employees' Union said affected staff will receive severance packages, career transition support and counselling.",
-      "date_published": "2026-09-03",
-      "date_found": "2026-09-11",
       "is_new_today": true
     }
   ]
