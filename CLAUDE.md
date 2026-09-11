@@ -7,6 +7,38 @@
 
 ## Post-launch amendments
 
+- **Branch-per-run drift discovered and fixed (2026-09-11)**: starting around
+  2026-09-09, the environment launching each scheduled run began assigning a
+  fresh, randomly-named feature branch per session and blocking pushes to
+  `main` without explicit permission — a Claude Code GitHub-session
+  convention imposed from outside this routine, not something this routine's
+  prompt controls (it still says `git push origin main`, per Step 6 below).
+  Effect: the scheduled trigger fired **twice** on 2026-09-09, producing two
+  divergent branches (`claude/keen-bardeen-bgkmi5`,
+  `claude/keen-bardeen-fyz0mx`) that each committed their day's findings but
+  never reached `main`; the next day's run forked from the stale pre-9/9
+  `main`, unaware of either, and had to forensically recover both branches'
+  articles from GitHub by hand to avoid regressing the published dashboard.
+  `main` was three days stale before this was caught and fast-forwarded back
+  in line; the two orphaned branches were left in place (their data is fully
+  contained in `main`) since branch *deletion* hit a separate permissions
+  wall — the session's git credential allows creating/updating branches but
+  returns 403 on deleting a ref, and the GitHub MCP tools available don't
+  expose branch deletion either.
+  **Mitigation applied**: Step 6 below now ends every run by fast-forwarding
+  `main` to whatever branch the run was forced onto (`git push origin
+  <branch>:main`, safe precisely because that branch is always a fast-forward
+  descendant of `main` — it forked from `main` and only adds commits), so a
+  branch-per-run environment can no longer let unmerged work accumulate: each
+  run closes the loop itself instead of leaving an orphan for the next run to
+  discover. This does not fix the root cause (still worth checking whether
+  the schedule/trigger config can be set to a plain non-GitHub-session
+  execution mode, or at least to fire only once daily), only prevents it from
+  compounding. If a future run finds `git push origin <branch>:main` refused
+  (e.g. `main` has since diverged with commits `<branch>` doesn't contain),
+  stop and flag it rather than forcing — that would mean something else
+  wrote to `main` out-of-band and needs a real merge, not a fast-forward.
+
 - **Execution model differs from the original plan below**: instead of a
   local `.claude\scheduled-tasks\` routine, this runs as a **cloud routine**
   (`construction-news-agent`, created via the `schedule` skill's RemoteTrigger
@@ -279,11 +311,24 @@ Consult the `artifact-design` skill for styling/theme/responsive/favicon
 conventions before finalizing markup. Publish via the Artifact tool using
 the **same `file_path`** every run so the URL stays stable.
 
-**Step 6 — Notify**: Always send one `PushNotification` (<200 chars, one
-line, no markdown), e.g. `"Construction News: 5 new (2 Tenders, 1 Safety, 1
-Sustainability). Dashboard: <url>"`, or `"...no new SG construction stories
-today. Dashboard unchanged: <url>"` on a quiet day, or a failure message if
-the run couldn't complete.
+**Step 6 — Commit, push, land on `main`, and notify**: Commit the changed
+files and push. If the execution environment assigned this run its own
+branch rather than letting it commit straight to `main` (see the
+branch-per-run amendment above — check `git branch --show-current`; if it's
+`main`, this sub-step is a no-op), immediately fast-forward `main` to that
+branch's tip: `git push origin <branch>:main`. This is always a safe
+fast-forward, never a merge or a force-push, because the run's branch forked
+from `main` and only ever adds commits on top of it — if that push is
+refused (non-fast-forward), stop and flag it rather than forcing; that means
+something else committed to `main` out-of-band since this run started and
+needs an actual merge. Skipping this step is how `main` silently goes stale
+while unmerged branches pile up (see the amendment above for what that cost
+on 2026-09-09 to 2026-09-11) — treat it as mandatory, not cleanup. Then
+always send one `PushNotification` (<200 chars, one line, no markdown), e.g.
+`"Construction News: 5 new (2 Tenders, 1 Safety, 1 Sustainability).
+Dashboard: <url>"`, or `"...no new SG construction stories today. Dashboard
+unchanged: <url>"` on a quiet day, or a failure message if the run couldn't
+complete.
 
 **First-run behavior**: Widen to a 7-day window, build the initial
 dashboard, and send a "set up complete" style notification instead of an
