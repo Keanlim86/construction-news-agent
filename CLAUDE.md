@@ -7,6 +7,32 @@
 
 ## Post-launch amendments
 
+- **Purpose-built dormitory coverage gap found and backfilled (2026-09-12)**:
+  the user flagged a Straits Times story —
+  ["Sites in Mandai and Upper Jurong Road to be sold for purpose-built
+  dormitories, over by end-2027"](https://www.straitstimes.com/singapore/sites-in-mandai-and-upper-jurong-road-to-be-sold-for-purpose-built-dormitories-over-by-end-2027)
+  (published 2026-09-11) — that the 2026-09-12 run's searches had missed
+  entirely: a joint MOM/MND announcement that JTC will launch two new
+  purpose-built dormitory (PBD) land sites for tender in H2 2027 (Mandai,
+  ~15,000 beds; Upper Jurong Road, ~8,100 beds), part of a plan to add
+  ~71,500 dormitory beds by the early 2030s. None of Step 1's existing
+  queries (source-based, category-seeded, watchlist, data centre) used the
+  word "dormitory"/"dormitories", even though worker-dormitory supply is a
+  recurring, distinct construction-adjacent story (JTC PBD land tenders,
+  MOM/MND housing-capacity announcements, quick-build dormitory rollouts) —
+  the existing coverage only caught dormitories incidentally, e.g. via a
+  company's earnings report mentioning dormitory revenue (Wee Hur/Pioneer
+  Lodge). Backfilled the missed article directly into `news_store.json`
+  (category: Manpower/Labour, per the priority rubric — this is workforce
+  housing-supply policy, not yet an awarded tender) and republished the
+  dashboard. **Fix needed for the routine's own prompt** (not yet applied,
+  since this session has no tool that reaches the persistent routine
+  config): add a dedicated Step 1 query, e.g. `Singapore purpose-built
+  dormitory OR "worker dormitory" tender OR site OR construction`, with the
+  same wider 7–14 day window as the company watchlist/data-centre queries
+  (dormitory land releases and PBD project milestones are lower-frequency).
+  Apply via the `schedule` skill / claude.ai/code/routines, per the pattern
+  of the 2026-09-08 data-centre and Changi Airport additions below.
 - **Branch-per-run drift discovered and fixed (2026-09-11)**: starting around
   2026-09-09, the environment launching each scheduled run began assigning a
   fresh, randomly-named feature branch per session and blocking pushes to
