@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-15T07:04:17+08:00",
+  "last_run": "2026-09-14T07:09:24+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -241,16 +241,6 @@
       "date_published": "2026-09-03",
       "date_found": "2026-09-11",
       "is_new_today": false
-    },
-    {
-      "url": "https://www.bloomberg.com/news/articles/2026-09-13/china-s-property-overhaul-puts-strain-on-local-government-income",
-      "title": "China's property overhaul puts strain on local government income",
-      "source": "Bloomberg",
-      "category": "International/Regional News",
-      "summary": "Beijing scrapped a land auction for a roughly $1.1 billion Jiangtai plot in early September 2026 after only one of three interested developers turned up to bid, days after China's presale-financing overhaul cut area-based land sales 36% week-on-week across 70 major cities; Goldman Sachs projects the reform could cut government land-sale revenue by 30%, straining already-stretched local government finances.",
-      "date_published": "2026-09-13",
-      "date_found": "2026-09-15",
-      "is_new_today": true
     }
   ]
 }
