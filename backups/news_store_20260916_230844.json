@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-17T07:10:00+08:00",
+  "last_run": "2026-09-16T07:03:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -260,7 +260,7 @@
       "summary": "BCA partnered with Google Maps and Open Government Products to make accessibility information -- such as accessible washrooms, lactation spaces and hearing enhancement systems -- searchable for over 600 Singapore buildings via Google Maps and maps.gov.sg/friendlybuildings, benefiting parents, seniors and persons with disabilities. Coverage is planned to expand to older buildings from early 2027.",
       "date_published": "2026-09-15",
       "date_found": "2026-09-16",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.semafor.com/article/09/02/2026/asias-data-center-boom-faces-backlash",
@@ -270,36 +270,6 @@
       "summary": "Asia's rapid data centre construction boom is drawing growing community pushback over environmental and health concerns from India to Australia, even as lenders have extended nearly $29 billion in data centre financing since the start of 2026. Overall demand remains strong, but developers are increasingly redirecting investment toward locations with less local opposition rather than slowing expansion.",
       "date_published": "2026-09-02",
       "date_found": "2026-09-16",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.asiaone.com/singapore/mcst-sues-developer-four-others-over-alleged-defects-after-concrete-piece-condo-balcony",
-      "title": "MCST sues developer, four others over alleged defects after concrete piece from condo balcony fell 20m",
-      "source": "AsiaOne (The Straits Times)",
-      "category": "Legal & Disputes/Arbitration",
-      "summary": "Foresque Residences' management corporation is suing developer Wincheer Investment and four others -- architect Arc Studio Architecture + Urbanism, structural engineer KTP Consultants, railing engineer GLT Engineers and subcontractor Credence Engineering -- after a cementitious patch detached from a third-floor balcony at Block 105 and fell 20m in February 2025, with hammer-tapping tests later finding about 60% of the block's balcony slab edges producing hollow sounds. The defendants have disputed the allegations and denied liability.",
-      "date_published": "2026-09-14",
-      "date_found": "2026-09-17",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.asiaone.com/singapore/hard-rocks-water-seepage-lta-flags-unexpected-construction-challenges-along-north-south",
-      "title": "Hard rocks, water seepage: LTA flags unexpected construction challenges along North-South Corridor",
-      "source": "AsiaOne (The Straits Times)",
-      "category": "Project Awards/Tenders",
-      "summary": "LTA said tunnelling for the 21.5km North-South Corridor has hit unexpectedly hard rock and mixed ground conditions in Novena and Thomson, plus water seepage weakening the northbound tunnel structure in Novena, forcing smaller section-by-section excavation with extra rock removal, grouting and monitoring. At a briefing on 8 September, LTA said it is still assessing the impact on the project's completion timeline.",
-      "date_published": "2026-09-13",
-      "date_found": "2026-09-17",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.singaporeland.com/marina-squares-next-chapter-singapores-first-hyper-mixed-development/",
-      "title": "SingLand gets Written Permission to redevelop Marina Square into Singapore's first hyper-mixed development",
-      "source": "Singapore Land Group",
-      "category": "Project Awards/Tenders",
-      "summary": "SingLand, majority owned by UOL Group, received Written Permission from URA on 31 August 2026 under the Strategic Development Incentive scheme to partially redevelop Marina Square, adding a residential tower, a serviced apartment block and a mixed-use tower designed by PLP Architecture and DP Architects. Marina Square Shopping Mall will close on 31 March 2027 to make way for construction, with the project targeted for completion by 2031.",
-      "date_published": "2026-09-01",
-      "date_found": "2026-09-17",
       "is_new_today": true
     }
   ]
