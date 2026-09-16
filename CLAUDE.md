@@ -7,6 +7,36 @@
 
 ## Post-launch amendments
 
+- **Dashboard: new-first ordering + collapse of older stories per category
+  (2026-09-16)**: at the user's request, `dashboard.html` no longer lists a
+  category's stories in flat newest-published-first order. Within each
+  category's `.cards` block: **all of today's `is_new_today` stories are
+  moved to the top** (in their existing relative order), followed by **at
+  most 2 older (non-new) stories**; any further older stories are moved into
+  a `.cards-extra` wrapper (`hidden` by default) revealed by a `.more-toggle`
+  button — a single dashed-top line reading "Show N more" with a small
+  chevron that rotates on expand, styled deliberately minimal per the user's
+  "just a line and the arrow" ask. This is implemented as a **client-side
+  script in `dashboard.html`'s own `<script>` block** (a `buildCollapse()`
+  IIFE that runs on load and reorders/wraps existing `article.card` DOM
+  nodes, plus a `syncCollapse()` hook inside the existing search filter so a
+  search match hidden inside a collapsed group force-expands it, and
+  collapses back to its prior state when the search is cleared) — it does
+  **not** require the per-category HTML that Step 5 generates to change, only
+  that the generated markup keep the current shape (one `.cards` container
+  per category holding sibling `article.card` elements, `is-new` class on
+  today's finds, per-category order newest-`date_published`-first per the
+  existing Step 5 rule so the old-card partition stays date-sorted). **Step 5
+  amendment**: when regenerating `dashboard.html` from now on, preserve this
+  `<style>`/`<script>` behavior (the `.cards-extra`/`.more-toggle` CSS block
+  and the `buildCollapse()`/`syncCollapse()` script) exactly rather than
+  regenerating a plain flat list — do not re-derive or simplify it away. This
+  was applied directly to `dashboard.html` in a repo session, not via the
+  `schedule` skill, since this session has no tool that reaches the
+  persistent routine config — if the cloud routine's own regeneration logic
+  ever produces a `dashboard.html` that drops this behavior, restore it from
+  this amendment or from git history rather than re-designing it from
+  scratch.
 - **Purpose-built dormitory coverage gap found and backfilled (2026-09-12)**:
   the user flagged a Straits Times story —
   ["Sites in Mandai and Upper Jurong Road to be sold for purpose-built

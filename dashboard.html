@@ -284,6 +284,35 @@
   .search-clear[hidden], .legend a[hidden]{display:none;}
 
   .cards{display:flex;flex-direction:column;gap:10px;}
+  .cards-extra{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
+  .cards-extra[hidden]{display:none;}
+  .more-toggle{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    width:100%;
+    background:none;
+    border:none;
+    border-top:1px dashed var(--border);
+    padding:11px 2px 0;
+    margin-top:2px;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;
+    letter-spacing:.02em;
+    color:var(--ink-soft);
+    cursor:pointer;
+    text-align:left;
+  }
+  .more-toggle:hover{color:var(--accent-ink);}
+  .more-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .more-toggle .chev{
+    width:10px;height:10px;
+    flex:none;
+    color:var(--ink-faint);
+    transition:transform .15s ease;
+  }
+  .more-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
+  .more-toggle[hidden]{display:none;}
   article.card{
     background:var(--surface);
     border:1px solid var(--border);
@@ -607,6 +636,69 @@
 
 <script>
 (function(){
+  var VISIBLE_OLD = 2;
+
+  // ---------- New-first ordering + collapse of older stories ----------
+  function buildCollapse(){
+    Array.prototype.forEach.call(document.querySelectorAll('main .cards'), function(cardsEl){
+      var cards = Array.prototype.filter.call(cardsEl.children, function(el){
+        return el.tagName === 'ARTICLE' && el.classList.contains('card');
+      });
+      if (!cards.length) return;
+
+      var newCards = cards.filter(function(c){ return c.classList.contains('is-new'); });
+      var oldCards = cards.filter(function(c){ return !c.classList.contains('is-new'); });
+      var visibleOld = oldCards.slice(0, VISIBLE_OLD);
+      var extraOld = oldCards.slice(VISIBLE_OLD);
+
+      newCards.concat(visibleOld).forEach(function(c){ cardsEl.appendChild(c); });
+      if (!extraOld.length) return;
+
+      var toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'more-toggle';
+      toggle.setAttribute('aria-expanded', 'false');
+
+      var chev = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      chev.setAttribute('class', 'chev');
+      chev.setAttribute('viewBox', '0 0 12 12');
+      chev.setAttribute('aria-hidden', 'true');
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', 'M2 4l4 4 4-4');
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', 'currentColor');
+      path.setAttribute('stroke-width', '1.6');
+      path.setAttribute('stroke-linecap', 'round');
+      path.setAttribute('stroke-linejoin', 'round');
+      chev.appendChild(path);
+      toggle.appendChild(chev);
+
+      var label = document.createElement('span');
+      label.className = 'toggle-label';
+      label.textContent = 'Show ' + extraOld.length + ' more';
+      toggle.appendChild(label);
+
+      var wrap = document.createElement('div');
+      wrap.className = 'cards-extra';
+      wrap.hidden = true;
+      wrap.dataset.userExpanded = 'false';
+      extraOld.forEach(function(c){ wrap.appendChild(c); });
+
+      toggle.addEventListener('click', function(){
+        var expanding = wrap.hidden;
+        wrap.hidden = !expanding;
+        wrap.dataset.userExpanded = expanding ? 'true' : 'false';
+        toggle.setAttribute('aria-expanded', String(expanding));
+        label.textContent = expanding ? 'Show fewer' : ('Show ' + extraOld.length + ' more');
+      });
+
+      cardsEl.appendChild(toggle);
+      cardsEl.appendChild(wrap);
+    });
+  }
+  buildCollapse();
+
+  // ---------- Search ----------
   var input = document.getElementById('searchInput');
   var clearBtn = document.getElementById('searchClear');
   var noResults = document.getElementById('noResults');
@@ -619,6 +711,29 @@
   if (!input) return;
 
   function norm(s){ return (s || '').toLowerCase(); }
+
+  function syncCollapse(section, q){
+    var wrap = section.querySelector('.cards-extra');
+    var toggle = section.querySelector('.more-toggle');
+    if (!wrap || !toggle) return;
+    var label = toggle.querySelector('.toggle-label');
+    var extraCount = wrap.querySelectorAll('article.card').length;
+
+    if (q === ''){
+      var userExpanded = wrap.dataset.userExpanded === 'true';
+      wrap.hidden = !userExpanded;
+      toggle.setAttribute('aria-expanded', String(userExpanded));
+      if (label) label.textContent = userExpanded ? 'Show fewer' : ('Show ' + extraCount + ' more');
+      return;
+    }
+
+    var hasMatchInExtra = Array.prototype.some.call(wrap.querySelectorAll('article.card'), function(c){
+      return !c.hidden;
+    });
+    wrap.hidden = !hasMatchInExtra;
+    toggle.setAttribute('aria-expanded', String(hasMatchInExtra));
+    if (label) label.textContent = hasMatchInExtra ? 'Show fewer' : ('Show ' + extraCount + ' more');
+  }
 
   function applyFilter(){
     var q = norm(input.value.trim());
@@ -643,6 +758,8 @@
         // categories with no articles at all have nothing to match against
         showSection = q === '';
       }
+
+      syncCollapse(section, q);
 
       section.hidden = !showSection;
       var legendLink = legendLinks[section.id];
