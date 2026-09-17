@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-18T07:10:00+08:00",
+  "last_run": "2026-09-17T07:10:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -280,7 +280,7 @@
       "summary": "Foresque Residences' management corporation is suing developer Wincheer Investment and four others -- architect Arc Studio Architecture + Urbanism, structural engineer KTP Consultants, railing engineer GLT Engineers and subcontractor Credence Engineering -- after a cementitious patch detached from a third-floor balcony at Block 105 and fell 20m in February 2025, with hammer-tapping tests later finding about 60% of the block's balcony slab edges producing hollow sounds. The defendants have disputed the allegations and denied liability.",
       "date_published": "2026-09-14",
       "date_found": "2026-09-17",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.asiaone.com/singapore/hard-rocks-water-seepage-lta-flags-unexpected-construction-challenges-along-north-south",
@@ -290,7 +290,7 @@
       "summary": "LTA said tunnelling for the 21.5km North-South Corridor has hit unexpectedly hard rock and mixed ground conditions in Novena and Thomson, plus water seepage weakening the northbound tunnel structure in Novena, forcing smaller section-by-section excavation with extra rock removal, grouting and monitoring. At a briefing on 8 September, LTA said it is still assessing the impact on the project's completion timeline.",
       "date_published": "2026-09-13",
       "date_found": "2026-09-17",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.singaporeland.com/marina-squares-next-chapter-singapores-first-hyper-mixed-development/",
@@ -300,7 +300,7 @@
       "summary": "SingLand, majority owned by UOL Group, received Written Permission from URA on 31 August 2026 under the Strategic Development Incentive scheme to partially redevelop Marina Square, adding a residential tower, a serviced apartment block and a mixed-use tower designed by PLP Architecture and DP Architects. Marina Square Shopping Mall will close on 31 March 2027 to make way for construction, with the project targeted for completion by 2031.",
       "date_published": "2026-09-01",
       "date_found": "2026-09-17",
-      "is_new_today": false
+      "is_new_today": true
     }
   ]
 }
