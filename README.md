@@ -71,7 +71,10 @@ Group &middot; CapitaLand &middot; City Developments &middot; Tiong Seng
 &middot; BBR &middot; Hwa Seng &middot; Kajima &middot; JTC &middot; Kok Tong
 Construction &middot; KTC Engineering (KTC Civil Engineering &amp;
 Construction — a distinct, related sister company under the KTC Group
-umbrella, not the same entity as Kok Tong Construction)
+umbrella, not the same entity as Kok Tong Construction) &middot; The GEAR by
+Kajima (Kajima's Asia regional HQ and open-innovation/tech co-creation hub
+at Changi Business Park — not a separate company from Kajima, but named
+distinctly enough in coverage to warrant its own search pass)
 
 To add, remove, or adjust the list, edit it in both CLAUDE.md and the
 routine's prompt (Step 1) via the `schedule` skill — keep the two in sync.

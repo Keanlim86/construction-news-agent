@@ -57,6 +57,28 @@
   Engineering" OR "KTC Engineering" Singapore construction`, so a hit can be
   attributed to the correct entity rather than assumed to be either one.
   Apply via the `schedule` skill / claude.ai/code/routines.
+- **Watchlist: The GEAR by Kajima added, same day (2026-09-18)**: the user
+  asked to add "The GEAR by Kajima," noting it's under Kajima. Confirmed via
+  research: **The GEAR by Kajima** (GEAR = "Global Engineering, Architecture
+  & Real Estate," legally "The GEAR By Kajima Pte. Ltd.") is a building and
+  open-innovation platform at Changi Business Park (opened 16 Aug 2023)
+  serving as Kajima Corporation's Asia regional HQ and tech co-creation hub —
+  it houses the Kajima Technical Research Institute Singapore (KaTRIS) and
+  Kajima Design's regional operations, and is where startups, agencies (e.g.
+  JTC), universities and industry partners test-bed construction technology
+  (robotics, digitalisation, automation, BIM) alongside Kajima. It's not a
+  separate company from Kajima, but is named distinctly enough in its own
+  coverage (e.g. JTC/BCA collaboration announcements at the facility) that a
+  generic "Kajima" search pass could miss a story that only names "The GEAR."
+  Full watchlist is now: Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock
+  Lian Seng, CSC Holdings, Chip Eng Seng, UOL Group, CapitaLand, City
+  Developments, Tiong Seng, BBR, Hwa Seng, Kajima, JTC, Kok Tong
+  Construction, KTC Engineering, The GEAR by Kajima. **Fix needed for the
+  routine's own prompt** (not yet applied, same tooling limitation as
+  above): add a per-name query, e.g. `"The GEAR by Kajima" OR "The GEAR"
+  Singapore construction OR innovation OR technology`, to Step 1's
+  per-company watchlist loop. Apply via the `schedule` skill /
+  claude.ai/code/routines.
 - **Missing New Technology/Innovation category-seeded query found via a
   missed article (2026-09-18)**: the user flagged a Straits Times story,
   ["Construction robots on trial could be deployed as early as
