@@ -33,6 +33,30 @@
   Tong Construction" OR "KTC" Singapore construction`. Apply via the
   `schedule` skill / claude.ai/code/routines, per the pattern of the prior
   watchlist and query additions in this section.
+- **Correction: KTC Engineering added as a distinct watchlist entry
+  alongside Kok Tong Construction, same day (2026-09-18)**: the entry above
+  conflated "KTC" with a single company, Kok Tong Construction Pte Ltd. The
+  user flagged that this is wrong — **KTC Civil Engineering & Construction
+  Pte Ltd** ("KTC Engineering") and **Kok Tong Construction Pte Ltd** are two
+  separate legal entities, sister companies under the same "KTC Group"
+  umbrella (both HQ'd at 27 Pandan Crescent), not one company under two
+  names. The Bulim/Kajima autonomous-machinery-trial story specifically
+  names Kok Tong Construction (confirmed via AsiaOne's own wording — "two
+  operators from local contractor Kok Tong Construction (KTC)"), so that
+  attribution in the backfilled `news_store.json` entry and the prior
+  amendment was correct; the miss was in not also watchlisting KTC
+  Engineering as its own, separately newsworthy entity. Full watchlist is
+  now: Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC
+  Holdings, Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong
+  Seng, BBR, Hwa Seng, Kajima, JTC, Kok Tong Construction, KTC Engineering
+  (KTC Civil Engineering & Construction). **Fix needed for the routine's own
+  prompt** (not yet applied, same tooling limitation as above): the per-name
+  query for "Kok Tong Construction" OR "KTC" above is ambiguous between the
+  two sister companies since both go by "KTC" informally — split it into two
+  distinct queries, e.g. `"Kok Tong Construction" Singapore` and `"KTC Civil
+  Engineering" OR "KTC Engineering" Singapore construction`, so a hit can be
+  attributed to the correct entity rather than assumed to be either one.
+  Apply via the `schedule` skill / claude.ai/code/routines.
 - **Missing New Technology/Innovation category-seeded query found via a
   missed article (2026-09-18)**: the user flagged a Straits Times story,
   ["Construction robots on trial could be deployed as early as
