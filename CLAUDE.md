@@ -7,6 +7,55 @@
 
 ## Post-launch amendments
 
+- **Watchlist expanded with Kajima, JTC, and Kok Tong Construction (KTC)
+  (2026-09-18)**: a 2026-09-18 Straits Times story on JTC/Kajima's autonomous
+  excavator/compactor trial at the Bulim autonomous yard (New Technology/
+  Innovation) was missed by that day's run because Step 1 has no dedicated
+  New Technology/Innovation category-seeded query — see the entry directly
+  below for that gap. While backfilling the missed article, the user asked to
+  add Kajima and JTC (plus KTC, the local contractor named in the same
+  story as the one training its operators under Kajima — Kok Tong
+  Construction Pte Ltd, trading as KTC) to the company/entity watchlist, so a
+  per-name search pass would have had a second chance at surfacing this story
+  even without the missing category query. This stretches the watchlist
+  beyond its original "SGX-listed contractors/developers" framing (JTC is a
+  statutory board, Kajima a Japanese main contractor, KTC a private civil
+  engineering contractor) — the watchlist is now better read as "named
+  companies/agencies worth a per-name search pass," not strictly SGX-listed
+  issuers. Full list is now: Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock
+  Lian Seng, CSC Holdings, Chip Eng Seng, UOL Group, CapitaLand, City
+  Developments, Tiong Seng, BBR, Hwa Seng, Kajima, JTC, Kok Tong Construction
+  (KTC). **Fix needed for the routine's own prompt** (not yet applied, since
+  this session has no tool that reaches the persistent routine config): add a
+  search pass for each of the three new names to Step 1's per-company
+  watchlist loop, e.g. `"Kajima" Singapore construction OR contract OR
+  trial`, `"JTC" Singapore construction OR tender OR trial OR site`, `"Kok
+  Tong Construction" OR "KTC" Singapore construction`. Apply via the
+  `schedule` skill / claude.ai/code/routines, per the pattern of the prior
+  watchlist and query additions in this section.
+- **Missing New Technology/Innovation category-seeded query found via a
+  missed article (2026-09-18)**: the user flagged a Straits Times story,
+  ["Construction robots on trial could be deployed as early as
+  2028"](https://www.straitstimes.com/singapore/construction-robots-on-trial-could-be-deployed-as-early-as-2028)
+  (published 2026-09-18), that the 2026-09-18 run's searches had missed
+  entirely — JTC and Kajima are trialling autonomous excavators and
+  compactors (with autonomous bulldozers/dump trucks to follow) at the Bulim
+  autonomous yard in Jurong Innovation District, targeting deployment as
+  early as 2028. Step 1's category-seeded queries cover safety,
+  sustainability, manpower, disputes, and tenders, but not New Technology/
+  Innovation (robotics, automation, BIM, AI in construction) — the generic
+  `site:straitstimes.com construction Singapore` pass alone wasn't specific
+  enough to surface it (it returned background/Wikipedia-style results, not
+  this article). Backfilled the missed article directly into
+  `news_store.json` (category: New Technology/Innovation) and republished
+  the dashboard. **Fix needed for the routine's own prompt** (not yet
+  applied, since this session has no tool that reaches the persistent
+  routine config): add a dedicated Step 1 query, e.g. `Singapore
+  construction robots OR robotics OR automation OR autonomous machinery OR
+  BIM`, alongside the existing safety/sustainability/manpower/disputes/
+  tenders seeds. Apply via the `schedule` skill / claude.ai/code/routines,
+  per the pattern of the 2026-09-08 data-centre and 2026-09-12 dormitory
+  additions below.
 - **Dashboard: new-first ordering + collapse of older stories per category
   (2026-09-16, refined same day)**: at the user's request, `dashboard.html`
   no longer lists a category's stories in flat newest-published-first order.
