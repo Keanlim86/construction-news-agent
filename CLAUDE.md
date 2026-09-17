@@ -25,14 +25,11 @@
   issuers. Full list is now: Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock
   Lian Seng, CSC Holdings, Chip Eng Seng, UOL Group, CapitaLand, City
   Developments, Tiong Seng, BBR, Hwa Seng, Kajima, JTC, Kok Tong Construction
-  (KTC). **Fix needed for the routine's own prompt** (not yet applied, since
-  this session has no tool that reaches the persistent routine config): add a
-  search pass for each of the three new names to Step 1's per-company
-  watchlist loop, e.g. `"Kajima" Singapore construction OR contract OR
-  trial`, `"JTC" Singapore construction OR tender OR trial OR site`, `"Kok
-  Tong Construction" OR "KTC" Singapore construction`. Apply via the
-  `schedule` skill / claude.ai/code/routines, per the pattern of the prior
-  watchlist and query additions in this section.
+  (KTC). **Applied to the routine's own prompt (2026-09-18)**: the user
+  pasted an updated Step 1 (assembled in this session, since this session
+  has no tool that reaches the persistent routine config directly) into the
+  routine via the `schedule` skill, adding a per-name search pass for each
+  new watchlist entry.
 - **Correction: KTC Engineering added as a distinct watchlist entry
   alongside Kok Tong Construction, same day (2026-09-18)**: the entry above
   conflated "KTC" with a single company, Kok Tong Construction Pte Ltd. The
@@ -49,14 +46,11 @@
   now: Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC
   Holdings, Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong
   Seng, BBR, Hwa Seng, Kajima, JTC, Kok Tong Construction, KTC Engineering
-  (KTC Civil Engineering & Construction). **Fix needed for the routine's own
-  prompt** (not yet applied, same tooling limitation as above): the per-name
-  query for "Kok Tong Construction" OR "KTC" above is ambiguous between the
-  two sister companies since both go by "KTC" informally — split it into two
-  distinct queries, e.g. `"Kok Tong Construction" Singapore` and `"KTC Civil
-  Engineering" OR "KTC Engineering" Singapore construction`, so a hit can be
-  attributed to the correct entity rather than assumed to be either one.
-  Apply via the `schedule` skill / claude.ai/code/routines.
+  (KTC Civil Engineering & Construction). **Applied to the routine's own
+  prompt (2026-09-18)**: the previously-ambiguous "Kok Tong Construction OR
+  KTC" query was split into two distinct per-entity queries in the pasted
+  update, so a hit can now be attributed to the correct sister company
+  rather than assumed to be either one.
 - **Watchlist: The GEAR by Kajima added, same day (2026-09-18)**: the user
   asked to add "The GEAR by Kajima," noting it's under Kajima. Confirmed via
   research: **The GEAR by Kajima** (GEAR = "Global Engineering, Architecture
@@ -73,12 +67,9 @@
   Full watchlist is now: Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock
   Lian Seng, CSC Holdings, Chip Eng Seng, UOL Group, CapitaLand, City
   Developments, Tiong Seng, BBR, Hwa Seng, Kajima, JTC, Kok Tong
-  Construction, KTC Engineering, The GEAR by Kajima. **Fix needed for the
-  routine's own prompt** (not yet applied, same tooling limitation as
-  above): add a per-name query, e.g. `"The GEAR by Kajima" OR "The GEAR"
-  Singapore construction OR innovation OR technology`, to Step 1's
-  per-company watchlist loop. Apply via the `schedule` skill /
-  claude.ai/code/routines.
+  Construction, KTC Engineering, The GEAR by Kajima. **Applied to the
+  routine's own prompt (2026-09-18)**: a per-name query for The GEAR by
+  Kajima was included in the same pasted Step 1 update.
 - **Missing New Technology/Innovation category-seeded query found via a
   missed article (2026-09-18)**: the user flagged a Straits Times story,
   ["Construction robots on trial could be deployed as early as
@@ -94,14 +85,11 @@
   enough to surface it (it returned background/Wikipedia-style results, not
   this article). Backfilled the missed article directly into
   `news_store.json` (category: New Technology/Innovation) and republished
-  the dashboard. **Fix needed for the routine's own prompt** (not yet
-  applied, since this session has no tool that reaches the persistent
-  routine config): add a dedicated Step 1 query, e.g. `Singapore
-  construction robots OR robotics OR automation OR autonomous machinery OR
-  BIM`, alongside the existing safety/sustainability/manpower/disputes/
-  tenders seeds. Apply via the `schedule` skill / claude.ai/code/routines,
-  per the pattern of the 2026-09-08 data-centre and 2026-09-12 dormitory
-  additions below.
+  the dashboard. **Applied to the routine's own prompt (2026-09-18)**: a
+  dedicated New Technology/Innovation query (`Singapore construction robots
+  OR robotics OR automation OR autonomous machinery OR BIM`) was added to
+  Step 1 alongside the existing safety/sustainability/manpower/disputes/
+  tenders seeds, in the same pasted update as the watchlist additions above.
 - **Dashboard: new-first ordering + collapse of older stories per category
   (2026-09-16, refined same day)**: at the user's request, `dashboard.html`
   no longer lists a category's stories in flat newest-published-first order.
@@ -141,7 +129,13 @@
   reaches the persistent routine config — if the cloud routine's own
   regeneration logic ever produces a `dashboard.html` that drops this
   behavior, restore it from this amendment or from git history rather than
-  re-designing it from scratch.
+  re-designing it from scratch. **Update (2026-09-18)**: the routine's own
+  prompt now also explicitly protects this behavior — the pasted Step 1/5
+  update from that day names the collapse/toggle markup, CSS, and script
+  (buildCollapse()/syncCollapse(), VISIBLE_TOTAL = 2) alongside the search
+  bar as permanent template chrome the routine must preserve exactly, so a
+  future regeneration is less likely to silently drop it. `dashboard.html`
+  itself remains the source of truth if the two ever disagree.
 - **Purpose-built dormitory coverage gap found and backfilled (2026-09-12)**:
   the user flagged a Straits Times story —
   ["Sites in Mandai and Upper Jurong Road to be sold for purpose-built
