@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-19T07:04:00+08:00",
+  "last_run": "2026-09-18T07:10:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -310,16 +310,6 @@
       "summary": "JTC and Kajima are trialling autonomous construction machinery -- two excavators and two compactors since January, with autonomous bulldozers and dump trucks to follow in a second phase -- at the Bulim autonomous yard in Jurong Innovation District, aiming to ease manpower constraints and improve worksite safety ahead of a pipeline of at least 800ha of earthworks over the next five years. JTC is targeting deployment at its sites as early as 2028, with the first phase running to early 2027.",
       "date_published": "2026-09-18",
       "date_found": "2026-09-18",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/north-south-corridor--revised-completion-timeline-due-to-complex.html",
-      "title": "North-South Corridor: Revised Completion Timeline Due to Complex Engineering Works and Challenging Ground Conditions",
-      "source": "Land Transport Authority",
-      "category": "Project Awards/Tenders",
-      "summary": "LTA announced the 21.5km North-South Corridor will open roughly two years later than planned -- the viaduct section (Admiralty Road West to Lentor Avenue) now from 2029 instead of 2027, and the tunnel section (Lentor Avenue to East Coast Parkway) now from 2031 instead of 2029 -- after harder-than-expected rock at Gambas Avenue/Woodlands Avenue 8 and Thomson, plus fractured rock and groundwater near the operational North-South Line at Novena, required more complex engineering works. LTA said the cost impact of the delay will only be known after the project is completed.",
-      "date_published": "2026-09-17",
-      "date_found": "2026-09-19",
       "is_new_today": true
     }
   ]
