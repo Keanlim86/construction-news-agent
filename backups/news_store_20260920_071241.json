@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-20T07:12:00+08:00",
+  "last_run": "2026-09-19T07:04:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -37,7 +37,7 @@
       "title": "35-year-old man dies in work-related incident at Jurong Port Road worksite",
       "source": "MustShareNews",
       "category": "Accidents/Workplace Safety",
-      "summary": "A 35-year-old worker died after being struck by a hose connected to a compressed-air pump while carrying out foundation works at 37 Jurong Port Road on the evening of 11 September 2026; MOM identified Keller Foundations (S E Asia) Pte Ltd as the worksite's occupier and employer and instructed it to stop all concreting works. It follows an earlier fatal scaffolding collapse on 3 August 2026 at a nearby Jurong Port construction site.",
+      "summary": "A 35-year-old man died in a work-related incident at a worksite at 37 Jurong Port Road (Jurong Port Pte Ltd's administration building) on the evening of 11 September 2026; police said no foul play is suspected. It follows an earlier fatal scaffolding collapse on 3 August 2026 at a nearby Jurong Port construction site.",
       "date_published": "2026-09-11",
       "date_found": "2026-09-13",
       "is_new_today": false
@@ -320,16 +320,6 @@
       "summary": "LTA announced the 21.5km North-South Corridor will open roughly two years later than planned -- the viaduct section (Admiralty Road West to Lentor Avenue) now from 2029 instead of 2027, and the tunnel section (Lentor Avenue to East Coast Parkway) now from 2031 instead of 2029 -- after harder-than-expected rock at Gambas Avenue/Woodlands Avenue 8 and Thomson, plus fractured rock and groundwater near the operational North-South Line at Novena, required more complex engineering works. LTA said the cost impact of the delay will only be known after the project is completed.",
       "date_published": "2026-09-17",
       "date_found": "2026-09-19",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.ura.gov.sg/news/media/pr26-66/",
-      "title": "Tender award for URA sale site at Lorong Puntong / Sin Ming Avenue",
-      "source": "Urban Redevelopment Authority",
-      "category": "Project Awards/Tenders",
-      "summary": "URA awarded the 99-year leasehold residential site at Lorong Puntong / Sin Ming Avenue (Bishan, about 140 units) to Eco World Development (S) Pte Ltd as the highest tenderer, at a bid of $208,099,000 ($17,350.26 per sq m gross floor area). The tender, launched 25 June 2026, closed on 15 September 2026.",
-      "date_published": "2026-09-18",
-      "date_found": "2026-09-20",
       "is_new_today": true
     }
   ]
