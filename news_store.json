@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-20T07:12:00+08:00",
+  "last_run": "2026-09-21T07:09:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -330,6 +330,16 @@
       "summary": "URA awarded the 99-year leasehold residential site at Lorong Puntong / Sin Ming Avenue (Bishan, about 140 units) to Eco World Development (S) Pte Ltd as the highest tenderer, at a bid of $208,099,000 ($17,350.26 per sq m gross floor area). The tender, launched 25 June 2026, closed on 15 September 2026.",
       "date_published": "2026-09-18",
       "date_found": "2026-09-20",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.stb.gov.sg/about-stb/media-publications/media-centre/singapore-tourism-board-launches-concept-and-price-revenue-tender-for-mixed-use-development-at-historic-37-emerald-hill/",
+      "title": "Singapore Tourism Board launches tender for mixed-use development at historic 37 Emerald Hill",
+      "source": "Singapore Tourism Board",
+      "category": "Project Awards/Tenders",
+      "summary": "STB launched a Concept and Price Revenue tender on 16 September 2026 for a heritage-sensitive, hotel-led mixed-use redevelopment of 37 Emerald Hill (the former Singapore Chinese Girls' School site, later Chatsworth International School), part of the Orchard Road Rejuvenation Plan. The 1.04ha site permits up to 16,664 sq m GFA on a 50-year lease with a 20-year extension option, and the tender closes 16 March 2027.",
+      "date_published": "2026-09-16",
+      "date_found": "2026-09-21",
       "is_new_today": true
     }
   ]
