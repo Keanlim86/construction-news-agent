@@ -58,6 +58,46 @@
   dashboard-controls amendment above, since both landed in the same editing
   pass) was handed to the user to paste in at
   https://claude.ai/code/routines/trig_01XiwXHr6pxUX42vwhZZ3Qm4.
+- **Correction: MND speech pages need a direct API call, not WebFetch, same
+  day (2026-09-21)**: the user asked to validate a specific speech URL
+  against the new MND-speeches source (a GFIC 2026/27 launch speech). Both
+  WebFetch and a title-based WebSearch came back completely empty — not
+  paywalled, not thin, empty — because mnd.gov.sg is a Next.js app that
+  loads each speech's body client-side from a headless Directus CMS API
+  after the page renders; the static HTML/SSR payload a fetch tool sees
+  contains only the site's nav shell, never the article text. This means
+  the prior amendment's guidance ("fetch the listing page directly and open
+  promising speech entries") does not actually work with WebFetch — it was
+  wrong, not just imprecise. Reverse-engineered via `curl` (this session's
+  Bash access) the API the site's own JS calls: a listing endpoint —
+  `curl -sG "https://www.mnd.gov.sg/api/articles" --data-urlencode
+  "filter[_and][0][status][_eq]=published" --data-urlencode
+  "filter[_and][1][article_type][_eq]=e45b3aaf-3de0-4c98-922a-d5ad73ab5c0b"
+  --data-urlencode "sort=-article_date_time" --data-urlencode "limit=15"
+  --data-urlencode "fields=title,url,article_date_time"` — returns JSON with
+  every recent speech's title, date, and URL-slug, newest first (verified:
+  correctly listed the GFIC speech plus 14 others back to 2026-08-02); and a
+  detail endpoint per slug — same base URL with `filter[_and][1][url][_eq]`
+  set to that slug and `fields=*,title.*` — returns the full speech text in
+  a `content` field (verified against the GFIC speech: real text, matches
+  the page's own title). Since the routine already runs as a full Claude
+  Code session with Bash (it does its own `git commit`/`git push` in Step
+  6), this is not a new dependency — it's telling the routine to `curl` a
+  JSON API instead of asking WebFetch to render a page that doesn't render
+  server-side. Step 1's MND-speeches clause was rewritten to give both curl
+  commands directly, superseding the "fetch the listing page" wording from
+  the same-day amendment above; Step 2/3's speech-filtering and
+  classification notes from that amendment are unchanged. Validation
+  outcome for the GFIC speech itself: it does NOT clear Step 2's bar — it's
+  a Singapore-China green-finance/climate-innovation speech given in
+  Beijing; its only Built Environment mention (Green Mark Version 7) merely
+  references the launch already captured in `news_store.json` from
+  2026-09-02, not new news — so it would correctly be discarded, not missed
+  coverage. **Applied to the routine's own prompt, same manual-paste
+  mechanism** (this session's `update_trigger` attempt was refused for the
+  same http_api-ownership reason as above) — the corrected Step 1 text was
+  handed to the user to paste in, superseding the version from the previous
+  amendment if that hadn't been applied yet.
 - **Watchlist expanded with Kajima, JTC, and Kok Tong Construction (KTC)
   (2026-09-18)**: a 2026-09-18 Straits Times story on JTC/Kajima's autonomous
   excavator/compactor trial at the Bulim autonomous yard (New Technology/
