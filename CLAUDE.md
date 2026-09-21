@@ -7,6 +7,54 @@
 
 ## Post-launch amendments
 
+- **Straits Times RSS feed + MND tag page added to Step 1 via `curl`, and a
+  WebFetch domain block on straitstimes.com documented (2026-09-21)**: while
+  investigating why a Straits Times URL the user pasted in
+  (`worker-dies-after-being-struck-by-hose-at-jurong-port-road...`) "wasn't
+  picked up," it turned out the underlying story *was* already in
+  `news_store.json` — captured on 2026-09-13 via a MustShareNews URL
+  reporting the same MOM statement. Nothing was missed; `url`-keyed dedup
+  had simply kept one representative outlet's URL for the event rather than
+  every outlet's copy of it, as designed. That prompted a closer look at how
+  Straits Times has actually been sourced throughout this project: the
+  WebFetch tool refuses the **entire straitstimes.com domain** outright —
+  confirmed directly in this session on an article page, the RSS feed XML,
+  and a tag-listing page, all three returning "Claude Code is unable to
+  fetch from www.straitstimes.com." This means every ST-attributed entry in
+  the store to date was built from a WebSearch snippet plus a cross-check
+  against a freely-accessible outlet reporting the same facts (per Step 2's
+  existing paywall fallback) — never from a direct fetch of the ST page
+  itself, even when the stored `url` points at straitstimes.com. Separately,
+  `curl` via Bash was confirmed to reach straitstimes.com successfully
+  (`HTTP 200` with real content) on both the RSS feed and a tag page, and
+  Bash is confirmed available in the routine's actual unattended execution
+  environment (Step 6's git operations already depend on it every run). The
+  same investigation surfaced a live instance of a related, worse problem:
+  two other search candidates that day (a PIE motorcycle-fatality story and
+  an Upper Changi wall-collapse fatality) looked recent in WebSearch results
+  but turned out, on verification, to actually be from September 2023 and
+  September 2025 respectively — stale content misleadingly re-surfaced as
+  current. A `curl`-fetched RSS `<pubDate>` is the publisher's own
+  timestamp and isn't subject to that failure mode. **Fix applied to the
+  routine's own prompt (2026-09-21)**: Step 1 now also runs
+  `curl -sS "https://www.straitstimes.com/news/singapore/rss.xml"` (parsing
+  each `<item>`'s `<title>`, `<link>`, and `<pubDate>` — the `<pubDate>` is
+  trusted directly for `date_published`/window filtering instead of a
+  search-snippet guess) and
+  `curl -sS "https://www.straitstimes.com/tags/ministry-of-national-development?ref=see-more-on"`
+  (raw HTML, read through to extract linked titles/URLs — MND-tagged
+  stories, e.g. housing/land-sale policy, are the same kind of gap as the
+  2026-09-12 dormitory miss below, since they don't always contain an
+  obvious "construction" keyword). Both are purely additive to Step 1's
+  existing source list and feed into the same Step 2 filter/dedup and Step
+  3 classify pipeline unchanged. Applied by the user pasting a
+  fully-reconstructed routine prompt (this session has no tool that reaches
+  the persistent routine config directly) after an in-progress paste in the
+  `schedule` skill UI accidentally dropped the rest of the prompt; the
+  reconstruction was assembled from this session's own record of the prompt
+  that fired it, plus the new Step 1 addition, and pasted back in whole
+  rather than as a diff, to avoid losing anything else in the process.
+
 - **Watchlist expanded with Kajima, JTC, and Kok Tong Construction (KTC)
   (2026-09-18)**: a 2026-09-18 Straits Times story on JTC/Kajima's autonomous
   excavator/compactor trial at the Bulim autonomous yard (New Technology/
