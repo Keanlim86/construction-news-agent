@@ -66,14 +66,15 @@
   `syncCollapse()` logic that now checks today-only and selected-date state
   alongside the search query) exactly, with the same protection given to
   the search bar and the collapse/toggle — do not drop, simplify, or
-  re-derive it. **Not yet applied to the routine's own prompt**: unlike the
-  collapse/toggle feature (which got an explicit Step 5 protection clause
-  added on 2026-09-18), this session has not yet handed the user updated
-  Step 5 wording naming the controls-bar for the routine's own prompt — the
-  routine's Step 5 as it stands only names the search bar and the collapse/
-  toggle, so an unprotected regeneration could still drop this feature.
-  Needs the same paste-into-the-routine treatment as the RSS/curl addition
-  above before it's safe from a future Step 5 rebuild.
+  re-derive it. **Correction: already applied, found later (2026-09-21)** —
+  this entry originally said the routine's own Step 5 had not yet been
+  updated to protect the controls-bar. That was wrong: the same later paste
+  that revealed the independently-added MND speeches fix (see the entry
+  above) turned out to already protect the `#todayToggle`/`#dateSelect`
+  controls-bar in all three of CONTEXT, Step 5, and CONSTRAINTS — someone
+  (the user or another session) had closed this gap in the same edit pass
+  as the MND speeches addition, before this session got around to drafting
+  its own fix. No further action was needed here.
 
 - **Straits Times RSS feed + MND tag page added to Step 1 via `curl`, and a
   WebFetch domain block on straitstimes.com documented (2026-09-21)**: while
