@@ -314,54 +314,40 @@
     color:var(--accent-ink);
   }
   .date-picker{
+    position:relative;
     display:inline-flex;
     align-items:center;
-    gap:2px;
     background:var(--surface);
     border:1px solid var(--border);
     border-radius:999px;
-    padding:4px 6px 4px 16px;
     box-shadow:var(--shadow);
   }
   .date-picker.is-active{border-color:var(--accent);}
-  .date-display{
+  .date-picker select{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    background:none;
+    border:none;
     font-family:"IBM Plex Mono",monospace;
     font-size:12.5px;
     font-variant-numeric:tabular-nums;
     color:var(--ink-soft);
-    min-width:78px;
-    text-align:center;
-  }
-  .date-picker.is-active .date-display{color:var(--accent-ink);font-weight:600;}
-  .date-arrow{
-    width:24px;height:24px;
-    display:flex;align-items:center;justify-content:center;
-    border:none;
+    padding:8px 30px 8px 16px;
     border-radius:999px;
-    background:none;
-    color:var(--ink-soft);
     cursor:pointer;
-    padding:0;
   }
-  .date-arrow svg{width:11px;height:11px;}
-  .date-arrow:hover:not(:disabled){background:var(--surface-2);color:var(--ink);}
-  .date-arrow:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
-  .date-arrow:disabled{opacity:.35;cursor:default;}
-  .date-reset{
-    width:22px;height:22px;
-    border:none;
-    border-radius:999px;
-    background:var(--surface-2);
-    color:var(--ink-soft);
-    font-family:inherit;
-    font-size:14px;
-    line-height:1;
-    cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-    margin-left:4px;
+  .date-picker select:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+  .date-picker.is-active select{color:var(--accent-ink);font-weight:600;}
+  .date-picker-chev{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    width:10px;height:10px;
+    color:var(--ink-faint);
+    pointer-events:none;
   }
-  .date-reset:hover{background:var(--border);color:var(--ink);}
-  .date-reset[hidden]{display:none;}
 
   .cards{display:flex;flex-direction:column;gap:10px;}
   .cards-extra{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
@@ -499,14 +485,10 @@
   <div class="controls-bar">
     <button type="button" class="ctrl-btn" id="todayToggle" aria-pressed="false">Today only</button>
     <div class="date-picker" id="datePicker">
-      <button type="button" class="date-arrow" id="dateUp" aria-label="Newer date" disabled>
-        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <span class="date-display" id="dateDisplay">All dates</span>
-      <button type="button" class="date-arrow" id="dateDown" aria-label="Older date">
-        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button type="button" class="date-reset" id="dateReset" hidden aria-label="Clear date filter">&times;</button>
+      <select id="dateSelect" aria-label="Filter by date">
+        <option value="">All dates</option>
+      </select>
+      <svg class="date-picker-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
   </div>
 
@@ -842,13 +824,15 @@
 
   var todayToggle = document.getElementById('todayToggle');
   var datePicker = document.getElementById('datePicker');
-  var dateDisplay = document.getElementById('dateDisplay');
-  var dateUp = document.getElementById('dateUp');
-  var dateDown = document.getElementById('dateDown');
-  var dateReset = document.getElementById('dateReset');
+  var dateSelect = document.getElementById('dateSelect');
 
   var todayOnly = false;
-  var selectedDateIndex = -1; // -1 = "All dates"; 0 = newest date found on the page
+
+  function formatDDMMYY(iso){
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    if (!m) return iso;
+    return m[3] + '/' + m[2] + '/' + m[1].slice(2);
+  }
 
   // Unique published dates across every card, newest first.
   var allDates = Array.prototype.map.call(document.querySelectorAll('main article.card .date'), function(el){
@@ -857,37 +841,19 @@
   allDates = allDates.filter(function(d, i){ return allDates.indexOf(d) === i; });
   allDates.sort(function(a, b){ return a < b ? 1 : (a > b ? -1 : 0); });
 
-  function formatDDMMYY(iso){
-    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
-    if (!m) return iso;
-    return m[3] + '/' + m[2] + '/' + m[1].slice(2);
+  if (dateSelect){
+    allDates.forEach(function(iso){
+      var opt = document.createElement('option');
+      opt.value = iso;
+      opt.textContent = formatDDMMYY(iso);
+      dateSelect.appendChild(opt);
+    });
+    dateSelect.addEventListener('change', function(){
+      datePicker.classList.toggle('is-active', dateSelect.value !== '');
+      applyFilter();
+    });
   }
 
-  function updateDatePicker(){
-    var hasDate = selectedDateIndex > -1;
-    dateDisplay.textContent = hasDate ? formatDDMMYY(allDates[selectedDateIndex]) : 'All dates';
-    datePicker.classList.toggle('is-active', hasDate);
-    dateReset.hidden = !hasDate;
-    dateUp.disabled = selectedDateIndex <= -1;
-    dateDown.disabled = selectedDateIndex >= allDates.length - 1;
-  }
-  updateDatePicker();
-
-  if (dateUp) dateUp.addEventListener('click', function(){
-    selectedDateIndex = Math.max(-1, selectedDateIndex - 1);
-    updateDatePicker();
-    applyFilter();
-  });
-  if (dateDown) dateDown.addEventListener('click', function(){
-    selectedDateIndex = Math.min(allDates.length - 1, selectedDateIndex + 1);
-    updateDatePicker();
-    applyFilter();
-  });
-  if (dateReset) dateReset.addEventListener('click', function(){
-    selectedDateIndex = -1;
-    updateDatePicker();
-    applyFilter();
-  });
   if (todayToggle) todayToggle.addEventListener('click', function(){
     todayOnly = !todayOnly;
     todayToggle.setAttribute('aria-pressed', String(todayOnly));
@@ -923,7 +889,7 @@
 
   function applyFilter(){
     var q = norm(input.value.trim());
-    var selectedDate = selectedDateIndex > -1 ? allDates[selectedDateIndex] : null;
+    var selectedDate = dateSelect && dateSelect.value !== '' ? dateSelect.value : null;
     var filtersActive = q !== '' || todayOnly || selectedDate !== null;
     clearBtn.hidden = q.length === 0;
     var anySectionVisible = false;
