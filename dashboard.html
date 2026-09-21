@@ -283,6 +283,86 @@
   .search-clear:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
   .search-clear[hidden], .legend a[hidden]{display:none;}
 
+  /* ---------- Controls: today toggle + date picker ---------- */
+  .controls-bar{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .ctrl-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:8px 16px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .ctrl-btn:hover{border-color:var(--accent);color:var(--ink);}
+  .ctrl-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+  .ctrl-btn[aria-pressed="true"]{
+    background:var(--accent-soft);
+    border-color:var(--accent);
+    color:var(--accent-ink);
+  }
+  .date-picker{
+    display:inline-flex;
+    align-items:center;
+    gap:2px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:4px 6px 4px 16px;
+    box-shadow:var(--shadow);
+  }
+  .date-picker.is-active{border-color:var(--accent);}
+  .date-display{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12.5px;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink-soft);
+    min-width:78px;
+    text-align:center;
+  }
+  .date-picker.is-active .date-display{color:var(--accent-ink);font-weight:600;}
+  .date-arrow{
+    width:24px;height:24px;
+    display:flex;align-items:center;justify-content:center;
+    border:none;
+    border-radius:999px;
+    background:none;
+    color:var(--ink-soft);
+    cursor:pointer;
+    padding:0;
+  }
+  .date-arrow svg{width:11px;height:11px;}
+  .date-arrow:hover:not(:disabled){background:var(--surface-2);color:var(--ink);}
+  .date-arrow:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+  .date-arrow:disabled{opacity:.35;cursor:default;}
+  .date-reset{
+    width:22px;height:22px;
+    border:none;
+    border-radius:999px;
+    background:var(--surface-2);
+    color:var(--ink-soft);
+    font-family:inherit;
+    font-size:14px;
+    line-height:1;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    margin-left:4px;
+  }
+  .date-reset:hover{background:var(--border);color:var(--ink);}
+  .date-reset[hidden]{display:none;}
+
   .cards{display:flex;flex-direction:column;gap:10px;}
   .cards-extra{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
   .cards-extra[hidden]{display:none;}
@@ -414,6 +494,20 @@
     <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M13.61 12.2h-.71l-.25-.25a5.72 5.72 0 1 0-.62.62l.25.25v.71l4.4 4.39 1.31-1.31-4.38-4.41Zm-5.28 0a3.96 3.96 0 1 1 0-7.92 3.96 3.96 0 0 1 0 7.92Z" fill="currentColor"/></svg>
     <input type="search" id="searchInput" placeholder="Search stories by keyword, source, or category…" aria-label="Search stories" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     <button type="button" class="search-clear" id="searchClear" hidden aria-label="Clear search">&times;</button>
+  </div>
+
+  <div class="controls-bar">
+    <button type="button" class="ctrl-btn" id="todayToggle" aria-pressed="false">Today only</button>
+    <div class="date-picker" id="datePicker">
+      <button type="button" class="date-arrow" id="dateUp" aria-label="Newer date" disabled>
+        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="date-display" id="dateDisplay">All dates</span>
+      <button type="button" class="date-arrow" id="dateDown" aria-label="Older date">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="date-reset" id="dateReset" hidden aria-label="Clear date filter">&times;</button>
+    </div>
   </div>
 
   <nav class="legend" aria-label="Categories">
@@ -735,7 +829,7 @@
   }
   buildCollapse();
 
-  // ---------- Search ----------
+  // ---------- Search + Today toggle + Date picker ----------
   var input = document.getElementById('searchInput');
   var clearBtn = document.getElementById('searchClear');
   var noResults = document.getElementById('noResults');
@@ -745,18 +839,73 @@
   Array.prototype.forEach.call(document.querySelectorAll('.legend a[href^="#"]'), function(a){
     legendLinks[a.getAttribute('href').slice(1)] = a;
   });
+
+  var todayToggle = document.getElementById('todayToggle');
+  var datePicker = document.getElementById('datePicker');
+  var dateDisplay = document.getElementById('dateDisplay');
+  var dateUp = document.getElementById('dateUp');
+  var dateDown = document.getElementById('dateDown');
+  var dateReset = document.getElementById('dateReset');
+
+  var todayOnly = false;
+  var selectedDateIndex = -1; // -1 = "All dates"; 0 = newest date found on the page
+
+  // Unique published dates across every card, newest first.
+  var allDates = Array.prototype.map.call(document.querySelectorAll('main article.card .date'), function(el){
+    return el.textContent.trim();
+  }).filter(Boolean);
+  allDates = allDates.filter(function(d, i){ return allDates.indexOf(d) === i; });
+  allDates.sort(function(a, b){ return a < b ? 1 : (a > b ? -1 : 0); });
+
+  function formatDDMMYY(iso){
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    if (!m) return iso;
+    return m[3] + '/' + m[2] + '/' + m[1].slice(2);
+  }
+
+  function updateDatePicker(){
+    var hasDate = selectedDateIndex > -1;
+    dateDisplay.textContent = hasDate ? formatDDMMYY(allDates[selectedDateIndex]) : 'All dates';
+    datePicker.classList.toggle('is-active', hasDate);
+    dateReset.hidden = !hasDate;
+    dateUp.disabled = selectedDateIndex <= -1;
+    dateDown.disabled = selectedDateIndex >= allDates.length - 1;
+  }
+  updateDatePicker();
+
+  if (dateUp) dateUp.addEventListener('click', function(){
+    selectedDateIndex = Math.max(-1, selectedDateIndex - 1);
+    updateDatePicker();
+    applyFilter();
+  });
+  if (dateDown) dateDown.addEventListener('click', function(){
+    selectedDateIndex = Math.min(allDates.length - 1, selectedDateIndex + 1);
+    updateDatePicker();
+    applyFilter();
+  });
+  if (dateReset) dateReset.addEventListener('click', function(){
+    selectedDateIndex = -1;
+    updateDatePicker();
+    applyFilter();
+  });
+  if (todayToggle) todayToggle.addEventListener('click', function(){
+    todayOnly = !todayOnly;
+    todayToggle.setAttribute('aria-pressed', String(todayOnly));
+    applyFilter();
+  });
+
   if (!input) return;
 
   function norm(s){ return (s || '').toLowerCase(); }
 
-  function syncCollapse(section, q){
+  function syncCollapse(section, filtersActive){
     var wrap = section.querySelector('.cards-extra');
     var toggle = section.querySelector('.more-toggle');
     if (!wrap || !toggle) return;
     var label = toggle.querySelector('.toggle-label');
     var extraCount = wrap.querySelectorAll('article.card').length;
 
-    if (q === ''){
+    if (!filtersActive){
       var userExpanded = wrap.dataset.userExpanded === 'true';
       wrap.hidden = !userExpanded;
       toggle.setAttribute('aria-expanded', String(userExpanded));
@@ -774,6 +923,8 @@
 
   function applyFilter(){
     var q = norm(input.value.trim());
+    var selectedDate = selectedDateIndex > -1 ? allDates[selectedDateIndex] : null;
+    var filtersActive = q !== '' || todayOnly || selectedDate !== null;
     clearBtn.hidden = q.length === 0;
     var anySectionVisible = false;
 
@@ -785,18 +936,22 @@
       if (cards.length){
         var visible = 0;
         Array.prototype.forEach.call(cards, function(card){
-          var match = q === '' || norm(card.textContent).indexOf(q) !== -1;
+          var matchQuery = q === '' || norm(card.textContent).indexOf(q) !== -1;
+          var matchToday = !todayOnly || card.classList.contains('is-new');
+          var dateEl = card.querySelector('.date');
+          var matchDate = !selectedDate || (dateEl && dateEl.textContent.trim() === selectedDate);
+          var match = matchQuery && matchToday && matchDate;
           card.hidden = !match;
           if (match) visible++;
         });
         if (countEl) countEl.textContent = visible + (visible === 1 ? ' story' : ' stories');
-        showSection = q === '' || visible > 0;
+        showSection = !filtersActive || visible > 0;
       } else {
         // categories with no articles at all have nothing to match against
-        showSection = q === '';
+        showSection = !filtersActive;
       }
 
-      syncCollapse(section, q);
+      syncCollapse(section, filtersActive);
 
       section.hidden = !showSection;
       var legendLink = legendLinks[section.id];
@@ -805,8 +960,8 @@
     });
 
     if (noResults){
-      noResults.hidden = q === '' || anySectionVisible;
-      if (noResultsQuery) noResultsQuery.textContent = input.value.trim();
+      noResults.hidden = !filtersActive || anySectionVisible;
+      if (noResultsQuery) noResultsQuery.textContent = q !== '' ? input.value.trim() : (todayOnly && selectedDate ? "Today only + " + formatDDMMYY(selectedDate) : (todayOnly ? 'Today only' : (selectedDate ? formatDDMMYY(selectedDate) : '')));
     }
   }
 
