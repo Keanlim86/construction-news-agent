@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-22T07:12:00+08:00",
+  "last_run": "2026-09-21T07:09:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -340,46 +340,6 @@
       "summary": "STB launched a Concept and Price Revenue tender on 16 September 2026 for a heritage-sensitive, hotel-led mixed-use redevelopment of 37 Emerald Hill (the former Singapore Chinese Girls' School site, later Chatsworth International School), part of the Orchard Road Rejuvenation Plan. The 1.04ha site permits up to 16,664 sq m GFA on a 50-year lease with a 20-year extension option, and the tender closes 16 March 2027.",
       "date_published": "2026-09-16",
       "date_found": "2026-09-21",
-      "is_new_today": false
-    },
-    {
-      "url": "https://sg.news.yahoo.com/hdb-completes-tengah-bto-project-using-new-technologies-040000765.html",
-      "title": "HDB completes Tengah BTO project using new technologies",
-      "source": "Yahoo News Singapore (The Straits Times)",
-      "category": "New Technology/Innovation",
-      "summary": "HDB said its first Construction Transformation Project, Garden Waterfront II @ Tengah, has achieved a 25% site productivity improvement using technologies including the largest 3D-printed freestanding structure in an HDB development and an intelligent lifting frame developed with NUS and A*STAR that could cut hoisting man-hours by 30%. Garden Waterfront I @ Tengah, the project's second BTO development under the scheme, is due to complete by end-2026.",
-      "date_published": "2026-09-19",
-      "date_found": "2026-09-22",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/housing/decision-to-consider-building-homes-on-greenery-heritage-sites-not-made-lightly-indranee",
-      "title": "Decisions to consider building homes on greenery or heritage sites not made lightly: Indranee",
-      "source": "The Straits Times",
-      "category": "Public Feedback/Community",
-      "summary": "Second Minister for National Development Indranee Rajah said decisions to develop greenery or heritage sites for housing are made only when no suitable brownfield sites exist, balancing competing land needs against enlarging space via reclamation, taller buildings or going deeper. She was speaking on 14 September ahead of a closed-door youth dialogue on housing, amid ongoing public feedback such as the Maju Forest/Gillman Barracks backlash.",
-      "date_published": "2026-09-14",
-      "date_found": "2026-09-22",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/politics/timeline-reclamation-profile-of-western-island-reclamation-not-yet-determined-chee-hong-tat",
-      "title": "Timeline, reclamation profile of new western island not yet determined: Chee Hong Tat",
-      "source": "The Straits Times",
-      "category": "Policy/Regulatory",
-      "summary": "Minister for National Development Chee Hong Tat said in a written parliamentary reply on 8 September that the reclamation profile, land use plans, construction methods and timeline for Singapore's planned new western island have not yet been determined, with feasibility studies, site investigations and engineering/environmental studies still underway.",
-      "date_published": "2026-09-08",
-      "date_found": "2026-09-22",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/housing/when-condo-defects-emerge-years-later-who-pays",
-      "title": "When condo defects emerge years later, who pays?",
-      "source": "The Straits Times",
-      "category": "Legal & Disputes/Arbitration",
-      "summary": "A Straits Times explainer on Singapore condo-defect disputes -- citing the Canberra Residences and Foresque Residences lawsuits -- notes developers often wind up project-specific companies after completion, leaving management corporations with no one to sue, while a latent-defect claim in tort is subject to a 15-year long-stop limitation period.",
-      "date_published": "2026-09-21",
-      "date_found": "2026-09-22",
       "is_new_today": true
     }
   ]
