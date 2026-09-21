@@ -7,6 +7,57 @@
 
 ## Post-launch amendments
 
+- **Dashboard: "Today only" toggle and date-filter dropdown added
+  (2026-09-21)**: at the user's request, `dashboard.html` gained two new
+  controls sitting below the search bar, ahead of the category legend: a
+  `button#todayToggle` pill that filters every category down to just today's
+  `is-new` stories, and a `select#dateSelect` dropdown (initially built as an
+  up/down date scrubber, then changed to a dropdown same day per user
+  feedback that it's easier to use) listing every distinct `date_published`
+  found on the page as a `DD/MM/YY` option, filtering to just that day when
+  chosen. Both are implemented in the same `<script>` block as the existing
+  search/collapse logic and AND together with search and each other (e.g.
+  "today only" + a specific date can legitimately show zero results if that
+  date isn't today). This was applied directly to `dashboard.html` and
+  published via the Artifact tool in a repo session, not via editing the
+  routine's own prompt — same as the 2026-09-16 collapse/toggle work below,
+  `dashboard.html` is the source of truth for this behavior, and Step 5's
+  regeneration must preserve it exactly rather than re-deriving or dropping
+  it. **Applied to the routine's own prompt, same day**: unlike earlier
+  amendments in this file, this session found it now has
+  `mcp__Claude_Code_Remote__list_triggers`/`update_trigger` tools and used
+  them to inspect the live routine directly — but `update_trigger` refused
+  the edit ("this routine was created via 'http_api', not by an agent;
+  agents can only update routines they created via `create_trigger`"), so
+  the routine's prompt still had to be updated by the user pasting a revised
+  Step 5 (and its CONTEXT/CONSTRAINTS mentions of dashboard template chrome)
+  at https://claude.ai/code/routines/trig_01XiwXHr6pxUX42vwhZZ3Qm4, the same
+  manual-paste pattern as every prior routine-prompt amendment in this file.
+- **MND speeches newsroom added as a source (2026-09-21)**: at the user's
+  request (https://www.mnd.gov.sg/newsroom/speeches), Step 1 now also
+  searches MND's speeches listing — ministerial speeches at construction/
+  built-environment events, groundbreakings, industry conferences, and
+  Committee of Supply debates, which often preview or announce policy
+  changes, funding schemes, land-supply plans, or project milestones ahead
+  of, or instead of, a formal press release. Per the same indexing concern
+  as the Changi Airport Group newsroom addition (2026-09-08, below), a plain
+  `site:` search may not index individual speech pages well, so the routine
+  fetches the listing page directly; it uses the same wider 7–14 day window
+  as the company watchlist and data-centre queries since speeches are
+  lower-frequency than daily news. Step 2 gained a filtering note: a speech
+  only counts as a candidate if it announces or previews something
+  construction/built-environment-relevant, not if it's purely ceremonial or
+  off-topic. Step 3 gained a classification note: an MND speech's category
+  follows wherever its substantive announcement fits the existing 1–9
+  priority rubric (e.g. Policy/Regulatory for a new scheme, Project Awards/
+  Tenders for an upcoming land release), rather than defaulting to Media
+  Features/Company News. **Applied to the routine's own prompt, same
+  session, same manual-paste mechanism described above** (this session's
+  `update_trigger` attempt was refused for the same http_api-ownership
+  reason) — the full updated Step 1/2/3 text (bundled together with the
+  dashboard-controls amendment above, since both landed in the same editing
+  pass) was handed to the user to paste in at
+  https://claude.ai/code/routines/trig_01XiwXHr6pxUX42vwhZZ3Qm4.
 - **Watchlist expanded with Kajima, JTC, and Kok Tong Construction (KTC)
   (2026-09-18)**: a 2026-09-18 Straits Times story on JTC/Kajima's autonomous
   excavator/compactor trial at the Bulim autonomous yard (New Technology/
