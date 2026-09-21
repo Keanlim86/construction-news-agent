@@ -7,6 +7,44 @@
 
 ## Post-launch amendments
 
+- **Dashboard: "Today only" toggle + date-picker filter added, repo synced
+  after the fact (2026-09-21)**: the user added a `.controls-bar` block to
+  `dashboard.html` directly via the Artifact tool (publishing straight to
+  the live URL), outside any repo session — a `#todayToggle` pill button
+  (toggles showing only `is-new` cards) sitting next to a `#datePicker`/
+  `#dateSelect` dropdown (populated at load from every card's `.date` text,
+  newest first, formatted `DD/MM/YY`; selecting one filters to that date).
+  Both feed into the same `applyFilter()` the search bar already used, which
+  was extended so a card must now match all three of the keyword query, the
+  today-only state, and the selected date to stay visible — `syncCollapse()`
+  was likewise generalized to take a single `filtersActive` boolean instead
+  of checking the query directly, so a `.cards-extra` group still force-
+  expands under a today/date filter exactly as it already did under search.
+  This was discovered only when the user later pointed out a discrepancy
+  between the two dashboard URLs pasted into chat — investigating confirmed
+  both actually resolve to the same artifact (`.../artifact/28fUQ9iv...` is
+  just a short alias for `.../code/artifact/092b0df4-...`, not a duplicate),
+  but also surfaced that the **repo's `dashboard.html` had zero references**
+  to the new controls — the live artifact and the repo file had silently
+  diverged. Fixed by reading the full live artifact HTML and overwriting the
+  repo's `dashboard.html` with it verbatim, restoring `dashboard.html` as
+  the accurate source of truth, per the same "repo file is truth if the two
+  disagree" principle set for the 2026-09-16 collapse/toggle feature.
+  **Step 5 amendment**: when regenerating `dashboard.html` from now on,
+  preserve this `.controls-bar` block (the `#todayToggle` button, the
+  `#datePicker`/`#dateSelect` markup and CSS, and the `applyFilter()`/
+  `syncCollapse()` logic that now checks today-only and selected-date state
+  alongside the search query) exactly, with the same protection given to
+  the search bar and the collapse/toggle — do not drop, simplify, or
+  re-derive it. **Not yet applied to the routine's own prompt**: unlike the
+  collapse/toggle feature (which got an explicit Step 5 protection clause
+  added on 2026-09-18), this session has not yet handed the user updated
+  Step 5 wording naming the controls-bar for the routine's own prompt — the
+  routine's Step 5 as it stands only names the search bar and the collapse/
+  toggle, so an unprotected regeneration could still drop this feature.
+  Needs the same paste-into-the-routine treatment as the RSS/curl addition
+  above before it's safe from a future Step 5 rebuild.
+
 - **Straits Times RSS feed + MND tag page added to Step 1 via `curl`, and a
   WebFetch domain block on straitstimes.com documented (2026-09-21)**: while
   investigating why a Straits Times URL the user pasted in
