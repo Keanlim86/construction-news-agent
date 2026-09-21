@@ -7,6 +7,36 @@
 
 ## Post-launch amendments
 
+- **Correction: the RSS/tag-page `curl` fix wasn't actually live; merged
+  with an independently-added MND speeches API fetch and re-applied
+  (2026-09-21)**: the entry below this one claims the Straits Times
+  RSS/tag-page `curl` addition was "applied to the routine's own prompt" on
+  2026-09-21. That was wrong. Separately, the user (or another session) had
+  added a different, unrelated Step 1 source: fetching MND's speeches
+  newsroom (`mnd.gov.sg/newsroom/speeches`) via `curl` directly against its
+  underlying Directus CMS API (`https://www.mnd.gov.sg/api/articles`), since
+  that page is a client-rendered Next.js app that WebFetch/WebSearch can
+  only ever see the nav shell of, never the actual speech text — a listing
+  call (`filter[...][article_type][_eq]=<speeches-type-id]`,
+  `sort=-article_date_time`) returns recent speeches' titles/dates/url-slugs,
+  and a second filtered call with `fields=*,title.*` returns a given
+  speech's full HTML via its `content` field. This is a neater version of
+  the same fix pattern as the RSS/tag-page addition (call the underlying
+  API/feed directly instead of scraping a page WebFetch can't render), just
+  applied to a different source and discovered independently. When the user
+  later pasted what they described as the routine's current Step 1 (to ask
+  whether this session's own addition was "an improvement" on it), it
+  contained the MND speeches fetch but **not** the RSS/tag-page block at
+  all — meaning the earlier paste either never took, or Step 1 was
+  overwritten by a separate edit before this session found out. Both fixes
+  solve genuinely different gaps (MND speeches are JS-blocked entirely;
+  Straits Times search results were misdated/incomplete) and are not
+  redundant, so rather than picking one, the RSS/tag-page block was
+  reinserted into this newer Step 1 immediately after the MND speeches
+  paragraph (and "Straits Times curl" added to the wider-window source
+  list alongside "MND speeches"), and handed to the user as one Step 1
+  to paste in whole. Confirmed pasted in as of this entry.
+
 - **Dashboard: "Today only" toggle + date-picker filter added, repo synced
   after the fact (2026-09-21)**: the user added a `.controls-bar` block to
   `dashboard.html` directly via the Artifact tool (publishing straight to
