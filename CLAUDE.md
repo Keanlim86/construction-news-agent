@@ -7,6 +7,46 @@
 
 ## Post-launch amendments
 
+- **Construction-materials/supply-chain coverage gap found and fixed: Pan-
+  United, Continental Steel added to watchlist, dedicated Step 1 query
+  added (2026-09-22)**: the user asked directly whether supply-chain
+  matters and companies like Pan-United/Continental Steel/sand were
+  covered. Checked `news_store.json` first — zero genuine coverage (only
+  false-positive substring matches on unrelated words containing "sand" or
+  "cement"). Unlike the MND press-releases finding, this turned out to be a
+  real, clear-cut gap, not just a reliability/redundancy concern: WebSearch
+  confirmed **Pan-United Corporation** (SGX: P52) is Singapore's largest
+  ready-mix concrete producer (~40% market share, 1H2026 profit up 49%
+  YoY to S$30.6m, positioned at the centre of the Changi T5 construction
+  upcycle, the only carbon-mineralised concrete provider in Singapore) —
+  a major SGX-listed construction-materials company in the same class as
+  Wee Hur/BRC Asia already on the watchlist, simply never added.
+  **Continental Steel** is one of Southeast Asia's largest steel suppliers,
+  active in Singapore (recently sourced 6,000 tonnes of green steel from
+  ArcelorMittal, launched a steel-fibre product line) — also absent.
+  Separately, **sand supply** is a live, Singapore-specific story
+  (Cambodia banned sand exports to Singapore, yet shipments are still
+  moving into Tuas Port under legally disputed circumstances, against the
+  backdrop of Singapore's long-running reclamation dependence on imported
+  sand) with zero keyword coverage anywhere in Step 1. BRC Asia's existing
+  watchlist presence only covers rebar/reinforcement, not concrete (Pan-
+  United) or sand/aggregates — a materials-supply-chain angle distinct
+  from BRC Asia's own coverage. **Fix applied (not yet pasted into the live
+  routine)**: added Pan-United and Continental Steel to the watchlist (with
+  per-entity Step 1 queries), and a dedicated construction-materials/
+  supply-chain category query (`Singapore construction sand OR cement OR
+  concrete OR steel OR rebar supply OR shortage OR price`) routing per the
+  existing priority rubric (import-ban/regulatory angle → Policy/
+  Regulatory; company earnings/operations → Media Features/Company News,
+  unless a higher-priority category applies). Full watchlist is now: Wee
+  Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC Holdings,
+  Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong Seng, BBR,
+  Hwa Seng, Kajima, JTC, Kok Tong Construction, KTC Engineering, The GEAR
+  by Kajima, Pan-United Corporation, Continental Steel. Bundled as a third
+  addition into the same combined Step 1 update alongside the MND
+  press-releases and Policy/Regulatory fixes, sent to the user as one file
+  to paste in whole.
+
 - **`main` diverged from this session's branch out-of-band; reconciled, and
   MND press-releases source added to Step 1 alongside speeches
   (2026-09-22)**: checking the routine's live prompt via `list_triggers`
