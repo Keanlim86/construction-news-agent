@@ -7,6 +7,52 @@
 
 ## Post-launch amendments
 
+- **`main` diverged from this session's branch out-of-band; reconciled, and
+  MND press-releases source added to Step 1 alongside speeches
+  (2026-09-22)**: checking the routine's live prompt via `list_triggers`
+  before building a new Step 1 addition surfaced that the 2026-09-22 23:08
+  UTC scheduled run had already fired and completed — and, separately, that
+  another session had pushed straight to `main` at 13:20 UTC that day
+  (`dd5e7a8`), capturing the *same* URA GFA-guideline story this session had
+  just backfilled (see the entry below), but with a richer summary sourced
+  from a Lianhe Zaobao follow-up (BCA rebar-testing simplification, a new
+  Job Redesign Initiative for Decarbonisation) that this session's version
+  lacked. `main` and this session's branch had genuinely diverged. Diffing
+  both `news_store.json`s by URL showed this branch's 39 articles were a
+  strict subset of `main`'s 43 (no articles unique to this branch) — so
+  `dashboard.html`/`news_store.json` were resolved by taking `main`'s
+  version outright; the merge's naive line-based union initially left a
+  literal duplicate of the GFA-story URL (this branch's thinner summary
+  alongside `main`'s richer one), fixed by hand, keeping the richer entry.
+  `CLAUDE.md` had no real conflict — `main`'s copy was already a clean
+  subset of this branch's amendment entries. Merged and pushed to this
+  session's branch (not fast-forwarded onto `main` — per this session's own
+  branch policy, pushing to `main` needs explicit permission, unlike the
+  scheduled routine's own Step 6 fast-forward of its own run branch).
+  **Separately**, in the course of asking what MND sources Step 1 actually
+  covers, confirmed MND's newsroom has three sub-sections —
+  `/newsroom/press-releases`, `/newsroom/speeches`, `/newsroom/parliament-matters`
+  — and Step 1 only names and `curl`s **speeches**, unlike BCA/HDB/URA whose
+  press releases it explicitly lists as sources. Press releases hit the same
+  WebFetch/WebSearch blind spot (same client-rendered Next.js app) but the
+  same Directus API technique reaches them with a different `article_type`
+  filter (`bcb1e98c-5a6c-4f76-a93a-6c263b9aecda` vs. speeches'
+  `e45b3aaf-...`) — confirmed via `curl`, returning genuinely relevant,
+  currently-uncovered content (e.g. "Launch of Sites for Purpose-Built
+  Dormitories in 2026-2027," ABSD revisions for en-bloc redevelopments, GLS
+  land-supply updates). Checked whether that dormitory press release was a
+  separate miss: it wasn't — it's the primary source behind the dormitory
+  story already backfilled on 2026-09-12 (same bed counts), so `url`-keyed
+  dedup already has it covered under the Straits Times URL, per the existing
+  "one representative outlet per event" design. **Fix proposed, not yet
+  applied**: add the same curl-listing + per-article-fetch pattern used for
+  speeches, with the press-releases `article_type` filter, same 7–14 day
+  window. Bundled into one combined Step 1 update alongside the still-
+  unapplied Policy/Regulatory query fix from the entry below (both are
+  additive, unconfirmed-pasted Step 1 changes at the time this entry was
+  written, so sending them separately risked one overwriting the other) —
+  sent to the user as a single file to paste in whole.
+
 - **Missing Policy/Regulatory category-seeded query found via a user-run
   coverage test; backfilled and fix proposed for Step 1 (2026-09-22)**: the
   user asked for a manual routine run to test whether a specific story they
