@@ -7,6 +7,55 @@
 
 ## Post-launch amendments
 
+- **Missing Policy/Regulatory category-seeded query found via a user-run
+  coverage test; backfilled and fix proposed for Step 1 (2026-09-22)**: the
+  user asked for a manual routine run to test whether a specific story they
+  had in mind would get picked up. This session's `fire_trigger` call was
+  refused for the same reason as `update_trigger` in the entry below — the
+  routine was created via `http_api`, not by an agent, so only the user can
+  fire it themselves at
+  https://claude.ai/code/routines/trig_01XiwXHr6pxUX42vwhZZ3Qm4. Asked the
+  user which article they meant instead. They pasted the RSS `<item>` for
+  ["URA to review guidelines on floor space to give developers more design
+  flexibility: Chee Hong
+  Tat"](https://www.businesstimes.com.sg/property/ura-review-guidelines-floor-space-give-developers-more-design-flexibility-chee-hong-tat)
+  (Business Times, published Mon 21 Sep 2026, 8:00pm SGT) — Minister Chee
+  Hong Tat announcing URA will review gross floor area (GFA) guidelines to
+  give developers more design flexibility, in response to industry
+  feedback. Confirmed via `news_store.json` this was a genuine miss (not
+  captured under any other URL/outlet), fetched the full article via `curl`
+  (businesstimes.com.sg is NOT WebFetch-blocked the way straitstimes.com
+  is — confirmed reachable, full text readable), and backfilled it directly
+  (category: Policy/Regulatory, per the priority rubric — a regulatory
+  guideline review, not yet an awarded tender), including the same
+  backup-before-write, `news_store.json` + `dashboard.html` update, and
+  live-artifact republish steps a normal run would do (re-read the live
+  artifact first to confirm it still matched the repo's `dashboard.html`
+  byte-for-byte before republishing — it did, unlike the 2026-09-21
+  controls-bar divergence). **Root cause**: Step 1 seeds category-specific
+  queries for safety, sustainability, manpower, disputes, tenders, and new
+  technology/innovation — but has no dedicated Policy/Regulatory query, the
+  same shape of gap as the 2026-09-18 New Technology/Innovation miss (see
+  below). A generic `site:businesstimes.com.sg construction OR "built
+  environment" Singapore` pass doesn't reliably surface a GFA-guideline
+  story since it doesn't mention "construction" and may not read as
+  "built environment" to a search index. Note this specific miss predates
+  the 2026-09-22 Business Times RSS `curl` addition going live (the run
+  that missed it fired at 2026-09-21 23:08 UTC; the RSS fix wasn't pasted
+  in until 07:28 UTC the next morning) — the article is still present in
+  the general BT feed as of this writing, so tonight's run might have
+  caught it via that route alone, but that's incidental (a ~100-item feed
+  window, not a targeted query) and doesn't fix the underlying gap for a
+  Policy/Regulatory story published earlier or covered only by a source
+  outside the BT/ST feeds. **Fix proposed, not yet applied**: add a
+  dedicated Step 1 query, e.g. `Singapore URA OR BCA OR HDB OR MOM
+  construction OR building policy OR guideline OR regulation review`,
+  alongside the existing category seeds — same pattern as the 2026-09-18
+  fix for New Technology/Innovation. Not yet pasted into the live routine
+  (this session still can't write to it directly, per the capability note
+  below) — needs the same "paste in whole" handoff as every other Step 1
+  change in this file.
+
 - **Business Times RSS feed added to Step 1 via `curl`; also confirms this
   session's `update_trigger`/`list_triggers` access still can't write to the
   routine (2026-09-22)**: at the user's request, added
