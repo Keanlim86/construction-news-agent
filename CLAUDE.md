@@ -37,21 +37,38 @@
   WebFetch/WebSearch blind spot (same client-rendered Next.js app) but the
   same Directus API technique reaches them with a different `article_type`
   filter (`bcb1e98c-5a6c-4f76-a93a-6c263b9aecda` vs. speeches'
-  `e45b3aaf-...`) — confirmed via `curl`, returning genuinely relevant,
-  currently-uncovered content (e.g. "Launch of Sites for Purpose-Built
-  Dormitories in 2026-2027," ABSD revisions for en-bloc redevelopments, GLS
-  land-supply updates). Checked whether that dormitory press release was a
-  separate miss: it wasn't — it's the primary source behind the dormitory
-  story already backfilled on 2026-09-12 (same bed counts), so `url`-keyed
-  dedup already has it covered under the Straits Times URL, per the existing
-  "one representative outlet per event" design. **Fix proposed, not yet
-  applied**: add the same curl-listing + per-article-fetch pattern used for
-  speeches, with the press-releases `article_type` filter, same 7–14 day
-  window. Bundled into one combined Step 1 update alongside the still-
-  unapplied Policy/Regulatory query fix from the entry below (both are
-  additive, unconfirmed-pasted Step 1 changes at the time this entry was
-  written, so sending them separately risked one overwriting the other) —
-  sent to the user as a single file to paste in whole.
+  `e45b3aaf-...`) — confirmed via `curl`, returning relevant content (e.g.
+  "Launch of Sites for Purpose-Built Dormitories in 2026-2027," ABSD
+  revisions for en-bloc redevelopments, GLS land-supply updates). Checked
+  whether that dormitory press release was a separate miss: it wasn't —
+  it's the primary source behind the dormitory story already backfilled on
+  2026-09-12 (same bed counts), so `url`-keyed dedup already has it covered
+  under the Straits Times URL, per the existing "one representative outlet
+  per event" design. **Correction, same day**: the user pushed back on
+  whether this is actually a coverage gap, and they're largely right — the
+  dormitory example itself proves it: most genuinely newsworthy MND press
+  releases (ABSD revisions, GLS updates, PBD launches) get mainstream
+  ST/BT/CNA coverage that Step 1 already searches, since MND's press-release
+  text is literally the source journalists write from. The real
+  justification isn't "otherwise-uncovered content," it's **reliability/
+  redundancy against WebSearch's demonstrated unreliability** — the same
+  GFA-guideline story *was* published by Business Times, a source Step 1
+  already searches, and WebSearch still missed it (see the entry below).
+  Fetching MND directly catches the announcement even when that happens,
+  at low added cost; lower-profile administrative releases that never get
+  separate mainstream coverage (agency appointments, minor scheme tweaks)
+  are a secondary benefit, not the main reason. The routine's own prompt
+  text was corrected to say this rather than repeat the dormitory story as
+  an "otherwise-uncovered" example, since by then it was known to be
+  covered. **Fix proposed, not yet applied**: add the same curl-listing +
+  per-article-fetch pattern used for speeches, with the press-releases
+  `article_type` filter, same 7–14 day window. Bundled into one combined
+  Step 1 update alongside the still-unapplied Policy/Regulatory query fix
+  from the entry below (both are additive, unconfirmed-pasted Step 1
+  changes at the time this entry was written, so sending them separately
+  risked one overwriting the other) — sent to the user as a single file to
+  paste in whole, then resent once with the corrected justification text
+  after the user's pushback.
 
 - **Missing Policy/Regulatory category-seeded query found via a user-run
   coverage test; backfilled and fix proposed for Step 1 (2026-09-22)**: the
