@@ -46,8 +46,14 @@
   RSS addition above) was sent to the user as a file to paste in whole, the
   same "paste in whole rather than as a diff" precedent as 2026-09-21's ST
   fix, to avoid losing anything else in the routine's live prompt in the
-  process. **Not yet confirmed pasted in** — unlike prior amendments in this
-  file, which record confirmation after the fact.
+  process. **Confirmed pasted in (2026-09-22)**: after the user said "done,"
+  re-ran `list_triggers` and read the routine's live prompt back directly —
+  unlike every prior amendment in this file, which could only trust the
+  user's word since no session before this one could read the routine back.
+  The live prompt now contains the Business Times `curl` addition verbatim
+  (including "Business Times curl" in the wider-window list), and the
+  routine's `updated_at` timestamp moved to 2026-09-22, confirming the paste
+  took.
 
 - **Correction: the RSS/tag-page `curl` fix wasn't actually live; merged
   with an independently-added MND speeches API fetch and re-applied
