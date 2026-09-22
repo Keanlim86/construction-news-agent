@@ -7,6 +7,48 @@
 
 ## Post-launch amendments
 
+- **Business Times RSS feed added to Step 1 via `curl`; also confirms this
+  session's `update_trigger`/`list_triggers` access still can't write to the
+  routine (2026-09-22)**: at the user's request, added
+  `https://www.businesstimes.com.sg/rss.xml` as a Step 1 source, fetched the
+  same way as the existing Straits Times RSS addition — `curl -sS
+  "https://www.businesstimes.com.sg/rss.xml"`, parsing each `<item>`'s
+  `<title>`, `<link>`, and `<pubDate>` (trusted directly for
+  `date_published`/window filtering). Confirmed reachable via `curl` in this
+  session (`HTTP 200`, real content). This is BT's general site-wide feed —
+  spans opinion, markets, companies, property, not construction-specific —
+  so it's filtered the same as any other source in Step 2, most items
+  discarded, not force-fit into a category. Also added "Business Times curl"
+  to the wider 7–14 day window list alongside "Straits Times curl", per the
+  same precedent. **Side finding worth flagging**: while investigating,
+  `curl -sS "https://www.businesstimes.com.sg/rss/property"` turned out to
+  be a real, separate, well-populated category feed (confirmed via its own
+  `<title>property</title>` and construction/property-relevant items, e.g. a
+  URA floor-space guideline review story) — much more targeted than the
+  general feed the user asked for. Not added here since it wasn't what was
+  asked for; worth considering as a follow-up if the general feed's noise
+  (needing Step 2 to discard most items) turns out to be a problem.
+  **Capability note — this session DOES have `list_triggers`/`update_trigger`
+  tools that reach the persistent routine config directly (via the
+  Claude_Code_Remote MCP connector), which every prior amendment in this file
+  says isn't available** — `list_triggers` successfully read the routine's
+  full live Step 1–6 prompt verbatim (confirming it, not a reconstruction,
+  matched what every amendment below describes as of 2026-09-21). However,
+  `update_trigger` was refused: `"this routine was created via 'http_api',
+  not by an agent. Agents can only update routines they created (via
+  create_trigger)."` So despite the new read access, a repo session still
+  cannot push a routine-prompt edit directly — the routine must still be
+  edited by the user themselves, now via
+  https://claude.ai/code/routines/trig_01XiwXHr6pxUX42vwhZZ3Qm4 (this
+  session's equivalent of "the `schedule` skill / claude.ai/code/routines"
+  in every earlier amendment) rather than reconstructed from memory. The
+  updated full Step 1–6 prompt (current live text plus the Business Times
+  RSS addition above) was sent to the user as a file to paste in whole, the
+  same "paste in whole rather than as a diff" precedent as 2026-09-21's ST
+  fix, to avoid losing anything else in the routine's live prompt in the
+  process. **Not yet confirmed pasted in** — unlike prior amendments in this
+  file, which record confirmation after the fact.
+
 - **Correction: the RSS/tag-page `curl` fix wasn't actually live; merged
   with an independently-added MND speeches API fetch and re-applied
   (2026-09-21)**: the entry below this one claims the Straits Times
