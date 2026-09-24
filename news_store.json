@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-24T07:20:00+08:00",
+  "last_run": "2026-09-25T07:13:43+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -440,6 +440,56 @@
       "summary": "At REDAS' Mid-Autumn Festival lunch, Second Minister for National Development Indranee Rajah announced that from September 2028, Accredited Checkers and AC Organisations undertaking larger, more complex or higher-risk projects will need to demonstrate recent relevant checking/design experience and a good track record, with a two-year transition period and existing contracts unaffected. BCA will also extend AC/ACO/Specialist AC registration and renewal validity from 12 to 36 months from 2028, alongside a new industry-developed Value Articulation Framework to help developers evaluate AC checking proposals beyond fees alone.",
       "date_published": "2026-09-23",
       "date_found": "2026-09-24",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/scaffold-netting-used-in-singapore-must-be-fire-retardant-from-march-2027",
+      "title": "Scaffold netting at new worksites in Singapore must be fire-retardant from March 2027",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "Scaffold netting used at Singapore construction worksites must be fire-retardant for all projects awarded from 1 March 2027, regardless of the scaffold structure's own material, under a new fire-safety requirement for building sites.",
+      "date_published": "2026-09-24",
+      "date_found": "2026-09-25",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.asiaone.com/singapore/berlayar-mount-pleasants-first-bto-hdb-awards",
+      "title": "Police-themed playground, staggered block heights: Berlayar, Mount Pleasant's first BTO project to be recognised at HDB Awards 2026",
+      "source": "AsiaOne",
+      "category": "Media Features/Company News",
+      "summary": "HDB recognised 30 projects with distinctive design and construction approaches at the HDB Awards 2026 ceremony on 24 September, including Berlayar Residences and Mount Pleasant Crest for their Innovative Design Awards. Chip Eng Seng Contractors was recognised for its work on Costa Grove near Sungei Api Api, which reduced construction's impact on surrounding biodiversity and restricted work hours to safeguard local wildlife.",
+      "date_published": "2026-09-24",
+      "date_found": "2026-09-25",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/macpherson-weave-hdb-bto-awards-hi-tek-construction",
+      "title": "From English classes to painting robots: Behind an award-winning HDB BTO project",
+      "source": "The Straits Times",
+      "category": "Media Features/Company News",
+      "summary": "Hi-Tek Construction was recognised at HDB Awards 2026 for its work on the MacPherson Weave BTO project, with coverage highlighting the contractor's migrant-worker welfare initiatives, including English classes, resident engagement, and use of painting robots on site.",
+      "date_published": "2026-09-25",
+      "date_found": "2026-09-25",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/tampines-greenopal-hdb-bto-awards-vico-construction",
+      "title": "Working above an MRT tunnel to deliver flats: Why this S'pore builder earned accolades for its first BTO project",
+      "source": "The Straits Times",
+      "category": "Media Features/Company News",
+      "summary": "Vico Construction was recognised at HDB Awards 2026 for its first BTO project, Tampines GreenOpal, built directly above an active MRT tunnel; the firm used precast construction methods and other measures to overcome a manpower crunch on site.",
+      "date_published": "2026-09-25",
+      "date_found": "2026-09-25",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/garden-bloom-tengah-hdb-bto-awards-chiu-teng-construction",
+      "title": "MRT viaducts overhead, limited space below: How Garden Bloom @ Tengah earned its builder an HDB accolade",
+      "source": "The Straits Times",
+      "category": "Media Features/Company News",
+      "summary": "Chiu Teng Construction was recognised at HDB Awards 2026 for the Garden Bloom @ Tengah BTO project, built under overhead MRT viaducts on a constrained site; the firm re-sequenced works, tightened safety measures and used just-in-time material delivery to stay on schedule.",
+      "date_published": "2026-09-25",
+      "date_found": "2026-09-25",
       "is_new_today": true
     }
   ]
