@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-27T07:30:00+08:00",
+  "last_run": "2026-09-28T07:10:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -510,7 +510,7 @@
       "summary": "Ally Logistic Property and CapitaLand Investment broke ground on OMEGA 1 Singapore, a S$260 million five-storey integrated logistics facility at 19 Gul Lane combining automated storage systems and proprietary software, marking ALP's first OMEGA platform deployment in Singapore. The project targets BCA Green Mark GoldPLUS certification with solar-ready roofing and facade greening, and is expected to complete in H2 2028.",
       "date_published": "2026-09-24",
       "date_found": "2026-09-27",
-      "is_new_today": true
+      "is_new_today": false
     }
   ]
 }
