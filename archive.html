@@ -6,7 +6,10 @@
   /* Layout: same Blueprint Brief masthead/legend/card system as the main dashboard,
      minus NEW badges and the collapse-to-2 behavior (nothing here is "new" --
      everything is here because it aged out), plus an archived-on date per card
-     and a back-link to the live dashboard. */
+     and a back-link to the live dashboard. Content is rendered client-side from
+     news_archive.json, published alongside this page as a data file, so the
+     page itself never needs to be regenerated -- only that file needs updating
+     when something new is archived. */
   :root{
     --bg:#EFF2F1;
     --surface:#FFFFFF;
@@ -190,8 +193,10 @@
     font-variant-numeric:tabular-nums;
     color:var(--ink-faint);
   }
+  .legend[hidden]{display:none;}
 
   section.category{margin-bottom:40px;scroll-margin-top:16px;}
+  section.category[hidden]{display:none;}
   .cat-head{
     display:flex;
     align-items:baseline;
@@ -234,6 +239,7 @@
   .empty-panel p{margin:0 0 8px;}
   .empty-panel p:last-child{margin-bottom:0;}
   .empty-panel a{color:var(--accent-ink);}
+  .empty-panel[hidden], .no-results[hidden]{display:none;}
 
   .search-bar{position:relative;margin-bottom:22px;}
   .search-icon{
@@ -256,6 +262,7 @@
     color:var(--ink);
     box-shadow:var(--shadow);
   }
+  .search-bar input[type="search"]:disabled{opacity:.55;cursor:not-allowed;}
   .search-bar input[type="search"]::placeholder{color:var(--ink-faint);}
   .search-bar input[type="search"]:focus{outline:none;border-color:var(--accent);}
   .search-bar input[type="search"]::-webkit-search-cancel-button{display:none;}
@@ -316,6 +323,7 @@
     background:var(--surface-2);
     border-radius:4px;
     padding:2px 6px;
+    white-space:nowrap;
   }
   article.card h3{
     margin:0 0 6px;
@@ -332,6 +340,16 @@
     color:var(--ink-soft);
     max-width:70ch;
   }
+
+  .load-error{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:22px 20px;
+    color:var(--ink-soft);
+    font-size:13.5px;
+    background:var(--surface);
+  }
+  .load-error[hidden]{display:none;}
 
   footer{
     margin-top:48px;
@@ -362,15 +380,13 @@
       <p class="sub">Permanent record of every story that has aged out of the 90-day active dashboard. Nothing here is ever deleted.</p>
     </div>
     <div class="stat-row">
-      <div class="stat"><span class="n">0</span><span class="l">Archived stories</span></div>
+      <div class="stat"><span class="n" id="statTotal">&mdash;</span><span class="l">Archived stories</span></div>
       <div class="stat"><span class="n">10</span><span class="l">Categories</span></div>
     </div>
   </header>
 
-  <div class="meta-line">
-    <span>Oldest active story: <b>16 Jul 2026</b></span>
-    <span>90-day threshold: <b>~14 Oct 2026</b></span>
-    <span>Last checked: <b>28 Sep 2026</b></span>
+  <div class="meta-line" id="metaLine">
+    <span>Loading archive&hellip;</span>
   </div>
 
   <div class="search-bar">
@@ -379,30 +395,21 @@
     <button type="button" class="search-clear" id="searchClear" hidden aria-label="Clear search">&times;</button>
   </div>
 
-  <nav class="legend" aria-label="Categories" id="legendNav" hidden>
-    <a href="#cat-1"><span class="rank">01</span>Accidents/Workplace Safety<span class="count">0</span></a>
-    <a href="#cat-2"><span class="rank">02</span>Legal &amp; Disputes/Arbitration<span class="count">0</span></a>
-    <a href="#cat-3"><span class="rank">03</span>Policy/Regulatory<span class="count">0</span></a>
-    <a href="#cat-4"><span class="rank">04</span>Project Awards/Tenders<span class="count">0</span></a>
-    <a href="#cat-5"><span class="rank">05</span>Sustainability/Green Building<span class="count">0</span></a>
-    <a href="#cat-6"><span class="rank">06</span>Manpower/Labour<span class="count">0</span></a>
-    <a href="#cat-7"><span class="rank">07</span>New Technology/Innovation<span class="count">0</span></a>
-    <a href="#cat-8"><span class="rank">08</span>Public Feedback/Community<span class="count">0</span></a>
-    <a href="#cat-9"><span class="rank">09</span>Media Features/Company News<span class="count">0</span></a>
-    <a href="#cat-10"><span class="rank">10</span>International/Regional News<span class="count">0</span></a>
-  </nav>
+  <nav class="legend" aria-label="Categories" id="legendNav" hidden></nav>
 
   <main>
     <p class="no-results" id="noResults" hidden>No archived stories match <b>"<span id="noResultsQuery"></span>"</b>.</p>
 
-    <div class="empty-panel" id="emptyState">
-      <p><b>Nothing has aged out yet.</b> Stories move here automatically once they cross 90 days in the active store — the oldest story currently on the dashboard is from 16 July 2026, so the first ones will land here around mid-October 2026.</p>
-      <p>Once <code>news_archive.json</code> has entries, this page fills in with the same category layout and search as the live dashboard, plus an "Archived on" date per story. Meanwhile, every current story is on the <a href="https://claude.ai/artifact/28fUQ9ivgzBMq3DrCXwPQL">live Blueprint Brief dashboard</a>.</p>
+    <div class="empty-panel" id="emptyState" hidden>
+      <p><b>Nothing has aged out yet.</b> Stories move here automatically once they cross 90 days in the active store.</p>
+      <p>Meanwhile, every current story is on the <a href="https://claude.ai/artifact/28fUQ9ivgzBMq3DrCXwPQL">live Blueprint Brief dashboard</a>.</p>
     </div>
 
-    <!-- Regenerated section per category once news_archive.json has entries, same shape as
-         the live dashboard's .cards blocks: one article.card per story, newest-archived-first,
-         with an .archived pill showing archived_on instead of a NEW badge. -->
+    <p class="load-error" id="loadError" hidden>
+      Couldn't load <code>news_archive.json</code> for this page. It may not have been published alongside this artifact yet, or the fetch failed. Every current story is still on the <a href="https://claude.ai/artifact/28fUQ9ivgzBMq3DrCXwPQL">live Blueprint Brief dashboard</a>.
+    </p>
+
+    <div id="categoriesRoot"></div>
   </main>
 
   <footer>
@@ -414,53 +421,163 @@
 
 <script>
 (function(){
+  var CATEGORIES = [
+    "Accidents/Workplace Safety",
+    "Legal & Disputes/Arbitration",
+    "Policy/Regulatory",
+    "Project Awards/Tenders",
+    "Sustainability/Green Building",
+    "Manpower/Labour",
+    "New Technology/Innovation",
+    "Public Feedback/Community",
+    "Media Features/Company News",
+    "International/Regional News"
+  ];
+
+  var statTotal = document.getElementById('statTotal');
+  var metaLine = document.getElementById('metaLine');
+  var legendNav = document.getElementById('legendNav');
+  var categoriesRoot = document.getElementById('categoriesRoot');
+  var emptyState = document.getElementById('emptyState');
+  var loadError = document.getElementById('loadError');
   var input = document.getElementById('searchInput');
   var clearBtn = document.getElementById('searchClear');
   var noResults = document.getElementById('noResults');
   var noResultsQuery = document.getElementById('noResultsQuery');
-  var sections = Array.prototype.slice.call(document.querySelectorAll('main section.category'));
-  var legendLinks = {};
-  Array.prototype.forEach.call(document.querySelectorAll('.legend a[href^="#"]'), function(a){
-    legendLinks[a.getAttribute('href').slice(1)] = a;
-  });
 
-  if (!input) return;
-
-  function norm(s){ return (s || '').toLowerCase(); }
-
-  function applyFilter(){
-    var q = norm(input.value.trim());
-    clearBtn.hidden = q.length === 0;
-    var anySectionVisible = false;
-
-    sections.forEach(function(section){
-      var cards = section.querySelectorAll('article.card');
-      var countEl = section.querySelector('.cat-head .count');
-      var visible = 0;
-      Array.prototype.forEach.call(cards, function(card){
-        var match = q === '' || norm(card.textContent).indexOf(q) !== -1;
-        card.hidden = !match;
-        if (match) visible++;
-      });
-      if (countEl) countEl.textContent = visible + (visible === 1 ? ' story' : ' stories');
-      var showSection = q === '' || visible > 0;
-      section.hidden = !showSection;
-      var legendLink = legendLinks[section.id];
-      if (legendLink) legendLink.hidden = !showSection;
-      if (showSection) anySectionVisible = true;
+  function escapeHtml(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
     });
-
-    if (noResults){
-      noResults.hidden = q === '' || anySectionVisible;
-      if (noResultsQuery) noResultsQuery.textContent = input.value.trim();
-    }
   }
 
-  input.addEventListener('input', applyFilter);
-  clearBtn.addEventListener('click', function(){
-    input.value = '';
-    applyFilter();
-    input.focus();
-  });
+  function formatDate(iso){
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+    if (!m) return iso || '';
+    return m[3] + ' ' + ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(m[2],10)] + ' ' + m[1];
+  }
+
+  function render(articles){
+    if (!articles.length){
+      emptyState.hidden = false;
+      statTotal.textContent = '0';
+      metaLine.innerHTML = '<span>Nothing archived yet</span>';
+      return;
+    }
+
+    statTotal.textContent = String(articles.length);
+
+    var archivedDates = articles.map(function(a){ return a.archived_on; }).filter(Boolean).sort();
+    var oldestArchived = archivedDates[0];
+    var newestArchived = archivedDates[archivedDates.length - 1];
+    metaLine.innerHTML =
+      '<span>Oldest archived: <b>' + escapeHtml(formatDate(oldestArchived)) + '</b></span>' +
+      '<span>Most recently archived: <b>' + escapeHtml(formatDate(newestArchived)) + '</b></span>';
+
+    var byCategory = {};
+    CATEGORIES.forEach(function(c){ byCategory[c] = []; });
+    articles.forEach(function(a){
+      if (!byCategory[a.category]) byCategory[a.category] = [];
+      byCategory[a.category].push(a);
+    });
+
+    var legendHtml = '';
+    var sectionsHtml = '';
+
+    CATEGORIES.forEach(function(cat, idx){
+      var rank = String(idx + 1).padStart(2, '0');
+      var items = byCategory[cat] || [];
+      if (!items.length) return;
+
+      items.sort(function(a, b){
+        return (b.archived_on || '').localeCompare(a.archived_on || '');
+      });
+
+      legendHtml += '<a href="#arc-cat-' + (idx+1) + '"><span class="rank">' + rank + '</span>' +
+        escapeHtml(cat) + '<span class="count">' + items.length + '</span></a>';
+
+      var cardsHtml = items.map(function(a){
+        return '<article class="card">' +
+          '<div class="card-top">' +
+            '<span class="source">' + escapeHtml(a.source) + '</span>' +
+            '<span class="dot">&middot;</span>' +
+            '<span class="date">' + escapeHtml(a.date_published) + '</span>' +
+            '<span class="archived">Archived ' + escapeHtml(formatDate(a.archived_on)) + '</span>' +
+          '</div>' +
+          '<h3><a href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener">' + escapeHtml(a.title) + '</a></h3>' +
+          '<p>' + escapeHtml(a.summary) + '</p>' +
+        '</article>';
+      }).join('');
+
+      sectionsHtml += '<section class="category" id="arc-cat-' + (idx+1) + '">' +
+        '<div class="cat-head"><span class="rank">' + rank + '</span><h2>' + escapeHtml(cat) + '</h2>' +
+        '<span class="count">' + items.length + (items.length === 1 ? ' story' : ' stories') + '</span></div>' +
+        '<div class="cards">' + cardsHtml + '</div>' +
+      '</section>';
+    });
+
+    legendNav.innerHTML = legendHtml;
+    legendNav.hidden = false;
+    categoriesRoot.innerHTML = sectionsHtml;
+
+    input.disabled = false;
+    setupSearch();
+  }
+
+  function setupSearch(){
+    var sections = Array.prototype.slice.call(categoriesRoot.querySelectorAll('section.category'));
+    var legendLinks = {};
+    Array.prototype.forEach.call(legendNav.querySelectorAll('a[href^="#"]'), function(a){
+      legendLinks[a.getAttribute('href').slice(1)] = a;
+    });
+
+    function norm(s){ return (s || '').toLowerCase(); }
+
+    function applyFilter(){
+      var q = norm(input.value.trim());
+      clearBtn.hidden = q.length === 0;
+      var anySectionVisible = false;
+
+      sections.forEach(function(section){
+        var cards = section.querySelectorAll('article.card');
+        var countEl = section.querySelector('.cat-head .count');
+        var visible = 0;
+        Array.prototype.forEach.call(cards, function(card){
+          var match = q === '' || norm(card.textContent).indexOf(q) !== -1;
+          card.hidden = !match;
+          if (match) visible++;
+        });
+        if (countEl) countEl.textContent = visible + (visible === 1 ? ' story' : ' stories');
+        var showSection = q === '' || visible > 0;
+        section.hidden = !showSection;
+        var legendLink = legendLinks[section.id];
+        if (legendLink) legendLink.hidden = !showSection;
+        if (showSection) anySectionVisible = true;
+      });
+
+      noResults.hidden = q === '' || anySectionVisible;
+      noResultsQuery.textContent = input.value.trim();
+    }
+
+    input.addEventListener('input', applyFilter);
+    clearBtn.addEventListener('click', function(){
+      input.value = '';
+      applyFilter();
+      input.focus();
+    });
+  }
+
+  fetch('news_archive.json')
+    .then(function(res){
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(data){
+      render(Array.isArray(data.articles) ? data.articles : []);
+    })
+    .catch(function(){
+      loadError.hidden = false;
+      metaLine.innerHTML = '<span>Archive data unavailable</span>';
+    });
 })();
 </script>

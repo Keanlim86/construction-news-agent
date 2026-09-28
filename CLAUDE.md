@@ -8,12 +8,13 @@
 ## Post-launch amendments
 
 - **Archive browser added as a second published page, linked from a new
-  "Archive" button (2026-09-28)**: the user asked whether `news_archive.json`
-  is searchable anywhere, and whether an "Archive" button could take them to
-  an archive view. It wasn't (the archive file, once it exists, is pure
-  data with nothing reading it), so a second page was built: `archive.html`
-  (repo root), published as its own stable Artifact,
-  [Blueprint Brief Archive](https://claude.ai/artifact/5wVjEVJvDELacJ3DH1NUt5)
+  "Archive" button, redesigned same day to fetch its data live instead of
+  being regenerated each run (2026-09-28)**: the user asked whether
+  `news_archive.json` is searchable anywhere, and whether an "Archive"
+  button could take them to an archive view. It wasn't (the archive file,
+  once it exists, is pure data with nothing reading it), so a second page
+  was built: `archive.html` (repo root), published as its own stable
+  Artifact, [Blueprint Brief Archive](https://claude.ai/artifact/5wVjEVJvDELacJ3DH1NUt5)
   -- reusing the exact same Blueprint Brief token system (colors, Fraunces/
   IBM Plex Sans/Mono type, blueprint-grid background) as `dashboard.html`
   for visual consistency, with the same category legend and keyword search
@@ -28,33 +29,45 @@
   box icon, reused the existing pill-button style already used for the
   today/date controls) was added to `dashboard.html`'s `.controls-bar`,
   linking out to the archive page's stable URL (`target="_blank"`, since
-  external links in an Artifact always open in a new tab regardless). The
-  archive page itself currently ships in its **empty state** -- nothing has
-  crossed the 90-day threshold yet (oldest active story as of 2026-09-28 is
-  from 2026-07-16, so the first entries won't land until mid-October 2026)
-  -- with a designed empty-state panel explaining when it will start
-  populating, plus a back-link to the live dashboard. One thing to do
-  manually: **the new archive Artifact was created private by default**
-  (unlike the main dashboard, which is "Anyone with the link") -- it needs
-  its sharing changed via the page's own Share menu before the dashboard's
-  Archive button actually works for anyone else. **Step 4/5 amendment**:
-  from the first run that actually archives something (i.e. the first run
-  where Step 4 writes to `news_archive.json`), Step 5 must also regenerate
-  `archive.html` from the full `news_archive.json` content -- same category
-  grouping and newest-`archived_on`-first ordering as the live dashboard
-  uses for `date_published`, replacing the empty-state panel with real
-  `.cards` sections -- and republish it via the Artifact tool with
-  `url` set to its stable URL (`https://claude.ai/artifact/5wVjEVJvDELacJ3DH1NUt5`)
-  so that URL never changes. On a run where nothing was archived, skip
-  regenerating/republishing the archive page (no need to touch it every
-  day, only when its content actually changes). Preserve the search bar,
-  category legend, and the archive page's own visual template exactly, the
-  same protection already given to the dashboard's search bar and
-  collapse/toggle chrome. **Fix needed for the routine's own prompt** (not
-  yet applied, same tooling limitation as every other fix in this section):
-  add this Step 4/5 behavior, and name the archive page's stable URL and
-  the "Archive" button as permanent template chrome in CONTEXT/CONSTRAINTS
-  alongside the search bar and controls-bar.
+  external links in an Artifact always open in a new tab regardless). One
+  thing to do manually: **the new archive Artifact was created private by
+  default** (unlike the main dashboard, which is "Anyone with the link")
+  -- it needs its sharing changed via the page's own Share menu before the
+  dashboard's Archive button actually works for anyone else.
+  **Redesigned same day**: the user asked whether the archive page could
+  "pull from the json automatically" without the routine having to publish
+  an HTML regeneration each run. A page's own script can't fetch an
+  external host at all (the Artifact sandbox's CSP blocks fetch/XHR to
+  every host outside the script-only CDN allowlist, GitHub raw content
+  included), so a truly zero-action design isn't possible -- but
+  `archive.html` was rewritten to fetch `news_archive.json` client-side via
+  a **relative URL**, which works because that file is published *alongside*
+  the page in the same Artifact (via the Artifact tool's `files` parameter,
+  not a separate artifact). The page renders its category sections, legend,
+  stats, and search entirely from whatever that JSON currently contains,
+  including its own empty-state and load-error handling -- so
+  **`archive.html` itself never needs to be touched or republished again**.
+  The only ongoing action is publishing the updated `news_archive.json` file
+  into the *existing* archive Artifact (`url` set to its stable URL,
+  `files: {"news_archive.json": "news_archive.json"}`, no `file_path` for
+  the page itself) whenever Step 4 adds something to it -- a one-line data
+  update, not a page regeneration, and the page's own template/markup/script
+  are never regenerated or touched by this. Confirmed working: both
+  `index.html` and `news_archive.json` (44 bytes, the empty
+  `{"schema_version":1,"articles":[]}` skeleton) are published together in
+  the archive Artifact's file listing as of this entry. **Step 4/6
+  amendment for the routine's own prompt** (not yet applied, same tooling
+  limitation as every other fix in this section): on any run where Step 4
+  adds an entry to `news_archive.json`, Step 5's existing dashboard-publish
+  sub-step should also call the Artifact tool once more with `url` set to
+  the archive page's stable URL and `files: {"news_archive.json":
+  "news_archive.json"}` (no `file_path`, since `archive.html` itself is
+  never regenerated) -- on a run where nothing was archived, skip this
+  entirely. Name the archive page's stable URL, the "Archive" button, and
+  this fetch-from-published-file mechanism as permanent template chrome in
+  CONTEXT/CONSTRAINTS alongside the search bar and controls-bar, so a
+  future session doesn't mistake `archive.html` for something that needs
+  day-to-day regeneration the way `dashboard.html` does.
 
 - **Heat stress/climate-adaptation worker technology: no dedicated Step 1
   query, and the miss is only partly fixable by adding one (2026-09-28)**:
