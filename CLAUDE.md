@@ -7,6 +7,54 @@
 
 ## Post-launch amendments
 
+- **Heat stress/climate-adaptation worker technology: no dedicated Step 1
+  query, and the miss is only partly fixable by adding one (2026-09-28)**:
+  the user flagged a Straits Times article, ["Solar-powered air-con,
+  freeze-tech and 'fan-jakketos' among innovative cooling gadgets on the
+  market"](https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market)
+  (published 2026-09-27), that the 2026-09-28 run's ST RSS curl pass had
+  seen in the feed listing but discarded — the headline reads as a
+  consumer/lifestyle gadget roundup, giving no hint of construction
+  relevance. Fetching the full article via curl (WebFetch is still blocked
+  on straitstimes.com) confirmed a genuinely construction-relevant detail
+  buried inside: one of the gadgets, Freeze Tech's moisture-activated
+  cooling inner wear (cools the wearer up to 9 degrees C, 50+ wash cycles),
+  is being trialled by **at least one Singapore construction company with
+  its outdoor workers** — a live heat-stress mitigation tech trial, directly
+  relevant to climate change and to MOM's mandatory heat stress protection
+  measures (already in the store, taking effect December 2026). Backfilled
+  the article into `news_store.json` (category: New Technology/Innovation,
+  consistent with how other worksite-tech-trial stories, e.g. the JTC/Kajima
+  autonomous-machinery trial, are categorised) and republished the
+  dashboard. **Important distinction from every other gap in this section**:
+  this one is not fully closable by adding a Step 1 query the way the data-
+  centre, dormitory, and semiconductor/pharma-plant gaps were. Those were
+  misses because no query existed for the topic at all; this is a single
+  incidental mention inside an article whose own headline and framing are
+  about something else entirely (consumer cooling gadgets), which a
+  keyword/topic search for "construction heat stress" would not reliably
+  have surfaced either (a search for that phrase would not obviously
+  retrieve a "cooling gadgets on the market" roundup). The only way to
+  catch this specific miss reliably would be fetching and reading the full
+  body of every RSS item regardless of headline relevance, which is not
+  practical at the scale of Step 1's ST/BT RSS passes (dozens of items/day
+  each, almost all unrelated). **Partial fix proposed for the routine's own
+  prompt** (not yet applied, same tooling limitation as every other fix
+  here): add a dedicated category-seeded query alongside the existing
+  safety/sustainability/manpower/etc. queries, e.g. `Singapore construction
+  heat stress OR outdoor worker cooling OR heat-resilient wearable OR
+  climate adaptation worksite`, to raise the odds of catching a story where
+  heat-stress/cooling technology for workers *is* the direct subject (not
+  just an incidental mention). This closes the more common failure mode
+  (a story that's actually about worker heat protection) but the user and
+  any future session should expect that a buried single-sentence mention
+  inside an unrelated-looking headline, like this one, can still be missed
+  — that's an inherent tradeoff of search/RSS-title-driven triage, not a
+  bug to be fully engineered away without fetching every candidate's full
+  text (which the routine deliberately does not do, for cost/practicality
+  reasons, except for the JS-blocked MND sources where full-text fetch is
+  the only way to read anything at all).
+
 - **Semiconductor/pharmaceutical/high-tech manufacturing plants: no dedicated
   Step 1 query, gap found and backfilled via a same-day live miss
   (2026-09-28)**: the user asked whether the routine picks up new
