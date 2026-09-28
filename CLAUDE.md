@@ -7,6 +7,47 @@
 
 ## Post-launch amendments
 
+- **Semiconductor/pharmaceutical/high-tech manufacturing plants: no dedicated
+  Step 1 query, gap found and backfilled via a same-day live miss
+  (2026-09-28)**: the user asked whether the routine picks up new
+  semiconductor, pharmaceutical, or high-tech plant openings in Singapore.
+  It does not — confirmed by a live example from the exact day this was
+  asked: [VSMC's grand opening of its first 300mm wafer fab in
+  Tampines](https://www.globenewswire.com/news-release/2026/09/28/3369483/0/en/vsmc-celebrates-the-grand-opening-of-its-first-300mm-fab-in-singapore.html)
+  (VisionPower Semiconductor Manufacturing Company, a JV between Vanguard
+  International Semiconductor Corporation and NXP Semiconductors), which
+  broke ground December 2024, completed a 22-month construction period, and
+  held its grand opening on 2026-09-28 -- the same day's scheduled run had
+  already completed without finding it. This is a real construction-
+  industry project-completion milestone (LEED/BCA Green Mark-certified,
+  ~1,600 jobs) that squarely fits Project Awards/Tenders, but none of
+  Step 1's existing queries would surface it: the watchlist is construction
+  contractors/developers/materials suppliers, not the tech/pharma companies
+  that commission these plants; the generic `site:straitstimes.com
+  construction` pass doesn't reliably catch fab/plant-opening coverage
+  (it's usually framed as a tech or business story, not a construction
+  one, and often runs on trade/industry-press sites like GlobeNewswire or
+  SEMI rather than the mainstream SG outlets Step 1 already searches); and
+  there is no category-seeded query for this the way there now is for data
+  centres or dormitories -- the same shape of gap as those two additions
+  and the New Technology/Innovation miss (see below). Backfilled the VSMC
+  story directly into `news_store.json` (category: Project Awards/Tenders,
+  since a groundbreaking/completion project milestone outranks the
+  Sustainability and New Technology angles it also touches, per the
+  priority rubric) and republished the dashboard. **Fix needed for the
+  routine's own prompt** (not yet applied, per the same tooling limitation
+  as every other fix in this section): add a dedicated Step 1 query
+  alongside the existing data-centre pair, e.g. `Singapore semiconductor
+  fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing
+  facility groundbreaking OR opening OR construction`, with the same wider
+  7-14 day window as the company watchlist and data-centre queries since
+  plant openings are lower-frequency milestone events, not daily news.
+  Route results per the priority rubric like any other candidate (a
+  groundbreaking/completion is Project Awards/Tenders; a safety incident,
+  regulatory story, or community-objection angle about the same facility
+  would outrank it per categories 1-3/8). Apply via the `schedule` skill /
+  claude.ai/code/routines, per the pattern of every other Step 1 fix above.
+
 - **MND speeches/press releases: full-text fetch was being skipped when a
   secondary-source article on the same event was already in the store; fix
   not yet applied to the routine's own prompt (2026-09-28)**: the user
