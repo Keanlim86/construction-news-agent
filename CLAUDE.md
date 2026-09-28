@@ -7,6 +7,55 @@
 
 ## Post-launch amendments
 
+- **Archive browser added as a second published page, linked from a new
+  "Archive" button (2026-09-28)**: the user asked whether `news_archive.json`
+  is searchable anywhere, and whether an "Archive" button could take them to
+  an archive view. It wasn't (the archive file, once it exists, is pure
+  data with nothing reading it), so a second page was built: `archive.html`
+  (repo root), published as its own stable Artifact,
+  [Blueprint Brief Archive](https://claude.ai/artifact/5wVjEVJvDELacJ3DH1NUt5)
+  -- reusing the exact same Blueprint Brief token system (colors, Fraunces/
+  IBM Plex Sans/Mono type, blueprint-grid background) as `dashboard.html`
+  for visual consistency, with the same category legend and keyword search
+  bar, but no NEW badges and no collapse-to-2 behavior (nothing in the
+  archive is "new" -- everything is there because it aged out), and an
+  `.archived` pill showing `archived_on` per card instead. It was kept as a
+  **separate page rather than embedded in the main dashboard** because
+  `news_archive.json` grows without bound (no 90-day cap the way the active
+  store has), so folding it into `dashboard.html` would make that page grow
+  forever too -- a genuine architectural difference from the active store,
+  not just a styling choice. A small `.ctrl-btn` "Archive" button (a filing-
+  box icon, reused the existing pill-button style already used for the
+  today/date controls) was added to `dashboard.html`'s `.controls-bar`,
+  linking out to the archive page's stable URL (`target="_blank"`, since
+  external links in an Artifact always open in a new tab regardless). The
+  archive page itself currently ships in its **empty state** -- nothing has
+  crossed the 90-day threshold yet (oldest active story as of 2026-09-28 is
+  from 2026-07-16, so the first entries won't land until mid-October 2026)
+  -- with a designed empty-state panel explaining when it will start
+  populating, plus a back-link to the live dashboard. One thing to do
+  manually: **the new archive Artifact was created private by default**
+  (unlike the main dashboard, which is "Anyone with the link") -- it needs
+  its sharing changed via the page's own Share menu before the dashboard's
+  Archive button actually works for anyone else. **Step 4/5 amendment**:
+  from the first run that actually archives something (i.e. the first run
+  where Step 4 writes to `news_archive.json`), Step 5 must also regenerate
+  `archive.html` from the full `news_archive.json` content -- same category
+  grouping and newest-`archived_on`-first ordering as the live dashboard
+  uses for `date_published`, replacing the empty-state panel with real
+  `.cards` sections -- and republish it via the Artifact tool with
+  `url` set to its stable URL (`https://claude.ai/artifact/5wVjEVJvDELacJ3DH1NUt5`)
+  so that URL never changes. On a run where nothing was archived, skip
+  regenerating/republishing the archive page (no need to touch it every
+  day, only when its content actually changes). Preserve the search bar,
+  category legend, and the archive page's own visual template exactly, the
+  same protection already given to the dashboard's search bar and
+  collapse/toggle chrome. **Fix needed for the routine's own prompt** (not
+  yet applied, same tooling limitation as every other fix in this section):
+  add this Step 4/5 behavior, and name the archive page's stable URL and
+  the "Archive" button as permanent template chrome in CONTEXT/CONSTRAINTS
+  alongside the search bar and controls-bar.
+
 - **Heat stress/climate-adaptation worker technology: no dedicated Step 1
   query, and the miss is only partly fixable by adding one (2026-09-28)**:
   the user flagged a Straits Times article, ["Solar-powered air-con,

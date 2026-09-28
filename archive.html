@@ -1,0 +1,466 @@
+<title>Blueprint Brief Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  /* Layout: same Blueprint Brief masthead/legend/card system as the main dashboard,
+     minus NEW badges and the collapse-to-2 behavior (nothing here is "new" --
+     everything is here because it aged out), plus an archived-on date per card
+     and a back-link to the live dashboard. */
+  :root{
+    --bg:#EFF2F1;
+    --surface:#FFFFFF;
+    --surface-2:#E4E9E7;
+    --ink:#16232A;
+    --ink-soft:#4B5D63;
+    --ink-faint:#7C8B90;
+    --border:#D2DAD8;
+    --accent:#0B5FA5;
+    --accent-ink:#0B5FA5;
+    --accent-soft:#DCEAF6;
+    --grid-line:rgba(11,95,165,0.07);
+    --shadow: 0 1px 2px rgba(22,35,42,0.06);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E161D;
+      --surface:#151F27;
+      --surface-2:#1B2733;
+      --ink:#E8EEF2;
+      --ink-soft:#9FB0B8;
+      --ink-faint:#71838B;
+      --border:#28343F;
+      --accent:#6BB0E8;
+      --accent-ink:#8FC4EE;
+      --accent-soft:#16324A;
+      --grid-line:rgba(107,176,232,0.08);
+      --shadow: 0 1px 2px rgba(0,0,0,0.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E161D;
+    --surface:#151F27;
+    --surface-2:#1B2733;
+    --ink:#E8EEF2;
+    --ink-soft:#9FB0B8;
+    --ink-faint:#71838B;
+    --border:#28343F;
+    --accent:#6BB0E8;
+    --accent-ink:#8FC4EE;
+    --accent-soft:#16324A;
+    --grid-line:rgba(107,176,232,0.08);
+    --shadow: 0 1px 2px rgba(0,0,0,0.4);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{text-wrap:balance;}
+  .wrap{max-width:1040px;margin:0 auto;padding:28px 24px 80px;}
+
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    margin-bottom:18px;
+  }
+  .back-link:hover{color:var(--accent-ink);}
+  .back-link svg{width:12px;height:12px;}
+
+  header.masthead{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    justify-content:space-between;
+    align-items:flex-end;
+    padding-bottom:22px;
+    margin-bottom:24px;
+    border-bottom:2px solid var(--ink);
+  }
+  .title-block h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:700;
+    font-size:clamp(28px,4.5vw,40px);
+    line-height:1.02;
+    margin:6px 0 8px;
+    color:var(--ink);
+  }
+  .title-block p.sub{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:15px;
+    max-width:50ch;
+  }
+  .stat-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .stat{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:10px 16px;
+    min-width:104px;
+    box-shadow:var(--shadow);
+  }
+  .stat .n{
+    font-family:"IBM Plex Mono",monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:24px;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1;
+  }
+  .stat .l{
+    display:block;
+    margin-top:5px;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+
+  .meta-line{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 18px;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-bottom:28px;
+  }
+  .meta-line b{color:var(--ink);font-weight:600;}
+
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:36px;
+  }
+  .legend a{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    text-decoration:none;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:6px 12px 6px 8px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .legend a:hover, .legend a:focus-visible{
+    border-color:var(--accent);
+    color:var(--ink);
+    outline:none;
+  }
+  .legend .rank{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:10.5px;
+    font-weight:600;
+    color:var(--surface);
+    background:var(--ink-soft);
+    border-radius:999px;
+    width:18px;height:18px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .legend .count{
+    font-family:"IBM Plex Mono",monospace;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink-faint);
+  }
+
+  section.category{margin-bottom:40px;scroll-margin-top:16px;}
+  .cat-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    padding-bottom:10px;
+    margin-bottom:16px;
+    border-bottom:1px solid var(--border);
+  }
+  .cat-head .rank{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:13px;
+    font-weight:600;
+    color:var(--accent-ink);
+  }
+  .cat-head h2{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    font-size:21px;
+    margin:0;
+    color:var(--ink);
+  }
+  .cat-head .count{
+    margin-left:auto;
+    font-family:"IBM Plex Mono",monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:12.5px;
+    color:var(--ink-faint);
+  }
+
+  .empty-panel, .no-results{
+    border:1px dashed var(--border);
+    border-radius:8px;
+    padding:22px 20px;
+    color:var(--ink-faint);
+    font-size:13.5px;
+    background:var(--surface);
+  }
+  .no-results{margin-bottom:28px;}
+  .no-results b{color:var(--ink);font-weight:600;}
+  .empty-panel p{margin:0 0 8px;}
+  .empty-panel p:last-child{margin-bottom:0;}
+  .empty-panel a{color:var(--accent-ink);}
+
+  .search-bar{position:relative;margin-bottom:22px;}
+  .search-icon{
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    width:16px;height:16px;
+    color:var(--ink-faint);
+    pointer-events:none;
+  }
+  .search-bar input[type="search"]{
+    width:100%;
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    font-size:14px;
+    padding:11px 40px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:var(--surface);
+    color:var(--ink);
+    box-shadow:var(--shadow);
+  }
+  .search-bar input[type="search"]::placeholder{color:var(--ink-faint);}
+  .search-bar input[type="search"]:focus{outline:none;border-color:var(--accent);}
+  .search-bar input[type="search"]::-webkit-search-cancel-button{display:none;}
+  .search-clear{
+    position:absolute;
+    right:8px;
+    top:50%;
+    transform:translateY(-50%);
+    width:24px;height:24px;
+    border:none;
+    border-radius:999px;
+    background:var(--surface-2);
+    color:var(--ink-soft);
+    font-family:inherit;
+    font-size:15px;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .search-clear:hover{background:var(--border);color:var(--ink);}
+  .search-clear:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+  .search-clear[hidden], .legend a[hidden]{display:none;}
+
+  .cards{display:flex;flex-direction:column;gap:10px;}
+  article.card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-left:3px solid var(--surface-2);
+    border-radius:6px;
+    padding:14px 16px;
+    box-shadow:var(--shadow);
+  }
+  .card-top{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .card-top .source{
+    font-size:12px;
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  .card-top .dot{color:var(--ink-faint);}
+  .card-top .date{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+    font-variant-numeric:tabular-nums;
+  }
+  .card-top .archived{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;
+    color:var(--ink-faint);
+    background:var(--surface-2);
+    border-radius:4px;
+    padding:2px 6px;
+  }
+  article.card h3{
+    margin:0 0 6px;
+    font-size:16px;
+    font-weight:600;
+    line-height:1.35;
+  }
+  article.card h3 a{color:var(--ink);text-decoration:none;}
+  article.card h3 a:hover{color:var(--accent-ink);text-decoration:underline;}
+  article.card p{
+    margin:0;
+    font-size:13.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    max-width:70ch;
+  }
+
+  footer{
+    margin-top:48px;
+    padding-top:18px;
+    border-top:1px solid var(--border);
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;
+    color:var(--ink-faint);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  footer a{color:var(--ink-faint);}
+</style>
+
+<div class="wrap">
+
+  <a class="back-link" href="https://claude.ai/artifact/28fUQ9ivgzBMq3DrCXwPQL">
+    <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M7.5 2.5L3 6l4.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to Blueprint Brief
+  </a>
+
+  <header class="masthead">
+    <div class="title-block">
+      <span class="eyebrow">Singapore &middot; Built Environment &middot; Archive</span>
+      <h1>Blueprint Brief Archive</h1>
+      <p class="sub">Permanent record of every story that has aged out of the 90-day active dashboard. Nothing here is ever deleted.</p>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><span class="n">0</span><span class="l">Archived stories</span></div>
+      <div class="stat"><span class="n">10</span><span class="l">Categories</span></div>
+    </div>
+  </header>
+
+  <div class="meta-line">
+    <span>Oldest active story: <b>16 Jul 2026</b></span>
+    <span>90-day threshold: <b>~14 Oct 2026</b></span>
+    <span>Last checked: <b>28 Sep 2026</b></span>
+  </div>
+
+  <div class="search-bar">
+    <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M13.61 12.2h-.71l-.25-.25a5.72 5.72 0 1 0-.62.62l.25.25v.71l4.4 4.39 1.31-1.31-4.38-4.41Zm-5.28 0a3.96 3.96 0 1 1 0-7.92 3.96 3.96 0 0 1 0 7.92Z" fill="currentColor"/></svg>
+    <input type="search" id="searchInput" placeholder="Search archived stories by keyword, source, or category…" aria-label="Search archived stories" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" disabled>
+    <button type="button" class="search-clear" id="searchClear" hidden aria-label="Clear search">&times;</button>
+  </div>
+
+  <nav class="legend" aria-label="Categories" id="legendNav" hidden>
+    <a href="#cat-1"><span class="rank">01</span>Accidents/Workplace Safety<span class="count">0</span></a>
+    <a href="#cat-2"><span class="rank">02</span>Legal &amp; Disputes/Arbitration<span class="count">0</span></a>
+    <a href="#cat-3"><span class="rank">03</span>Policy/Regulatory<span class="count">0</span></a>
+    <a href="#cat-4"><span class="rank">04</span>Project Awards/Tenders<span class="count">0</span></a>
+    <a href="#cat-5"><span class="rank">05</span>Sustainability/Green Building<span class="count">0</span></a>
+    <a href="#cat-6"><span class="rank">06</span>Manpower/Labour<span class="count">0</span></a>
+    <a href="#cat-7"><span class="rank">07</span>New Technology/Innovation<span class="count">0</span></a>
+    <a href="#cat-8"><span class="rank">08</span>Public Feedback/Community<span class="count">0</span></a>
+    <a href="#cat-9"><span class="rank">09</span>Media Features/Company News<span class="count">0</span></a>
+    <a href="#cat-10"><span class="rank">10</span>International/Regional News<span class="count">0</span></a>
+  </nav>
+
+  <main>
+    <p class="no-results" id="noResults" hidden>No archived stories match <b>"<span id="noResultsQuery"></span>"</b>.</p>
+
+    <div class="empty-panel" id="emptyState">
+      <p><b>Nothing has aged out yet.</b> Stories move here automatically once they cross 90 days in the active store — the oldest story currently on the dashboard is from 16 July 2026, so the first ones will land here around mid-October 2026.</p>
+      <p>Once <code>news_archive.json</code> has entries, this page fills in with the same category layout and search as the live dashboard, plus an "Archived on" date per story. Meanwhile, every current story is on the <a href="https://claude.ai/artifact/28fUQ9ivgzBMq3DrCXwPQL">live Blueprint Brief dashboard</a>.</p>
+    </div>
+
+    <!-- Regenerated section per category once news_archive.json has entries, same shape as
+         the live dashboard's .cards blocks: one article.card per story, newest-archived-first,
+         with an .archived pill showing archived_on instead of a NEW badge. -->
+  </main>
+
+  <footer>
+    <span>Source: news_archive.json &middot; append-only, nothing is ever removed</span>
+    <span>Part of <a href="https://claude.ai/artifact/28fUQ9ivgzBMq3DrCXwPQL">Blueprint Brief</a></span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var input = document.getElementById('searchInput');
+  var clearBtn = document.getElementById('searchClear');
+  var noResults = document.getElementById('noResults');
+  var noResultsQuery = document.getElementById('noResultsQuery');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section.category'));
+  var legendLinks = {};
+  Array.prototype.forEach.call(document.querySelectorAll('.legend a[href^="#"]'), function(a){
+    legendLinks[a.getAttribute('href').slice(1)] = a;
+  });
+
+  if (!input) return;
+
+  function norm(s){ return (s || '').toLowerCase(); }
+
+  function applyFilter(){
+    var q = norm(input.value.trim());
+    clearBtn.hidden = q.length === 0;
+    var anySectionVisible = false;
+
+    sections.forEach(function(section){
+      var cards = section.querySelectorAll('article.card');
+      var countEl = section.querySelector('.cat-head .count');
+      var visible = 0;
+      Array.prototype.forEach.call(cards, function(card){
+        var match = q === '' || norm(card.textContent).indexOf(q) !== -1;
+        card.hidden = !match;
+        if (match) visible++;
+      });
+      if (countEl) countEl.textContent = visible + (visible === 1 ? ' story' : ' stories');
+      var showSection = q === '' || visible > 0;
+      section.hidden = !showSection;
+      var legendLink = legendLinks[section.id];
+      if (legendLink) legendLink.hidden = !showSection;
+      if (showSection) anySectionVisible = true;
+    });
+
+    if (noResults){
+      noResults.hidden = q === '' || anySectionVisible;
+      if (noResultsQuery) noResultsQuery.textContent = input.value.trim();
+    }
+  }
+
+  input.addEventListener('input', applyFilter);
+  clearBtn.addEventListener('click', function(){
+    input.value = '';
+    applyFilter();
+    input.focus();
+  });
+})();
+</script>
