@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-29T07:10:00+08:00",
+  "last_run": "2026-09-28T07:10:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -520,7 +520,7 @@
       "summary": "At the HDB Awards Ceremony 2026, Minister Chee Hong Tat gave fuller detail on two productivity technologies being scaled up at BTO sites from 2027: the Smart Passenger and Material Hoist, which uses LiDAR and anti-pinch sensors to operate without a dedicated operator so one worker can supervise up to three hoists, and screeding robots that automate floor-levelling; he said HDB has been asked to work towards deploying both at all new BTO sites, beyond the initially announced roughly 50%. He also highlighted the Shortened Time for Completion Scheme (STCS), which lets contractors propose innovative construction methods and technologies and factor the added cost into their tender bids for HDB to assess.",
       "date_published": "2026-09-25",
       "date_found": "2026-09-28",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.globenewswire.com/news-release/2026/09/28/3369483/0/en/vsmc-celebrates-the-grand-opening-of-its-first-300mm-fab-in-singapore.html",
@@ -530,7 +530,7 @@
       "summary": "VSMC (VisionPower Semiconductor Manufacturing Company), a joint venture between Vanguard International Semiconductor Corporation and NXP Semiconductors, held the grand opening of its first 300mm (12-inch) wafer fab in Tampines on 28 September 2026, after a 22-month construction period that began with groundbreaking in December 2024. The LEED- and BCA Green Mark-certified, fully automated smart facility is now in risk production with yields exceeding 99%, targeting volume production in Q1 2027 and full capacity of about 44,000 wafers per month by 2029, creating roughly 1,600 jobs.",
       "date_published": "2026-09-28",
       "date_found": "2026-09-28",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market",
@@ -540,7 +540,7 @@
       "summary": "A Straits Times roundup of innovative cooling gadgets includes Freeze Tech's cooling inner wear, a moisture/perspiration-activated fabric that can cool the wearer by up to 9 degrees C and withstands more than 50 wash cycles; the article notes at least one Singapore construction company is trialling this cooling inner wear with its outdoor workers. The trial is a heat-stress mitigation technology relevant to the sector as it prepares for MOM's mandatory heat stress protection measures taking effect December 2026.",
       "date_published": "2026-09-27",
       "date_found": "2026-09-28",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.tipranks.com/news/company-announcements/koh-brothers-eco-flags-arbitration-exposure-of-up-to-s20-5m",
@@ -550,46 +550,6 @@
       "summary": "Koh Brothers Eco Engineering's subsidiary Koh Brothers Building & Civil Engineering Contractor is in arbitration with a joint venture partner over a construction project; tribunals have valued the partner's counterclaims at about S$20.5 million plus related costs of more than S$5.1 million and US$4.1 million. The company's High Court applications to set aside the subcontract arbitration awards were dismissed, more than S$40 million remains held in the joint venture account pending distribution, and the partner is seeking a final payment order -- The Straits Times reported the aggregate potential exposure at nearly S$57.6 million. Koh Brothers Eco is assessing the impact on its results for the year ending 31 December 2026.",
       "date_published": "2026-08-18",
       "date_found": "2026-09-28",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/worker-dies-after-falling-from-height-at-bto-construction-site-at-tanjong-rhu-road",
-      "title": "Worker dies after falling from height at BTO construction site in Tanjong Rhu Road",
-      "source": "The Straits Times",
-      "category": "Accidents/Workplace Safety",
-      "summary": "A worker died after falling from height while concreting works were being carried out at the Tanjong Rhu Riverfront II BTO worksite in Kallang on 28 September 2026. HDB said all works on site have been suspended and it is working with contractor BHCC Construction Singapore and the authorities on the investigation.",
-      "date_published": "2026-09-28",
-      "date_found": "2026-09-29",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/environment/pacificlight-power-begins-work-on-spores-first-gas-power-plant-that-comes-with-battery-storage",
-      "title": "PacificLight Power begins work on S'pore's first gas power plant that comes with battery storage",
-      "source": "The Straits Times",
-      "category": "Project Awards/Tenders",
-      "summary": "PacificLight Power held a ground-breaking ceremony on 28 September 2026 for a $1.2 billion, 670MW gas-fired power plant on Jurong Island -- Singapore's first such facility paired with battery storage -- being built by Mitsubishi Power and Jurong Engineering Limited and due to begin operations in 2029.",
-      "date_published": "2026-09-28",
-      "date_found": "2026-09-29",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/companies-markets/cdl-invest-s5-billion-target-s6-billion-divestments-under-refreshed-strategy",
-      "title": "CDL to invest S$5 billion, target S$6 billion in divestments under refreshed strategy",
-      "source": "The Business Times",
-      "category": "Media Features/Company News",
-      "summary": "City Developments Ltd unveiled a “GET+” strategic road map on 28 September 2026 to deploy S$5 billion in growth capital (60% earmarked for Singapore) and target S$6 billion in divestments across its portfolio by FY2029, including S$1.8 billion of hotel-property divestments from its 165-hotel global portfolio.",
-      "date_published": "2026-09-28",
-      "date_found": "2026-09-29",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/international/vietnams-data-centre-investment-rush-faces-reality-check-power-and-site-constraints",
-      "title": "Vietnam's data-centre investment rush faces reality check on power and site constraints",
-      "source": "The Business Times",
-      "category": "International/Regional News",
-      "summary": "Singapore-based STTGDC (formerly ST Telemedia Global Data Centres, recently acquired by a KKR-Singtel consortium) pulled out of a planned 60MW Ho Chi Minh City data centre project and sold its stake to joint venture partner VNG, citing unsuitable long-term land tenure, amid a separate electricity-tariff dispute between major Vietnamese tech groups and the state utility that has raised data-centre power costs by more than 50%.",
-      "date_published": "2026-09-28",
-      "date_found": "2026-09-29",
       "is_new_today": true
     }
   ]
