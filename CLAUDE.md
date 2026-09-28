@@ -7,6 +7,50 @@
 
 ## Post-launch amendments
 
+- **MND speeches/press releases: full-text fetch was being skipped when a
+  secondary-source article on the same event was already in the store; fix
+  not yet applied to the routine's own prompt (2026-09-28)**: the user
+  pointed out that the [2026-09-25 speech by Minister Chee Hong Tat at the
+  HDB Awards Ceremony](https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-hdb-awards-ceremony-2026)
+  contains real detail — the Smart Passenger and Material Hoist's LiDAR/
+  anti-pinch sensors and one-worker-supervises-three-hoists ratio, HDB
+  being asked to eventually deploy both hoists and screeding robots at
+  *all* new BTO sites (not just the ~50% figure that made it into
+  coverage), and a distinct initiative (the Shortened Time for Completion
+  Scheme, STCS) — none of which made it into `news_store.json`. The
+  2026-09-26 run *had* found the HDB Awards Ceremony story, but only via a
+  Straits Times article about it, not by fetching the MND speech's own
+  full text through the curl-based API technique Step 1 already specifies
+  for MND sources. Root cause: Step 1's "fetch full text for any
+  construction/built-environment-relevant title" instruction was getting
+  short-circuited by topic-level "already covered" reasoning — i.e.
+  treating the MND speech as redundant because a same-event story from
+  another outlet was already in the store, even though `known_urls` dedup
+  is meant to be strictly URL-based, and the MND speech is a distinct URL
+  that can (and here did) carry materially more detail than a derivative
+  news article. Backfilled the missed detail as its own store entry
+  (same URL-distinct-primary-source pattern already used for the LTA/
+  AsiaOne North-South Corridor pair and the Indranee Rajah REDAS speech
+  entry) and republished the dashboard. **Fix needed for the routine's own
+  prompt** (not yet applied, since this session has no tool that reaches
+  the persistent routine config — confirmed again this session: the
+  `CronCreate`/`CronList` tools available here are a separate, session-only,
+  in-memory scheduler, not connected to the actual `construction-news-agent`
+  trigger): add to Step 1, immediately after the MND speeches/press-releases
+  curl instructions, something like — "Fetch full text for any MND
+  speech or press release whose title looks construction/built-environment
+  -relevant regardless of whether a same-event story from another outlet
+  is already in news_store.json or already found this run — the URL-based
+  known_urls dedup check only rules out an exact URL you've already stored,
+  never a topic or event you've already covered from a different source.
+  If the MND primary source turns out to add no material fact beyond what's
+  already stored, skip it as usual; if it adds specifics (numbers, named
+  schemes, technical detail) the secondary-source article didn't carry, add
+  it as its own entry with its own MND URL, the same way a related LTA
+  press release and news article about it can both stand as separate
+  entries." Apply via the `schedule` skill / claude.ai/code/routines, per
+  the pattern of every other Step 1 fix above.
+
 - **Correction: the RSS/tag-page `curl` fix wasn't actually live; merged
   with an independently-added MND speeches API fetch and re-applied
   (2026-09-21)**: the entry below this one claims the Straits Times
