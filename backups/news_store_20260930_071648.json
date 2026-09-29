@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-30T07:10:00+08:00",
+  "last_run": "2026-09-29T07:10:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -557,10 +557,10 @@
       "title": "Worker dies after falling from height at BTO construction site in Tanjong Rhu Road",
       "source": "The Straits Times",
       "category": "Accidents/Workplace Safety",
-      "summary": "A 22-year-old worker employed by subcontractor Ann Yu Construction died after falling from about the 12th floor while concreting works using a mobile concrete pump truck were carried out at the Tanjong Rhu Riverfront II BTO worksite in Kallang on 28 September 2026. HDB suspended all works on site and MOM ordered main contractor BHCC Construction Singapore to cease concrete-casting operations using the mobile pump pending investigation.",
+      "summary": "A worker died after falling from height while concreting works were being carried out at the Tanjong Rhu Riverfront II BTO worksite in Kallang on 28 September 2026. HDB said all works on site have been suspended and it is working with contractor BHCC Construction Singapore and the authorities on the investigation.",
       "date_published": "2026-09-28",
       "date_found": "2026-09-29",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.straitstimes.com/singapore/environment/pacificlight-power-begins-work-on-spores-first-gas-power-plant-that-comes-with-battery-storage",
@@ -570,7 +570,7 @@
       "summary": "PacificLight Power held a ground-breaking ceremony on 28 September 2026 for a $1.2 billion, 670MW gas-fired power plant on Jurong Island -- Singapore's first such facility paired with battery storage -- being built by Mitsubishi Power and Jurong Engineering Limited and due to begin operations in 2029.",
       "date_published": "2026-09-28",
       "date_found": "2026-09-29",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.businesstimes.com.sg/companies-markets/cdl-invest-s5-billion-target-s6-billion-divestments-under-refreshed-strategy",
@@ -580,7 +580,7 @@
       "summary": "City Developments Ltd unveiled a “GET+” strategic road map on 28 September 2026 to deploy S$5 billion in growth capital (60% earmarked for Singapore) and target S$6 billion in divestments across its portfolio by FY2029, including S$1.8 billion of hotel-property divestments from its 165-hotel global portfolio.",
       "date_published": "2026-09-28",
       "date_found": "2026-09-29",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.businesstimes.com.sg/international/vietnams-data-centre-investment-rush-faces-reality-check-power-and-site-constraints",
@@ -590,46 +590,6 @@
       "summary": "Singapore-based STTGDC (formerly ST Telemedia Global Data Centres, recently acquired by a KKR-Singtel consortium) pulled out of a planned 60MW Ho Chi Minh City data centre project and sold its stake to joint venture partner VNG, citing unsuitable long-term land tenure, amid a separate electricity-tariff dispute between major Vietnamese tech groups and the state utility that has raised data-centre power costs by more than 50%.",
       "date_published": "2026-09-28",
       "date_found": "2026-09-29",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/housing/east-coast-road-serangoon-north-view-private-housing-sites-launched-for-sale",
-      "title": "East Coast Road, Serangoon North View private housing sites launched for sale",
-      "source": "The Straits Times",
-      "category": "Project Awards/Tenders",
-      "summary": "URA released two residential Government Land Sales sites on 29 September 2026: a 5,503 sq m confirmed-list plot at East Coast Road (max GFA 8,805 sq m, up to 85 units, the first residential GLS site in the Siglap area in a decade) and an 8,085.9 sq m reserve-list plot at Serangoon North View beside The Garden Residences (max GFA 20,214 sq m, up to 235 units).",
-      "date_published": "2026-09-29",
-      "date_found": "2026-09-30",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/property/sydney-data-centre-plan-scrapped-developer-after-community-backlash",
-      "title": "Sydney data centre plan scrapped by developer after community backlash",
-      "source": "The Business Times (Bloomberg)",
-      "category": "International/Regional News",
-      "summary": "Australian developer Goodman Group withdrew its application for the A$1.2 billion (US$842 million) \"Project Mars\" 24-hour data centre on Sydney's north shore in Lane Cove, citing evolving federal/state policy and community feedback, after the plan -- sited about 20m from the nearest home and 160m from a school -- drew criticism from residents and activists. The withdrawal follows Victoria state's recent ban on new data centres in residential areas.",
-      "date_published": "2026-09-29",
-      "date_found": "2026-09-30",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/companies-markets/fire-protection-specialist-deluge-corp-files-preliminary-prospectus-mainboard-ipo",
-      "title": "Fire protection specialist Deluge Corp files preliminary prospectus for mainboard IPO",
-      "source": "The Business Times",
-      "category": "Media Features/Company News",
-      "summary": "Deluge Corp, established in 1983, lodged a preliminary prospectus on 29 September 2026 to list on the SGX mainboard, with an order book of about S$433 million as at 16 September; it is one of eight contractors holding BCA's highest ME06 (Fire Prevention & Protection Systems) L6 grade, which carries no tender value limit for public-sector projects, and Frost & Sullivan ranked it Singapore's largest fire detection and protection player in 2025 with an 8.3% market share. Its projects span transport, healthcare, aviation, commercial and residential buildings, data centres, and offshore and marine.",
-      "date_published": "2026-09-29",
-      "date_found": "2026-09-30",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-singapore-corporate-awards-2026",
-      "title": "Minister Chee Hong Tat details CORENET X results, Kit-of-Parts approval pathway, and end to overseas testing for work permit holders at Singapore Corporate Awards 2026",
-      "source": "Ministry of National Development (speech)",
-      "category": "Policy/Regulatory",
-      "summary": "At the Singapore Corporate Awards 2026, Minister Chee Hong Tat said the CORENET X digital regulatory platform -- mandatory since October 2025 for projects above 30,000 sq m GFA -- has taken submissions from over 140 projects and 300 firms with time savings of up to two months, with Norwood Grand, the first project to obtain its Temporary Occupation Permit under the platform, saving an estimated six to nine months from land award to TOP; he also announced that from January 2027 the overseas testing requirement for new construction work permit holders will be progressively removed, alongside a new \"Kit-of-Parts\" approval pathway letting developers reuse standardised precast designs across projects and a Whole-of-Government Virtual Inspection process using 360-degree scans. He credited BRC Asia chief executive and Prefabrication Association president Seah Kiin Peng's proposal for the previously-reported rebar testing streamlining initiative.",
-      "date_published": "2026-09-21",
-      "date_found": "2026-09-30",
       "is_new_today": true
     }
   ]
