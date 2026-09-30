@@ -247,22 +247,20 @@ store/dashboard; send a failure notification.
 
 ## Usage tracking
 
-Routine `construction-news-usage-tracker` (`trig_01Lh6Rj6Krt4jvvBfqiZgC2j`,
-Haiku, daily 08:28 SGT, fresh session per fire) reads the news routine's
-`last_run` session usage via `list_triggers` + `get_session`, and appends one
-row to `usage_log.csv` (date, session, model, status, minutes, input/output/
-cache-read/cache-write tokens, cost_usd), committed straight to `main`. It
-runs separately because the news routine has no Claude_Code_Remote connector
-and can't read its own usage. Only the *latest* run is queryable, so a missed
-day can't be backfilled. `cost_usd` is the session's API-price estimate, and
-it includes any chat someone adds to the run session afterwards. Baseline
-(2026-09-30 run): ~630k input+output, 32.7M cache-read tokens, ~US$11.34;
-cache reads dominate, driven by the number of tool calls per run.
-**Setup status**: the tracker needs the Claude_Code_Remote connector (for
-`list_triggers`, `get_session`, `add_repo`). Routines created from a session
-store no connectors, and its first test run (2026-09-30) had none and logged
-nothing. Add the connector to the routine at claude.ai/code/routines. Until
-then it no-ops daily (~US$0.07/run).
+`usage_log.csv` on `main` gets one row per news run (date SGT, session,
+model, status, minutes, input/output/cache-read/cache-write tokens,
+cost_usd). Routine `trig_01Vzfi9dhD5qEv9P1hpiWnHC` fires daily at 08:28 SGT
+into the Claude Code session `session_013SQdqtsQ271QY1mhrqqaBV`, which holds
+the Claude_Code_Remote tools. It reads the news routine's `last_run` via
+`get_trigger`/`get_session` and pushes the row to `main` from a detached
+worktree. A standalone routine can't do this: routines on this account
+never get the Claude_Code_Remote connector (tested 2026-09-30, both
+session-created and UI-created), and the news routine can't read its own
+usage. Only the *latest* run is queryable, so a missed day can't be
+backfilled. `cost_usd` is the session's API-price estimate and includes any
+chat added to the run session afterwards. Baseline (2026-09-30 run):
+~630k input+output and 32.7M cache-read tokens, ~US$11.34. Cache reads
+dominate, driven by the number of tool calls per run.
 
 ## Source quirks (learned the hard way)
 
