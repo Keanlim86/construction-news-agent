@@ -262,11 +262,13 @@ store/dashboard; send a failure notification.
 - **JS-rendered sites** (MND): use the underlying API, not the page.
 - **Title-driven triage** misses construction detail buried in unrelated
   headlines; accepted tradeoff.
-- **Stripped characters in the pasted prompt (found 2026-09-30)**: the live
-  prompt's MND commands had lost their `_` and `*` (`filter[and][0][status][eq]`,
-  `fields=,title.`), and that form makes MND's API return an error page, so
-  the routine's MND fetch was probably failing silently. Now handled by
-  `fetch_sources.py`; keep exact command syntax in scripts, not in the prompt.
+- **Prompt display vs stored text**: the trigger listing shows the prompt
+  rendered: links appear as their titles and `_`/`*` pairs in commands look
+  stripped (e.g. the old MND `filter[_and][0][status][_eq]` showed as
+  `filter[and][0][status][eq]`). Whether the stored text was actually damaged
+  is unknown; the stripped form does fail against MND's API. Exact command
+  syntax now lives in `scripts/`, and CLAUDE.md carries both artifact URLs,
+  so the prompt no longer depends on either.
 
 ## Backfill log (misses found by the user, fixed in store + dashboard)
 
