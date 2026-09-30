@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-01T07:14:13+08:00",
+  "last_run": "2026-09-30T07:10:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -600,7 +600,7 @@
       "summary": "URA released two residential Government Land Sales sites on 29 September 2026: a 5,503 sq m confirmed-list plot at East Coast Road (max GFA 8,805 sq m, up to 85 units, the first residential GLS site in the Siglap area in a decade) and an 8,085.9 sq m reserve-list plot at Serangoon North View beside The Garden Residences (max GFA 20,214 sq m, up to 235 units).",
       "date_published": "2026-09-29",
       "date_found": "2026-09-30",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.businesstimes.com.sg/property/sydney-data-centre-plan-scrapped-developer-after-community-backlash",
@@ -610,7 +610,7 @@
       "summary": "Australian developer Goodman Group withdrew its application for the A$1.2 billion (US$842 million) \"Project Mars\" 24-hour data centre on Sydney's north shore in Lane Cove, citing evolving federal/state policy and community feedback, after the plan -- sited about 20m from the nearest home and 160m from a school -- drew criticism from residents and activists. The withdrawal follows Victoria state's recent ban on new data centres in residential areas.",
       "date_published": "2026-09-29",
       "date_found": "2026-09-30",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.businesstimes.com.sg/companies-markets/fire-protection-specialist-deluge-corp-files-preliminary-prospectus-mainboard-ipo",
@@ -620,7 +620,7 @@
       "summary": "Deluge Corp, established in 1983, lodged a preliminary prospectus on 29 September 2026 to list on the SGX mainboard, with an order book of about S$433 million as at 16 September; it is one of eight contractors holding BCA's highest ME06 (Fire Prevention & Protection Systems) L6 grade, which carries no tender value limit for public-sector projects, and Frost & Sullivan ranked it Singapore's largest fire detection and protection player in 2025 with an 8.3% market share. Its projects span transport, healthcare, aviation, commercial and residential buildings, data centres, and offshore and marine.",
       "date_published": "2026-09-29",
       "date_found": "2026-09-30",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-singapore-corporate-awards-2026",
@@ -630,7 +630,7 @@
       "summary": "At the Singapore Corporate Awards 2026, Minister Chee Hong Tat said the CORENET X digital regulatory platform -- mandatory since October 2025 for projects above 30,000 sq m GFA -- has taken submissions from over 140 projects and 300 firms with time savings of up to two months, with Norwood Grand, the first project to obtain its Temporary Occupation Permit under the platform, saving an estimated six to nine months from land award to TOP; he also announced that from January 2027 the overseas testing requirement for new construction work permit holders will be progressively removed, alongside a new \"Kit-of-Parts\" approval pathway letting developers reuse standardised precast designs across projects and a Whole-of-Government Virtual Inspection process using 360-degree scans. He credited BRC Asia chief executive and Prefabrication Association president Seah Kiin Peng's proposal for the previously-reported rebar testing streamlining initiative.",
       "date_published": "2026-09-21",
       "date_found": "2026-09-30",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html",
@@ -640,26 +640,6 @@
       "summary": "LTA awarded three civil contracts worth a combined S$1.2 billion for the second phase of the Tuas Road Viaduct: Hwa Seng Builder won the S$381.6 million Pioneer Road Viaduct contract, the Singapore branch of China Communications Construction Company (CCCC) the S$430.3 million Tuas South Avenue 3 Viaduct contract, and CCCC unit China Harbour (Singapore) Engineering the S$404.4 million Tuas South Boulevard Viaduct contract. Construction is to start in early 2027 and run until 2032.",
       "date_published": "2026-09-30",
       "date_found": "2026-09-30",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/courts-crime/company-director-gave-bribes-to-win-construction-project-at-spores-defence-research-organisation",
-      "title": "Company director gave bribes to win construction project at S'pore's defence research organisation",
-      "source": "The Straits Times",
-      "category": "Legal & Disputes/Arbitration",
-      "summary": "A former senior executive director of Wah Loon Engineering pleaded guilty to abetting corrupt gratification in a scheme to help win a $46m addition-and-alteration contract at DSO National Laboratories; at least $150,000 was paid to a DSO facilities manager between 2018 and 2019.",
-      "date_published": "2026-09-30",
-      "date_found": "2026-10-01",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/property/frasers-property-and-mitsubishi-estate-redevelop-valley-point-and-frasers-suites-singapore",
-      "title": "Frasers Property and Mitsubishi Estate to redevelop Valley Point and Frasers Suites Singapore",
-      "source": "The Business Times",
-      "category": "Media Features/Company News",
-      "summary": "Frasers Property (51%) and Mitsubishi Estate (49%) formed a joint venture to redevelop Valley Point and Frasers Suites Singapore on River Valley Road into a freehold mixed-use development with 407 residential units and 184 serviced-residence units, launching in 2027 and completing in 2031.",
-      "date_published": "2026-09-30",
-      "date_found": "2026-10-01",
       "is_new_today": true
     }
   ]
