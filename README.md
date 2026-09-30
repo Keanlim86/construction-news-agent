@@ -20,7 +20,7 @@ plus a short push notification each day.
   - [`news_archive.json`](news_archive.json) — permanent history of every article that has ever aged out of the active store (see below)
   - `dashboard.html` — source for the published Artifact dashboard (regenerated daily from `news_store.json` only)
   - `backups/` — timestamped snapshot of `news_store.json` before each overwrite
-  - `CLAUDE.md` — the original design/implementation plan this project was built from
+  - `CLAUDE.md` — the live design reference the routine follows: current Step 0–6 logic, pending prompt fixes, source quirks, and a log of backfilled misses
 
 ## Schedule
 

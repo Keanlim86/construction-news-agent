@@ -103,6 +103,9 @@ Skip any unreachable/paywalled source and continue.
 - **Bloomberg (cat. 10)**: e.g. `site:bloomberg.com construction OR property developer insolvency Asia`.
 - **Data centres (wide window)**: `data centre Singapore construction OR safety OR tender OR community`
   (routes to 1/4/7/8/9) and `data centre Asia safety OR regulatory OR community reaction` (cat. 10).
+- **Purpose-built dormitories (wide window)**:
+  `Singapore purpose-built dormitory OR "worker dormitory" tender OR site OR construction`
+  (JTC PBD land tenders, MOM/MND bed-capacity announcements, quick-build dorms).
 - **Changi Airport Group newsroom (wide window)**:
   changiairport.com/en/corporate/our-media-hub/newsroom.html — `site:` search
   indexes it poorly; cross-check with aviation/construction trade press
@@ -224,20 +227,18 @@ Apply via the `schedule` skill / claude.ai/code/routines (user pastes).
 2. **Semiconductor/pharma/high-tech plants (Step 1, wide window)**:
    `Singapore semiconductor fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing facility groundbreaking OR opening OR construction`.
    Coverage often runs on GlobeNewswire/SEMI framed as tech/business news.
-3. **Purpose-built dormitories (Step 1, wide window)**:
-   `Singapore purpose-built dormitory OR "worker dormitory" tender OR site OR construction`.
-4. **Worker heat stress (Step 1 category seed)**:
+3. **Worker heat stress (Step 1 category seed)**:
    `Singapore construction heat stress OR outdoor worker cooling OR heat-resilient wearable OR climate adaptation worksite`.
    Partial fix only: an incidental one-line mention inside an unrelated
    headline (e.g. a consumer-gadget roundup) will still be missed — reading
    every RSS item's full text is deliberately not done.
-5. **MND full text regardless of other coverage (Step 1, after the MND API
+4. **MND full text regardless of other coverage (Step 1, after the MND API
    block)**: "Fetch full text for any construction-relevant MND speech/press
    release even if a same-event story from another outlet is already stored
    or found this run — `known_urls` only rules out exact URLs, never topics.
    If it adds no material fact, skip; if it adds specifics (numbers, named
    schemes, technical detail), add it as its own entry with its MND URL."
-6. **Archive data publish (Steps 4/5/6)**: on runs where Step 4 archived
+5. **Archive data publish (Steps 4/5/6)**: on runs where Step 4 archived
    anything, also call the Artifact tool with `url` = the archive page URL and
    `files: {"news_archive.json": "news_archive.json"}` (no `file_path`); skip
    otherwise. Name the archive URL, Archive button, and this mechanism as
@@ -263,11 +264,11 @@ Apply via the `schedule` skill / claude.ai/code/routines (user pastes).
 |---|---|---|---|
 | 09-08 | CAG contract to Nakano Singapore, T3 six-storey office (16 Jul 2026) | 4 | CAG newsroom not a source (now added) |
 | 09-08 | CNA: Bangkok data centres under safety/regulatory scrutiny | 10 | No data-centre query (now added) |
-| 09-12 | [JTC PBD sites Mandai ~15,000 / Upper Jurong ~8,100 beds, tender H2 2027](https://www.straitstimes.com/singapore/sites-in-mandai-and-upper-jurong-road-to-be-sold-for-purpose-built-dormitories-over-by-end-2027) (~71,500 beds by early 2030s) | 6 | No dormitory query (PENDING 3) |
+| 09-12 | [JTC PBD sites Mandai ~15,000 / Upper Jurong ~8,100 beds, tender H2 2027](https://www.straitstimes.com/singapore/sites-in-mandai-and-upper-jurong-road-to-be-sold-for-purpose-built-dormitories-over-by-end-2027) (~71,500 beds by early 2030s) | 6 | No dormitory query (now added) |
 | 09-18 | [JTC/Kajima autonomous excavator/compactor trial, Bulim; deploy ~2028](https://www.straitstimes.com/singapore/construction-robots-on-trial-could-be-deployed-as-early-as-2028) (KTC operators) | 7 | No tech query (now added) |
 | 09-28 | [VSMC 300mm fab grand opening, Tampines](https://www.globenewswire.com/news-release/2026/09/28/3369483/0/en/vsmc-celebrates-the-grand-opening-of-its-first-300mm-fab-in-singapore.html) (VIS/NXP JV; 22-month build; ~1,600 jobs) | 4 | No plant query (PENDING 2) |
-| 09-28 | [MND: Chee Hong Tat, HDB Awards 2026](https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-hdb-awards-ceremony-2026) — Smart Passenger & Material Hoist (LiDAR/anti-pinch, 1 worker : 3 hoists), hoists + screeding robots at all new BTO sites, STCS | 7 | MND full text skipped as "covered" (PENDING 5) |
-| 09-28 | [ST cooling gadgets roundup](https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market) — Freeze Tech cooling wear (up to 9°C) trialled by an SG contractor | 7 | Buried mention (PENDING 4, partial) |
+| 09-28 | [MND: Chee Hong Tat, HDB Awards 2026](https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-hdb-awards-ceremony-2026) — Smart Passenger & Material Hoist (LiDAR/anti-pinch, 1 worker : 3 hoists), hoists + screeding robots at all new BTO sites, STCS | 7 | MND full text skipped as "covered" (PENDING 4) |
+| 09-28 | [ST cooling gadgets roundup](https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market) — Freeze Tech cooling wear (up to 9°C) trialled by an SG contractor | 7 | Buried mention (PENDING 3, partial) |
 | 09-30 | [LTA Tuas Road Viaduct Phase 2 awards](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html), S$1.2b: Hwa Seng (Pioneer Rd, S$381.6m), CCCC SG (Tuas South Ave 3, S$430.3m), China Harbour (Tuas South Blvd, S$404.4m); works 2027–2032 | 4 | No LTA source (PENDING 1) |
 
 Related non-miss (2026-09-21): an ST Jurong Port Road hose-strike death was
