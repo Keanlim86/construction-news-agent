@@ -1,0 +1,636 @@
+{
+  "schema_version": 1,
+  "last_run": "2026-09-30T07:10:00+08:00",
+  "articles": [
+    {
+      "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
+      "title": "Four arrested, 21 assisting MOM investigation into construction-sector \"phantom worker\" scheme",
+      "source": "Ministry of Manpower",
+      "category": "Manpower/Labour",
+      "summary": "MOM arrested two company directors and two staff from a construction firm for allegedly making false declarations and collecting kickbacks by creating \"phantom workers\" to inflate the company's foreign worker quota. A further 21 people are assisting with the investigation.",
+      "date_published": "2026-09-04",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/new-initiatives-to-strengthen-singapore-s-built-environment-capabilities-and-professions-unveiled-amidst-celebration-of-sector-excellence/",
+      "title": "BCA unveils Quantity Surveyors Workgroup recommendations to attract and develop built-environment talent",
+      "source": "Building and Construction Authority",
+      "category": "Manpower/Labour",
+      "summary": "BCA announced new initiatives to strengthen built environment professions, including recommendations from a Quantity Surveyors Workgroup to attract talent and develop professionals, plus measures to enhance regulatory competency among Qualified Persons, alongside sector excellence awards.",
+      "date_published": "2026-09-04",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/sites-in-mandai-and-upper-jurong-road-to-be-sold-for-purpose-built-dormitories-over-by-end-2027",
+      "title": "Sites in Mandai and Upper Jurong Road to be sold for purpose-built dormitories, over by end-2027",
+      "source": "The Straits Times",
+      "category": "Manpower/Labour",
+      "summary": "MOM and MND jointly announced that JTC will launch two new purpose-built dormitory sites for tender in the second half of 2027 -- Lorong Lada Hitam 1 in Mandai (10.7ha, about 15,000 beds) and Jurong Apartments at 529 Upper Jurong Road (2ha, about 8,100 beds) -- each on a 30-year lease, as part of a plan to add roughly 71,500 new dormitory beds by the early 2030s to meet employer demand for migrant worker housing.",
+      "date_published": "2026-09-11",
+      "date_found": "2026-09-12",
+      "is_new_today": false
+    },
+    {
+      "url": "https://mustsharenews.com/man-jurong-port-road/",
+      "title": "35-year-old man dies in work-related incident at Jurong Port Road worksite",
+      "source": "MustShareNews",
+      "category": "Accidents/Workplace Safety",
+      "summary": "A 35-year-old worker died after being struck by a hose connected to a compressed-air pump while carrying out foundation works at 37 Jurong Port Road on the evening of 11 September 2026; MOM identified Keller Foundations (S E Asia) Pte Ltd as the worksite's occupier and employer and instructed it to stop all concreting works. It follows an earlier fatal scaffolding collapse on 3 August 2026 at a nearby Jurong Port construction site.",
+      "date_published": "2026-09-11",
+      "date_found": "2026-09-13",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/next-phase-of-research-and-innovation-funding-initiatives--refreshed-green-mark-and-new-accreditation-scheme-drive-singapore-s-built-environment-forward/",
+      "title": "BCA commits $112m to R&D and launches Green Mark Version 7",
+      "source": "Building and Construction Authority",
+      "category": "Sustainability/Green Building",
+      "summary": "BCA announced $112 million in new Research, Innovation and Enterprise 2030 funding and launched Green Mark Version 7, a refreshed certification scheme with performance-based pathways aimed at accelerating building decarbonisation.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/singapore-accelerates-innovation-and-technology-adoption-to-drive-productivity-in-the-built-environment-sector/",
+      "title": "BCA launches Robot Leasing Support Scheme and virtual TOP/CSC inspections",
+      "source": "Building and Construction Authority",
+      "category": "New Technology/Innovation",
+      "summary": "BCA unveiled a Robot Leasing Support Scheme offering up to 50% co-funding for construction robotics, alongside a new whole-of-government virtual inspection process for Temporary Occupation Permit and Certificate of Statutory Completion approvals expected to cut approval times by up to two months.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/winner-of-the-inaugural-asia-pacific-edition-of-the-world-s-largest-competition-for-construction-start-ups/",
+      "title": "Civils.ai crowned gold winner of inaugural Asia Pacific Construction Startup Competition",
+      "source": "Building and Construction Authority",
+      "category": "New Technology/Innovation",
+      "summary": "ConTech startup Civils.ai won the Gold award at the inaugural Asia Pacific Pitch Day of the Construction Startup Competition, beating four other finalists in the regional contest for construction technology innovation.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://highways.today/2026/08/27/singapore-ai-ibew-2026/",
+      "title": "International Built Environment Week 2026 puts AI at the centre of Singapore's construction industry",
+      "source": "Highways Today",
+      "category": "New Technology/Innovation",
+      "summary": "International Built Environment Week 2026, held 2-4 September at Marina Bay Sands alongside BEX Asia, focused on AI deployment across design, planning, robotics and building operations, featuring 174 exhibitors including 47 with AI-related offerings.",
+      "date_published": "2026-08-27",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.edgeprop.sg/property-news/uol-capitaland-singland-jv-tops-four-bids-new-upper-changi-road-gls-site-1537-psf-ppr",
+      "title": "UOL-CapitaLand-SingLand JV wins record $1.43b bid for New Upper Changi Road GLS site",
+      "source": "EdgeProp Singapore",
+      "category": "Project Awards/Tenders",
+      "summary": "A joint venture of UOL Group, CapitaLand Development and Singapore Land Group won URA's tender for a 99-year leasehold residential site at New Upper Changi Road with a top bid of $1.425 billion ($1,537 psf ppr), a record for Outside Central Region land, beating three other bidders when the tender closed on 1 September 2026.",
+      "date_published": "2026-09-01",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.keppel.com/media/keppel-awarded-50-mw-new-data-centre-capacity-under-singapores-second-data-centre-call-for-application/",
+      "title": "Keppel awarded 50MW data centre capacity for S$1b AI-ready facility on Jurong Island",
+      "source": "Keppel",
+      "category": "Project Awards/Tenders",
+      "summary": "Keppel was awarded 50MW of new data centre capacity on Jurong Island under Singapore's second Data Centre Call for Application, beating more than 20 other proposals to build the AI-ready Keppel DC SGP 11 facility, with an expected investment of more than S$1 billion and a targeted PUE under 1.2 with over half its power from green energy sources.",
+      "date_published": "2026-08-21",
+      "date_found": "2026-09-09",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.changiairport.com/en/corporate/our-media-hub/newsroom/2026/changi-airport-group-new-office-building-t3.html",
+      "title": "Changi Airport Group awards contract for new office development at Terminal 3",
+      "source": "Changi Airport Group",
+      "category": "Project Awards/Tenders",
+      "summary": "Changi Airport Group awarded Nakano Singapore a contract to build a six-storey landside office development at Terminal 3, providing about 9,600 sq m of office space across five levels plus a revamped coach stand, to ease capacity constraints as existing T1-T4 landside office space nears its limits. The office block is due for completion in H1 2028 and the coach stand works in H2 2028.",
+      "date_published": "2026-07-16",
+      "date_found": "2026-09-08",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0828-enhancements-to-heat-stress-framework",
+      "title": "MOM to make four heat stress protection measures mandatory for outdoor workers from December 2026",
+      "source": "Ministry of Manpower",
+      "category": "Policy/Regulatory",
+      "summary": "MOM announced that cool drinking water, ice packs, breathable clothing and heat training will become mandatory workplace requirements for outdoor workers, alongside hourly rest breaks when the Wet Bulb Globe Temperature hits 32 degrees C. The measures, which affect construction and other outdoor sectors, take effect from 1 December 2026.",
+      "date_published": "2026-08-28",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.malaymail.com/news/singapore/2026/09/08/singapore-workplace-fatalities-rise-in-first-half-of-2026-as-ministry-of-manpower-reviews-tougher-safety-measures/234420",
+      "title": "Singapore workplace fatalities rise in first half of 2026 as Ministry of Manpower reviews tougher safety measures",
+      "source": "Malay Mail",
+      "category": "Policy/Regulatory",
+      "summary": "MOM reported 21 workplace deaths in Singapore in H1 2026, an annualised fatal injury rate of 1.1 per 100,000 workers, with construction recording 69 fatal and major injuries (a rate of 24.1, the sector's lowest since 2020) even as smaller-scale renovation works saw a slight uptick. The ministry is reviewing a strengthened safety demerit points system and the bizSAFE programme, and has launched a Platform Worker Safety Workgroup alongside an expanded Multi-Agency Taskforce to tackle vehicular risks.",
+      "date_published": "2026-09-08",
+      "date_found": "2026-09-09",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.asiaone.com/singapore/canberra-residences-mcst-sues-contractor-defects",
+      "title": "Canberra Residences owners sue contractor over unresolved decade-old defects",
+      "source": "AsiaOne (The Straits Times)",
+      "category": "Legal & Disputes/Arbitration",
+      "summary": "Canberra Residences' management corporation is suing contractor MCC Engineering, alleging breach of a 2020 settlement meant to fix defects -- including water seepage, ponding and shattered balcony glass -- dating back to the condo's 2013 completion. An 11-day trial is set to begin on 20 October 2026.",
+      "date_published": "2026-08-30",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.theedgesingapore.com/capital/results/wee-hur-reports-1hfy2026-earnings-453-mil-171-sees-recurring-income-base-broaden",
+      "title": "Wee Hur reports 1HFY2026 earnings of $45.3 mil, up 17.1%; sees recurring income base broaden",
+      "source": "The Edge Singapore",
+      "category": "Media Features/Company News",
+      "summary": "Wee Hur Holdings reported 1HFY2026 (ended 30 June) earnings of $45.3 million, up 17.1% year-on-year, on revenue of $163.6 million, driven by a 162.5% surge in construction revenue and a 50.7% jump in workers' dormitory revenue from Pioneer Lodge's ramp-up. The group is broadening its recurring income base via student-accommodation expansion, the upcoming DoubleTree by Hilton Singapore Robertson Quay, and its stake in Wycombe Abbey International School Singapore.",
+      "date_published": "2026-08-16",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.aljazeera.com/news/2026/8/28/singapores-plans-to-clear-forest-for-homes-lead-to-rare-public-protests",
+      "title": "Singapore's plans to clear forest for homes lead to rare public protests",
+      "source": "Al Jazeera",
+      "category": "Public Feedback/Community",
+      "summary": "HDB's plans to clear about 15 of Maju Forest's 23 hectares and part of Gillman Barracks forest for public housing have drawn unusually vocal opposition, including over 60,000 petition signatures and a rally of more than 2,000 people at Speakers' Corner. The government has since pledged to retain more green space than originally planned, at the cost of fewer homes on both sites.",
+      "date_published": "2026-08-28",
+      "date_found": "2026-09-07",
+      "is_new_today": false
+    },
+    {
+      "url": "https://mothership.sg/2026/08/jurong-scaffolding-man-dies/",
+      "title": "Worker, 23, dies after scaffolding collapse at Jurong Port construction site",
+      "source": "Mothership.SG",
+      "category": "Accidents/Workplace Safety",
+      "summary": "A 23-year-old worker died on 3 August 2026 after a formwork structure fell from the fifth storey of a building under construction and struck the lorry he was seated in, at the Jurong Port Integrated Construction and Prefabrication Hub project. Main contractor HPC Builders was instructed to cease all formwork activities as MOM investigates.",
+      "date_published": "2026-08-03",
+      "date_found": "2026-09-08",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-09-09/china-sours-on-tool-that-helped-real-estate-firms-overhaul-debt",
+      "title": "China's securities regulator balks at bonds that helped property developers restructure debt",
+      "source": "Bloomberg",
+      "category": "International/Regional News",
+      "summary": "China's CSRC has begun declining to register mandatory convertible bonds -- a debt-to-equity tool central to several developers' offshore restructurings -- rejecting Country Garden's filing over its status as a discredited entity and pushing back on Sino-Ocean Group's plans. Bloomberg Intelligence estimates the affected restructurings could have created over 27 billion new shares, adding fresh uncertainty for an industry that has defaulted on roughly $130 billion of debt.",
+      "date_published": "2026-09-09",
+      "date_found": "2026-09-09",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/bathla-s-2-5-billion-property-debt-crisis-faces-fresh-tests",
+      "title": "Bathla Group faces funding talks as $2.5 billion debt crisis deepens",
+      "source": "Bloomberg",
+      "category": "International/Regional News",
+      "summary": "Insolvent Australian developer Bathla Group secured a temporary funding agreement with five lenders on 7 September 2026, buying two more weeks of survival after standing down about 213 of its 350 staff and halting work at most of its sites, with only 14 continuing; the group carries roughly $3.4 billion in total debt.",
+      "date_published": "2026-09-07",
+      "date_found": "2026-09-08",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.channelnewsasia.com/asia/bangkok-data-centres-scrutiny-safety-regulatory-gaps-6366791",
+      "title": "Bangkok data centres face scrutiny over safety, regulatory gaps",
+      "source": "Channel News Asia",
+      "category": "International/Regional News",
+      "summary": "Bangkok's more than 30 data centres are under scrutiny after regulators found some operators classifying their buildings as warehouses to skirt stricter industrial rules, with backup diesel stores as high as 429,000 litres escaping fuel-depot classification under Thailand's 500,000-litre threshold. The Thai government has suspended new standalone data centre projects and formed a Data Centre Business Policy Committee to set unified national standards on safety, energy, water and land use.",
+      "date_published": "2026-09-07",
+      "date_found": "2026-09-08",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/china-property-moves-to-fuel-30-hit-to-land-sales-goldman-says",
+      "title": "China's property presale overhaul threatens 30% hit to land sale revenue, Goldman says",
+      "source": "Bloomberg",
+      "category": "International/Regional News",
+      "summary": "Goldman Sachs economists estimate China's shift away from presales toward a completed-homes sales model -- which historically funded roughly 40% of developers' construction capital -- will cut government land sale revenue by 30%, worsening pressure on already-stretched local government finances after land sale revenue fell 30.8% year-on-year in the first seven months of 2026. The overhaul raises the presale threshold to topping out a building's main structure, curbing cash-strapped developers' ability to buy new land.",
+      "date_published": "2026-09-07",
+      "date_found": "2026-09-09",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-09-02/builder-s-bust-jolts-private-lenders-drawn-by-15-yearly-returns",
+      "title": "Bathla Group's collapse jolts Australia's private credit lenders",
+      "source": "Bloomberg",
+      "category": "International/Regional News",
+      "summary": "Sydney developer Bathla Group collapsed into voluntary administration owing about A$3.4 billion (A$3.08b to secured lenders), rattling private-credit funds that had financed its projects on promises of roughly 15% annual returns. Administrators have warned that construction on sites whose lenders don't join an emergency funding deal may not be able to continue.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-06",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/capitaland-targets-500-million-for-third-asian-credit-fund",
+      "title": "CapitaLand Targets $500 Million for Third Asian Credit Fund",
+      "source": "Bloomberg",
+      "category": "Media Features/Company News",
+      "summary": "CapitaLand Investment is seeking $500 million in investor commitments for its third Asia Pacific credit fund (ACP III), following the $320 million close of its second vehicle in April 2026, continuing a strategy focused on senior secured, asset-backed real estate credit investments.",
+      "date_published": "2026-09-07",
+      "date_found": "2026-09-11",
+      "is_new_today": false
+    },
+    {
+      "url": "https://mothership.sg/2026/09/capitaland-investment-lays-off-90-employees-singapore/",
+      "title": "CapitaLand Investment retrenches about 90 employees in Singapore",
+      "source": "Mothership.SG",
+      "category": "Media Features/Company News",
+      "summary": "CapitaLand Investment announced on 3 September 2026 that it is retrenching about 90 employees in Singapore, roughly 4% of its Singapore workforce, as part of a periodic organisational restructuring. The Singapore Industrial and Services Employees' Union said affected staff will receive severance packages, career transition support and counselling.",
+      "date_published": "2026-09-03",
+      "date_found": "2026-09-11",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-09-13/china-s-property-overhaul-puts-strain-on-local-government-income",
+      "title": "China's property overhaul puts strain on local government income",
+      "source": "Bloomberg",
+      "category": "International/Regional News",
+      "summary": "Beijing scrapped a land auction for a roughly $1.1 billion Jiangtai plot in early September 2026 after only one of three interested developers turned up to bid, days after China's presale-financing overhaul cut area-based land sales 36% week-on-week across 70 major cities; Goldman Sachs projects the reform could cut government land-sale revenue by 30%, straining already-stretched local government finances.",
+      "date_published": "2026-09-13",
+      "date_found": "2026-09-15",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/bca-partners-with-google-maps-and-open-government-products-to-provide-easy-access-to-information-on-family--and-wheelchair-friendly-features-in-buildings-across-singapore-/",
+      "title": "BCA partners with Google Maps and Open Government Products to map family- and wheelchair-friendly building features",
+      "source": "Building and Construction Authority",
+      "category": "Public Feedback/Community",
+      "summary": "BCA partnered with Google Maps and Open Government Products to make accessibility information -- such as accessible washrooms, lactation spaces and hearing enhancement systems -- searchable for over 600 Singapore buildings via Google Maps and maps.gov.sg/friendlybuildings, benefiting parents, seniors and persons with disabilities. Coverage is planned to expand to older buildings from early 2027.",
+      "date_published": "2026-09-15",
+      "date_found": "2026-09-16",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.semafor.com/article/09/02/2026/asias-data-center-boom-faces-backlash",
+      "title": "Asia's data center boom faces backlash",
+      "source": "Semafor",
+      "category": "International/Regional News",
+      "summary": "Asia's rapid data centre construction boom is drawing growing community pushback over environmental and health concerns from India to Australia, even as lenders have extended nearly $29 billion in data centre financing since the start of 2026. Overall demand remains strong, but developers are increasingly redirecting investment toward locations with less local opposition rather than slowing expansion.",
+      "date_published": "2026-09-02",
+      "date_found": "2026-09-16",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.asiaone.com/singapore/mcst-sues-developer-four-others-over-alleged-defects-after-concrete-piece-condo-balcony",
+      "title": "MCST sues developer, four others over alleged defects after concrete piece from condo balcony fell 20m",
+      "source": "AsiaOne (The Straits Times)",
+      "category": "Legal & Disputes/Arbitration",
+      "summary": "Foresque Residences' management corporation is suing developer Wincheer Investment and four others -- architect Arc Studio Architecture + Urbanism, structural engineer KTP Consultants, railing engineer GLT Engineers and subcontractor Credence Engineering -- after a cementitious patch detached from a third-floor balcony at Block 105 and fell 20m in February 2025, with hammer-tapping tests later finding about 60% of the block's balcony slab edges producing hollow sounds. The defendants have disputed the allegations and denied liability.",
+      "date_published": "2026-09-14",
+      "date_found": "2026-09-17",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.asiaone.com/singapore/hard-rocks-water-seepage-lta-flags-unexpected-construction-challenges-along-north-south",
+      "title": "Hard rocks, water seepage: LTA flags unexpected construction challenges along North-South Corridor",
+      "source": "AsiaOne (The Straits Times)",
+      "category": "Project Awards/Tenders",
+      "summary": "LTA said tunnelling for the 21.5km North-South Corridor has hit unexpectedly hard rock and mixed ground conditions in Novena and Thomson, plus water seepage weakening the northbound tunnel structure in Novena, forcing smaller section-by-section excavation with extra rock removal, grouting and monitoring. At a briefing on 8 September, LTA said it is still assessing the impact on the project's completion timeline.",
+      "date_published": "2026-09-13",
+      "date_found": "2026-09-17",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.singaporeland.com/marina-squares-next-chapter-singapores-first-hyper-mixed-development/",
+      "title": "SingLand gets Written Permission to redevelop Marina Square into Singapore's first hyper-mixed development",
+      "source": "Singapore Land Group",
+      "category": "Project Awards/Tenders",
+      "summary": "SingLand, majority owned by UOL Group, received Written Permission from URA on 31 August 2026 under the Strategic Development Incentive scheme to partially redevelop Marina Square, adding a residential tower, a serviced apartment block and a mixed-use tower designed by PLP Architecture and DP Architects. Marina Square Shopping Mall will close on 31 March 2027 to make way for construction, with the project targeted for completion by 2031.",
+      "date_published": "2026-09-01",
+      "date_found": "2026-09-17",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/construction-robots-on-trial-could-be-deployed-as-early-as-2028",
+      "title": "Construction robots on trial could be deployed as early as 2028",
+      "source": "The Straits Times",
+      "category": "New Technology/Innovation",
+      "summary": "JTC and Kajima are trialling autonomous construction machinery -- two excavators and two compactors since January, with autonomous bulldozers and dump trucks to follow in a second phase -- at the Bulim autonomous yard in Jurong Innovation District, aiming to ease manpower constraints and improve worksite safety ahead of a pipeline of at least 800ha of earthworks over the next five years. JTC is targeting deployment at its sites as early as 2028, with the first phase running to early 2027.",
+      "date_published": "2026-09-18",
+      "date_found": "2026-09-18",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/north-south-corridor--revised-completion-timeline-due-to-complex.html",
+      "title": "North-South Corridor: Revised Completion Timeline Due to Complex Engineering Works and Challenging Ground Conditions",
+      "source": "Land Transport Authority",
+      "category": "Project Awards/Tenders",
+      "summary": "LTA announced the 21.5km North-South Corridor will open roughly two years later than planned -- the viaduct section (Admiralty Road West to Lentor Avenue) now from 2029 instead of 2027, and the tunnel section (Lentor Avenue to East Coast Parkway) now from 2031 instead of 2029 -- after harder-than-expected rock at Gambas Avenue/Woodlands Avenue 8 and Thomson, plus fractured rock and groundwater near the operational North-South Line at Novena, required more complex engineering works. LTA said the cost impact of the delay will only be known after the project is completed.",
+      "date_published": "2026-09-17",
+      "date_found": "2026-09-19",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.ura.gov.sg/news/media/pr26-66/",
+      "title": "Tender award for URA sale site at Lorong Puntong / Sin Ming Avenue",
+      "source": "Urban Redevelopment Authority",
+      "category": "Project Awards/Tenders",
+      "summary": "URA awarded the 99-year leasehold residential site at Lorong Puntong / Sin Ming Avenue (Bishan, about 140 units) to Eco World Development (S) Pte Ltd as the highest tenderer, at a bid of $208,099,000 ($17,350.26 per sq m gross floor area). The tender, launched 25 June 2026, closed on 15 September 2026.",
+      "date_published": "2026-09-18",
+      "date_found": "2026-09-20",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.stb.gov.sg/about-stb/media-publications/media-centre/singapore-tourism-board-launches-concept-and-price-revenue-tender-for-mixed-use-development-at-historic-37-emerald-hill/",
+      "title": "Singapore Tourism Board launches tender for mixed-use development at historic 37 Emerald Hill",
+      "source": "Singapore Tourism Board",
+      "category": "Project Awards/Tenders",
+      "summary": "STB launched a Concept and Price Revenue tender on 16 September 2026 for a heritage-sensitive, hotel-led mixed-use redevelopment of 37 Emerald Hill (the former Singapore Chinese Girls' School site, later Chatsworth International School), part of the Orchard Road Rejuvenation Plan. The 1.04ha site permits up to 16,664 sq m GFA on a 50-year lease with a 20-year extension option, and the tender closes 16 March 2027.",
+      "date_published": "2026-09-16",
+      "date_found": "2026-09-21",
+      "is_new_today": false
+    },
+    {
+      "url": "https://sg.news.yahoo.com/hdb-completes-tengah-bto-project-using-new-technologies-040000765.html",
+      "title": "HDB completes Tengah BTO project using new technologies",
+      "source": "Yahoo News Singapore (The Straits Times)",
+      "category": "New Technology/Innovation",
+      "summary": "HDB said its first Construction Transformation Project, Garden Waterfront II @ Tengah, has achieved a 25% site productivity improvement using technologies including the largest 3D-printed freestanding structure in an HDB development and an intelligent lifting frame developed with NUS and A*STAR that could cut hoisting man-hours by 30%. Garden Waterfront I @ Tengah, the project's second BTO development under the scheme, is due to complete by end-2026.",
+      "date_published": "2026-09-19",
+      "date_found": "2026-09-22",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/decision-to-consider-building-homes-on-greenery-heritage-sites-not-made-lightly-indranee",
+      "title": "Decisions to consider building homes on greenery or heritage sites not made lightly: Indranee",
+      "source": "The Straits Times",
+      "category": "Public Feedback/Community",
+      "summary": "Second Minister for National Development Indranee Rajah said decisions to develop greenery or heritage sites for housing are made only when no suitable brownfield sites exist, balancing competing land needs against enlarging space via reclamation, taller buildings or going deeper. She was speaking on 14 September ahead of a closed-door youth dialogue on housing, amid ongoing public feedback such as the Maju Forest/Gillman Barracks backlash.",
+      "date_published": "2026-09-14",
+      "date_found": "2026-09-22",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/politics/timeline-reclamation-profile-of-western-island-reclamation-not-yet-determined-chee-hong-tat",
+      "title": "Timeline, reclamation profile of new western island not yet determined: Chee Hong Tat",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "Minister for National Development Chee Hong Tat said in a written parliamentary reply on 8 September that the reclamation profile, land use plans, construction methods and timeline for Singapore's planned new western island have not yet been determined, with feasibility studies, site investigations and engineering/environmental studies still underway.",
+      "date_published": "2026-09-08",
+      "date_found": "2026-09-22",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/when-condo-defects-emerge-years-later-who-pays",
+      "title": "When condo defects emerge years later, who pays?",
+      "source": "The Straits Times",
+      "category": "Legal & Disputes/Arbitration",
+      "summary": "A Straits Times explainer on Singapore condo-defect disputes -- citing the Canberra Residences and Foresque Residences lawsuits -- notes developers often wind up project-specific companies after completion, leaving management corporations with no one to sue, while a latent-defect claim in tort is subject to a 15-year long-stop limitation period.",
+      "date_published": "2026-09-21",
+      "date_found": "2026-09-22",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/property/ura-review-guidelines-floor-space-give-developers-more-design-flexibility-chee-hong-tat",
+      "title": "URA to review guidelines on floor space to give developers more design flexibility: Chee Hong Tat",
+      "source": "The Business Times",
+      "category": "Policy/Regulatory",
+      "summary": "Minister for National Development Chee Hong Tat announced at the Singapore Corporate Awards on 21 September that URA is reviewing gross floor area (GFA) guidelines to give developers more design flexibility and encourage heat-resilience and thermal-comfort features, and that BCA will let reinforcement steel be tested earlier in production by accredited labs, potentially cutting testing workload and cost by up to 90%. He also announced a new Job Redesign Initiative for Decarbonisation, run with BCA, SCCCI and the Singapore Contractors Association, to help built-environment firms upskill staff in sustainable construction and carbon accounting; 15 companies have already joined.",
+      "date_published": "2026-09-21",
+      "date_found": "2026-09-22",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/environment/land-planned-for-housing-in-tengah-converted-to-park-after-consulting-nature-groups-hdb",
+      "title": "Land planned for housing in Tengah converted to park after consulting nature groups: HDB",
+      "source": "The Straits Times",
+      "category": "Public Feedback/Community",
+      "summary": "HDB has re-designated a 5.4-hectare plot in Tengah originally slated for housing as parkland after an environmental impact assessment and consultation with nature groups found critically endangered wildlife, including the Sunda pangolin, in the area. The rezoning was outlined in an HDB report responding to public feedback on the future Tengah Town Centre, published on 18 September 2026.",
+      "date_published": "2026-09-22",
+      "date_found": "2026-09-23",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/international/asean/singapores-bdx-starts-construction-640-mw-ai-data-centre-indonesia",
+      "title": "Singapore's BDx starts construction of 640 MW AI data centre in Indonesia",
+      "source": "The Business Times",
+      "category": "International/Regional News",
+      "summary": "Singapore-headquartered data centre operator BDx has broken ground on a 640MW AI data centre campus in West Java, Indonesia, backed by 845MVA of secured grid power, with the first 120MW building due online in early 2027. The project is part of BDx's wider push to build out hyperscale AI data centre capacity across the region.",
+      "date_published": "2026-09-22",
+      "date_found": "2026-09-23",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/property/australias-victoria-state-bans-data-centres-residential-areas-amid-growing-opposition",
+      "title": "Australia's Victoria state bans data centres from residential areas amid growing opposition",
+      "source": "The Business Times",
+      "category": "International/Regional News",
+      "summary": "Victoria, Australia has banned new data centres from residential areas and near schools, imposing a 150-metre buffer from homes and barring their use of drinking water, amid growing community pushback against the sector's rapid growth. The move follows similar public-backlash pressure on data centre development seen elsewhere in Asia.",
+      "date_published": "2026-09-22",
+      "date_found": "2026-09-23",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/singapore-corporate-awards-2026/we-dont-want-stay-we-are-ceo-patrick-ng-builds-more-resilient-huationg",
+      "title": "'We don't want to stay as we are': CEO Patrick Ng builds a more resilient Huationg",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "Huationg Global CEO Patrick Ng, winner of the Best CEO (small-cap) award at the Singapore Corporate Awards 2026, was profiled on his strategy to diversify the civil engineering and construction materials firm beyond its traditional earthworks and demolition business. Huationg's operations span civil engineering contract works, equipment rental, construction materials and dormitory operations.",
+      "date_published": "2026-09-21",
+      "date_found": "2026-09-23",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-2m-indranee-rajah-at-the-real-estate-developers-association-of-singapore-redas-mid-autumn-lunch",
+      "title": "Second Minister Indranee Rajah announces enhanced Accredited Checker framework for complex construction projects",
+      "source": "Ministry of National Development (speech)",
+      "category": "Policy/Regulatory",
+      "summary": "At REDAS' Mid-Autumn Festival lunch, Second Minister for National Development Indranee Rajah announced that from September 2028, Accredited Checkers and AC Organisations undertaking larger, more complex or higher-risk projects will need to demonstrate recent relevant checking/design experience and a good track record, with a two-year transition period and existing contracts unaffected. BCA will also extend AC/ACO/Specialist AC registration and renewal validity from 12 to 36 months from 2028, alongside a new industry-developed Value Articulation Framework to help developers evaluate AC checking proposals beyond fees alone.",
+      "date_published": "2026-09-23",
+      "date_found": "2026-09-24",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/scaffold-netting-used-in-singapore-must-be-fire-retardant-from-march-2027",
+      "title": "Scaffold netting at new worksites in Singapore must be fire-retardant from March 2027",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "Scaffold netting used at Singapore construction worksites must be fire-retardant for all projects awarded from 1 March 2027, regardless of the scaffold structure's own material, under a new fire-safety requirement for building sites.",
+      "date_published": "2026-09-24",
+      "date_found": "2026-09-25",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.asiaone.com/singapore/berlayar-mount-pleasants-first-bto-hdb-awards",
+      "title": "Police-themed playground, staggered block heights: Berlayar, Mount Pleasant's first BTO project to be recognised at HDB Awards 2026",
+      "source": "AsiaOne",
+      "category": "Media Features/Company News",
+      "summary": "HDB recognised 30 projects with distinctive design and construction approaches at the HDB Awards 2026 ceremony on 24 September, including Berlayar Residences and Mount Pleasant Crest for their Innovative Design Awards. Chip Eng Seng Contractors was recognised for its work on Costa Grove near Sungei Api Api, which reduced construction's impact on surrounding biodiversity and restricted work hours to safeguard local wildlife.",
+      "date_published": "2026-09-24",
+      "date_found": "2026-09-25",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/macpherson-weave-hdb-bto-awards-hi-tek-construction",
+      "title": "From English classes to painting robots: Behind an award-winning HDB BTO project",
+      "source": "The Straits Times",
+      "category": "Media Features/Company News",
+      "summary": "Hi-Tek Construction was recognised at HDB Awards 2026 for its work on the MacPherson Weave BTO project, with coverage highlighting the contractor's migrant-worker welfare initiatives, including English classes, resident engagement, and use of painting robots on site.",
+      "date_published": "2026-09-25",
+      "date_found": "2026-09-25",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/tampines-greenopal-hdb-bto-awards-vico-construction",
+      "title": "Working above an MRT tunnel to deliver flats: Why this S'pore builder earned accolades for its first BTO project",
+      "source": "The Straits Times",
+      "category": "Media Features/Company News",
+      "summary": "Vico Construction was recognised at HDB Awards 2026 for its first BTO project, Tampines GreenOpal, built directly above an active MRT tunnel; the firm used precast construction methods and other measures to overcome a manpower crunch on site.",
+      "date_published": "2026-09-25",
+      "date_found": "2026-09-25",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/garden-bloom-tengah-hdb-bto-awards-chiu-teng-construction",
+      "title": "MRT viaducts overhead, limited space below: How Garden Bloom @ Tengah earned its builder an HDB accolade",
+      "source": "The Straits Times",
+      "category": "Media Features/Company News",
+      "summary": "Chiu Teng Construction was recognised at HDB Awards 2026 for the Garden Bloom @ Tengah BTO project, built under overhead MRT viaducts on a constrained site; the firm re-sequenced works, tightened safety measures and used just-in-time material delivery to stay on schedule.",
+      "date_published": "2026-09-25",
+      "date_found": "2026-09-25",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/smart-tech-like-robotics-automation-to-be-used-at-more-bto-sites-from-2027-chee-hong-tat",
+      "title": "Smart tech like robotics, automation to be used at more BTO sites from 2027: Chee Hong Tat",
+      "source": "The Straits Times",
+      "category": "New Technology/Innovation",
+      "summary": "National Development Minister Chee Hong Tat announced at the HDB Awards Ceremony on 25 September that smart technology such as laser-guided screeding robots -- already trialled in 80 flats at Bukit Merah and Ghim Moh -- will be scaled up to at least four more BTO projects in 2027, alongside smart hoists at about half of BTO sites tendered from 2027, to boost construction productivity and cut manpower needs.",
+      "date_published": "2026-09-25",
+      "date_found": "2026-09-26",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.capitaland.com/en/about-capitaland/newsroom/news-releases/international/2026/september/ALP_and_CLI_advance_Singapores_logistics_transformation_with_OMEGA_logistics_infrastruture.html",
+      "title": "Ally Logistic Property and CapitaLand Investment break ground on S$260m OMEGA 1 Singapore logistics facility",
+      "source": "CapitaLand",
+      "category": "Project Awards/Tenders",
+      "summary": "Ally Logistic Property and CapitaLand Investment broke ground on OMEGA 1 Singapore, a S$260 million five-storey integrated logistics facility at 19 Gul Lane combining automated storage systems and proprietary software, marking ALP's first OMEGA platform deployment in Singapore. The project targets BCA Green Mark GoldPLUS certification with solar-ready roofing and facade greening, and is expected to complete in H2 2028.",
+      "date_published": "2026-09-24",
+      "date_found": "2026-09-27",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-hdb-awards-ceremony-2026",
+      "title": "Minister Chee Hong Tat details Smart Passenger and Material Hoist, screeding robot rollout, and Shortened Time for Completion Scheme at HDB Awards 2026",
+      "source": "Ministry of National Development (speech)",
+      "category": "New Technology/Innovation",
+      "summary": "At the HDB Awards Ceremony 2026, Minister Chee Hong Tat gave fuller detail on two productivity technologies being scaled up at BTO sites from 2027: the Smart Passenger and Material Hoist, which uses LiDAR and anti-pinch sensors to operate without a dedicated operator so one worker can supervise up to three hoists, and screeding robots that automate floor-levelling; he said HDB has been asked to work towards deploying both at all new BTO sites, beyond the initially announced roughly 50%. He also highlighted the Shortened Time for Completion Scheme (STCS), which lets contractors propose innovative construction methods and technologies and factor the added cost into their tender bids for HDB to assess.",
+      "date_published": "2026-09-25",
+      "date_found": "2026-09-28",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369483/0/en/vsmc-celebrates-the-grand-opening-of-its-first-300mm-fab-in-singapore.html",
+      "title": "VSMC celebrates grand opening of its first 300mm fab in Singapore",
+      "source": "GlobeNewswire",
+      "category": "Project Awards/Tenders",
+      "summary": "VSMC (VisionPower Semiconductor Manufacturing Company), a joint venture between Vanguard International Semiconductor Corporation and NXP Semiconductors, held the grand opening of its first 300mm (12-inch) wafer fab in Tampines on 28 September 2026, after a 22-month construction period that began with groundbreaking in December 2024. The LEED- and BCA Green Mark-certified, fully automated smart facility is now in risk production with yields exceeding 99%, targeting volume production in Q1 2027 and full capacity of about 44,000 wafers per month by 2029, creating roughly 1,600 jobs.",
+      "date_published": "2026-09-28",
+      "date_found": "2026-09-28",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market",
+      "title": "Solar-powered air-con, freeze-tech and 'fan-jakketos' among innovative cooling gadgets on the market",
+      "source": "The Straits Times",
+      "category": "New Technology/Innovation",
+      "summary": "A Straits Times roundup of innovative cooling gadgets includes Freeze Tech's cooling inner wear, a moisture/perspiration-activated fabric that can cool the wearer by up to 9 degrees C and withstands more than 50 wash cycles; the article notes at least one Singapore construction company is trialling this cooling inner wear with its outdoor workers. The trial is a heat-stress mitigation technology relevant to the sector as it prepares for MOM's mandatory heat stress protection measures taking effect December 2026.",
+      "date_published": "2026-09-27",
+      "date_found": "2026-09-28",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.tipranks.com/news/company-announcements/koh-brothers-eco-flags-arbitration-exposure-of-up-to-s20-5m",
+      "title": "Koh Brothers Eco Engineering faces up to S$57.6m in potential liabilities over arbitration with JV partner",
+      "source": "TipRanks (SGX announcement)",
+      "category": "Legal & Disputes/Arbitration",
+      "summary": "Koh Brothers Eco Engineering's subsidiary Koh Brothers Building & Civil Engineering Contractor is in arbitration with a joint venture partner over a construction project; tribunals have valued the partner's counterclaims at about S$20.5 million plus related costs of more than S$5.1 million and US$4.1 million. The company's High Court applications to set aside the subcontract arbitration awards were dismissed, more than S$40 million remains held in the joint venture account pending distribution, and the partner is seeking a final payment order -- The Straits Times reported the aggregate potential exposure at nearly S$57.6 million. Koh Brothers Eco is assessing the impact on its results for the year ending 31 December 2026.",
+      "date_published": "2026-08-18",
+      "date_found": "2026-09-28",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/worker-dies-after-falling-from-height-at-bto-construction-site-at-tanjong-rhu-road",
+      "title": "Worker dies after falling from height at BTO construction site in Tanjong Rhu Road",
+      "source": "The Straits Times",
+      "category": "Accidents/Workplace Safety",
+      "summary": "A 22-year-old worker employed by subcontractor Ann Yu Construction died after falling from about the 12th floor while concreting works using a mobile concrete pump truck were carried out at the Tanjong Rhu Riverfront II BTO worksite in Kallang on 28 September 2026. HDB suspended all works on site and MOM ordered main contractor BHCC Construction Singapore to cease concrete-casting operations using the mobile pump pending investigation.",
+      "date_published": "2026-09-28",
+      "date_found": "2026-09-29",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/environment/pacificlight-power-begins-work-on-spores-first-gas-power-plant-that-comes-with-battery-storage",
+      "title": "PacificLight Power begins work on S'pore's first gas power plant that comes with battery storage",
+      "source": "The Straits Times",
+      "category": "Project Awards/Tenders",
+      "summary": "PacificLight Power held a ground-breaking ceremony on 28 September 2026 for a $1.2 billion, 670MW gas-fired power plant on Jurong Island -- Singapore's first such facility paired with battery storage -- being built by Mitsubishi Power and Jurong Engineering Limited and due to begin operations in 2029.",
+      "date_published": "2026-09-28",
+      "date_found": "2026-09-29",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/cdl-invest-s5-billion-target-s6-billion-divestments-under-refreshed-strategy",
+      "title": "CDL to invest S$5 billion, target S$6 billion in divestments under refreshed strategy",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "City Developments Ltd unveiled a “GET+” strategic road map on 28 September 2026 to deploy S$5 billion in growth capital (60% earmarked for Singapore) and target S$6 billion in divestments across its portfolio by FY2029, including S$1.8 billion of hotel-property divestments from its 165-hotel global portfolio.",
+      "date_published": "2026-09-28",
+      "date_found": "2026-09-29",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/international/vietnams-data-centre-investment-rush-faces-reality-check-power-and-site-constraints",
+      "title": "Vietnam's data-centre investment rush faces reality check on power and site constraints",
+      "source": "The Business Times",
+      "category": "International/Regional News",
+      "summary": "Singapore-based STTGDC (formerly ST Telemedia Global Data Centres, recently acquired by a KKR-Singtel consortium) pulled out of a planned 60MW Ho Chi Minh City data centre project and sold its stake to joint venture partner VNG, citing unsuitable long-term land tenure, amid a separate electricity-tariff dispute between major Vietnamese tech groups and the state utility that has raised data-centre power costs by more than 50%.",
+      "date_published": "2026-09-28",
+      "date_found": "2026-09-29",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/east-coast-road-serangoon-north-view-private-housing-sites-launched-for-sale",
+      "title": "East Coast Road, Serangoon North View private housing sites launched for sale",
+      "source": "The Straits Times",
+      "category": "Project Awards/Tenders",
+      "summary": "URA released two residential Government Land Sales sites on 29 September 2026: a 5,503 sq m confirmed-list plot at East Coast Road (max GFA 8,805 sq m, up to 85 units, the first residential GLS site in the Siglap area in a decade) and an 8,085.9 sq m reserve-list plot at Serangoon North View beside The Garden Residences (max GFA 20,214 sq m, up to 235 units).",
+      "date_published": "2026-09-29",
+      "date_found": "2026-09-30",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/property/sydney-data-centre-plan-scrapped-developer-after-community-backlash",
+      "title": "Sydney data centre plan scrapped by developer after community backlash",
+      "source": "The Business Times (Bloomberg)",
+      "category": "International/Regional News",
+      "summary": "Australian developer Goodman Group withdrew its application for the A$1.2 billion (US$842 million) \"Project Mars\" 24-hour data centre on Sydney's north shore in Lane Cove, citing evolving federal/state policy and community feedback, after the plan -- sited about 20m from the nearest home and 160m from a school -- drew criticism from residents and activists. The withdrawal follows Victoria state's recent ban on new data centres in residential areas.",
+      "date_published": "2026-09-29",
+      "date_found": "2026-09-30",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/fire-protection-specialist-deluge-corp-files-preliminary-prospectus-mainboard-ipo",
+      "title": "Fire protection specialist Deluge Corp files preliminary prospectus for mainboard IPO",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "Deluge Corp, established in 1983, lodged a preliminary prospectus on 29 September 2026 to list on the SGX mainboard, with an order book of about S$433 million as at 16 September; it is one of eight contractors holding BCA's highest ME06 (Fire Prevention & Protection Systems) L6 grade, which carries no tender value limit for public-sector projects, and Frost & Sullivan ranked it Singapore's largest fire detection and protection player in 2025 with an 8.3% market share. Its projects span transport, healthcare, aviation, commercial and residential buildings, data centres, and offshore and marine.",
+      "date_published": "2026-09-29",
+      "date_found": "2026-09-30",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-singapore-corporate-awards-2026",
+      "title": "Minister Chee Hong Tat details CORENET X results, Kit-of-Parts approval pathway, and end to overseas testing for work permit holders at Singapore Corporate Awards 2026",
+      "source": "Ministry of National Development (speech)",
+      "category": "Policy/Regulatory",
+      "summary": "At the Singapore Corporate Awards 2026, Minister Chee Hong Tat said the CORENET X digital regulatory platform -- mandatory since October 2025 for projects above 30,000 sq m GFA -- has taken submissions from over 140 projects and 300 firms with time savings of up to two months, with Norwood Grand, the first project to obtain its Temporary Occupation Permit under the platform, saving an estimated six to nine months from land award to TOP; he also announced that from January 2027 the overseas testing requirement for new construction work permit holders will be progressively removed, alongside a new \"Kit-of-Parts\" approval pathway letting developers reuse standardised precast designs across projects and a Whole-of-Government Virtual Inspection process using 360-degree scans. He credited BRC Asia chief executive and Prefabrication Association president Seah Kiin Peng's proposal for the previously-reported rebar testing streamlining initiative.",
+      "date_published": "2026-09-21",
+      "date_found": "2026-09-30",
+      "is_new_today": true
+    }
+  ]
+}

@@ -7,6 +7,52 @@
 
 ## Post-launch amendments
 
+- **LTA newsroom: not a Step 1 source, gap found via a missed contract award
+  (2026-09-30)**: the user asked whether the routine covers LTA's newsroom.
+  It does not -- Step 1 has no `lta.gov.sg` pass and no MRT/road-
+  infrastructure query, so LTA press releases only reach the store
+  incidentally, when news coverage of the same event is found by another
+  query (e.g. the North-South Corridor revised-timeline release, 2026-09-19).
+  The user flagged a live example the routine missed:
+  [LTA awards contracts for Tuas Road Viaduct Phase 2](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html)
+  (Project Awards/Tenders; TRV2 extends the existing Tuas Viaduct as part of
+  LTA's Tuas South road-network enhancements, first announced August 2024).
+  LTA is one of Singapore's largest construction clients (MRT lines such as
+  the Cross Island, Jurong Region and Downtown Line extensions, road
+  viaducts, depots), so this is the same shape of gap as the data-centre,
+  dormitory and semiconductor/pharma-plant ones above. **Backfilled same
+  day** (category: Project Awards/Tenders): three civil contracts worth a
+  combined S$1.2b, announced 30 Sep 2026 -- Hwa Seng Builder (Pioneer Road
+  Viaduct, S$381.6m), CCCC Singapore branch (Tuas South Avenue 3 Viaduct,
+  S$430.3m), China Harbour (Singapore) Engineering (Tuas South Boulevard
+  Viaduct, S$404.4m); works from early 2027 to 2032. `www.lta.gov.sg` is
+  blocked outright by the network egress policy of the session that found
+  this gap (both `curl` and WebFetch return 403 at the proxy CONNECT, as do
+  archive/reader proxies), so the entry keeps LTA's URL as its dedup key but
+  its facts come from WebSearch snippets of two secondary outlets
+  (redhot.sg, headtopics) that agree on every figure -- the same
+  snippet-plus-cross-check fallback Step 2 already allows for paywalled
+  sources. The release came out the same morning, likely after that day's
+  07:10 SGT run, so this is less a same-day miss than a demonstration that
+  nothing in Step 1 would have caught it the next day either -- except,
+  partly, the watchlist: Hwa Seng is a watchlisted name, so its per-name
+  pass could have surfaced the story, but the two China-based awardees
+  would not have been. **Check first**:
+  if the scheduled routine's environment shares that network policy, a
+  direct LTA fetch will fail there too; either add `www.lta.gov.sg` to the
+  environment's allowed domains, or rely on the search passes below
+  (WebSearch does index LTA newsroom URLs) plus trade-press cross-checks
+  (e.g. Rail Professional, Railway Technology, sgtrains). **Fix needed for
+  the routine's own prompt** (not yet applied, same tooling limitation as
+  every other fix in this section): add to Step 1 an LTA pass --
+  `site:lta.gov.sg newsroom "awards" OR contract OR tender OR construction`
+  -- and an infrastructure query -- `Singapore LTA contract awarded OR
+  tender OR viaduct OR MRT line construction OR tunnelling` -- with the same
+  wider 7-14 day window as the CAG newsroom and company watchlist, since
+  contract awards are lower-frequency milestone events. Route per the
+  priority rubric (an award or milestone is Project Awards/Tenders; a site
+  incident, dispute or resident objection outranks it).
+
 - **Archive browser added as a second published page, linked from a new
   "Archive" button, redesigned same day to fetch its data live instead of
   being regenerated each run (2026-09-28)**: the user asked whether
