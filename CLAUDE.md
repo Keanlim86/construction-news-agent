@@ -13,16 +13,16 @@
   dashboard. No local persistence, no `SKILL.md`: the routine's instructions
   live in its own prompt (edit via the `schedule` skill or
   claude.ai/code/routines).
-- **Routine config is reachable from a cloud session** via the
-  Claude_Code_Remote tools: `list_triggers`/`get_trigger` read the live
-  prompt, `update_trigger` replaces it (whole prompt, never a diff — a partial
-  paste once dropped the rest of it, 2026-09-21). Trigger id
-  `trig_01XiwXHr6pxUX42vwhZZ3Qm4`, model `claude-sonnet-5`, cron `0 23 * * *`
-  UTC. (`CronCreate`/`CronList` are an unrelated session-only scheduler.)
-  Earlier notes saying no session could reach the config are obsolete.
-  **`ROUTINE_PROMPT.md` is the source of truth for the prompt**: edit it,
-  then apply it whole with `update_trigger`. Hand-pasting through the UI has
-  stripped `_` and `*` from commands before (see Source quirks).
+- **Routine config**: a cloud session can *read* the live prompt via the
+  Claude_Code_Remote tools (`list_triggers`/`get_trigger`), but cannot edit
+  it: `update_trigger` only works on routines an agent created, and this one
+  was made in the UI. Trigger id `trig_01XiwXHr6pxUX42vwhZZ3Qm4`, model
+  `claude-sonnet-5`, cron `0 23 * * *` UTC. **`ROUTINE_PROMPT.md` is the
+  source of truth for the prompt**: edit it, then the user pastes it whole at
+  claude.ai/code/routines (never a partial paste — one once dropped the rest of
+  the prompt, 2026-09-21). Keep exact command syntax in `scripts/`, not in the
+  prompt: an earlier UI paste stripped `_` and `*` from commands (see Source
+  quirks). (`CronCreate`/`CronList` are an unrelated session-only scheduler.)
 - **Repo files**: `news_store.json` (active store, 90 days, drives the
   dashboard), `news_archive.json` (append-only history), `dashboard.html`,
   `archive.html`, `backups/news_store_<YYYYMMDD_HHMMSS>.json`, `README.md`
