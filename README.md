@@ -20,6 +20,7 @@ plus a short push notification each day.
   - [`news_archive.json`](news_archive.json) — permanent history of every article that has ever aged out of the active store (see below)
   - `dashboard.html` — source for the published Artifact dashboard (regenerated daily from `news_store.json` only)
   - `backups/` — timestamped snapshot of `news_store.json` before each overwrite
+  - `usage_log.csv` — token usage and estimated cost of each daily run, appended at 08:28 SGT by a separate `construction-news-usage-tracker` routine
   - `CLAUDE.md` — the live design reference the routine follows: current Step 0–6 logic, pending prompt fixes, source quirks, and a log of backfilled misses
 
 ## Schedule
@@ -74,7 +75,8 @@ Construction — a distinct, related sister company under the KTC Group
 umbrella, not the same entity as Kok Tong Construction) &middot; The GEAR by
 Kajima (Kajima's Asia regional HQ and open-innovation/tech co-creation hub
 at Changi Business Park — not a separate company from Kajima, but named
-distinctly enough in coverage to warrant its own search pass)
+distinctly enough in coverage to warrant its own search pass) &middot;
+Pan-United Corporation (ready-mix concrete) &middot; Continental Steel (rebar/steel)
 
 To add, remove, or adjust the list, edit it in both CLAUDE.md and the
 routine's prompt (Step 1) via the `schedule` skill — keep the two in sync.

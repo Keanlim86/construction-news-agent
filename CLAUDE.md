@@ -1,8 +1,8 @@
 # Construction News Agent (Singapore) — Daily Scheduled Digest
 
 > Status: **Live since 2026-09-06.** This file is the design reference the
-> daily routine reads each run. Sections marked **PENDING** are fixes agreed
-> with the user but not yet confirmed in the routine's own prompt.
+> daily routine reads each run. As of 2026-09-30 it matches the routine's
+> live prompt; when either changes, update the other (see Routine management).
 
 ## How it runs
 
@@ -13,15 +13,18 @@
   dashboard. No local persistence, no `SKILL.md`: the routine's instructions
   live in its own prompt (edit via the `schedule` skill or
   claude.ai/code/routines).
-- **Tooling limitation**: repo sessions have no tool that reaches the
-  persistent routine config (`CronCreate`/`CronList` here are a separate,
-  session-only scheduler). Prompt changes are drafted in a session and
-  **pasted by the user** — paste the *whole* Step/prompt, not a diff (a
-  partial paste once dropped the rest of the prompt, 2026-09-21).
+- **Routine config is reachable from a cloud session** via the
+  Claude_Code_Remote tools: `list_triggers`/`get_trigger` read the live
+  prompt, `update_trigger` replaces it (whole prompt, never a diff — a partial
+  paste once dropped the rest of it, 2026-09-21). Trigger id
+  `trig_01XiwXHr6pxUX42vwhZZ3Qm4`, model `claude-sonnet-5`, cron `0 23 * * *`
+  UTC. (`CronCreate`/`CronList` are an unrelated session-only scheduler.)
+  Earlier notes saying no session could reach the config are obsolete.
 - **Repo files**: `news_store.json` (active store, 90 days, drives the
   dashboard), `news_archive.json` (append-only history), `dashboard.html`,
   `archive.html`, `backups/news_store_<YYYYMMDD_HHMMSS>.json`, `README.md`
-  (human doc), `Link.txt` (dashboard URL).
+  (human doc), `Link.txt` (dashboard URL), `usage_log.csv` (per-run token
+  usage, written by the tracker routine — the news routine never touches it).
 - **Published pages**:
   - Dashboard: https://claude.ai/code/artifact/092b0df4-41bf-4f2f-9b53-6983fe8902d1
     (`.../artifact/28fUQ9iv...` is a short alias of the same artifact, not a
@@ -92,29 +95,78 @@ latest `backups/` file; if still unreadable, notify and stop; if missing,
 treat as first run). Build normalized `known_urls`. Note today's SGT date.
 
 **Step 1 — Gather candidates**. Window: last 24–48h normally; 7 days on first
-run. "Wide window" below = 7–14 days (lower-frequency milestone sources).
+run. "Wide window" below = 7–14 days on any run (lower-frequency sources).
 Skip any unreachable/paywalled source and continue.
 
-- **Source searches (WebSearch)**: `site:straitstimes.com construction Singapore`,
-  `site:businesstimes.com.sg construction OR "built environment" Singapore`,
-  CNA, BCA/HDB/URA newsroom passes, `site:constructionplusasia.com Singapore`.
-- **Category seeds**: safety, sustainability, manpower, disputes, tenders, and
-  New Technology/Innovation: `Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM`.
-- **Bloomberg (cat. 10)**: e.g. `site:bloomberg.com construction OR property developer insolvency Asia`.
-- **Data centres (wide window)**: `data centre Singapore construction OR safety OR tender OR community`
-  (routes to 1/4/7/8/9) and `data centre Asia safety OR regulatory OR community reaction` (cat. 10).
-- **Purpose-built dormitories (wide window)**:
-  `Singapore purpose-built dormitory OR "worker dormitory" tender OR site OR construction`
-  (JTC PBD land tenders, MOM/MND bed-capacity announcements, quick-build dorms).
-- **Changi Airport Group newsroom (wide window)**:
+- **Source searches (WebSearch)**: `site:straitstimes.com`, `site:businesstimes.com.sg`,
+  CNA construction/property, BCA/HDB/URA press releases,
+  `site:constructionplusasia.com`.
+- **Changi Airport Group newsroom (wide)**:
   changiairport.com/en/corporate/our-media-hub/newsroom.html — `site:` search
-  indexes it poorly; cross-check with aviation/construction trade press
-  (Passenger Terminal Today, Future Travel Experience).
-- **Company/entity watchlist (wide window)** — one search pass per name
-  ("named companies/agencies worth a per-name pass", not strictly SGX-listed):
+  indexes it poorly; cross-check with trade press (Passenger Terminal Today,
+  Future Travel Experience).
+- **MND speeches + press releases (wide, `curl`)**: mnd.gov.sg is a
+  client-rendered Next.js app WebFetch/WebSearch can't read, so call its
+  Directus API. Listing:
+  `curl -sG "https://www.mnd.gov.sg/api/articles" --data-urlencode "filter[and][0][status][eq]=published" --data-urlencode "filter[and][1][article_type][eq]=<TYPE>" --data-urlencode "sort=-article_date_time" --data-urlencode "limit=15" --data-urlencode "fields=title,url,article_date_time"`
+  with `<TYPE>` = `e45b3aaf-3de0-4c98-922a-d5ad73ab5c0b` (speeches) or
+  `bcb1e98c-5a6c-4f76-a93a-6c263b9aecda` (press releases). Full text: same
+  call with `filter[and][1][url][eq]=<slug>` and `fields=*,title.*`; HTML is in
+  `content`. Press releases are mainly a redundancy check (WebSearch often
+  fails to surface stories mainstream outlets did cover). **Always fetch full
+  text for relevant titles even if a same-event story from another outlet is
+  already stored** — `known_urls` rules out exact URLs, never topics; add the
+  MND URL as its own entry if it adds material specifics, else skip. The
+  `curl` approach is MND-specific; don't generalise it without the same
+  JS-rendering problem.
+- **Straits Times (wide, `curl`)**: `curl -sS "https://www.straitstimes.com/news/singapore/rss.xml"`
+  (parse `<item>` `<title>`/`<link>`/`<pubDate>`; trust `<pubDate>`) and
+  `curl -sS "https://www.straitstimes.com/tags/ministry-of-national-development?ref=see-more-on"`
+  (raw HTML; extract titles/URLs — MND housing/land stories lacking a
+  "construction" keyword).
+- **Business Times (wide, `curl`)**: `curl -sS "https://www.businesstimes.com.sg/rss.xml"`,
+  parsed like ST's feed. Site-wide feed; most items are discarded.
+- **LTA newsroom (wide, `curl`)**:
+  `curl -sS https://www.lta.gov.sg/content/ltagov/en/newsroom.html` — one
+  ~1.1MB static page with every News Release/Media Reply since 2020 (filters
+  are client-side; no params needed). Parse each `<li class="item">`:
+  `<h5 class="mt-3 title"><a href>` title/URL, `<p class="news-paragraph">`
+  summary, `<span class="date" style="display:none;">YYYY-MM-DD</span>` date
+  (trust it). Keep contract awards, tunnelling/viaduct progress, MRT/road
+  milestones, worksite safety/community items; discard fare/ERP/COE/bus/
+  licensing notices. WebFetch each kept press-release page for full text
+  (reliable per article; **not** on the listing page — its summarizer sampled
+  Jan 2020 entries). If unreachable, fall back to WebSearch
+  `site:lta.gov.sg newsroom "awards" OR contract OR tender OR construction` and
+  `Singapore LTA contract awarded OR tender OR viaduct OR MRT line construction OR tunnelling`
+  plus a cross-check — but try `curl` first every run (reachability varies by
+  environment: one session got proxy 403, another 200; if blocked, add
+  `www.lta.gov.sg` to the environment's allowed domains).
+- **Category seeds**: safety, sustainability, manpower, disputes, tenders, plus
+  dedicated queries:
+  - Tech: `Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM`
+  - Policy: `Singapore URA OR BCA OR HDB OR MOM construction OR building policy OR guideline OR regulation review`
+    (guideline reviews, e.g. URA GFA rules, often lack "construction").
+  - Materials: `Singapore construction sand OR cement OR concrete OR steel OR rebar supply OR shortage OR price`
+    (import ban → cat. 3; company operations → cat. 9; unless 1/2/4 applies).
+  - Heat stress: `Singapore construction heat stress OR outdoor worker cooling OR heat-resilient wearable OR climate adaptation worksite`
+    (MOM's mandatory heat stress framework starts Dec 2026). Won't catch a
+    single buried mention in an unrelated headline — accepted tradeoff.
+- **Bloomberg (cat. 10)**: e.g. `site:bloomberg.com construction OR property developer insolvency Asia`.
+- **Data centres (wide)**: `data centre Singapore construction OR safety OR tender OR community`
+  (routes to 1/4/7/8/9) and `data centre Asia safety OR regulatory OR community reaction` (cat. 10).
+- **Purpose-built dormitories (wide)**:
+  `Singapore purpose-built dormitory OR "worker dormitory" tender OR site OR construction`
+  → usually cat. 6; an awarded/closed land tender → cat. 4.
+- **Semiconductor/pharma/high-tech plants (wide)**:
+  `Singapore semiconductor fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing facility groundbreaking OR opening OR construction`
+  — often reported as tech/business news on GlobeNewswire/SEMI/EDB.
+- **Company/entity watchlist (wide)** — one query per name ("named
+  companies/agencies worth a per-name pass", not strictly SGX-listed):
   Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC Holdings,
   Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong Seng, BBR,
-  Hwa Seng, Kajima, JTC, Kok Tong Construction, KTC Engineering, The GEAR by Kajima.
+  Hwa Seng, Kajima, JTC, Kok Tong Construction, KTC Engineering, The GEAR by
+  Kajima, Pan-United Corporation, Continental Steel.
   - Kok Tong Construction Pte Ltd and **KTC Civil Engineering & Construction
     Pte Ltd** are separate sister companies (KTC Group, 27 Pandan Crescent) —
     separate queries, attribute hits to the correct one.
@@ -122,20 +174,10 @@ Skip any unreachable/paywalled source and continue.
     Changi Business Park, opened 16 Aug 2023) is Kajima's Asia HQ and
     tech co-creation hub (houses KaTRIS) — not a separate company, but
     coverage often names only "The GEAR".
+  - Pan-United (SGX: P52): SG's largest ready-mix concrete producer (~40%
+    share), only carbon-mineralised concrete provider. Continental Steel:
+    major SEA steel supplier (SG rebar/steel fibre).
   - Keep this list in sync with README.md and the routine prompt.
-- **MND speeches (wide window, `curl`)**: mnd.gov.sg is a client-rendered
-  Next.js app WebFetch/WebSearch can't read. Call its Directus API
-  `https://www.mnd.gov.sg/api/articles` — listing with
-  `filter[...][article_type][_eq]=<speeches-type-id>`, `sort=-article_date_time`
-  (titles/dates/slugs); then a filtered call with `fields=*,title.*` returns the
-  full HTML in `content`.
-- **Straits Times (wide window, `curl`)**:
-  `curl -sS "https://www.straitstimes.com/news/singapore/rss.xml"` — parse each
-  `<item>`'s `<title>`, `<link>`, `<pubDate>`; trust `<pubDate>` for
-  `date_published`/window filtering. Also
-  `curl -sS "https://www.straitstimes.com/tags/ministry-of-national-development?ref=see-more-on"`
-  (raw HTML; extract linked titles/URLs — catches MND housing/land stories
-  lacking a "construction" keyword).
 
 **Step 2 — Filter**: discard non-SG stories that don't clear cat. 10's bar;
 normalize URLs; drop anything in `known_urls`. Confirm survivors via WebFetch
@@ -157,7 +199,9 @@ write the store with new `last_run`.
 store, grouped by the 10 categories, newest `date_published` first within
 each, NEW badges, per-category and total counts. Follow `artifact-design`
 conventions (Blueprint Brief tokens: Fraunces / IBM Plex Sans / IBM Plex Mono,
-blueprint-grid background). Publish with the **same `file_path`** every run.
+blueprint-grid background). Publish: Artifact `read` the stable dashboard
+URL, then `publish` `dashboard.html` with `url` set to it (same title "Blueprint
+Brief", omit the icon) so it updates in place.
 **Preserve this template chrome exactly — never drop, simplify, or re-derive it:**
 - **Search bar** + `applyFilter()`: a card must match the keyword query, the
   today-only state, *and* the selected date.
@@ -179,8 +223,9 @@ blueprint-grid background). Publish with the **same `file_path`** every run.
   client-side via a relative URL (the artifact CSP blocks external hosts,
   incl. GitHub raw) and renders legend, stats, search, `.archived` pills
   (showing `archived_on`), empty and load-error states from it; no NEW badges
-  or collapse. The only ongoing action is republishing the data file (see
-  PENDING below).
+  or collapse. Only on runs where Step 4 archived something: Artifact
+  `publish` with `url` = the archive page URL and
+  `files: {"news_archive.json": "news_archive.json"}`, no `file_path`.
 
 **Step 6 — Commit, push, land on `main`, notify**: commit and push. The
 environment may force a per-run branch and block direct pushes to `main`;
@@ -193,56 +238,31 @@ trigger also fired twice on 09-09). The session git credential can't delete
 refs (403), so orphan branches can't be cleaned up from a session. Then send
 one `PushNotification` (<200 chars, one line, no markdown), e.g.
 `Construction News: 5 new (2 Tenders, 1 Safety, 1 Sustainability). Dashboard: <url>`,
-or a quiet-day / failure message.
+or a quiet-day, first-run, total-failure, or "main has diverged — needs
+manual merge" message. On total failure, write and push nothing.
 
 **First run**: 7-day window, build initial dashboard, "set up complete"
 notification. **Total failure** (no sources reachable): don't write the
 store/dashboard; send a failure notification.
 
-## PENDING — fixes not yet confirmed in the routine prompt
+## Usage tracking
 
-Apply via the `schedule` skill / claude.ai/code/routines (user pastes).
-
-1. **LTA newsroom (Step 1, wide window)** — LTA is a top SG construction
-   client (MRT lines, viaducts, depots) with no Step 1 pass. Add:
-   "Fetch `curl -sS https://www.lta.gov.sg/content/ltagov/en/newsroom.html`
-   (one ~1.1MB static page with every News Release/Media Reply since 2020;
-   query params and filters are client-side only) and parse each
-   `<li class="item">`: `<div class="label">` type, `<h5 class="mt-3 title"><a href>`
-   title/URL, `<p class="news-paragraph">` summary, and
-   `<span class="date" style="display:none;">YYYY-MM-DD</span>` date (trust it
-   like RSS `<pubDate>`). Keep construction/infrastructure items (contract
-   awards, tunnelling/viaduct progress, MRT/road milestones, worksite safety or
-   community items); discard fare/ERP/COE/bus notices. WebFetch each kept
-   press-release page for full text. Attempt the `curl` every run; only if
-   unreachable, fall back to WebSearch
-   `site:lta.gov.sg newsroom "awards" OR contract OR tender OR construction`
-   and `Singapore LTA contract awarded OR tender OR viaduct OR MRT line construction OR tunnelling`,
-   with snippet-plus-cross-check." Route awards/milestones to cat. 4 unless an
-   incident/dispute/objection outranks. Notes: don't hand the listing page to
-   WebFetch (its summarizer sampled Jan 2020 entries); reachability varies by
-   environment (one session got proxy 403, another 200) — check with
-   `curl -sS -o /dev/null -w "%{http_code}" https://www.lta.gov.sg`; if blocked,
-   add `www.lta.gov.sg` to the environment's allowed domains.
-2. **Semiconductor/pharma/high-tech plants (Step 1, wide window)**:
-   `Singapore semiconductor fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing facility groundbreaking OR opening OR construction`.
-   Coverage often runs on GlobeNewswire/SEMI framed as tech/business news.
-3. **Worker heat stress (Step 1 category seed)**:
-   `Singapore construction heat stress OR outdoor worker cooling OR heat-resilient wearable OR climate adaptation worksite`.
-   Partial fix only: an incidental one-line mention inside an unrelated
-   headline (e.g. a consumer-gadget roundup) will still be missed — reading
-   every RSS item's full text is deliberately not done.
-4. **MND full text regardless of other coverage (Step 1, after the MND API
-   block)**: "Fetch full text for any construction-relevant MND speech/press
-   release even if a same-event story from another outlet is already stored
-   or found this run — `known_urls` only rules out exact URLs, never topics.
-   If it adds no material fact, skip; if it adds specifics (numbers, named
-   schemes, technical detail), add it as its own entry with its MND URL."
-5. **Archive data publish (Steps 4/5/6)**: on runs where Step 4 archived
-   anything, also call the Artifact tool with `url` = the archive page URL and
-   `files: {"news_archive.json": "news_archive.json"}` (no `file_path`); skip
-   otherwise. Name the archive URL, Archive button, and this mechanism as
-   permanent template chrome in the prompt's CONTEXT/CONSTRAINTS.
+Routine `construction-news-usage-tracker` (`trig_01Lh6Rj6Krt4jvvBfqiZgC2j`,
+Haiku, daily 08:28 SGT, fresh session per fire) reads the news routine's
+`last_run` session usage via `list_triggers` + `get_session`, and appends one
+row to `usage_log.csv` (date, session, model, status, minutes, input/output/
+cache-read/cache-write tokens, cost_usd), committed straight to `main`. It
+runs separately because the news routine has no Claude_Code_Remote connector
+and can't read its own usage. Only the *latest* run is queryable, so a missed
+day can't be backfilled. `cost_usd` is the session's API-price estimate, and
+it includes any chat someone adds to the run session afterwards. Baseline
+(2026-09-30 run): ~630k input+output, 32.7M cache-read tokens, ~US$11.34;
+cache reads dominate, driven by the number of tool calls per run.
+**Setup status**: the tracker needs the Claude_Code_Remote connector (for
+`list_triggers`, `get_session`, `add_repo`). Routines created from a session
+store no connectors, and its first test run (2026-09-30) had none and logged
+nothing. Add the connector to the routine at claude.ai/code/routines. Until
+then it no-ops daily (~US$0.07/run).
 
 ## Source quirks (learned the hard way)
 
@@ -257,6 +277,10 @@ Apply via the `schedule` skill / claude.ai/code/routines (user pastes).
 - **JS-rendered sites** (MND): use the underlying API, not the page.
 - **Title-driven triage** misses construction detail buried in unrelated
   headlines; accepted tradeoff.
+- **Live prompt check**: the MND full-text call should read
+  `fields=*,title.*`; the trigger listing on 2026-09-30 showed `fields=,title.`
+  (possibly just display stripping). Verify with `get_trigger` if MND full text
+  comes back empty.
 
 ## Backfill log (misses found by the user, fixed in store + dashboard)
 
@@ -266,10 +290,10 @@ Apply via the `schedule` skill / claude.ai/code/routines (user pastes).
 | 09-08 | CNA: Bangkok data centres under safety/regulatory scrutiny | 10 | No data-centre query (now added) |
 | 09-12 | [JTC PBD sites Mandai ~15,000 / Upper Jurong ~8,100 beds, tender H2 2027](https://www.straitstimes.com/singapore/sites-in-mandai-and-upper-jurong-road-to-be-sold-for-purpose-built-dormitories-over-by-end-2027) (~71,500 beds by early 2030s) | 6 | No dormitory query (now added) |
 | 09-18 | [JTC/Kajima autonomous excavator/compactor trial, Bulim; deploy ~2028](https://www.straitstimes.com/singapore/construction-robots-on-trial-could-be-deployed-as-early-as-2028) (KTC operators) | 7 | No tech query (now added) |
-| 09-28 | [VSMC 300mm fab grand opening, Tampines](https://www.globenewswire.com/news-release/2026/09/28/3369483/0/en/vsmc-celebrates-the-grand-opening-of-its-first-300mm-fab-in-singapore.html) (VIS/NXP JV; 22-month build; ~1,600 jobs) | 4 | No plant query (PENDING 2) |
-| 09-28 | [MND: Chee Hong Tat, HDB Awards 2026](https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-hdb-awards-ceremony-2026) — Smart Passenger & Material Hoist (LiDAR/anti-pinch, 1 worker : 3 hoists), hoists + screeding robots at all new BTO sites, STCS | 7 | MND full text skipped as "covered" (PENDING 4) |
-| 09-28 | [ST cooling gadgets roundup](https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market) — Freeze Tech cooling wear (up to 9°C) trialled by an SG contractor | 7 | Buried mention (PENDING 3, partial) |
-| 09-30 | [LTA Tuas Road Viaduct Phase 2 awards](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html), S$1.2b: Hwa Seng (Pioneer Rd, S$381.6m), CCCC SG (Tuas South Ave 3, S$430.3m), China Harbour (Tuas South Blvd, S$404.4m); works 2027–2032 | 4 | No LTA source (PENDING 1) |
+| 09-28 | [VSMC 300mm fab grand opening, Tampines](https://www.globenewswire.com/news-release/2026/09/28/3369483/0/en/vsmc-celebrates-the-grand-opening-of-its-first-300mm-fab-in-singapore.html) (VIS/NXP JV; 22-month build; ~1,600 jobs) | 4 | No plant query (now added) |
+| 09-28 | [MND: Chee Hong Tat, HDB Awards 2026](https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-hdb-awards-ceremony-2026) — Smart Passenger & Material Hoist (LiDAR/anti-pinch, 1 worker : 3 hoists), hoists + screeding robots at all new BTO sites, STCS | 7 | MND full text skipped as "covered" (now added) |
+| 09-28 | [ST cooling gadgets roundup](https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market) — Freeze Tech cooling wear (up to 9°C) trialled by an SG contractor | 7 | Buried mention (heat-stress query now added; partial) |
+| 09-30 | [LTA Tuas Road Viaduct Phase 2 awards](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html), S$1.2b: Hwa Seng (Pioneer Rd, S$381.6m), CCCC SG (Tuas South Ave 3, S$430.3m), China Harbour (Tuas South Blvd, S$404.4m); works 2027–2032 | 4 | No LTA source (now added) |
 
 Related non-miss (2026-09-21): an ST Jurong Port Road hose-strike death was
 already stored via a MustShareNews URL — URL dedup working as designed.
