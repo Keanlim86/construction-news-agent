@@ -7,6 +7,40 @@
 
 ## Post-launch amendments
 
+- **LTA newsroom: not a Step 1 source, gap found via a missed contract award
+  (2026-09-30)**: the user asked whether the routine covers LTA's newsroom.
+  It does not -- Step 1 has no `lta.gov.sg` pass and no MRT/road-
+  infrastructure query, so LTA press releases only reach the store
+  incidentally, when news coverage of the same event is found by another
+  query (e.g. the North-South Corridor revised-timeline release, 2026-09-19).
+  The user flagged a live example the routine missed:
+  [LTA awards contracts for Tuas Road Viaduct Phase 2](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html)
+  (Project Awards/Tenders; TRV2 extends the existing Tuas Viaduct as part of
+  LTA's Tuas South road-network enhancements, first announced August 2024).
+  LTA is one of Singapore's largest construction clients (MRT lines such as
+  the Cross Island, Jurong Region and Downtown Line extensions, road
+  viaducts, depots), so this is the same shape of gap as the data-centre,
+  dormitory and semiconductor/pharma-plant ones above. **Not yet backfilled**:
+  `www.lta.gov.sg` is blocked outright by the network egress policy of the
+  session that found this gap (both `curl` and WebFetch return 403 at the
+  proxy CONNECT), and WebSearch returned no secondary coverage of the award,
+  so no store entry was written rather than guessing at contract values or
+  contractors -- add it once the release text is available. **Check first**:
+  if the scheduled routine's environment shares that network policy, a
+  direct LTA fetch will fail there too; either add `www.lta.gov.sg` to the
+  environment's allowed domains, or rely on the search passes below
+  (WebSearch does index LTA newsroom URLs) plus trade-press cross-checks
+  (e.g. Rail Professional, Railway Technology, sgtrains). **Fix needed for
+  the routine's own prompt** (not yet applied, same tooling limitation as
+  every other fix in this section): add to Step 1 an LTA pass --
+  `site:lta.gov.sg newsroom "awards" OR contract OR tender OR construction`
+  -- and an infrastructure query -- `Singapore LTA contract awarded OR
+  tender OR viaduct OR MRT line construction OR tunnelling` -- with the same
+  wider 7-14 day window as the CAG newsroom and company watchlist, since
+  contract awards are lower-frequency milestone events. Route per the
+  priority rubric (an award or milestone is Project Awards/Tenders; a site
+  incident, dispute or resident objection outranks it).
+
 - **Archive browser added as a second published page, linked from a new
   "Archive" button, redesigned same day to fetch its data live instead of
   being regenerated each run (2026-09-28)**: the user asked whether
