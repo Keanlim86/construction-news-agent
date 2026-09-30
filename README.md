@@ -20,6 +20,8 @@ plus a short push notification each day.
   - [`news_archive.json`](news_archive.json) — permanent history of every article that has ever aged out of the active store (see below)
   - `dashboard.html` — source for the published Artifact dashboard (regenerated daily from `news_store.json` only)
   - `backups/` — timestamped snapshot of `news_store.json` before each overwrite
+  - `scripts/` — helpers the routine runs to keep its token use down: `fetch_sources.py` (fetches the RSS feeds, LTA and MND listings and prints only new candidates), `update_store.py` (merges new articles, archives, backs up), `render_dashboard.py` (builds `dashboard.html` from `dashboard_template.html`; edit the template to change the page design)
+  - `ROUTINE_PROMPT.md` — the routine's prompt, kept here as the source of truth
   - `CLAUDE.md` — the live design reference the routine follows: current Step 0–6 logic, pending prompt fixes, source quirks, and a log of backfilled misses
 
 ## Schedule
@@ -77,8 +79,8 @@ at Changi Business Park — not a separate company from Kajima, but named
 distinctly enough in coverage to warrant its own search pass) &middot;
 Pan-United Corporation (ready-mix concrete) &middot; Continental Steel (rebar/steel)
 
-To add, remove, or adjust the list, edit it in both CLAUDE.md and the
-routine's prompt (Step 1) via the `schedule` skill — keep the two in sync.
+To add, remove, or adjust the list, edit it in CLAUDE.md and `ROUTINE_PROMPT.md`, then apply the
+prompt to the routine — keep them in sync.
 
 ## History / retention
 

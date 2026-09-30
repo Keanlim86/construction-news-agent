@@ -20,10 +20,17 @@
   `trig_01XiwXHr6pxUX42vwhZZ3Qm4`, model `claude-sonnet-5`, cron `0 23 * * *`
   UTC. (`CronCreate`/`CronList` are an unrelated session-only scheduler.)
   Earlier notes saying no session could reach the config are obsolete.
+  **`ROUTINE_PROMPT.md` is the source of truth for the prompt**: edit it,
+  then apply it whole with `update_trigger`. Hand-pasting through the UI has
+  stripped `_` and `*` from commands before (see Source quirks).
 - **Repo files**: `news_store.json` (active store, 90 days, drives the
   dashboard), `news_archive.json` (append-only history), `dashboard.html`,
   `archive.html`, `backups/news_store_<YYYYMMDD_HHMMSS>.json`, `README.md`
-  (human doc), `Link.txt` (dashboard URL).
+  (human doc), `Link.txt` (dashboard URL), `ROUTINE_PROMPT.md`, and
+  `scripts/`: `fetch_sources.py` (Step 1 feeds), `update_store.py` (Step 4),
+  `render_dashboard.py` + `dashboard_template.html` (Step 5). The scripts
+  exist to cut tokens: raw feeds, the store and the dashboard HTML never enter
+  the run's conversation.
 - **Published pages**:
   - Dashboard: https://claude.ai/code/artifact/092b0df4-41bf-4f2f-9b53-6983fe8902d1
     (`.../artifact/28fUQ9iv...` is a short alias of the same artifact, not a
@@ -89,9 +96,10 @@ the store; it feeds only `archive.html`.
 
 ## Daily routine logic
 
-**Step 0 — Load state**: read `news_store.json` (if corrupt, restore from the
-latest `backups/` file; if still unreadable, notify and stop; if missing,
-treat as first run). Build normalized `known_urls`. Note today's SGT date.
+**Step 0 — Load state**: handled inside the scripts. `update_store.py`
+restores a corrupt store from the latest readable `backups/` file (and exits
+non-zero if none; the run then notifies and stops), treats a missing store as
+a first run, and dedups on normalized URLs.
 
 **Step 1 — Gather candidates**. Window: last 24–48h normally; 7 days on first
 run. "Wide window" below = 7–14 days on any run (lower-frequency sources).
@@ -104,43 +112,32 @@ Skip any unreachable/paywalled source and continue.
   changiairport.com/en/corporate/our-media-hub/newsroom.html — `site:` search
   indexes it poorly; cross-check with trade press (Passenger Terminal Today,
   Future Travel Experience).
-- **MND speeches + press releases (wide, `curl`)**: mnd.gov.sg is a
-  client-rendered Next.js app WebFetch/WebSearch can't read, so call its
-  Directus API. Listing:
-  `curl -sG "https://www.mnd.gov.sg/api/articles" --data-urlencode "filter[and][0][status][eq]=published" --data-urlencode "filter[and][1][article_type][eq]=<TYPE>" --data-urlencode "sort=-article_date_time" --data-urlencode "limit=15" --data-urlencode "fields=title,url,article_date_time"`
-  with `<TYPE>` = `e45b3aaf-3de0-4c98-922a-d5ad73ab5c0b` (speeches) or
-  `bcb1e98c-5a6c-4f76-a93a-6c263b9aecda` (press releases). Full text: same
-  call with `filter[and][1][url][eq]=<slug>` and `fields=*,title.*`; HTML is in
-  `content`. Press releases are mainly a redundancy check (WebSearch often
-  fails to surface stories mainstream outlets did cover). **Always fetch full
-  text for relevant titles even if a same-event story from another outlet is
-  already stored** — `known_urls` rules out exact URLs, never topics; add the
-  MND URL as its own entry if it adds material specifics, else skip. The
-  `curl` approach is MND-specific; don't generalise it without the same
-  JS-rendering problem.
-- **Straits Times (wide, `curl`)**: `curl -sS "https://www.straitstimes.com/news/singapore/rss.xml"`
-  (parse `<item>` `<title>`/`<link>`/`<pubDate>`; trust `<pubDate>`) and
-  `curl -sS "https://www.straitstimes.com/tags/ministry-of-national-development?ref=see-more-on"`
-  (raw HTML; extract titles/URLs — MND housing/land stories lacking a
-  "construction" keyword).
-- **Business Times (wide, `curl`)**: `curl -sS "https://www.businesstimes.com.sg/rss.xml"`,
-  parsed like ST's feed. Site-wide feed; most items are discarded.
-- **LTA newsroom (wide, `curl`)**:
-  `curl -sS https://www.lta.gov.sg/content/ltagov/en/newsroom.html` — one
-  ~1.1MB static page with every News Release/Media Reply since 2020 (filters
-  are client-side; no params needed). Parse each `<li class="item">`:
-  `<h5 class="mt-3 title"><a href>` title/URL, `<p class="news-paragraph">`
-  summary, `<span class="date" style="display:none;">YYYY-MM-DD</span>` date
-  (trust it). Keep contract awards, tunnelling/viaduct progress, MRT/road
-  milestones, worksite safety/community items; discard fare/ERP/COE/bus/
-  licensing notices. WebFetch each kept press-release page for full text
-  (reliable per article; **not** on the listing page — its summarizer sampled
-  Jan 2020 entries). If unreachable, fall back to WebSearch
-  `site:lta.gov.sg newsroom "awards" OR contract OR tender OR construction` and
-  `Singapore LTA contract awarded OR tender OR viaduct OR MRT line construction OR tunnelling`
-  plus a cross-check — but try `curl` first every run (reachability varies by
-  environment: one session got proxy 403, another 200; if blocked, add
-  `www.lta.gov.sg` to the environment's allowed domains).
+- **Feeds and listings: `python3 scripts/fetch_sources.py`** (14-day
+  window) fetches Straits Times RSS, Business Times RSS, the ST MND tag page,
+  the LTA newsroom listing, and MND speeches + press releases. It drops known
+  URLs (store + archive), applies a loose keyword filter and LTA's
+  fare/ERP/COE/bus/licensing exclusion, and prints one line per candidate with
+  the publisher's date. `fetch_sources.py text URL` returns an article's plain
+  text (straitstimes.com, mnd.gov.sg via its API, LTA, others). Internals
+  worth knowing when maintaining it:
+  - MND (mnd.gov.sg is a client-rendered Next.js app) is read through its
+    Directus API `https://www.mnd.gov.sg/api/articles`. Filters **must** use
+    Directus operators: `filter[_and][0][status][_eq]=published`,
+    `filter[_and][1][article_type][_eq]=<TYPE>` (speeches
+    `e45b3aaf-3de0-4c98-922a-d5ad73ab5c0b`, press releases
+    `bcb1e98c-5a6c-4f76-a93a-6c263b9aecda`), `sort=-article_date_time`; full
+    text via `filter[_and][1][url][_eq]=<slug>` + `fields=*,title.*` (HTML
+    in `content`). Always fetch full text for relevant MND titles even if a
+    same-event story from another outlet is stored; add the MND URL as its own
+    entry only if it adds material specifics.
+  - LTA's newsroom.html is one ~1.1MB static page with every item since 2020;
+    each `<li class="item">` has the title link, `news-paragraph` summary and a
+    hidden `<span class="date">YYYY-MM-DD</span>`. If LTA is unreachable,
+    fall back to WebSearch `site:lta.gov.sg newsroom "awards" OR contract OR
+    tender OR construction` (reachability varies by environment; if blocked,
+    allow `www.lta.gov.sg` in the environment's network settings).
+  - ST MND tag page dates come from the embedded page data
+    (`"title","/path","updatedDate","publishedDate"`).
 - **Category seeds**: safety, sustainability, manpower, disputes, tenders, plus
   dedicated queries:
   - Tech: `Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM`
@@ -160,8 +157,9 @@ Skip any unreachable/paywalled source and continue.
 - **Semiconductor/pharma/high-tech plants (wide)**:
   `Singapore semiconductor fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing facility groundbreaking OR opening OR construction`
   — often reported as tech/business news on GlobeNewswire/SEMI/EDB.
-- **Company/entity watchlist (wide)** — one query per name ("named
-  companies/agencies worth a per-name pass", not strictly SGX-listed):
+- **Company/entity watchlist (wide)** — searched in 4 grouped OR queries
+  (see `ROUTINE_PROMPT.md`; one query per name cost ~15 extra steps a run).
+  "Named companies/agencies worth a search pass", not strictly SGX-listed:
   Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC Holdings,
   Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong Seng, BBR,
   Hwa Seng, Kajima, JTC, Kok Tong Construction, KTC Engineering, The GEAR by
@@ -176,32 +174,38 @@ Skip any unreachable/paywalled source and continue.
   - Pan-United (SGX: P52): SG's largest ready-mix concrete producer (~40%
     share), only carbon-mineralised concrete provider. Continental Steel:
     major SEA steel supplier (SG rebar/steel fibre).
-  - Keep this list in sync with README.md and the routine prompt.
+  - Keep this list in sync with README.md and `ROUTINE_PROMPT.md`.
 
-**Step 2 — Filter**: discard non-SG stories that don't clear cat. 10's bar;
-normalize URLs; drop anything in `known_urls`. Confirm survivors via WebFetch
-(or `curl` where WebFetch is blocked). Paywall fallback: a clear, specific
+**Step 2 — Filter**: discard non-SG stories that don't clear cat. 10's bar.
+Confirm survivors via `fetch_sources.py text URL` or WebFetch. Paywall fallback: a clear, specific
 search snippet plus a cross-check against one freely-accessible outlet with
 the same facts. Verify dates — WebSearch can resurface old stories as
 "recent" (see Source quirks).
 
 **Step 3 — Classify & summarize**: one category per article via the rubric;
-factual 1–2 sentence summary, no editorializing.
+factual 1–2 sentence summary, no editorializing. Written as a JSON list to
+`new_articles.json` (fields: url, title, source, category, summary,
+date_published) for Step 4.
 
-**Step 4 — Update store**: append new entries (`date_found` = today,
+**Step 4 — Update store** (`python3 scripts/update_store.py new_articles.json`,
+or `--none`): append new entries (`date_found` = today,
 `is_new_today` = true); set all others false; move any entry with
 `date_found` > 90 days old into `news_archive.json` with `archived_on` = today
 (never delete without archiving); back up `news_store.json` to `backups/`;
-write the store with new `last_run`.
+write the store with new `last_run`. The script also refuses unknown
+categories and never archives the same URL twice. Its one-line JSON summary
+gives the counts for the notification.
 
-**Step 5 — Regenerate & publish**: rebuild `dashboard.html` from the full
-store, grouped by the 10 categories, newest `date_published` first within
-each, NEW badges, per-category and total counts. Follow `artifact-design`
-conventions (Blueprint Brief tokens: Fraunces / IBM Plex Sans / IBM Plex Mono,
-blueprint-grid background). Publish: Artifact `read` the stable dashboard
+**Step 5 — Regenerate & publish** (`python3 scripts/render_dashboard.py`):
+fills `scripts/dashboard_template.html` from the full store (stats, last-run
+time, legend, one section per category, newest `date_published` first, NEW
+badges, counts; empty categories get an `.empty-panel`). Never edit
+`dashboard.html` by hand; make design changes in the template (Blueprint Brief
+tokens: Fraunces / IBM Plex Sans / IBM Plex Mono, blueprint-grid background).
+Verified 2026-09-30 to reproduce the live dashboard byte for byte. Publish: Artifact `read` the stable dashboard
 URL, then `publish` `dashboard.html` with `url` set to it (same title "Blueprint
 Brief", omit the icon) so it updates in place.
-**Preserve this template chrome exactly — never drop, simplify, or re-derive it:**
+**The template's chrome — keep it intact when editing the template:**
 - **Search bar** + `applyFilter()`: a card must match the keyword query, the
   today-only state, *and* the selected date.
 - **`.controls-bar`**: `#todayToggle` pill (shows only `is-new` cards);
@@ -257,10 +261,11 @@ store/dashboard; send a failure notification.
 - **JS-rendered sites** (MND): use the underlying API, not the page.
 - **Title-driven triage** misses construction detail buried in unrelated
   headlines; accepted tradeoff.
-- **Live prompt check**: the MND full-text call should read
-  `fields=*,title.*`; the trigger listing on 2026-09-30 showed `fields=,title.`
-  (possibly just display stripping). Verify with `get_trigger` if MND full text
-  comes back empty.
+- **Stripped characters in the pasted prompt (found 2026-09-30)**: the live
+  prompt's MND commands had lost their `_` and `*` (`filter[and][0][status][eq]`,
+  `fields=,title.`), and that form makes MND's API return an error page, so
+  the routine's MND fetch was probably failing silently. Now handled by
+  `fetch_sources.py`; keep exact command syntax in scripts, not in the prompt.
 
 ## Backfill log (misses found by the user, fixed in store + dashboard)
 
