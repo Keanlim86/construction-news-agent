@@ -20,12 +20,24 @@
   LTA is one of Singapore's largest construction clients (MRT lines such as
   the Cross Island, Jurong Region and Downtown Line extensions, road
   viaducts, depots), so this is the same shape of gap as the data-centre,
-  dormitory and semiconductor/pharma-plant ones above. **Not yet backfilled**:
-  `www.lta.gov.sg` is blocked outright by the network egress policy of the
-  session that found this gap (both `curl` and WebFetch return 403 at the
-  proxy CONNECT), and WebSearch returned no secondary coverage of the award,
-  so no store entry was written rather than guessing at contract values or
-  contractors -- add it once the release text is available. **Check first**:
+  dormitory and semiconductor/pharma-plant ones above. **Backfilled same
+  day** (category: Project Awards/Tenders): three civil contracts worth a
+  combined S$1.2b, announced 30 Sep 2026 -- Hwa Seng Builder (Pioneer Road
+  Viaduct, S$381.6m), CCCC Singapore branch (Tuas South Avenue 3 Viaduct,
+  S$430.3m), China Harbour (Singapore) Engineering (Tuas South Boulevard
+  Viaduct, S$404.4m); works from early 2027 to 2032. `www.lta.gov.sg` is
+  blocked outright by the network egress policy of the session that found
+  this gap (both `curl` and WebFetch return 403 at the proxy CONNECT, as do
+  archive/reader proxies), so the entry keeps LTA's URL as its dedup key but
+  its facts come from WebSearch snippets of two secondary outlets
+  (redhot.sg, headtopics) that agree on every figure -- the same
+  snippet-plus-cross-check fallback Step 2 already allows for paywalled
+  sources. The release came out the same morning, likely after that day's
+  07:10 SGT run, so this is less a same-day miss than a demonstration that
+  nothing in Step 1 would have caught it the next day either -- except,
+  partly, the watchlist: Hwa Seng is a watchlisted name, so its per-name
+  pass could have surfaced the story, but the two China-based awardees
+  would not have been. **Check first**:
   if the scheduled routine's environment shares that network policy, a
   direct LTA fetch will fail there too; either add `www.lta.gov.sg` to the
   environment's allowed domains, or rely on the search passes below
