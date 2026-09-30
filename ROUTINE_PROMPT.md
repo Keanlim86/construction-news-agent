@@ -18,11 +18,9 @@ b. Run WebSearch passes for sources the script does not cover. Window: last 24-4
    - data centre Singapore construction OR safety OR tender OR community; data centre Asia safety OR regulatory OR community reaction
    - Singapore purpose-built dormitory OR "worker dormitory" tender OR site OR construction
    - Singapore semiconductor fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing facility groundbreaking OR opening OR construction
-   - Watchlist, grouped (keep Kok Tong Construction and KTC Engineering distinct when attributing a hit):
-     "Wee Hur" OR "BRC Asia" OR "Lian Beng" OR "Koh Brothers" OR "Hock Lian Seng"
-     "CSC Holdings" OR "Chip Eng Seng" OR "UOL Group" OR "CapitaLand" OR "City Developments"
-     "Tiong Seng" OR "BBR Holdings" OR "Hwa Seng" OR "Pan-United" OR "Continental Steel"
-     Kajima OR "The GEAR by Kajima" OR JTC OR "Kok Tong Construction" OR "KTC Civil Engineering" Singapore construction
+   - Watchlist: one search per name, exactly as listed (keep Kok Tong Construction and KTC Engineering as separate entities when attributing a hit):
+     "Wee Hur" earnings OR announcement OR appointment | "BRC Asia" earnings OR announcement | "Lian Beng" | "Koh Brothers" | "Hock Lian Seng" | "CSC Holdings" | "Chip Eng Seng" | "UOL Group" | "CapitaLand" | "City Developments" | "Tiong Seng" | "BBR" | "Hwa Seng" | "Kajima" Singapore construction OR contract OR trial | "JTC" Singapore construction OR tender OR trial OR site | "Kok Tong Construction" Singapore | "KTC Civil Engineering" OR "KTC Engineering" Singapore construction | "The GEAR by Kajima" OR "The GEAR" Singapore construction OR innovation OR technology | "Pan-United" Singapore concrete OR earnings OR contract | "Continental Steel" Singapore rebar OR steel
+     Where only a name is given, add Singapore and earnings OR announcement OR appointment OR contract.
    If a source is unreachable or paywalled, skip it; never abort the run.
 
 STEP 2 - Filter and confirm

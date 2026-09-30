@@ -157,9 +157,9 @@ Skip any unreachable/paywalled source and continue.
 - **Semiconductor/pharma/high-tech plants (wide)**:
   `Singapore semiconductor fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing facility groundbreaking OR opening OR construction`
   — often reported as tech/business news on GlobeNewswire/SEMI/EDB.
-- **Company/entity watchlist (wide)** — searched in 4 grouped OR queries
-  (see `ROUTINE_PROMPT.md`; one query per name cost ~15 extra steps a run).
-  "Named companies/agencies worth a search pass", not strictly SGX-listed:
+- **Company/entity watchlist (wide)** — one search per name, as the user
+  specified (grouping into OR queries was considered for cost and declined).
+  "Named companies/agencies worth a per-name pass", not strictly SGX-listed:
   Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC Holdings,
   Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong Seng, BBR,
   Hwa Seng, Kajima, JTC, Kok Tong Construction, KTC Engineering, The GEAR by
