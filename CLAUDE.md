@@ -52,6 +52,81 @@
   contract awards are lower-frequency milestone events. Route per the
   priority rubric (an award or milestone is Project Awards/Tenders; a site
   incident, dispute or resident objection outranks it).
+- **Correction + better technique: `www.lta.gov.sg` is NOT blocked in every
+  environment, and a `curl`-based listing scrape beats the WebSearch-snippet
+  fallback (2026-09-30, same day)**: the entry above says the session that
+  found the LTA gap saw `www.lta.gov.sg` 403 at the proxy CONNECT for both
+  `curl` and WebFetch, and fell back to WebSearch snippets for the backfill's
+  facts. A later session that day tested the same domain directly and got a
+  clean `HTTP 302` from `curl` on the bare domain and full `HTTP 200` content
+  from both `curl` and WebFetch on `https://www.lta.gov.sg/content/ltagov/en/newsroom.html`
+  and on the Tuas Road Viaduct press release page itself -- no blocking at
+  all. So the 403 in the first session was that session's own network egress
+  policy, not a property of the LTA site, and isn't safe to assume for the
+  scheduled routine's execution environment either way -- **verify at Step 1
+  runtime** (a quick `curl -sS -o /dev/null -w "%{http_code}" https://www.lta.gov.sg`)
+  rather than assuming blocked-or-not from either session's report.
+  Separately, a materially better fetch technique than the WebSearch-snippet
+  fallback was found: `https://www.lta.gov.sg/content/ltagov/en/newsroom.html`
+  looks like a client-side-filterable listing (year/month `<select>` dropdowns,
+  a Media Replies/News Releases checkbox filter) but is **not** a JS-rendered
+  SPA the way MND's newsroom is -- every entry back to 2020 (~690 of them, as
+  of this session) is already embedded server-side in one ~1.1MB static HTML
+  page, so a single plain `curl` of that one URL (no query params needed --
+  they don't change the response; the year/month/category filtering is pure
+  client-side JS hiding/showing pre-rendered nodes) returns everything, and a
+  local regex/grep pass can filter to whatever window is needed. Each entry is
+  one `<li class="item">` containing: a `<div class="label">` naming its type
+  (`News Releases` or `Media Replies`), an `<h5 class="mt-3 title"><a
+  href="...">title</a></h5>`, a `<p class="news-paragraph">` one-line summary,
+  and -- the important part -- a machine-readable, zero-guesswork publish date
+  in `<p class="y<year> mth<0-indexed-month>"><span class="date"
+  style="display:none;">YYYY-MM-DD</span><small>DD Mon YYYY</small></p>`. This
+  means Step 1 can get an exact `date_published` for every LTA item without
+  ever touching a WebSearch snippet's "recent" framing (the same kind of
+  misdating problem flagged for the PIE/Upper Changi stories in the 2026-09-21
+  entry below) -- confirmed directly against this technique's own output: it
+  found the same Tuas Road Viaduct entry (title, all three contractor names,
+  all three dollar figures, and its `2026-09-30` date) that the other
+  session's WebSearch-snippet fallback had already independently backfilled,
+  matching it fact-for-fact. WebFetch works fine on an *individual* LTA
+  press-release page (confirmed on the Tuas release: full text, all figures,
+  correct date) but is unreliable on the big listing page itself -- asked to
+  summarize it, WebFetch's small summarizing model returned a handful of
+  entries from January 2020 instead of the current month, evidently sampling
+  from partway through the 1.1MB document rather than the top -- so the
+  listing must be fetched with `curl` (or an equivalent raw fetch) and parsed
+  locally, the same lesson already learned for the ST/BT RSS feeds and the ST
+  MND tag page, not handed to WebFetch's AI summarization. **Fix for the
+  routine's own prompt, superseding the `site:lta.gov.sg`/WebSearch fix
+  proposed above** (not yet applied, same tooling limitation as every other
+  fix in this section): add to Step 1, alongside the MND API and ST/BT RSS
+  `curl` instructions -- "Also fetch LTA's newsroom listing directly via
+  `curl -sS https://www.lta.gov.sg/content/ltagov/en/newsroom.html` (a single
+  ~1.1MB static page containing every News Release and Media Reply back to
+  2020, not paginated or JS-rendered) and parse each `<li class="item">`
+  block for its `<h5 class="mt-3 title"><a href="...">` title/URL, its
+  `<p class="news-paragraph">` summary, and its `<span class="date"
+  style="display:none;">YYYY-MM-DD</span>` publish date -- trust that date
+  directly, the same way ST/BT's RSS `<pubDate>` is trusted, instead of a
+  search-snippet guess. Filter to items whose date falls in the run's normal
+  24-48h window (7-14 days for a first run or a quiet stretch, matching the
+  CAG-newsroom/company-watchlist convention) and whose title/summary look
+  construction/infrastructure-relevant (contract awards, tunnelling/viaduct
+  progress updates, MRT/road project milestones, safety or community-impact
+  items tied to a specific worksite -- not fare/ERP/COE/bus-service notices,
+  which make up most of the feed and should be discarded, not force-fit).
+  For any that clear the bar, fetch the individual press-release page's full
+  text via WebFetch (confirmed reliable per-article) to confirm and enrich
+  before classifying. If `www.lta.gov.sg` is unreachable from the routine's
+  own execution environment when this actually runs, fall back to
+  `site:lta.gov.sg newsroom "awards" OR contract OR tender OR construction`
+  plus the infrastructure WebSearch query from the entry above, and to a
+  WebSearch-snippet-plus-cross-check per Step 2's existing paywall fallback --
+  but attempt the direct `curl` first every run rather than assuming either
+  session's network result still holds." Apply via the `schedule` skill /
+  claude.ai/code/routines, per the pattern of every other Step 1 fix in this
+  file.
 
 - **Archive browser added as a second published page, linked from a new
   "Archive" button, redesigned same day to fetch its data live instead of
