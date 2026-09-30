@@ -114,7 +114,8 @@ Skip any unreachable/paywalled source and continue.
   Future Travel Experience).
 - **Feeds and listings: `python3 scripts/fetch_sources.py`** (14-day
   window) fetches Straits Times RSS, Business Times RSS, the ST MND tag page,
-  the LTA newsroom listing, and MND speeches + press releases. It drops known
+  the LTA newsroom listing (News Releases only, not Media Replies — user's
+  choice 2026-09-30), and MND speeches + press releases. It drops known
   URLs (store + archive), applies a loose keyword filter and LTA's
   fare/ERP/COE/bus/licensing exclusion, and prints one line per candidate with
   the publisher's date. `fetch_sources.py text URL` returns an article's plain

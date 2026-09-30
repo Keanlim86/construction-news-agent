@@ -118,8 +118,10 @@ def lta():
         if not a or not d:
             continue
         label = re.search(r'<div class="label[^"]*">(.*?)</div>', block, re.S)
+        if not label or clean(label.group(1)) != "News Releases":
+            continue  # user wants News Releases only, not Media Replies
         blurb = re.search(r'<p class="news-paragraph">(.*?)</p>', block, re.S)
-        out.append({"src": "LTA " + clean(label.group(1)) if label else "LTA",
+        out.append({"src": "LTA",
                     "date": datetime.strptime(d.group(1), "%Y-%m-%d").date(),
                     "title": clean(a.group(2)),
                     "url": urllib.parse.urljoin("https://www.lta.gov.sg", a.group(1)),

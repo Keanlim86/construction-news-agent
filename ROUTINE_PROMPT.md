@@ -6,7 +6,7 @@ Times are SGT (UTC+8). The routine fires at 23:00 UTC = 07:00 SGT the next day; 
 
 STEP 1 - Gather candidates
 a. Run: python3 scripts/fetch_sources.py
-   It fetches Straits Times RSS, Business Times RSS, the ST MND tag page, the LTA newsroom listing and MND speeches and press releases, drops URLs already stored or archived and items older than 14 days, and prints one line per candidate. Its date comes from the publisher; trust it. Lines starting "# ERROR" mean that source failed; note it and carry on.
+   It fetches Straits Times RSS, Business Times RSS, the ST MND tag page, the LTA newsroom listing (News Releases only) and MND speeches and press releases, drops URLs already stored or archived and items older than 14 days, and prints one line per candidate. Its date comes from the publisher; trust it. Lines starting "# ERROR" mean that source failed; note it and carry on.
 b. Run WebSearch passes for sources the script does not cover. Window: last 24-48h (7 days if the store is empty); up to 7-14 days for CAG, data centres, dormitories, plants and the watchlist.
    - site:straitstimes.com construction Singapore; site:businesstimes.com.sg construction OR "built environment" Singapore; CNA construction/property; BCA, HDB and URA press releases; site:constructionplusasia.com Singapore; Changi Airport Group newsroom (changiairport.com/en/corporate/our-media-hub/newsroom.html).
    - Category seeds: Singapore construction safety OR accident; sustainability OR Green Mark; manpower OR foreign workers; dispute OR arbitration OR lawsuit; tender OR contract awarded.
