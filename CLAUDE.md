@@ -23,8 +23,7 @@
 - **Repo files**: `news_store.json` (active store, 90 days, drives the
   dashboard), `news_archive.json` (append-only history), `dashboard.html`,
   `archive.html`, `backups/news_store_<YYYYMMDD_HHMMSS>.json`, `README.md`
-  (human doc), `Link.txt` (dashboard URL), `usage_log.csv` (per-run token
-  usage, written by the tracker routine — the news routine never touches it).
+  (human doc), `Link.txt` (dashboard URL).
 - **Published pages**:
   - Dashboard: https://claude.ai/code/artifact/092b0df4-41bf-4f2f-9b53-6983fe8902d1
     (`.../artifact/28fUQ9iv...` is a short alias of the same artifact, not a
@@ -244,23 +243,6 @@ manual merge" message. On total failure, write and push nothing.
 **First run**: 7-day window, build initial dashboard, "set up complete"
 notification. **Total failure** (no sources reachable): don't write the
 store/dashboard; send a failure notification.
-
-## Usage tracking
-
-`usage_log.csv` on `main` gets one row per news run (date SGT, session,
-model, status, minutes, input/output/cache-read/cache-write tokens,
-cost_usd). Routine `trig_01Vzfi9dhD5qEv9P1hpiWnHC` fires daily at 08:28 SGT
-into the Claude Code session `session_013SQdqtsQ271QY1mhrqqaBV`, which holds
-the Claude_Code_Remote tools. It reads the news routine's `last_run` via
-`get_trigger`/`get_session` and pushes the row to `main` from a detached
-worktree. A standalone routine can't do this: routines on this account
-never get the Claude_Code_Remote connector (tested 2026-09-30, both
-session-created and UI-created), and the news routine can't read its own
-usage. Only the *latest* run is queryable, so a missed day can't be
-backfilled. `cost_usd` is the session's API-price estimate and includes any
-chat added to the run session afterwards. Baseline (2026-09-30 run):
-~630k input+output and 32.7M cache-read tokens, ~US$11.34. Cache reads
-dominate, driven by the number of tool calls per run.
 
 ## Source quirks (learned the hard way)
 
