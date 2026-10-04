@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-05T07:10:51+08:00",
+  "last_run": "2026-10-04T07:11:50+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -730,7 +730,7 @@
       "summary": "The above-ground Jurong Region Line, now about 80% complete in Stage 1, has required contractors to close PIE and AYE lanes overnight to lift and launch viaduct segments weighing up to 120 tonnes. Residents living near construction sites in Jurong East and Boon Lay say the years of noise, dust and disruption from the works have been difficult, though most say they accept it as necessary for the line's eventual benefits.",
       "date_published": "2026-10-03",
       "date_found": "2026-10-04",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-sps-syed-harun-alhabsyi-at-the-5th-specialists-trade-alliance-of-singapore-stas-prefabricated-mechanical-electrical-and-plumbing-prefab-mep-day",
@@ -740,7 +740,7 @@
       "summary": "Senior Parliamentary Secretary Syed Harun Alhabsyi cited Bulim Square, which won the BCA Project of the Year (industrial category), as a model for prefabricated MEP: more than 12,000 sq m of off-site pre-assembled MEP components plus drilling and anchoring robots achieved 40% higher productivity and halved installation time. He also highlighted growing industry adoption of AI tools such as BuiltChat, now co-funded under the Productivity Solutions Grant, to support design coordination and construction planning for Prefab MEP firms.",
       "date_published": "2026-10-01",
       "date_found": "2026-10-04",
-      "is_new_today": false
+      "is_new_today": true
     }
   ]
 }
