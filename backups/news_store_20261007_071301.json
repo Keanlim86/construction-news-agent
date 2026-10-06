@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-07T07:13:01+08:00",
+  "last_run": "2026-10-06T07:11:29+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -750,66 +750,6 @@
       "summary": "Following seven workplace deaths since September concentrated in construction and transport/storage, MOM has urged firms to hold a voluntary safety timeout from Oct 5-18 and will raise fines, extend minimum stop-work order duration, and debar repeat offenders from hiring migrant workers from Oct 5 to Nov 4.",
       "date_published": "2026-10-05",
       "date_found": "2026-10-06",
-      "is_new_today": false
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/singapore/north-south-corridor-delay-higher-costs-likely-surface-works-will-be-prioritised-says-jeffrey-siow",
-      "title": "North-South Corridor delay: Higher costs likely, surface works will be prioritised, says Jeffrey Siow",
-      "source": "The Business Times",
-      "category": "Public Feedback/Community",
-      "summary": "Transport Minister Jeffrey Siow told Parliament that LTA will prioritise surface works for the North-South Corridor amid \"significant unhappiness\" from residents and businesses over the project's two-year delay, with costs now likely to exceed the original S$7.47 billion estimate.",
-      "date_published": "2026-10-06",
-      "date_found": "2026-10-07",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/transport/lta-calls-tender-for-rail-noise-reduction-for-thomson-east-coast-line",
-      "title": "LTA calls tender for rail noise reduction devices for Thomson-East Coast Line",
-      "source": "The Straits Times",
-      "category": "Project Awards/Tenders",
-      "summary": "LTA is calling a tender to install rail dampers at three Thomson-East Coast Line stretches with higher noise levels due to tight track curvatures, responding to years of resident feedback on rail noise.",
-      "date_published": "2026-10-06",
-      "date_found": "2026-10-07",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/companies-markets/energy-commodities/ema-launches-tender-proposed-energy-infrastructure-cluster-pulau-tekong",
-      "title": "EMA launches tender for proposed energy infrastructure cluster on Pulau Tekong",
-      "source": "The Business Times",
-      "category": "Project Awards/Tenders",
-      "summary": "The Energy Market Authority has launched a tender for a consultant to study building a 200-hectare energy infrastructure cluster on reclaimed land on Pulau Tekong, potentially including hydrogen-ready gas power plants and an LNG terminal.",
-      "date_published": "2026-10-06",
-      "date_found": "2026-10-07",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.straitstimes.com/singapore/environment/spore-mulls-energy-cluster-on-tekong-including-third-lng-terminal-and-electricity-import-facilities",
-      "title": "S'pore mulls energy cluster on Tekong; including third LNG terminal and electricity import facilities",
-      "source": "The Straits Times",
-      "category": "Project Awards/Tenders",
-      "summary": "EMA is studying the feasibility of a 200ha energy cluster on Pulau Tekong that could host Singapore's third LNG terminal and electricity import facilities; tender documents show the study will assess accommodating about 6GW of domestic generation and 2GW of imports via designated sea corridors.",
-      "date_published": "2026-10-06",
-      "date_found": "2026-10-07",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/companies-markets/fire-safety-specialist-deluge-corp-aims-raise-s23-million-ipo-s0-60-share",
-      "title": "Fire-safety specialist Deluge Corp aims to raise S$23 million in IPO at S$0.60 a share",
-      "source": "The Business Times",
-      "category": "Media Features/Company News",
-      "summary": "Fire-protection contractor Deluge Corporation, whose projects include Marina Bay Sands, Changi Airport and LTA's North-South Corridor, plans to raise S$23.4 million from a mainboard IPO priced at S$0.60 a share, with trading to start Oct 16.",
-      "date_published": "2026-10-06",
-      "date_found": "2026-10-07",
-      "is_new_today": true
-    },
-    {
-      "url": "https://www.businesstimes.com.sg/companies-markets/singapore-data-centre-operator-dayone-opts-us-ipo-likely-us20-billion-valuation",
-      "title": "Singapore data centre operator DayOne opts for US IPO at likely US$20 billion valuation",
-      "source": "The Business Times",
-      "category": "Media Features/Company News",
-      "summary": "Singapore-headquartered data centre operator DayOne Data Centers filed for a Nasdaq IPO seeking to raise as much as US$5 billion at a potential US$20 billion valuation, with proceeds earmarked partly for developing and constructing new data centre projects.",
-      "date_published": "2026-10-06",
-      "date_found": "2026-10-07",
       "is_new_today": true
     }
   ]
