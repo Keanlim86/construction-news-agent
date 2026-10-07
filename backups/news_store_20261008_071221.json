@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-08T07:12:21+08:00",
+  "last_run": "2026-10-07T07:13:01+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -760,7 +760,7 @@
       "summary": "Transport Minister Jeffrey Siow told Parliament that LTA will prioritise surface works for the North-South Corridor amid \"significant unhappiness\" from residents and businesses over the project's two-year delay, with costs now likely to exceed the original S$7.47 billion estimate.",
       "date_published": "2026-10-06",
       "date_found": "2026-10-07",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.straitstimes.com/singapore/transport/lta-calls-tender-for-rail-noise-reduction-for-thomson-east-coast-line",
@@ -770,7 +770,7 @@
       "summary": "LTA is calling a tender to install rail dampers at three Thomson-East Coast Line stretches with higher noise levels due to tight track curvatures, responding to years of resident feedback on rail noise.",
       "date_published": "2026-10-06",
       "date_found": "2026-10-07",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.businesstimes.com.sg/companies-markets/energy-commodities/ema-launches-tender-proposed-energy-infrastructure-cluster-pulau-tekong",
@@ -780,7 +780,7 @@
       "summary": "The Energy Market Authority has launched a tender for a consultant to study building a 200-hectare energy infrastructure cluster on reclaimed land on Pulau Tekong, potentially including hydrogen-ready gas power plants and an LNG terminal.",
       "date_published": "2026-10-06",
       "date_found": "2026-10-07",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.straitstimes.com/singapore/environment/spore-mulls-energy-cluster-on-tekong-including-third-lng-terminal-and-electricity-import-facilities",
@@ -790,7 +790,7 @@
       "summary": "EMA is studying the feasibility of a 200ha energy cluster on Pulau Tekong that could host Singapore's third LNG terminal and electricity import facilities; tender documents show the study will assess accommodating about 6GW of domestic generation and 2GW of imports via designated sea corridors.",
       "date_published": "2026-10-06",
       "date_found": "2026-10-07",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.businesstimes.com.sg/companies-markets/fire-safety-specialist-deluge-corp-aims-raise-s23-million-ipo-s0-60-share",
@@ -800,7 +800,7 @@
       "summary": "Fire-protection contractor Deluge Corporation, whose projects include Marina Bay Sands, Changi Airport and LTA's North-South Corridor, plans to raise S$23.4 million from a mainboard IPO priced at S$0.60 a share, with trading to start Oct 16.",
       "date_published": "2026-10-06",
       "date_found": "2026-10-07",
-      "is_new_today": false
+      "is_new_today": true
     },
     {
       "url": "https://www.businesstimes.com.sg/companies-markets/singapore-data-centre-operator-dayone-opts-us-ipo-likely-us20-billion-valuation",
@@ -810,7 +810,7 @@
       "summary": "Singapore-headquartered data centre operator DayOne Data Centers filed for a Nasdaq IPO seeking to raise as much as US$5 billion at a potential US$20 billion valuation, with proceeds earmarked partly for developing and constructing new data centre projects.",
       "date_published": "2026-10-06",
       "date_found": "2026-10-07",
-      "is_new_today": false
+      "is_new_today": true
     }
   ]
 }
