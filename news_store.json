@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-12T07:11:51+08:00",
+  "last_run": "2026-10-13T07:11:23+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -821,6 +821,16 @@
       "date_published": "2026-10-09",
       "date_found": "2026-10-10",
       "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/ura-flags-persistent-trend-of-suspected-cases-of-unauthorised-works-in-residential-units",
+      "title": "URA flags 'persistent trend' of suspected cases of unauthorised works in residential units",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "URA warned it may take enforcement action over a persistent trend of unauthorised works, such as oversized lofts/mezzanines and enclosed roof-terrace or patio structures, in strata-titled residential units, with 147 cases reported in 2024, 148 in 2025 and 116 in the first nine months of 2026. The agency said such works can compromise structural safety, affect insurance claims and property financing, and raise equity issues among owners.",
+      "date_published": "2026-10-11",
+      "date_found": "2026-10-13",
+      "is_new_today": true
     }
   ]
 }
