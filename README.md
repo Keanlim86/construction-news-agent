@@ -70,7 +70,9 @@ appointments, contract wins) that a generic query would miss:
 Wee Hur &middot; BRC Asia &middot; Lian Beng &middot; Koh Brothers &middot;
 Hock Lian Seng &middot; CSC Holdings &middot; Chip Eng Seng &middot; UOL
 Group &middot; CapitaLand &middot; City Developments &middot; Tiong Seng
-&middot; BBR &middot; Hwa Seng &middot; Kajima &middot; JTC &middot; Kok Tong
+&middot; BBR &middot; Hwa Seng &middot; Kajima &middot; Shimizu (major Japanese
+general contractor with a long-running Singapore office/subsidiary —
+reportedly its largest foreign market) &middot; JTC &middot; Kok Tong
 Construction &middot; KTC Engineering (KTC Civil Engineering &amp;
 Construction — a distinct, related sister company under the KTC Group
 umbrella, not the same entity as Kok Tong Construction) &middot; The GEAR by

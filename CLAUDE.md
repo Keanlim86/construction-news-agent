@@ -163,8 +163,8 @@ Skip any unreachable/paywalled source and continue.
   "Named companies/agencies worth a per-name pass", not strictly SGX-listed:
   Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC Holdings,
   Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong Seng, BBR,
-  Hwa Seng, Kajima, JTC, Kok Tong Construction, KTC Engineering, The GEAR by
-  Kajima, Pan-United Corporation, Continental Steel.
+  Hwa Seng, Kajima, Shimizu, JTC, Kok Tong Construction, KTC Engineering,
+  The GEAR by Kajima, Pan-United Corporation, Continental Steel.
   - Kok Tong Construction Pte Ltd and **KTC Civil Engineering & Construction
     Pte Ltd** are separate sister companies (KTC Group, 27 Pandan Crescent) —
     separate queries, attribute hits to the correct one.
@@ -172,6 +172,17 @@ Skip any unreachable/paywalled source and continue.
     Changi Business Park, opened 16 Aug 2023) is Kajima's Asia HQ and
     tech co-creation hub (houses KaTRIS) — not a separate company, but
     coverage often names only "The GEAR".
+  - Shimizu Corporation: major Japanese general contractor with a long-running
+    Singapore office/subsidiary; Singapore is reportedly its largest foreign
+    market (~30-40% of overseas revenue) via projects like Thomson Line MRT
+    tunnels, Marina Bay Financial Centre and Changi Airport work. Treated like
+    Kajima — its SG-relevant news (including global company/tech news, since
+    the SG office makes the company itself SG-relevant) fits whichever of
+    categories 1-9 the story matches, not a fixed category. Added 2026-10-16
+    after a Shimizu/Noble Machines (humanoid construction-robot startup)
+    investment release with no explicit SG mention; classified cat. 7 since
+    the SG office presence was judged enough to clear the SG test and the
+    story's content is squarely construction-robotics innovation.
   - Pan-United (SGX: P52): SG's largest ready-mix concrete producer (~40%
     share), only carbon-mineralised concrete provider. Continental Steel:
     major SEA steel supplier (SG rebar/steel fibre).
@@ -282,6 +293,7 @@ store/dashboard; send a failure notification.
 | 09-28 | [MND: Chee Hong Tat, HDB Awards 2026](https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-hdb-awards-ceremony-2026) — Smart Passenger & Material Hoist (LiDAR/anti-pinch, 1 worker : 3 hoists), hoists + screeding robots at all new BTO sites, STCS | 7 | MND full text skipped as "covered" (now added) |
 | 09-28 | [ST cooling gadgets roundup](https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market) — Freeze Tech cooling wear (up to 9°C) trialled by an SG contractor | 7 | Buried mention (heat-stress query now added; partial) |
 | 09-30 | [LTA Tuas Road Viaduct Phase 2 awards](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html), S$1.2b: Hwa Seng (Pioneer Rd, S$381.6m), CCCC SG (Tuas South Ave 3, S$430.3m), China Harbour (Tuas South Blvd, S$404.4m); works 2027–2032 | 4 | No LTA source (now added) |
+| 10-16 | [Shimizu completes investment in Noble Machines, US humanoid construction-robot startup](https://www.shimz.co.jp/en/company/about/news-release/2026/2026044.html) | 7 | Shimizu not on watchlist (now added); no explicit SG mention in the release, but user judged Shimizu's SG office presence sufficient for the SG test |
 
 Related non-miss (2026-09-21): an ST Jurong Port Road hose-strike death was
 already stored via a MustShareNews URL — URL dedup working as designed.
