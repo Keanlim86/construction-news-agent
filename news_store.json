@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-16T13:01:19+08:00",
+  "last_run": "2026-10-17T07:11:24+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -840,7 +840,7 @@
       "summary": "LTA has substantially completed its eight-year renewal of the Bukit Panjang LRT, including a new CBTC signalling system, a renewed 32-vehicle fleet and power-supply upgrades, with the remaining power rail replacement on track for completion by end-2026 and lift upgrades at all 13 stations by February 2027.",
       "date_published": "2026-10-15",
       "date_found": "2026-10-16",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.shimz.co.jp/en/company/about/news-release/2026/2026044.html",
@@ -850,6 +850,36 @@
       "summary": "Shimizu Corporation completed an investment in Noble Machines, a Silicon Valley startup developing humanoid AI robots, to jointly build robots for construction-site tasks that are physically demanding or hazardous; Shimizu plans virtual simulations using its BIM/CIM data by the end of this year, with physical robot trials at construction sites starting next spring.",
       "date_published": "2026-10-16",
       "date_found": "2026-10-16",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/transport/cross-island-line-traffic-to-be-diverted-in-ang-mo-kio-ave-3-amid-suspension-of-tunnelling-works",
+      "title": "Cross Island Line: Traffic to be diverted in Ang Mo Kio Ave 3 amid suspension of tunnelling works",
+      "source": "The Straits Times",
+      "category": "Accidents/Workplace Safety",
+      "summary": "LTA has paused Cross Island Line tunnelling near AMK Hub after a tunnel boring machine repeatedly struck undocumented ground anchors between May and July, damaging 22 cutters; roads will be reconfigured for about 18 months while BCA and LTA investigate the safety risk with the building contractors involved.",
+      "date_published": "2026-10-16",
+      "date_found": "2026-10-17",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/30-construction-firms-expected-to-train-with-boston-consulting-to-boost-productivity-chee-hong-tat",
+      "title": "30 construction firms expected to train with Boston Consulting to boost productivity: Chee Hong Tat",
+      "source": "The Straits Times",
+      "category": "Manpower/Labour",
+      "summary": "BCA and the Skills and Workforce Development Agency will roll out the Lean Implementation and Field Transformation (LIFT) initiative with SCAL, giving about 30 built-environment firms six months of workforce consultancy and coaching from Boston Consulting Group to adopt lean construction methods and redesign jobs, backed by workforce development grants.",
+      "date_published": "2026-10-16",
+      "date_found": "2026-10-17",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/wee-hur-enters-singapore-student-housing-market-1398-bed-ntu-project",
+      "title": "Wee Hur enters Singapore student housing market with 1,398-bed NTU project",
+      "source": "The Business Times",
+      "category": "Project Awards/Tenders",
+      "summary": "Wee Hur Holdings has received a Letter of Award from NTU for a 1,398-bed Y Suites student accommodation development, covering design, construction, financing, operation and maintenance; construction is targeted to start in Q3 2027 with operations beginning by the 2029/30 academic year.",
+      "date_published": "2026-10-16",
+      "date_found": "2026-10-17",
       "is_new_today": true
     }
   ]
