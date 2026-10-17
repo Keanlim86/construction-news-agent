@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-17T07:11:24+08:00",
+  "last_run": "2026-10-17T10:31:31+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -878,6 +878,16 @@
       "source": "The Business Times",
       "category": "Project Awards/Tenders",
       "summary": "Wee Hur Holdings has received a Letter of Award from NTU for a 1,398-bed Y Suites student accommodation development, covering design, construction, financing, operation and maintenance; construction is targeted to start in Q3 2027 with operations beginning by the 2029/30 academic year.",
+      "date_published": "2026-10-16",
+      "date_found": "2026-10-17",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.asiaone.com/singapore/phantom-workers-false-cpf-declarations-8-charged",
+      "title": "8 charged over false CPF declarations involving 'phantom workers' to inflate worker quotas",
+      "source": "AsiaOne (The Straits Times)",
+      "category": "Manpower/Labour",
+      "summary": "MOM charged seven company directors/owners -- including from Blue Sky Builder, Wang Da Construction, Urban Builders, He Jian Construction and Advanced Coretrades -- and an administrative assistant on 8 October 2026 for falsely declaring CPF contributions for 'phantom workers' who did not actually work for them, in order to inflate their firms' foreign worker quotas; three phantom workers also face administrative financial penalties.",
       "date_published": "2026-10-16",
       "date_found": "2026-10-17",
       "is_new_today": true
