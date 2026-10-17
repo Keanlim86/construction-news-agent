@@ -1,7 +1,7 @@
 # Construction News Agent (Singapore) — Daily Scheduled Digest
 
 > Status: **Live since 2026-09-06.** This file is the design reference the
-> daily routine reads each run. As of 2026-09-30 it matches the routine's
+> daily routine reads each run. As of 2026-10-17 it matches the routine's
 > live prompt; when either changes, update the other (see Routine management).
 
 ## How it runs
@@ -115,12 +115,15 @@ Skip any unreachable/paywalled source and continue.
 - **Feeds and listings: `python3 scripts/fetch_sources.py`** (14-day
   window) fetches Straits Times RSS, Business Times RSS, the ST MND tag page,
   the LTA newsroom listing (News Releases only, not Media Replies — user's
-  choice 2026-09-30), and MND speeches + press releases. It drops known
+  choice 2026-09-30), MND speeches + press releases, and the MOM (Ministry of
+  Manpower) press-releases listing (added 2026-10-17 after an MOM enforcement
+  release — 8 charged over phantom-worker/CPF fraud at several construction
+  firms — was missed on 2026-10-17's run; see Backfill log). It drops known
   URLs (store + archive), applies a loose keyword filter and LTA's
   fare/ERP/COE/bus/licensing exclusion, and prints one line per candidate with
   the publisher's date. `fetch_sources.py text URL` returns an article's plain
-  text (straitstimes.com, mnd.gov.sg via its API, LTA, others). Internals
-  worth knowing when maintaining it:
+  text (straitstimes.com, mnd.gov.sg via its API, mom.gov.sg, LTA, others).
+  Internals worth knowing when maintaining it:
   - MND (mnd.gov.sg is a client-rendered Next.js app) is read through its
     Directus API `https://www.mnd.gov.sg/api/articles`. Filters **must** use
     Directus operators: `filter[_and][0][status][_eq]=published`,
@@ -139,6 +142,16 @@ Skip any unreachable/paywalled source and continue.
     allow `www.lta.gov.sg` in the environment's network settings).
   - ST MND tag page dates come from the embedded page data
     (`"title","/path","updatedDate","publishedDate"`).
+  - MOM's press-releases listing (mom.gov.sg) is plain server-rendered HTML,
+    7 items per page, `?page=N` for more; each `<article>` block has an
+    `<h3 class="item-title"><a>` title/link and a `<time datetime="YYYY-M-D">`.
+    Unlike MND, MOM items are **not** auto-included — MOM covers far more than
+    construction (labour market reports, work-pass policy, general
+    employment-practice cases), so they still pass the loose keyword filter;
+    expect some irrelevant items in the output and judge each on its merits.
+    Individual press-release pages are static HTML (unlike MND's
+    client-rendered site), so the generic paragraph-extraction fallback in
+    `fetch_sources.py text URL` handles them without special-casing.
 - **Category seeds**: safety, sustainability, manpower, disputes, tenders, plus
   dedicated queries:
   - Tech: `Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM`
@@ -294,6 +307,7 @@ store/dashboard; send a failure notification.
 | 09-28 | [ST cooling gadgets roundup](https://www.straitstimes.com/singapore/environment/solar-powered-air-cons-freeze-tech-and-fan-jakketos-among-innovative-cooling-gadgets-on-the-market) — Freeze Tech cooling wear (up to 9°C) trialled by an SG contractor | 7 | Buried mention (heat-stress query now added; partial) |
 | 09-30 | [LTA Tuas Road Viaduct Phase 2 awards](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html), S$1.2b: Hwa Seng (Pioneer Rd, S$381.6m), CCCC SG (Tuas South Ave 3, S$430.3m), China Harbour (Tuas South Blvd, S$404.4m); works 2027–2032 | 4 | No LTA source (now added) |
 | 10-16 | [Shimizu completes investment in Noble Machines, US humanoid construction-robot startup](https://www.shimz.co.jp/en/company/about/news-release/2026/2026044.html) | 7 | Shimizu not on watchlist (now added); no explicit SG mention in the release, but user judged Shimizu's SG office presence sufficient for the SG test |
+| 10-16 | [MOM: 8 charged over phantom-worker/CPF fraud](https://www.asiaone.com/singapore/phantom-workers-false-cpf-declarations-8-charged) at several construction firms (Blue Sky Builder, Wang Da Construction, Urban Builders, He Jian Construction, Advanced Coretrades) | 6 | MOM's own press-releases listing wasn't a source and no WebSearch query targets MOM enforcement announcements (MOM listing now added to `fetch_sources.py`) |
 
 Related non-miss (2026-09-21): an ST Jurong Port Road hose-strike death was
 already stored via a MustShareNews URL — URL dedup working as designed.

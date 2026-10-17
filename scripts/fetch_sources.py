@@ -3,10 +3,11 @@
 
 Replaces reading raw RSS/HTML into the conversation. One command fetches:
 Straits Times RSS, Business Times RSS, the ST MND tag page, the LTA newsroom
-listing, and MND speeches + press releases (via MND's Directus API). It keeps
-items inside the date window whose URL is not already in news_store.json or
-news_archive.json, applies a loose construction-relevance keyword filter
-(the model still makes the final call), and prints one line per candidate.
+listing, MND speeches + press releases (via MND's Directus API), and the MOM
+(Ministry of Manpower) press-releases listing. It keeps items inside the date
+window whose URL is not already in news_store.json or news_archive.json,
+applies a loose construction-relevance keyword filter (the model still makes
+the final call), and prints one line per candidate.
 
 Usage (from the repo root):
   python3 scripts/fetch_sources.py [--days 14]
@@ -38,6 +39,7 @@ BT_RSS = "https://www.businesstimes.com.sg/rss.xml"
 ST_MND_TAG = "https://www.straitstimes.com/tags/ministry-of-national-development?ref=see-more-on"
 LTA_LIST = "https://www.lta.gov.sg/content/ltagov/en/newsroom.html"
 MND_API = "https://www.mnd.gov.sg/api/articles"
+MOM_LIST = "https://www.mom.gov.sg/newsroom/press-releases"
 MND_TYPES = {
     "speeches": "e45b3aaf-3de0-4c98-922a-d5ad73ab5c0b",
     "press-releases": "bcb1e98c-5a6c-4f76-a93a-6c263b9aecda",
@@ -129,6 +131,23 @@ def lta():
     return out
 
 
+def mom(max_pages=3):
+    out = []
+    for page in range(1, max_pages + 1):
+        url = MOM_LIST if page == 1 else f"{MOM_LIST}?page={page}"
+        for block in re.findall(r"<article>(.*?)</article>", get(url, timeout=90), re.S):
+            a = re.search(r'<h3 class="item-title">\s*<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', block, re.S)
+            d = re.search(r'<time datetime="(\d{4})-(\d{1,2})-(\d{1,2})"', block)
+            if not a or not d:
+                continue
+            out.append({"src": "MOM",
+                        "date": datetime(int(d.group(1)), int(d.group(2)), int(d.group(3))).date(),
+                        "title": clean(a.group(2)),
+                        "url": urllib.parse.urljoin("https://www.mom.gov.sg", a.group(1)),
+                        "blurb": ""})
+    return out
+
+
 def mnd_query(params):
     return json.loads(get(MND_API + "?" + urllib.parse.urlencode(params)))["data"]
 
@@ -167,7 +186,7 @@ def list_candidates(days):
     known = known_urls()
     sources = [
         ("ST RSS", lambda: rss(ST_RSS, "ST")), ("BT RSS", lambda: rss(BT_RSS, "BT")),
-        ("ST MND tag", st_mnd_tag), ("LTA", lta), ("MND", mnd),
+        ("ST MND tag", st_mnd_tag), ("LTA", lta), ("MND", mnd), ("MOM", mom),
     ]
     lines, stats, errors = [], [], []
     for name, fn in sources:
