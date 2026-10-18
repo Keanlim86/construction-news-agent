@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-18T07:10:34+08:00",
+  "last_run": "2026-10-19T07:07:49+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -900,6 +900,36 @@
       "summary": "Enterprise Singapore's Singapore Standards Council will lead a new Singapore Standard on the Design for Safety and Maintainability of Skyrise Greenery, jointly developed by NParks and the Singapore Institute of Landscape Architects, covering rooftop gardens, landscaped balconies and green walls; the working group starts in Q4 2026 with publication targeted by end-2027.",
       "date_published": "2026-10-17",
       "date_found": "2026-10-18",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/10/news-releases/temporary-traffic-reconfiguration-along-ang-mo-kio-avenue-3-to-f.html",
+      "title": "Additional works required following discovery of unexpected ground obstructions during Cross Island Line tunnelling",
+      "source": "Land Transport Authority",
+      "category": "Accidents/Workplace Safety",
+      "summary": "LTA has suspended tunnelling for Ang Mo Kio station on the Cross Island Line after ground anchors beneath Ang Mo Kio Avenue 3 damaged the tunnel boring machine over 100 times between May and July 2026; the road will be temporarily reconfigured from 14 Nov 2026 to May 2028 for recovery and ground-stabilisation works before tunnelling resumes.",
+      "date_published": "2026-10-16",
+      "date_found": "2026-10-19",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-singapore-contractors-association-limited-scal-annual-dinner",
+      "title": "Speech by Minister Chee Hong Tat at the Singapore Contractors' Association Limited (SCAL) Annual Dinner",
+      "source": "Ministry of National Development",
+      "category": "Manpower/Labour",
+      "summary": "Minister Chee Hong Tat announced the Lean Implementation and Field Transformation (LIFT) initiative, giving contractors six months of Lean-construction workforce consultancy from Boston Consulting Group under BCA, SWDA and SCAL, alongside updates on the Robot Leasing Support Scheme, a pre-approved precast/standardised-design catalogue and virtual TOP inspections.",
+      "date_published": "2026-10-16",
+      "date_found": "2026-10-19",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/1610-mom-takes-firm-enforcement-action-against-false-declarations-in-work-pass-applications",
+      "title": "MOM Takes Firm Enforcement Action Against False Declarations in Work Pass Applications",
+      "source": "Ministry of Manpower",
+      "category": "Manpower/Labour",
+      "summary": "MOM's press release details the charges against seven employers and an administrative assistant - including directors of Blue Sky Builder, Wang Da Construction, Urban Builders, Advanced Coretrades and He Jian Construction - charged on 8 Oct 2026 for phantom-worker CPF fraud under the Employment of Foreign Manpower Act, plus a separate case against an Ayurvedic centre over underpaid Employment Pass holders.",
+      "date_published": "2026-10-16",
+      "date_found": "2026-10-19",
       "is_new_today": true
     }
   ]
