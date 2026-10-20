@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-20T07:07:59+08:00",
+  "last_run": "2026-10-21T07:08:07+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -931,6 +931,26 @@
       "date_published": "2026-10-16",
       "date_found": "2026-10-19",
       "is_new_today": false
+    },
+    {
+      "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/1020-guidance-for-employers-on-use-of-1-hour-pm25-readings-to-protect-outdoor-workers-during-haze",
+      "title": "Additional Guidance for Employers on Use of 1-Hour PM2.5 Readings to Protect Outdoor Workers During Haze",
+      "source": "Ministry of Manpower",
+      "category": "Policy/Regulatory",
+      "summary": "MOM issued new guidance for employers to use hourly PM2.5 readings, alongside the existing PSI forecast, to progressively reduce or prohibit outdoor work as haze conditions worsen during the day. The guidance sets graduated thresholds for healthy and vulnerable workers and requires measures like mechanical aids, indoor rest breaks, hydration and masks/respirators at higher pollution bands.",
+      "date_published": "2026-10-20",
+      "date_found": "2026-10-21",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/wee-hur-secures-option-acquire-sydney-site-471-bed-student-accommodation-project",
+      "title": "Wee Hur secures option to acquire Sydney site for 471-bed student accommodation project",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "Mainboard-listed Wee Hur has secured an unconditional option to acquire a site in Wollstonecraft, Sydney, for a proposed 12-storey, 471-bed student accommodation development under its Y Suites brand, with completion expected in the second half of 2027. The deal adds to Wee Hur's growing Australian and Hong Kong student housing portfolio, alongside its recently announced Singapore NTU project.",
+      "date_published": "2026-10-20",
+      "date_found": "2026-10-21",
+      "is_new_today": true
     }
   ]
 }
