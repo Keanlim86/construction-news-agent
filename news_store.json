@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-21T07:08:07+08:00",
+  "last_run": "2026-10-22T07:07:26+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -940,7 +940,7 @@
       "summary": "MOM issued new guidance for employers to use hourly PM2.5 readings, alongside the existing PSI forecast, to progressively reduce or prohibit outdoor work as haze conditions worsen during the day. The guidance sets graduated thresholds for healthy and vulnerable workers and requires measures like mechanical aids, indoor rest breaks, hydration and masks/respirators at higher pollution bands.",
       "date_published": "2026-10-20",
       "date_found": "2026-10-21",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/companies-markets/wee-hur-secures-option-acquire-sydney-site-471-bed-student-accommodation-project",
@@ -950,6 +950,26 @@
       "summary": "Mainboard-listed Wee Hur has secured an unconditional option to acquire a site in Wollstonecraft, Sydney, for a proposed 12-storey, 471-bed student accommodation development under its Y Suites brand, with completion expected in the second half of 2027. The deal adds to Wee Hur's growing Australian and Hong Kong student housing portfolio, alongside its recently announced Singapore NTU project.",
       "date_published": "2026-10-20",
       "date_found": "2026-10-21",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/employers-should-adjust-outdoor-work-activities-based-on-hourly-pm2-5-readings-mom",
+      "title": "Employers should adjust outdoor work activities based on hourly PM2.5 readings: MOM",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "MOM issued new guidelines on Oct 20 requiring employers to adjust outdoor work based on hourly PM2.5 readings, including mask provision and reviewing crane lifting work when visibility is affected, as Singapore endures its 16th straight day of unhealthy air.",
+      "date_published": "2026-10-20",
+      "date_found": "2026-10-22",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/builders-reduce-workers-exposure-to-haze-take-steps-to-seek-time-extensions-for-construction-delays",
+      "title": "Builders in S'pore take steps to protect workers from haze as some projects face delays",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "Contractors including Kajima and Hi-Tek Construction have cut outdoor work hours and added worker haze-protection measures amid slowed project progress, while some are filing notices under BCA's 2023 time-extension guidelines; SCAL is seeking clearer guidance on assessing weather-related delay claims, which currently cover only public-sector contracts.",
+      "date_published": "2026-10-21",
+      "date_found": "2026-10-22",
       "is_new_today": true
     }
   ]
