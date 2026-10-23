@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-23T07:07:46+08:00",
+  "last_run": "2026-10-24T07:06:25+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -980,7 +980,7 @@
       "summary": "Koh Brothers Eco Engineering, a subsidiary of construction and property group Koh Brothers, will transfer its listing from the SGX Catalist board to the Mainboard with effect from 29 October 2026, having fulfilled all conditions following shareholder approval in August. The move follows the company's August disclosure of three legal disputes, including joint-venture and subcontractor arbitration claims, exposing it to up to S$57.6 million in potential liabilities.",
       "date_published": "2026-10-22",
       "date_found": "2026-10-23",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/companies-markets/capitaland-investment-appoints-banking-veteran-hsieh-fu-hua-chairman-jan-1-2027",
@@ -990,6 +990,16 @@
       "summary": "CapitaLand Investment has appointed banking veteran Hsieh Fu Hua as independent chairman from 1 January 2027, succeeding Miguel Ko, and named Temasek Singapore president Png Chin Yee as a non-executive director from the same date.",
       "date_published": "2026-10-22",
       "date_found": "2026-10-23",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/10/news-releases/lta-brings-rail-operators--industry-and-academia-together-to-dri.html",
+      "title": "LTA Brings Rail Operators, Industry and Academia Together to Drive Innovation and Digitalisation",
+      "source": "Land Transport Authority",
+      "category": "New Technology/Innovation",
+      "summary": "LTA held Nebula X Day 2026 and launched the Digital Tavern gallery at its headquarters, showcasing BIM, digital twins and other technologies for rail design, construction, operations and maintenance, including remote-operation and digital site-capture tools to improve construction productivity and safety.",
+      "date_published": "2026-10-23",
+      "date_found": "2026-10-24",
       "is_new_today": true
     }
   ]
