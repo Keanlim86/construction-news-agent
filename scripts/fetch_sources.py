@@ -238,6 +238,9 @@ def article_text(url, chars):
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "searches":
+        print(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "searches.txt")).read())
+        return
     if len(sys.argv) > 1 and sys.argv[1] == "text":
         ap = argparse.ArgumentParser(prog="fetch_sources.py text")
         ap.add_argument("url")

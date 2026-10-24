@@ -105,6 +105,11 @@ a first run, and dedups on normalized URLs.
 run. "Wide window" below = 7–14 days on any run (lower-frequency sources).
 Skip any unreachable/paywalled source and continue.
 
+- **Search list lives in `scripts/searches.txt`** (printed by `python3
+  scripts/fetch_sources.py searches`; the routine prompt just says to run each
+  line, which keeps the prompt short). The bullets below are the design
+  rationale; when adding a query or watchlist name, edit `searches.txt` (and
+  `fetch_sources.py` WATCHLIST/KEYWORDS, README.md), not the prompt.
 - **Source searches (WebSearch)**: `site:straitstimes.com`, `site:businesstimes.com.sg`,
   CNA construction/property, BCA/HDB/URA press releases,
   `site:constructionplusasia.com`.

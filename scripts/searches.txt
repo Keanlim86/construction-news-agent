@@ -1,0 +1,53 @@
+# WebSearch passes, one query per line. "[wide]" = 7-14 day window, others 24-48h (7 days if store empty).
+# Run each line as its own WebSearch. Lines starting "#" are notes.
+# --- Outlets and agencies
+site:straitstimes.com construction Singapore
+site:businesstimes.com.sg construction OR "built environment" Singapore
+CNA construction OR property Singapore
+BCA OR HDB OR URA press release construction
+site:constructionplusasia.com Singapore
+[wide] Changi Airport Group newsroom (changiairport.com/en/corporate/our-media-hub/newsroom.html; site: indexes it poorly)
+# --- Category seeds
+Singapore construction safety OR accident
+Singapore construction sustainability OR "Green Mark"
+Singapore construction manpower OR "foreign workers"
+Singapore construction dispute OR arbitration OR lawsuit
+Singapore construction tender OR contract awarded
+# --- Dedicated topics
+Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM
+Singapore URA OR BCA OR HDB OR MOM construction OR building policy OR guideline OR regulation review
+Singapore construction sand OR cement OR concrete OR steel OR rebar supply OR shortage OR price
+Singapore construction heat stress OR outdoor worker cooling OR heat-resilient wearable OR climate adaptation worksite
+Singapore energy OR electricity OR gas OR biomethane OR carbon tax OR building energy standard construction OR cement OR steel OR building OR Green Mark
+# (energy: keep only stories with an explicit construction/materials/building angle: cost, carbon, rules or projects; route to cat. 5, 3 or 4)
+site:bloomberg.com construction OR property developer insolvency Asia
+# --- Wide-window topics
+[wide] data centre Singapore construction OR safety OR tender OR community
+[wide] data centre Asia safety OR regulatory OR community reaction
+[wide] Singapore purpose-built dormitory OR "worker dormitory" tender OR site OR construction
+[wide] Singapore semiconductor fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing facility groundbreaking OR opening OR construction
+# --- Watchlist [wide], one search per name. Keep Kok Tong Construction and KTC separate; keep DLM and DLE separate.
+"Wee Hur" earnings OR announcement OR appointment
+"BRC Asia" earnings OR announcement
+"Lian Beng" Singapore earnings OR announcement OR appointment OR contract
+"Koh Brothers" Singapore earnings OR announcement OR appointment OR contract
+"Hock Lian Seng" Singapore earnings OR announcement OR appointment OR contract
+"CSC Holdings" Singapore earnings OR announcement OR appointment OR contract
+"Chip Eng Seng" Singapore earnings OR announcement OR appointment OR contract
+"UOL Group" Singapore earnings OR announcement OR appointment OR contract
+"CapitaLand" Singapore earnings OR announcement OR appointment OR contract
+"City Developments" Singapore earnings OR announcement OR appointment OR contract
+"Tiong Seng" Singapore earnings OR announcement OR appointment OR contract
+"BBR" Singapore earnings OR announcement OR appointment OR contract
+"Hwa Seng" Singapore earnings OR announcement OR appointment OR contract
+"Kajima" Singapore construction OR contract OR trial
+"Shimizu" Singapore construction OR contract OR trial OR technology
+"JTC" Singapore construction OR tender OR trial OR site
+"Kok Tong Construction" Singapore
+"KTC Civil Engineering" OR "KTC Engineering" Singapore construction
+"The GEAR by Kajima" OR "The GEAR" Singapore construction OR innovation OR technology
+"Pan-United" Singapore concrete OR earnings OR contract
+"Continental Steel" Singapore rebar OR steel
+"HSC Pipeline Engineering" Singapore
+"DLM" mechanical electrical contractor Singapore
+"DLE M&E" OR "DLE" mechanical electrical contractor Singapore

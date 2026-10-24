@@ -7,21 +7,8 @@ Times are SGT (UTC+8). The routine fires at 23:00 UTC = 07:00 SGT the next day; 
 STEP 1 - Gather candidates
 a. Run: python3 scripts/fetch_sources.py
    It fetches Straits Times RSS, Business Times RSS, the ST MND tag page, the LTA newsroom listing (News Releases only), MND speeches and press releases, and the MOM (Ministry of Manpower) press-releases listing, drops URLs already stored or archived and items older than 14 days, and prints one line per candidate. Its date comes from the publisher; trust it. Lines starting "# ERROR" mean that source failed; note it and carry on. MOM items are not auto-included like MND's -- they still pass the loose keyword filter -- so expect some irrelevant labour-market/work-pass items in the output; judge each on its merits in Step 2.
-b. Run WebSearch passes for sources the script does not cover. Window: last 24-48h (7 days if the store is empty); up to 7-14 days for CAG, data centres, dormitories, plants and the watchlist.
-   - site:straitstimes.com construction Singapore; site:businesstimes.com.sg construction OR "built environment" Singapore; CNA construction/property; BCA, HDB and URA press releases; site:constructionplusasia.com Singapore; Changi Airport Group newsroom (changiairport.com/en/corporate/our-media-hub/newsroom.html).
-   - Category seeds: Singapore construction safety OR accident; sustainability OR Green Mark; manpower OR foreign workers; dispute OR arbitration OR lawsuit; tender OR contract awarded.
-   - Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM
-   - Singapore URA OR BCA OR HDB OR MOM construction OR building policy OR guideline OR regulation review
-   - Singapore construction sand OR cement OR concrete OR steel OR rebar supply OR shortage OR price
-   - Singapore construction heat stress OR outdoor worker cooling OR heat-resilient wearable OR climate adaptation worksite
-   - Singapore energy OR electricity OR gas OR biomethane OR carbon tax OR building energy standard construction OR cement OR steel OR building OR Green Mark (keep only stories with an explicit construction/materials/building angle: cost, carbon, rules or projects; route to cat. 5, 3 or 4)
-   - site:bloomberg.com construction OR property developer insolvency Asia
-   - data centre Singapore construction OR safety OR tender OR community; data centre Asia safety OR regulatory OR community reaction
-   - Singapore purpose-built dormitory OR "worker dormitory" tender OR site OR construction
-   - Singapore semiconductor fab OR wafer fab OR chip plant OR pharmaceutical plant OR biomanufacturing facility groundbreaking OR opening OR construction
-   - Watchlist: one search per name, exactly as listed (keep Kok Tong Construction and KTC Engineering as separate entities when attributing a hit):
-     "Wee Hur" earnings OR announcement OR appointment | "BRC Asia" earnings OR announcement | "Lian Beng" | "Koh Brothers" | "Hock Lian Seng" | "CSC Holdings" | "Chip Eng Seng" | "UOL Group" | "CapitaLand" | "City Developments" | "Tiong Seng" | "BBR" | "Hwa Seng" | "Kajima" Singapore construction OR contract OR trial | "Shimizu" Singapore construction OR contract OR trial OR technology | "JTC" Singapore construction OR tender OR trial OR site | "Kok Tong Construction" Singapore | "KTC Civil Engineering" OR "KTC Engineering" Singapore construction | "The GEAR by Kajima" OR "The GEAR" Singapore construction OR innovation OR technology | "Pan-United" Singapore concrete OR earnings OR contract | "Continental Steel" Singapore rebar OR steel | "HSC Pipeline Engineering" Singapore | "DLM" mechanical electrical contractor Singapore | "DLE M&E" OR "DLE" mechanical electrical contractor Singapore
-     Where only a name is given, add Singapore and earnings OR announcement OR appointment OR contract.
+b. Run: python3 scripts/fetch_sources.py searches
+   It prints the WebSearch query list (scripts/searches.txt), one query per line. Run each line as its own WebSearch, exactly as written, including every watchlist name. Window: last 24-48h (7 days if the store is empty); lines marked [wide] use 7-14 days. Lines starting "#" are notes (e.g. the energy query keeps only stories with an explicit construction/materials/building angle: cost, carbon, rules or projects; route to cat. 5, 3 or 4). Keep Kok Tong Construction and KTC separate, and DLM and DLE separate, when attributing a hit.
    If a source is unreachable or paywalled, skip it; never abort the run.
 
 STEP 2 - Filter and confirm
