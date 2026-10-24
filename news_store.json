@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-24T07:06:25+08:00",
+  "last_run": "2026-10-24T12:17:43+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -999,6 +999,16 @@
       "category": "New Technology/Innovation",
       "summary": "LTA held Nebula X Day 2026 and launched the Digital Tavern gallery at its headquarters, showcasing BIM, digital twins and other technologies for rail design, construction, operations and maintenance, including remote-operation and digital site-capture tools to improve construction productivity and safety.",
       "date_published": "2026-10-23",
+      "date_found": "2026-10-24",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/employers-urged-to-look-beyond-degrees-job-titles-in-hiring-under-new-skills-first-framework",
+      "title": "Employers urged to look beyond degrees, job titles in hiring under new skills-first framework",
+      "source": "The Straits Times",
+      "category": "Manpower/Labour",
+      "summary": "The Institute for Adult Learning launched the Skills-First Framework for Action on Oct 19, proposing 12 pilot initiatives for employers to hire and promote on skills rather than degrees or past job titles. Construction firms HSC Pipeline Engineering and M&E contractor DLM say they now hire non-degree candidates as industry hiring grows harder.",
+      "date_published": "2026-10-19",
       "date_found": "2026-10-24",
       "is_new_today": true
     }
