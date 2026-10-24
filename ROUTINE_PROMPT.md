@@ -14,6 +14,7 @@ b. Run WebSearch passes for sources the script does not cover. Window: last 24-4
    - Singapore URA OR BCA OR HDB OR MOM construction OR building policy OR guideline OR regulation review
    - Singapore construction sand OR cement OR concrete OR steel OR rebar supply OR shortage OR price
    - Singapore construction heat stress OR outdoor worker cooling OR heat-resilient wearable OR climate adaptation worksite
+   - Singapore energy OR electricity OR gas OR biomethane OR carbon tax OR building energy standard construction OR cement OR steel OR building OR Green Mark (keep only stories with an explicit construction/materials/building angle: cost, carbon, rules or projects; route to cat. 5, 3 or 4)
    - site:bloomberg.com construction OR property developer insolvency Asia
    - data centre Singapore construction OR safety OR tender OR community; data centre Asia safety OR regulatory OR community reaction
    - Singapore purpose-built dormitory OR "worker dormitory" tender OR site OR construction

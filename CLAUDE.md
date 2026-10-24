@@ -162,6 +162,13 @@ Skip any unreachable/paywalled source and continue.
   - Heat stress: `Singapore construction heat stress OR outdoor worker cooling OR heat-resilient wearable OR climate adaptation worksite`
     (MOM's mandatory heat stress framework starts Dec 2026). Won't catch a
     single buried mention in an unrelated headline — accepted tradeoff.
+- Energy (added 2026-10-24, after an ST biomethane pilot story, Gan Kim Yong,
+  was flagged): `Singapore energy OR electricity OR gas OR biomethane OR carbon tax OR building energy standard construction OR cement OR steel OR building OR Green Mark`.
+  High bar: keep only stories with an explicit construction/materials/building
+  angle (energy cost to cement/steel, carbon rules, building energy standards,
+  power/gas infrastructure projects); route to cat. 5, 3 or 4. Pure national
+  energy-supply news with no such angle is discarded. `fetch_sources.py`
+  keyword filter gained energy/electricity/biomethane/solar/natural gas/carbon tax.
 - **Bloomberg (cat. 10)**: e.g. `site:bloomberg.com construction OR property developer insolvency Asia`.
 - **Data centres (wide)**: `data centre Singapore construction OR safety OR tender OR community`
   (routes to 1/4/7/8/9) and `data centre Asia safety OR regulatory OR community reaction` (cat. 10).

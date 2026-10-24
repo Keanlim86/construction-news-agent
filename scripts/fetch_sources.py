@@ -63,6 +63,7 @@ KEYWORDS = [
     r"accident", r"fatal", r"dies", r"died", r"injur", r"collapse", r"arbitrat",
     r"lawsuit", r"sued", r"dispute", r"insolven", r"liquidat", r"terminal",
     r"airport", r"Changi", r"engineer", r"architect", r"renovat", r"workers?",
+    r"energy", r"electricity", r"biomethane", r"solar", r"natural gas", r"carbon tax",
 ] + [re.escape(w) for w in WATCHLIST]
 RELEVANT = re.compile(r"\b(" + "|".join(KEYWORDS) + r")", re.I)
 LTA_SKIP = re.compile(r"\b(fare|ERP|COE|bus (services?|routes?|interchange|connectivity)|taxi|private.hire|"
