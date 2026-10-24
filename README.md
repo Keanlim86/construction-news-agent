@@ -79,7 +79,7 @@ umbrella, not the same entity as Kok Tong Construction) &middot; The GEAR by
 Kajima (Kajima's Asia regional HQ and open-innovation/tech co-creation hub
 at Changi Business Park — not a separate company from Kajima, but named
 distinctly enough in coverage to warrant its own search pass) &middot;
-Pan-United Corporation (ready-mix concrete) &middot; Continental Steel (rebar/steel)
+Pan-United Corporation (ready-mix concrete) &middot; Continental Steel (rebar/steel) &middot; HSC Pipeline Engineering (civil/pipeline works) &middot; DLM (M&amp;E contractor)
 
 To add, remove, or adjust the list, edit it in CLAUDE.md and `ROUTINE_PROMPT.md`, then apply the
 prompt to the routine — keep them in sync.

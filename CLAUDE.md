@@ -184,7 +184,8 @@ Skip any unreachable/paywalled source and continue.
   Wee Hur, BRC Asia, Lian Beng, Koh Brothers, Hock Lian Seng, CSC Holdings,
   Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong Seng, BBR,
   Hwa Seng, Kajima, Shimizu, JTC, Kok Tong Construction, KTC Engineering,
-  The GEAR by Kajima, Pan-United Corporation, Continental Steel.
+  The GEAR by Kajima, Pan-United Corporation, Continental Steel, HSC Pipeline Engineering,
+  DLM.
   - Kok Tong Construction Pte Ltd and **KTC Civil Engineering & Construction
     Pte Ltd** are separate sister companies (KTC Group, 27 Pandan Crescent) —
     separate queries, attribute hits to the correct one.
@@ -203,6 +204,9 @@ Skip any unreachable/paywalled source and continue.
     investment release with no explicit SG mention; classified cat. 7 since
     the SG office presence was judged enough to clear the SG test and the
     story's content is squarely construction-robotics innovation.
+  - HSC Pipeline Engineering (civil works; MD Shane Shi) and DLM (M&E
+    contractor; MD Joseph Goh) added 2026-10-24 after both appeared in an ST
+    skills-first hiring story (2026-10-19) that no query would catch.
   - Pan-United (SGX: P52): SG's largest ready-mix concrete producer (~40%
     share), only carbon-mineralised concrete provider. Continental Steel:
     major SEA steel supplier (SG rebar/steel fibre).
