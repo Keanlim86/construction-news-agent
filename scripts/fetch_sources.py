@@ -49,7 +49,7 @@ WATCHLIST = [
     "CSC Holdings", "Chip Eng Seng", "UOL", "CapitaLand", "City Developments",
     "CDL", "Tiong Seng", "BBR", "Hwa Seng", "Kajima", "JTC", "Kok Tong", "KTC",
     "The GEAR", "Pan-United", "Continental Steel",
-    "HSC Pipeline", "DLM",
+    "HSC Pipeline", "DLM", "DLE",
 ]
 KEYWORDS = [
     r"construct", r"built environment", r"building", r"contractor", r"developer",

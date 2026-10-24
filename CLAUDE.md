@@ -185,7 +185,7 @@ Skip any unreachable/paywalled source and continue.
   Chip Eng Seng, UOL Group, CapitaLand, City Developments, Tiong Seng, BBR,
   Hwa Seng, Kajima, Shimizu, JTC, Kok Tong Construction, KTC Engineering,
   The GEAR by Kajima, Pan-United Corporation, Continental Steel, HSC Pipeline Engineering,
-  DLM.
+  DLM, DLE M&E.
   - Kok Tong Construction Pte Ltd and **KTC Civil Engineering & Construction
     Pte Ltd** are separate sister companies (KTC Group, 27 Pandan Crescent) —
     separate queries, attribute hits to the correct one.
@@ -207,6 +207,10 @@ Skip any unreachable/paywalled source and continue.
   - HSC Pipeline Engineering (civil works; MD Shane Shi) and DLM (M&E
     contractor; MD Joseph Goh) added 2026-10-24 after both appeared in an ST
     skills-first hiring story (2026-10-19) that no query would catch.
+  - DLE M&E Pte Ltd (formerly Double Lion Electrical; M&E specialist
+    contractor, founded 1975) added 2026-10-24 at the user's request as a
+    company related to DLM. Both formerly had "Double" names, but a group
+    link is unconfirmed; treat as separate companies, attribute hits correctly.
   - Pan-United (SGX: P52): SG's largest ready-mix concrete producer (~40%
     share), only carbon-mineralised concrete provider. Continental Steel:
     major SEA steel supplier (SG rebar/steel fibre).
