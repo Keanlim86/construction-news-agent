@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-24T12:17:43+08:00",
+  "last_run": "2026-10-25T07:07:43+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1000,7 +1000,7 @@
       "summary": "LTA held Nebula X Day 2026 and launched the Digital Tavern gallery at its headquarters, showcasing BIM, digital twins and other technologies for rail design, construction, operations and maintenance, including remote-operation and digital site-capture tools to improve construction productivity and safety.",
       "date_published": "2026-10-23",
       "date_found": "2026-10-24",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.straitstimes.com/singapore/employers-urged-to-look-beyond-degrees-job-titles-in-hiring-under-new-skills-first-framework",
@@ -1010,6 +1010,26 @@
       "summary": "The Institute for Adult Learning launched the Skills-First Framework for Action on Oct 19, proposing 12 pilot initiatives for employers to hire and promote on skills rather than degrees or past job titles. Construction firms HSC Pipeline Engineering and M&E contractor DLM say they now hire non-degree candidates as industry hiring grows harder.",
       "date_published": "2026-10-19",
       "date_found": "2026-10-24",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/energy-commodities/keppel-energy-sembcorp-utilities-and-tuas-power-supply-biomethane-pilot-project",
+      "title": "Keppel Energy, Sembcorp Utilities and Tuas Power supply biomethane pilot project",
+      "source": "The Business Times",
+      "category": "Sustainability/Green Building",
+      "summary": "Keppel Energy, Sembcorp Utilities and Tuas Power Generation have been appointed under a new 15-year EDB-run biomethane regulatory sandbox to import up to 300MW of biomethane to supply data centres and industrial manufacturers in Singapore as a decarbonisation pathway, with first supplies expected by end-2028.",
+      "date_published": "2026-10-23",
+      "date_found": "2026-10-25",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/no-worker-should-face-this-alone-close-to-240-migrant-workers-owed-2-months-pay-ntuc-mom-assisting",
+      "title": "Nearly 240 foreign workers owed up to 2 months' pay; MOM investigating 2 firms",
+      "source": "The Straits Times",
+      "category": "Manpower/Labour",
+      "summary": "MOM is investigating Process Maintenance Solutions and Jurong Technical & Construction after close to 240 migrant workers in the process sector went unpaid for up to two months; NTUC and the Migrant Workers' Centre are helping affected workers with salary claims, accommodation and job placement.",
+      "date_published": "2026-10-24",
+      "date_found": "2026-10-25",
       "is_new_today": true
     }
   ]
