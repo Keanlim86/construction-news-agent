@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-26T07:05:55+08:00",
+  "last_run": "2026-10-27T07:07:45+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1031,6 +1031,16 @@
       "date_published": "2026-10-24",
       "date_found": "2026-10-25",
       "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/energy-commodities/inside-singapores-new-five-year-energy-plan-s5-3-billion-grid-upgrade-trebling-storage-capacity",
+      "title": "Inside Singapore's new five-year energy plan: S$5.3 billion grid upgrade, trebling of storage capacity",
+      "source": "The Business Times",
+      "category": "Policy/Regulatory",
+      "summary": "The Energy Market Authority unveiled a five-year plan to invest up to S$5.3 billion expanding Singapore's power grid, including studying a trebling of cable tunnel length, tripling energy storage capacity to over 1 GWh by 2030, five new gas power plants, and an expanded LNG terminal at Jurong Port by 2030.",
+      "date_published": "2026-10-26",
+      "date_found": "2026-10-27",
+      "is_new_today": true
     }
   ]
 }
