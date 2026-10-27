@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-27T07:07:45+08:00",
+  "last_run": "2026-10-28T07:09:20+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1040,6 +1040,26 @@
       "summary": "The Energy Market Authority unveiled a five-year plan to invest up to S$5.3 billion expanding Singapore's power grid, including studying a trebling of cable tunnel length, tripling energy storage capacity to over 1 GWh by 2030, five new gas power plants, and an expanded LNG terminal at Jurong Port by 2030.",
       "date_published": "2026-10-26",
       "date_found": "2026-10-27",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/environment/singapores-renewed-solar-push-hanging-panels-clay-like-tiles-for-heritage-buildings-among-plans",
+      "title": "Singapore's renewed solar push: Hanging panels, clay-like tiles for heritage buildings among plans",
+      "source": "The Straits Times",
+      "category": "Sustainability/Green Building",
+      "summary": "Singapore unveiled plans to hit a revised 2035 solar target of 4GWp, including JTC piloting solar panels suspended between buildings at Woodlands Loop, an innovation call for portable solar solutions at construction sites with limited grid access, and a trial of clay-tile-like solar panels for heritage buildings.",
+      "date_published": "2026-10-27",
+      "date_found": "2026-10-28",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/international/asean/thailand-sets-new-rules-data-centres-applications-surge",
+      "title": "Thailand sets new rules for data centres as applications surge",
+      "source": "The Business Times",
+      "category": "International/Regional News",
+      "summary": "Thailand's data centre committee announced new minimum requirements covering siting, fuel storage, water management and environmental practices, dividing data centres into seven power-demand tiers, with new applications to open in 2027 after cabinet approval and existing operators given a year to comply.",
+      "date_published": "2026-10-27",
+      "date_found": "2026-10-28",
       "is_new_today": true
     }
   ]
