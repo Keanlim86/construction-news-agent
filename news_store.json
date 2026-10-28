@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-28T07:09:20+08:00",
+  "last_run": "2026-10-29T07:07:39+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1050,7 +1050,7 @@
       "summary": "Singapore unveiled plans to hit a revised 2035 solar target of 4GWp, including JTC piloting solar panels suspended between buildings at Woodlands Loop, an innovation call for portable solar solutions at construction sites with limited grid access, and a trial of clay-tile-like solar panels for heritage buildings.",
       "date_published": "2026-10-27",
       "date_found": "2026-10-28",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/international/asean/thailand-sets-new-rules-data-centres-applications-surge",
@@ -1060,6 +1060,36 @@
       "summary": "Thailand's data centre committee announced new minimum requirements covering siting, fuel storage, water management and environmental practices, dividing data centres into seven power-demand tiers, with new applications to open in 2027 after cabinet approval and existing operators given a year to comply.",
       "date_published": "2026-10-27",
       "date_found": "2026-10-28",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/two-tiong-bahru-hdb-blocks-to-proceed-with-hip-upgrading-after-successful-re-poll",
+      "title": "Two Tiong Bahru HDB blocks to proceed with HIP upgrading after successful re-poll",
+      "source": "The Straits Times",
+      "category": "Public Feedback/Community",
+      "summary": "Two Tiong Bahru HDB blocks that narrowly missed the 75% voting threshold for the Home Improvement Programme in 2025 will proceed with upgrading after a re-poll met the threshold, with works beginning in November and completion expected by January 2027.",
+      "date_published": "2026-10-28",
+      "date_found": "2026-10-29",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/new-material-to-cope-with-algae-mould-from-condensation-among-innovations-unveiled-at-tech-showcase",
+      "title": "New material to cope with algae, mould from condensation among innovations unveiled at tech showcase",
+      "source": "The Straits Times",
+      "category": "New Technology/Innovation",
+      "summary": "HDB and Enterprise Singapore's first Demo Day showcased 13 construction innovations, including an anti-condensation coating trialled in HDB flats, a remote site-coordination platform, a refuse-chute protective coating and microwave scanning technology for detecting concrete spalling, aimed at construction productivity, ageing infrastructure and heat resilience.",
+      "date_published": "2026-10-28",
+      "date_found": "2026-10-29",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/seatrium-karpowership-develop-floating-power-digital-infrastructure-solutions-singapore",
+      "title": "Seatrium, Karpowership to develop floating power, digital infrastructure solutions in Singapore",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "Seatrium and Karpowership signed an MOU at Singapore International Energy Week to jointly develop floating power and digital infrastructure solutions in Singapore, including power ships and floating data centres, with plans to progress towards forming a joint venture.",
+      "date_published": "2026-10-27",
+      "date_found": "2026-10-29",
       "is_new_today": true
     }
   ]
