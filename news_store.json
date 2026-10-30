@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-30T07:09:02+08:00",
+  "last_run": "2026-10-31T07:06:26+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1100,7 +1100,7 @@
       "summary": "LBD Engineering and its general manager were charged under the Foreign Employee Dormitories Act for housing 173 migrant workers from four companies at an unlicensed dormitory in a Sungei Kadut Loop factory between July 2025 and January 2026. Both face up to $500,000 in fines and up to two years' jail if convicted.",
       "date_published": "2026-10-29",
       "date_found": "2026-10-30",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.straitstimes.com/singapore/unpaid-salaries-no-work-migrant-workers-in-2-related-firms-left-anxious",
@@ -1110,7 +1110,7 @@
       "summary": "Nearly 240 migrant workers from two linked process-sector firms, including Jurong Technical & Construction, have gone unpaid for two to three months, with MOM investigating both companies and helping workers file salary claims. Several workers said they were promised but never sent for BCA construction certification that would have let them move into better-paying construction jobs.",
       "date_published": "2026-10-29",
       "date_found": "2026-10-30",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www1.bca.gov.sg/resources/newsroom/new-programme-for-startups-to-drive-development-of-embodied-ai-solutions-in-the-construction-sector/",
@@ -1120,6 +1120,26 @@
       "summary": "Enterprise Singapore, BCA and The GEAR by Kajima launched the Startup CoLab EAI programme to help startups develop, test and commercialise embodied AI solutions for construction tasks such as material handling, facade installation and surface finishing, using construction sandboxes and live project sites including The GEAR building. Applications open in early 2027 on a rolling basis.",
       "date_published": "2026-10-28",
       "date_found": "2026-10-30",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/health/new-sgh-emergency-and-national-neuroscience-building-slashes-stroke-treatment-times",
+      "title": "New SGH emergency and national neuroscience building slashes stroke treatment times",
+      "source": "The Straits Times",
+      "category": "Project Awards/Tenders",
+      "summary": "Singapore General Hospital officially opened its new 12-storey, 14,000 sq m Emergency and National Neuroscience Institute building on 30 Oct 2026, co-locating emergency care with advanced neuroscience intervention. The facility, six times larger than its previous Block 1 space, cuts acute stroke assessment-to-treatment time from 130 to as little as 82 minutes.",
+      "date_published": "2026-10-30",
+      "date_found": "2026-10-31",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/2910-company-and-general-manager-charged-under-the-feda-for-operating-an-unlicensed-dormitory",
+      "title": "Company and General Manager Charged Under the Foreign Employee Dormitories Act for Operating an Unlicensed Dormitory",
+      "source": "Ministry of Manpower",
+      "category": "Manpower/Labour",
+      "summary": "LBD Engineering Pte Ltd and its general manager were charged in court on 29 October 2026 for operating an unlicensed foreign employee dormitory at 58A Sungei Kadut Loop that housed 173 migrant workers from four companies between July 2025 and January 2026. The offence under the Foreign Employee Dormitories Act carries a fine of up to $500,000, up to two years' jail, or both.",
+      "date_published": "2026-10-29",
+      "date_found": "2026-10-31",
       "is_new_today": true
     }
   ]
