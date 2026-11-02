@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-02T07:08:52+08:00",
+  "last_run": "2026-11-03T07:06:44+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1141,6 +1141,16 @@
       "date_published": "2026-10-29",
       "date_found": "2026-10-31",
       "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/metrocon-chairman-steps-down-after-being-charged-over-unlicensed-worker-dormitory",
+      "title": "Metrocon chairman steps down after being charged over unlicensed worker dormitory",
+      "source": "The Business Times",
+      "category": "Manpower/Labour",
+      "summary": "Metrocon chairman Alvin Lim, also general manager of construction firm LBD Engineering, resigned after he and LBD were charged under the Foreign Employee Dormitories Act over an unlicensed dormitory at a Sungei Kadut Loop factory that housed 173 migrant workers. Metrocon said the charge concerns LBD alone and is not expected to affect the listed construction company's ongoing projects or finances.",
+      "date_published": "2026-11-02",
+      "date_found": "2026-11-03",
+      "is_new_today": true
     }
   ]
 }
