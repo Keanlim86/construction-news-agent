@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-03T07:06:44+08:00",
+  "last_run": "2026-11-05T07:09:55+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1150,6 +1150,86 @@
       "summary": "Metrocon chairman Alvin Lim, also general manager of construction firm LBD Engineering, resigned after he and LBD were charged under the Foreign Employee Dormitories Act over an unlicensed dormitory at a Sungei Kadut Loop factory that housed 173 migrant workers. Metrocon said the charge concerns LBD alone and is not expected to affect the listed construction company's ongoing projects or finances.",
       "date_published": "2026-11-02",
       "date_found": "2026-11-03",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/paid-press-release/autodesk-and-jtc-sign-mou-on-next-gen-digital-delivery-in-singapores-built-environment",
+      "title": "Autodesk and JTC Sign MoU on Next-Gen Digital Delivery in Singapore's Built Environment",
+      "source": "The Business Times",
+      "category": "New Technology/Innovation",
+      "summary": "Autodesk and JTC signed an MoU on 5 Nov 2026 to explore AI-enabled digital transformation across the built environment project lifecycle, focusing on connected data, intelligent project delivery and interoperable digital workflows for Singapore's industrial infrastructure.",
+      "date_published": "2026-11-05",
+      "date_found": "2026-11-05",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-mos-alvin-tan-at-the-singapore-week-of-innovation-and-technology-switch-2026",
+      "title": "Speech by MOS Alvin Tan at the Singapore Week of Innovation and Technology (SWITCH) 2026",
+      "source": "MND",
+      "category": "New Technology/Innovation",
+      "summary": "MOS Alvin Tan launched HDB's latest Cool Ideas Enterprise Call for Proposals with a fresh S$4 million Enterprise Singapore funding injection (bringing total CIE funding to S$9 million), citing examples including WaveScan's non-intrusive building-defect detection and the NUS-developed Intelligent Lifting Frame for safer precast lifting, trialled with contractor Teambuild.",
+      "date_published": "2026-11-04",
+      "date_found": "2026-11-05",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/transport/three-new-mrt-stations-to-open-on-dec-26-paving-the-way-for-direct-link-to-jb-for-residents-in-east",
+      "title": "Three new MRT stations to open on Dec 26, paving way for direct link to JB for residents in east",
+      "source": "The Straits Times",
+      "category": "Project Awards/Tenders",
+      "summary": "Bedok South and Sungei Bedok stations on the Thomson-East Coast Line, plus Xilin station on the Downtown Line, will begin operations on 26 Dec 2026, completing a key stretch of rail infrastructure connecting the east to the city centre and, from 2027, to Johor via the RTS Link.",
+      "date_published": "2026-11-04",
+      "date_found": "2026-11-05",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-launch-of-the-toa-payoh-west-master-plan-exhibition-and-engagement",
+      "title": "Speech by Minister Chee Hong Tat at the Launch of the Toa Payoh West Master Plan Exhibition and Engagement",
+      "source": "MND",
+      "category": "Public Feedback/Community",
+      "summary": "At the launch of a public exhibition and engagement on the Toa Payoh West master plan, Minister Chee Hong Tat detailed the Toa Payoh Integrated Development (on track for completion by 2030) and a new Toa Payoh Hillside BTO launch in November 2026 with about 260 Community Care Apartment units, and addressed resident questions on MRT/bus interchange connectivity.",
+      "date_published": "2026-11-02",
+      "date_found": "2026-11-05",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/koh-brothers-eco-engineering-plans-s27-6-million-rights-issue-parent-take-s15-1-million-share",
+      "title": "Koh Brothers Eco Engineering plans S$27.6 million rights issue; parent to take up S$15.1 million share",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "Koh Brothers Eco Engineering plans to raise up to S$27.6 million via a renounceable underwritten rights issue, with about 80% of net proceeds earmarked for working capital including payments to subcontractors and suppliers on its construction projects.",
+      "date_published": "2026-11-04",
+      "date_found": "2026-11-05",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/property/capitaland-investment-9m-revenue-dips-3-s1-5-billion-despite-growth-fee-related-business",
+      "title": "CapitaLand Investment 9M revenue dips 3% to S$1.5 billion despite growth in fee-related business",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "CapitaLand Investment reported a 3% year-on-year decline in nine-month revenue to S$1.5 billion to September 2026, as real estate investment contributions fell following divestments, while fee-related revenue from its funds management business grew 15%.",
+      "date_published": "2026-11-04",
+      "date_found": "2026-11-05",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/resorts-world-sentosa-honeywell-launch-ai-powered-district-cooling-initiatives",
+      "title": "Resorts World Sentosa, Honeywell launch AI-powered district cooling initiatives",
+      "source": "The Business Times",
+      "category": "Sustainability/Green Building",
+      "summary": "Resorts World Sentosa became the first tourism destination in Singapore to adopt AI-powered predictive optimisation for district cooling, in a co-innovation initiative with Honeywell aimed at cutting energy use and supporting the resort's goal of carbon neutrality by 2030.",
+      "date_published": "2026-11-03",
+      "date_found": "2026-11-05",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/property/dubai-property-developer-emaar-offers-buy-out-construction-arm-us16-3-billion-value",
+      "title": "Dubai property developer Emaar offers to buy out construction arm at US$16.3 billion value",
+      "source": "The Business Times",
+      "category": "International/Regional News",
+      "summary": "Dubai's Emaar Properties offered to buy out the roughly 21% of its construction arm, Emaar Development, that it does not already own, in a deal valuing the unit at 60 billion dirhams (US$16.3 billion), as it seeks full ownership of the group's main cash-generating business.",
+      "date_published": "2026-11-04",
+      "date_found": "2026-11-05",
       "is_new_today": true
     }
   ]
