@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-09T07:06:29+08:00",
+  "last_run": "2026-11-10T07:06:12+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1290,7 +1290,7 @@
       "summary": "More than 230 migrant workers owed wages by process-sector firms Process Maintenance Solutions and Jurong Technical & Construction, both under MOM investigation, were connected with new employers, including construction firms, at a Nov 6 job-matching exercise organised with the Migrant Workers' Centre and the Singapore Contractors Association Limited; some have since received their owed pay.",
       "date_published": "2026-11-07",
       "date_found": "2026-11-09",
-      "is_new_today": true
+      "is_new_today": false
     }
   ]
 }
