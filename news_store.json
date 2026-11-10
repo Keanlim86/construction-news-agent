@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-10T07:06:12+08:00",
+  "last_run": "2026-11-11T07:09:32+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1291,6 +1291,66 @@
       "date_published": "2026-11-07",
       "date_found": "2026-11-09",
       "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/new-review-to-make-building-conservation-more-practical-and-less-onerous-for-owners",
+      "title": "New review to make building conservation 'more practical and less onerous' for owners",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "National Development Minister Chee Hong Tat announced a review of conservation rules to exempt some low-impact works (e.g. aircon units, solar panels) from application requirements, plus a 12-month Built Heritage Sector Consultancy Study led by Verian Group for URA starting mid-November to assess the conservation sector's skills and capability gaps.",
+      "date_published": "2026-11-10",
+      "date_found": "2026-11-11",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/partially-forested-area-next-to-marsiling-park-slated-for-new-woodlands-housing-estate",
+      "title": "Partially forested area next to Marsiling Park slated for new Woodlands housing estate",
+      "source": "The Straits Times",
+      "category": "Public Feedback/Community",
+      "summary": "HDB said an environmental study by Aecom Singapore found no case to conserve a partially forested plot next to Marsiling Park that is zoned for a future housing estate, though it recommended mitigation measures such as linear green corridors; the public can submit feedback until 7 December.",
+      "date_published": "2026-11-10",
+      "date_found": "2026-11-11",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.mnd.gov.sg/newsroom/speeches/view/speech-by-minister-chee-hong-tat-at-the-2026-architectural-heritage-awards",
+      "title": "Speech by Minister Chee Hong Tat at the 2026 Architectural Heritage Awards",
+      "source": "Ministry of National Development (speech)",
+      "category": "Media Features/Company News",
+      "summary": "At the 2026 Architectural Heritage Awards, three projects were recognised: the Church of Our Lady of Lourdes (restored by MAEK Consulting), Parochial House (adapted for community use), and 21 Carpenter Street, where WOHA Architects voluntarily retained more of the 1930s shophouse than required while integrating it into a new hotel development.",
+      "date_published": "2026-11-10",
+      "date_found": "2026-11-11",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/companies-markets/concerts-sports-and-mice-promoters-line-marina-bay-sands-new-entertainment-arena",
+      "title": "Concerts, sports and Mice: Promoters line up for Marina Bay Sands' new entertainment arena",
+      "source": "The Business Times",
+      "category": "Project Awards/Tenders",
+      "summary": "Construction is underway on Las Vegas Sands' US$8 billion MBS expansion (a fourth tower, IR2), about 16 months after groundbreaking, with the first levels taking shape and completion targeted for January 2031; the project includes a 15,000-seat arena designed by Populous.",
+      "date_published": "2026-11-10",
+      "date_found": "2026-11-11",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/jobs/data-centre-building-doctor-he-keeps-power-cooling-systems-running",
+      "title": "Data centre 'building doctor': He keeps power, cooling systems running",
+      "source": "The Straits Times",
+      "category": "Media Features/Company News",
+      "summary": "A profile of a mechanical engineer leading site operations at STTGDC's Tai Seng data centre, describing round-the-clock monitoring of power and cooling infrastructure, including backup systems and emergency response procedures that keep the facility running.",
+      "date_published": "2026-11-10",
+      "date_found": "2026-11-11",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/new-ceos-for-lta-home-team-science-and-technology-agency-from-2027",
+      "title": "New CEOs for LTA, Home Team Science and Technology Agency from 2027",
+      "source": "The Straits Times",
+      "category": "Media Features/Company News",
+      "summary": "Chan Tsan will succeed Ng Lang as chief executive of the Land Transport Authority from 1 May 2027, with Alvin Moh Tser Loong taking over Chan's current roles at MHA and HTX; Ng oversaw major rail milestones including the Thomson-East Coast Line and North-East Line Extension during his tenure.",
+      "date_published": "2026-11-10",
+      "date_found": "2026-11-11",
+      "is_new_today": true
     }
   ]
 }
