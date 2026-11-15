@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-15T07:06:38+08:00",
+  "last_run": "2026-11-16T07:06:10+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1410,7 +1410,7 @@
       "summary": "LTA opened a new 16km stretch of cycling paths linking Woodlands and Sembawang to MRT stations, bringing the area's cycling network to 42km, with widened pedestrian crossings, new bicycle crossings and added bicycle parking. A further 9km extension linking to the future RTS Link station is planned from 2027.",
       "date_published": "2026-11-14",
       "date_found": "2026-11-15",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/property/frasers-property-h2-net-profit-more-doubles-s211-7-million",
@@ -1420,7 +1420,7 @@
       "summary": "Frasers Property reported FY2026 net profit up 23.5% to S$300.1 million, supported by its Singapore residential, retail and industrial portfolio, and is advancing two Singapore redevelopment projects, Valley Point (with Mitsubishi Estate) and Yishun 10, alongside newly acquired residential sites at Bayshore Drive and Kallang Close.",
       "date_published": "2026-11-13",
       "date_found": "2026-11-15",
-      "is_new_today": true
+      "is_new_today": false
     }
   ]
 }
