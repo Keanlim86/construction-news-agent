@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-18T07:08:00+08:00",
+  "last_run": "2026-11-19T07:07:48+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1450,7 +1450,7 @@
       "summary": "A consortium of CapitaLand Development, Far East Organization and Sing Holdings submitted the top bid of S$1.82 billion (S$910.25 psf ppr) for a mixed-use white site in Jurong Lake District's Town Hall Link at a state land tender that closed on 17 November 2026, well ahead of a second, lower bid from Sim Lian Land and Sim Lian Development.",
       "date_published": "2026-11-17",
       "date_found": "2026-11-18",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/property/why-hong-kong-property-giant-new-world-faces-financial-reckoning",
@@ -1460,7 +1460,7 @@
       "summary": "Hong Kong developer New World Development, one of the city's 'Big Four' property groups, reported a US$3.6 billion loss in its latest fiscal year and remains one of Hong Kong's most leveraged major developers, with liabilities of HK$210.9 billion, even as the city's property market shows signs of a slow recovery.",
       "date_published": "2026-11-16",
       "date_found": "2026-11-18",
-      "is_new_today": true
+      "is_new_today": false
     }
   ]
 }
