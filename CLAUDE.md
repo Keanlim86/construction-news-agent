@@ -150,10 +150,12 @@ Skip any unreachable/paywalled source and continue.
   - MOM's press-releases listing (mom.gov.sg) is plain server-rendered HTML,
     7 items per page, `?page=N` for more; each `<article>` block has an
     `<h3 class="item-title"><a>` title/link and a `<time datetime="YYYY-M-D">`.
-    Unlike MND, MOM items are **not** auto-included — MOM covers far more than
-    construction (labour market reports, work-pass policy, general
-    employment-practice cases), so they still pass the loose keyword filter;
-    expect some irrelevant items in the output and judge each on its merits.
+    Like MND, MOM items are auto-included (changed 2026-11-19: titles such as
+    "Seven Individuals and a Company Charged for False Declarations in Work Pass
+    Applications" were being dropped by the keyword filter though the cases
+    involve construction firms). Only `MOM_SKIP` titles (labour-market stats,
+    wage council, etc.) are dropped; expect some non-construction items and
+    judge each on its merits, fetching the text to check for construction firms/workers.
     Individual press-release pages are static HTML (unlike MND's
     client-rendered site), so the generic paragraph-extraction fallback in
     `fetch_sources.py text URL` handles them without special-casing.

@@ -69,6 +69,11 @@ KEYWORDS = [
 RELEVANT = re.compile(r"\b(" + "|".join(KEYWORDS) + r")", re.I)
 LTA_SKIP = re.compile(r"\b(fare|ERP|COE|bus (services?|routes?|interchange|connectivity)|taxi|private.hire|"
                       r"licen[cs]|vehicle quota|PMD|e-scooter|motorcycl|parking)", re.I)
+# MOM titles rarely say "construction" even when the release is about construction
+# firms/workers (work-pass fraud, dormitories, heat stress), so MOM items skip the
+# keyword filter; only clearly non-construction statistics/wage/ASEAN items are dropped.
+MOM_SKIP = re.compile(r"(labour market|wages? council|NWC|statistician|CPF contribution rate|"
+                      r"retrenchment|unemployment|job vacanc|mental well-being)", re.I)
 
 
 def get(url, timeout=60):
@@ -205,7 +210,10 @@ def list_candidates(days):
                 continue
             text = it["title"] + " " + it["blurb"]
             is_mnd = it["src"].startswith(("MND", "ST-MND"))
-            if not is_mnd and not RELEVANT.search(text):
+            is_mom = it["src"] == "MOM"
+            if is_mom and MOM_SKIP.search(it["title"]):
+                continue
+            if not is_mnd and not is_mom and not RELEVANT.search(text):
                 continue
             if it["src"].startswith("LTA") and LTA_SKIP.search(it["title"]):
                 continue
