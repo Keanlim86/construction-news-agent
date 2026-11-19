@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-19T19:15:27+08:00",
+  "last_run": "2026-11-20T07:07:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1470,6 +1470,26 @@
       "summary": "MOM charged 13 individuals linked to construction companies under the EFMA for allegedly making CPF contributions to phantom workers to inflate foreign worker quotas; seven company personnel were charged on 17 Nov and four directors and two phantom workers on 29 Oct, and 21 other phantom workers may face financial penalties.",
       "date_published": "2026-11-17",
       "date_found": "2026-11-19",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/property/court-clears-path-frasers-s391-9-million-centrepoint-en-bloc-deal",
+      "title": "Court clears path for Frasers' S$391.9 million Centrepoint en bloc deal",
+      "source": "The Business Times",
+      "category": "Legal & Disputes/Arbitration",
+      "summary": "Singapore's High Court granted a sale order for the collective sale of The Centrepoint's rear block to Frasers Property for S$391.9m, after two objections that had triggered a Strata Titles Board stop order were withdrawn ahead of the hearing.",
+      "date_published": "2026-11-19",
+      "date_found": "2026-11-20",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/property/next-40-years-singland-ceo-jonathan-eu-remaking-marina-square",
+      "title": "'The next 40 years': SingLand CEO Jonathan Eu on remaking Marina Square",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "Singapore Land Group (UOL-linked) CEO Jonathan Eu detailed plans to redevelop Marina Square, which will close from March 2027 to add three towers of homes, serviced apartments, a hotel and Grade A offices, lifting the complex's gross floor area to about 362,493 sq m with completion targeted for 2031.",
+      "date_published": "2026-11-20",
+      "date_found": "2026-11-20",
       "is_new_today": true
     }
   ]
