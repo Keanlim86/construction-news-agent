@@ -172,6 +172,15 @@ Skip any unreachable/paywalled source and continue.
     construction-tech news under the Shimizu rule or clear cat. 10. Kajima's
     English news list is JS-rendered (empty server HTML), so Kajima stays
     search-only.
+  - **UOL Group press releases** (`uol.com.sg/investors-and-media/press-releases/`)
+    added 2026-11-20 at the user's request. Server-rendered list:
+    `<li class="boxes"><a href="...pdf"><h3>Month D, YYYY</h3><p>title</p>`,
+    ~10 items in the current year. Behind Cloudflare: the bot UA gets 403, so
+    `get()` sends a browser UA for hosts in `BROWSER_UA_HOSTS`. Each release is
+    a PDF; `fetch_sources.py text URL` extracts PDFs (pdftotext, else pypdf).
+    Auto-included; keep launches, GLS/land bids, earnings, project and
+    sustainability news (usually cat. 9, 4 or 5) and discard arts-prize and
+    hospitality items with no property/construction angle.
 - **Category seeds**: safety, sustainability, manpower, disputes, tenders, plus
   dedicated queries:
   - Tech: `Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM`

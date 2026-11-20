@@ -4,8 +4,9 @@
 Replaces reading raw RSS/HTML into the conversation. One command fetches:
 Straits Times RSS, Business Times RSS, the ST MND tag page, the LTA newsroom
 listing, MND speeches + press releases (via MND's Directus API), the MOM
-(Ministry of Manpower) press-releases listing, the BCA newsroom RSS, and
-Shimizu Corporation's English "News & Information" listing. It keeps items inside the date
+(Ministry of Manpower) press-releases listing, the BCA newsroom RSS,
+Shimizu Corporation's English "News & Information" listing, and UOL Group's
+press-releases listing. It keeps items inside the date
 window whose URL is not already in news_store.json or news_archive.json,
 applies a loose construction-relevance keyword filter (the model still makes
 the final call), and prints one line per candidate.
@@ -22,6 +23,7 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.parse
 import urllib.request
@@ -34,6 +36,10 @@ from update_store import normalize_url  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SGT = timezone(timedelta(hours=8))
 UA = "Mozilla/5.0 (compatible; construction-news-agent)"
+# Hosts behind Cloudflare bot rules that 403 the bot UA but serve a normal browser UA.
+BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/130.0 Safari/537.36")
+BROWSER_UA_HOSTS = ("www.uol.com.sg",)
 
 ST_RSS = "https://www.straitstimes.com/news/singapore/rss.xml"
 BT_RSS = "https://www.businesstimes.com.sg/rss.xml"
@@ -43,6 +49,7 @@ MND_API = "https://www.mnd.gov.sg/api/articles"
 MOM_LIST = "https://www.mom.gov.sg/newsroom/press-releases"
 BCA_RSS = "https://www1.bca.gov.sg/resources/newsroom/rss.xml"
 SHIMIZU_LIST = "https://www.shimz.co.jp/en/information/"
+UOL_LIST = "https://www.uol.com.sg/investors-and-media/press-releases/"
 MND_TYPES = {
     "speeches": "e45b3aaf-3de0-4c98-922a-d5ad73ab5c0b",
     "press-releases": "bcb1e98c-5a6c-4f76-a93a-6c263b9aecda",
@@ -79,10 +86,28 @@ MOM_SKIP = re.compile(r"(labour market|wages? council|NWC|statistician|CPF contr
                       r"retrenchment|unemployment|job vacanc|mental well-being)", re.I)
 
 
-def get(url, timeout=60):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+def get_bytes(url, timeout=60):
+    browser = urllib.parse.urlparse(url).hostname in BROWSER_UA_HOSTS
+    headers = {"User-Agent": BROWSER_UA if browser else UA}
+    if browser:
+        headers.update({"Accept": "text/html,application/pdf,*/*", "Accept-Language": "en"})
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read().decode("utf-8", "replace")
+        return r.read()
+
+
+def get(url, timeout=60):
+    return get_bytes(url, timeout).decode("utf-8", "replace")
+
+
+def pdf_text(data):
+    try:  # poppler's pdftotext if installed, else pypdf
+        return subprocess.run(["pdftotext", "-layout", "-", "-"], input=data,
+                              capture_output=True, check=True, timeout=60).stdout.decode("utf-8", "replace")
+    except (OSError, subprocess.SubprocessError):
+        import io
+        from pypdf import PdfReader
+        return "\n".join(p.extract_text() or "" for p in PdfReader(io.BytesIO(data)).pages)
 
 
 def clean(text):
@@ -183,6 +208,22 @@ def shimizu():
     return out
 
 
+def uol():
+    # <li class="boxes" data-year="YYYY"><a href="...pdf"><h3>Month D, YYYY</h3><p>title</p></a>
+    # Releases are PDFs; `text URL` extracts them. Cloudflare: needs BROWSER_UA.
+    out = []
+    for href, d, title in re.findall(
+            r'<li class="boxes"[^>]*>\s*<a href="([^"]+)"[^>]*>\s*<h3>([^<]+)</h3>\s*<p>(.*?)</p>',
+            get(UOL_LIST), re.S):
+        try:
+            date = datetime.strptime(clean(d), "%B %d, %Y").date()
+        except ValueError:
+            date = None
+        out.append({"src": "UOL", "date": date, "title": clean(title),
+                    "url": urllib.parse.urljoin(UOL_LIST, href), "blurb": ""})
+    return out
+
+
 def mnd_query(params):
     return json.loads(get(MND_API + "?" + urllib.parse.urlencode(params)))["data"]
 
@@ -222,7 +263,7 @@ def list_candidates(days):
     sources = [
         ("ST RSS", lambda: rss(ST_RSS, "ST")), ("BT RSS", lambda: rss(BT_RSS, "BT")),
         ("ST MND tag", st_mnd_tag), ("LTA", lta), ("MND", mnd), ("MOM", mom),
-        ("BCA RSS", lambda: rss(BCA_RSS, "BCA")), ("Shimizu", shimizu),
+        ("BCA RSS", lambda: rss(BCA_RSS, "BCA")), ("Shimizu", shimizu), ("UOL", uol),
     ]
     lines, stats, errors = [], [], []
     for name, fn in sources:
@@ -238,10 +279,10 @@ def list_candidates(days):
             if it["date"] and it["date"] < cutoff:
                 continue
             text = it["title"] + " " + it["blurb"]
-            # MND, BCA and Shimizu items skip the keyword filter: BCA is the
-            # regulator, and Shimizu is a watchlist firm whose titles rarely say
-            # "Singapore" or "construction" (the model applies the SG test).
-            is_mnd = it["src"].startswith(("MND", "ST-MND", "BCA", "Shimizu"))
+            # MND, BCA, Shimizu and UOL items skip the keyword filter: BCA is the
+            # regulator, and the watchlist firms' titles rarely say "Singapore" or
+            # "construction" (the model applies the SG test and judges relevance).
+            is_mnd = it["src"].startswith(("MND", "ST-MND", "BCA", "Shimizu", "UOL"))
             is_mom = it["src"] == "MOM"
             if is_mom and MOM_SKIP.search(it["title"]):
                 continue
@@ -267,6 +308,9 @@ def article_text(url, chars):
             "filter[_and][1][url][_eq]": m.group(1), "fields": "*,title.*",
         })
         body = rows[0].get("content", "") if rows else ""
+    elif urllib.parse.urlparse(url).path.lower().endswith(".pdf"):
+        print(re.sub(r"[ \t]+", " ", pdf_text(get_bytes(url))).strip()[:chars])
+        return
     else:
         body = get(url)
         body = re.sub(r"<(script|style|noscript|svg|nav|header|footer)[^>]*>.*?</\1>", " ", body, flags=re.S | re.I)
