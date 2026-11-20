@@ -329,6 +329,27 @@ store/dashboard; send a failure notification.
   syntax now lives in `scripts/`, and CLAUDE.md carries both artifact URLs,
   so the prompt no longer depends on either.
 
+## Fixing a miss (rule, added 2026-11-20)
+
+When the user reports a missed story, fix the source gap, not just the query:
+
+1. **Find where the story was first published.** If that is the
+   organisation's own newsroom/press page (agency, company, developer),
+   check whether `fetch_sources.py` can read it: a static HTML listing, an
+   RSS feed, or an API behind a JS-rendered page. If it can, **add it as a
+   direct source** in `fetch_sources.py`, not only a WebSearch line. Search
+   indexes press pages late or never: the 2026-10-16 Shimizu fix added only a
+   search term, and its 2026-11-19 Singapore release was still missed. Only
+   if the page can't be read (JS-only with no API, blocked) does search
+   alone stay, and the reason is noted here.
+2. **Adding a watchlist name** means `searches.txt` **and** the
+   `fetch_sources.py` WATCHLIST (it lets RSS items naming the firm through
+   the keyword filter), plus README.md and the watchlist bullet above.
+3. **Record the real gap** in the Backfill log: "source not fetched" or
+   "not indexed by search", not just "not on watchlist".
+4. **Run `python3 scripts/fetch_sources.py`** after the change to confirm the
+   new source returns the missed item (or would have, inside its window).
+
 ## Backfill log (misses found by the user, fixed in store + dashboard)
 
 | Date | Story | Cat. | Gap |
