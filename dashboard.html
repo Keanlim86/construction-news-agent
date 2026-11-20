@@ -315,6 +315,8 @@
     border-color:var(--accent);
     color:var(--accent-ink);
   }
+  .ctrl-btn:disabled{opacity:.45;cursor:default;box-shadow:none;}
+  .ctrl-btn:disabled:hover{border-color:var(--border);color:var(--ink-soft);}
   .date-picker{
     position:relative;
     display:inline-flex;
@@ -492,6 +494,10 @@
       </select>
       <svg class="date-picker-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
+    <button type="button" class="ctrl-btn" id="clearFilters" disabled aria-label="Clear all filters">
+      <svg viewBox="0 0 12 12" aria-hidden="true" width="11" height="11"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Clear filters
+    </button>
     <a class="ctrl-btn" href="https://claude.ai/artifact/5wVjEVJvDELacJ3DH1NUt5" target="_blank" rel="noopener">
       <svg viewBox="0 0 14 14" aria-hidden="true" width="13" height="13"><path d="M1.5 3.5h11v2h-11z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M2.3 5.5v6.5a1 1 0 0 0 1 1h7.4a1 1 0 0 0 1-1V5.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M5.7 8h2.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       Archive
@@ -1426,6 +1432,7 @@
   var todayToggle = document.getElementById('todayToggle');
   var datePicker = document.getElementById('datePicker');
   var dateSelect = document.getElementById('dateSelect');
+  var clearFilters = document.getElementById('clearFilters');
 
   var todayOnly = false;
 
@@ -1493,6 +1500,7 @@
     var selectedDate = dateSelect && dateSelect.value !== '' ? dateSelect.value : null;
     var filtersActive = q !== '' || todayOnly || selectedDate !== null;
     clearBtn.hidden = q.length === 0;
+    if (clearFilters) clearFilters.disabled = !filtersActive;
     var anySectionVisible = false;
 
     sections.forEach(function(section){
@@ -1537,6 +1545,17 @@
     input.value = '';
     applyFilter();
     input.focus();
+  });
+  // Reset search, Today only and the date dropdown in one click.
+  if (clearFilters) clearFilters.addEventListener('click', function(){
+    input.value = '';
+    todayOnly = false;
+    if (todayToggle) todayToggle.setAttribute('aria-pressed', 'false');
+    if (dateSelect){
+      dateSelect.value = '';
+      datePicker.classList.remove('is-active');
+    }
+    applyFilter();
   });
 })();
 </script>

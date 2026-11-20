@@ -296,7 +296,10 @@ Brief", omit the icon) so it updates in place.
   today-only state, *and* the selected date.
 - **`.controls-bar`**: `#todayToggle` pill (shows only `is-new` cards);
   `#datePicker`/`#dateSelect` dropdown populated from cards' `.date` text,
-  newest first, formatted `DD/MM/YY`; an **Archive** `.ctrl-btn` (filing-box
+  newest first, formatted `DD/MM/YY`; a `#clearFilters` `.ctrl-btn` ("Clear
+  filters", added 2026-11-20) right of the dropdown that resets the search,
+  Today only and the date in one click, disabled whenever no filter is
+  active; an **Archive** `.ctrl-btn` (filing-box
   icon, `target="_blank"`) linking to the archive page URL above.
 - **Collapse**: `buildCollapse()` IIFE per `.cards` block moves `is-new`
   cards to the top (relative order kept) and caps visible cards at
