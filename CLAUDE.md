@@ -159,6 +159,19 @@ Skip any unreachable/paywalled source and continue.
     Individual press-release pages are static HTML (unlike MND's
     client-rendered site), so the generic paragraph-extraction fallback in
     `fetch_sources.py text URL` handles them without special-casing.
+  - **BCA newsroom RSS** (`www1.bca.gov.sg/resources/newsroom/rss.xml`, 200
+    items, publisher dates) and **Shimizu's English "News & Information"
+    listing** (`shimz.co.jp/en/information/`, server-rendered, "Latest News"
+    tab: `<div class="date">Month D, YYYY</div>` + `<div class="text"><a>`)
+    added 2026-11-20 after the Shimizu Singapore co-creation centre release
+    (19 Nov) was missed: it sat under `/en/information/others/`, not the
+    news-release path, and the watchlist WebSearch still returned only old
+    evergreen pages the next day. Both skip the keyword filter (auto-included
+    like MND/MOM); the model applies the SG test. Expect Shimizu non-SG items
+    (aerospace, Japan/Philippines projects) and discard them unless they are
+    construction-tech news under the Shimizu rule or clear cat. 10. Kajima's
+    English news list is JS-rendered (empty server HTML), so Kajima stays
+    search-only.
 - **Category seeds**: safety, sustainability, manpower, disputes, tenders, plus
   dedicated queries:
   - Tech: `Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM`
@@ -330,6 +343,7 @@ store/dashboard; send a failure notification.
 | 09-30 | [LTA Tuas Road Viaduct Phase 2 awards](https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/9/news-releases/lta-awards-contracts-for-tuas-road-viaduct-phase-2.html), S$1.2b: Hwa Seng (Pioneer Rd, S$381.6m), CCCC SG (Tuas South Ave 3, S$430.3m), China Harbour (Tuas South Blvd, S$404.4m); works 2027–2032 | 4 | No LTA source (now added) |
 | 10-16 | [Shimizu completes investment in Noble Machines, US humanoid construction-robot startup](https://www.shimz.co.jp/en/company/about/news-release/2026/2026044.html) | 7 | Shimizu not on watchlist (now added); no explicit SG mention in the release, but user judged Shimizu's SG office presence sufficient for the SG test |
 | 10-16 | [MOM: 8 charged over phantom-worker/CPF fraud](https://www.asiaone.com/singapore/phantom-workers-false-cpf-declarations-8-charged) at several construction firms (Blue Sky Builder, Wang Da Construction, Urban Builders, He Jian Construction, Advanced Coretrades) | 6 | MOM's own press-releases listing wasn't a source and no WebSearch query targets MOM enforcement announcements (MOM listing now added to `fetch_sources.py`) |
+| 11-20 | [Shimizu opens co-creation centre with startups at BCA Braddell Campus (BEIH)](https://www.shimz.co.jp/en/information/others/20261119.html) | 7 | Shimizu was on the watchlist, but the release wasn't indexed by search the next morning and lived under `/information/others/` (Shimizu listing + BCA newsroom RSS now added to `fetch_sources.py`) |
 | 10-24 | [ST: skills-first hiring framework](https://www.straitstimes.com/singapore/employers-urged-to-look-beyond-degrees-job-titles-in-hiring-under-new-skills-first-framework) (IAL, 12 pilots); HSC Pipeline Engineering and DLM quoted on non-degree hiring | 6 | Neither firm on watchlist (both now added) |
 
 Related non-miss (2026-09-21): an ST Jurong Port Road hose-strike death was

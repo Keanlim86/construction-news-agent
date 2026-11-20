@@ -3,8 +3,9 @@
 
 Replaces reading raw RSS/HTML into the conversation. One command fetches:
 Straits Times RSS, Business Times RSS, the ST MND tag page, the LTA newsroom
-listing, MND speeches + press releases (via MND's Directus API), and the MOM
-(Ministry of Manpower) press-releases listing. It keeps items inside the date
+listing, MND speeches + press releases (via MND's Directus API), the MOM
+(Ministry of Manpower) press-releases listing, the BCA newsroom RSS, and
+Shimizu Corporation's English "News & Information" listing. It keeps items inside the date
 window whose URL is not already in news_store.json or news_archive.json,
 applies a loose construction-relevance keyword filter (the model still makes
 the final call), and prints one line per candidate.
@@ -40,6 +41,8 @@ ST_MND_TAG = "https://www.straitstimes.com/tags/ministry-of-national-development
 LTA_LIST = "https://www.lta.gov.sg/content/ltagov/en/newsroom.html"
 MND_API = "https://www.mnd.gov.sg/api/articles"
 MOM_LIST = "https://www.mom.gov.sg/newsroom/press-releases"
+BCA_RSS = "https://www1.bca.gov.sg/resources/newsroom/rss.xml"
+SHIMIZU_LIST = "https://www.shimz.co.jp/en/information/"
 MND_TYPES = {
     "speeches": "e45b3aaf-3de0-4c98-922a-d5ad73ab5c0b",
     "press-releases": "bcb1e98c-5a6c-4f76-a93a-6c263b9aecda",
@@ -47,7 +50,7 @@ MND_TYPES = {
 WATCHLIST = [
     "Wee Hur", "BRC Asia", "Lian Beng", "Koh Brothers", "Hock Lian Seng",
     "CSC Holdings", "Chip Eng Seng", "UOL", "CapitaLand", "City Developments",
-    "CDL", "Tiong Seng", "BBR", "Hwa Seng", "Kajima", "JTC", "Kok Tong", "KTC",
+    "CDL", "Tiong Seng", "BBR", "Hwa Seng", "Kajima", "Shimizu", "JTC", "Kok Tong", "KTC",
     "The GEAR", "Pan-United", "Continental Steel",
     "HSC Pipeline", "DLM", "DLE",
 ]
@@ -155,6 +158,31 @@ def mom(max_pages=3):
     return out
 
 
+def shimizu():
+    # Server-rendered "Latest News" tab: <div class="date">Month D, YYYY</div> ...
+    # <div class="text"><a href="/en/...">title</a>. Covers news releases AND the
+    # /en/information/others/ items (e.g. the 2026-11-19 Singapore co-creation
+    # centre) that search engines index late or never.
+    out, seen = [], set()
+    page = get(SHIMIZU_LIST, timeout=60)
+    for block in re.findall(r"<li>\s*(<div class=\"date\">.*?)</li>", page, re.S):
+        d = re.search(r'<div class="date">\s*([A-Za-z]+ \d{1,2}, \d{4})\s*</div>', block)
+        a = re.search(r'<div class="text">\s*<a href="([^"]+)"[^>]*>(.*?)</a>', block, re.S)
+        if not d or not a:
+            continue
+        url = urllib.parse.urljoin("https://www.shimz.co.jp", a.group(1))
+        if url in seen or url.lower().endswith(".pdf"):
+            continue
+        seen.add(url)
+        try:
+            date = datetime.strptime(d.group(1), "%B %d, %Y").date()
+        except ValueError:
+            date = None
+        out.append({"src": "Shimizu", "date": date, "title": clean(a.group(2)),
+                    "url": url, "blurb": ""})
+    return out
+
+
 def mnd_query(params):
     return json.loads(get(MND_API + "?" + urllib.parse.urlencode(params)))["data"]
 
@@ -194,6 +222,7 @@ def list_candidates(days):
     sources = [
         ("ST RSS", lambda: rss(ST_RSS, "ST")), ("BT RSS", lambda: rss(BT_RSS, "BT")),
         ("ST MND tag", st_mnd_tag), ("LTA", lta), ("MND", mnd), ("MOM", mom),
+        ("BCA RSS", lambda: rss(BCA_RSS, "BCA")), ("Shimizu", shimizu),
     ]
     lines, stats, errors = [], [], []
     for name, fn in sources:
@@ -209,7 +238,10 @@ def list_candidates(days):
             if it["date"] and it["date"] < cutoff:
                 continue
             text = it["title"] + " " + it["blurb"]
-            is_mnd = it["src"].startswith(("MND", "ST-MND"))
+            # MND, BCA and Shimizu items skip the keyword filter: BCA is the
+            # regulator, and Shimizu is a watchlist firm whose titles rarely say
+            # "Singapore" or "construction" (the model applies the SG test).
+            is_mnd = it["src"].startswith(("MND", "ST-MND", "BCA", "Shimizu"))
             is_mom = it["src"] == "MOM"
             if is_mom and MOM_SKIP.search(it["title"]):
                 continue
