@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-20T12:32:59+08:00",
+  "last_run": "2026-11-21T07:07:48+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1480,7 +1480,7 @@
       "summary": "Singapore's High Court granted a sale order for the collective sale of The Centrepoint's rear block to Frasers Property for S$391.9m, after two objections that had triggered a Strata Titles Board stop order were withdrawn ahead of the hearing.",
       "date_published": "2026-11-19",
       "date_found": "2026-11-20",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/property/next-40-years-singland-ceo-jonathan-eu-remaking-marina-square",
@@ -1490,7 +1490,7 @@
       "summary": "Singapore Land Group (UOL-linked) CEO Jonathan Eu detailed plans to redevelop Marina Square, which will close from March 2027 to add three towers of homes, serviced apartments, a hotel and Grade A offices, lifting the complex's gross floor area to about 362,493 sq m with completion targeted for 2031.",
       "date_published": "2026-11-20",
       "date_found": "2026-11-20",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.shimz.co.jp/en/information/others/20261119.html",
@@ -1500,7 +1500,7 @@
       "summary": "Shimizu Corporation has opened a co-creation centre with startups at BCA's Braddell Campus, home of the Built Environment Innovation Hub, to develop technologies and businesses for Singapore's built environment sector by pairing startup technologies with its construction and engineering expertise.",
       "date_published": "2026-11-19",
       "date_found": "2026-11-20",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.uol.com.sg/wp-content/uploads/uol-news-releases/Media_Release_UOL_Group_and_CLD_to_unveil_1_268-Unit_Thomson_Reserve_15_Oct.pdf",
@@ -1510,7 +1510,7 @@
       "summary": "A UOL Group and CapitaLand Development consortium is launching Thomson Reserve, a 99-year leasehold, 1,268-unit development of six towers (21 and 30 storeys) on a 5ha site at Bright Hill Drive linked to Upper Thomson MRT; previews begin 17 Oct and launch is 31 Oct 2026, with prices from $2,608 psf.",
       "date_published": "2026-10-15",
       "date_found": "2026-11-20",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.capitaland.com/en/about-capitaland/newsroom/news-releases/international/2026/october/thomson-reserve-sold-90-per-cent-launch.html",
@@ -1520,7 +1520,7 @@
       "summary": "UOL Group and CapitaLand Development sold 1,143 of Thomson Reserve's 1,268 units (over 90%) over its launch weekend at an average $2,900 psf, after a record 32,000 visitors over two weekends of previews; most buyers were Singaporeans.",
       "date_published": "2026-10-31",
       "date_found": "2026-11-20",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.capitaland.com/en/about-capitaland/newsroom/news-releases/international/2026/november/tampines-mall-completes-sgd24-million-asset-enhancement-initiative-with-21-new-brands-and-the-east-largest-beauty-cluster.html",
@@ -1530,6 +1530,26 @@
       "summary": "CapitaLand's Tampines Mall, open since 1995, is completing a S$24 million asset enhancement initiative with refreshed spaces and upgraded facilities, adding 21 new brands including a 14-brand beauty cluster.",
       "date_published": "2026-11-10",
       "date_found": "2026-11-20",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/bca-rolls-out-new-escalator-safety-guide-as-accident-rates-stay-high",
+      "title": "BCA rolls out new escalator safety guide as accident rates stay high",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "The Building and Construction Authority has issued a new industry playbook for escalator owners, managing agents and manufacturers after 97% of 745 escalator incidents reported between January and September 2026 were linked to how escalators were used. The guide recommends measures such as handrail speed monitoring and safety ambassadors during peak periods, building on requirements under the Building Control (Fixed Installations) Regulations 2025.",
+      "date_published": "2026-11-20",
+      "date_found": "2026-11-21",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.lta.gov.sg/content/ltagov/en/newsroom/2026/11/news-releases/lta-smrt-sbst-refurbish-over-500-escalators-nsewl-nel-ccl.html",
+      "title": "LTA, SMRT and SBST to Progressively Refurbish Over 500 Escalators Across NSEWL, NEL and CCL",
+      "source": "Land Transport Authority",
+      "category": "Project Awards/Tenders",
+      "summary": "LTA, SMRT and SBS Transit will progressively refurbish 527 escalators across the North-South, East-West, North East and Circle Lines from 17 December 2026, replacing motors, control equipment, steps, handrails and safety features. Works on the NSEWL and NEL are expected to be completed by 2032, with Circle Line refurbishment starting at a later date.",
+      "date_published": "2026-11-19",
+      "date_found": "2026-11-21",
       "is_new_today": true
     }
   ]
