@@ -5,8 +5,8 @@ Replaces reading raw RSS/HTML into the conversation. One command fetches:
 Straits Times RSS, Business Times RSS, the ST MND tag page, the LTA newsroom
 listing, MND speeches + press releases (via MND's Directus API), the MOM
 (Ministry of Manpower) press-releases listing, the BCA newsroom RSS,
-Shimizu Corporation's English "News & Information" listing, and UOL Group's
-press-releases listing. It keeps items inside the date
+Shimizu Corporation's English "News & Information" listing, UOL Group's
+press-releases listing, and the CapitaLand newsroom (via its listing API). It keeps items inside the date
 window whose URL is not already in news_store.json or news_archive.json,
 applies a loose construction-relevance keyword filter (the model still makes
 the final call), and prints one line per candidate.
@@ -50,6 +50,18 @@ MOM_LIST = "https://www.mom.gov.sg/newsroom/press-releases"
 BCA_RSS = "https://www1.bca.gov.sg/resources/newsroom/rss.xml"
 SHIMIZU_LIST = "https://www.shimz.co.jp/en/information/"
 UOL_LIST = "https://www.uol.com.sg/investors-and-media/press-releases/"
+# CapitaLand's newsroom page fills its list client-side from this AEM endpoint
+# (selectors copied from the page's JS; {years} = "<last year>-<this year>").
+CAPITALAND_API = ("https://www.capitaland.com/api-v1/capitaland/newslisting.listFrom.tags"
+                  ".parentPages./content/capitaland/global/en/about-capitaland/newsroom/news-releases/international"
+                  ".preTags.capitaland:international-newsroom.tagsMatch.any.year.{years}"
+                  ".orderBy.newest.sortOrder.desc.page.1.limit.20"
+                  ".currentPath./content/capitaland/global/en/about-capitaland/newsroom.language.en.json")
+# Mall promotions, festive campaigns, Ascott lodging, overseas-trust results and
+# routine REIT business updates / credit ratings: not construction news.
+CAPITALAND_SKIP = re.compile(r"(Starbucks|Bearista|STAR\$|Christmas|festive|Lunar New Year|Hari Raya|"
+                             r"Deepavali|giveaway|Ascott|lyf |CFC|shopping|dining|concert|"
+                             r"(China|India|Malaysia) Trust|Business Updates|Fitch|Moody|S&P|rating)", re.I)
 MND_TYPES = {
     "speeches": "e45b3aaf-3de0-4c98-922a-d5ad73ab5c0b",
     "press-releases": "bcb1e98c-5a6c-4f76-a93a-6c263b9aecda",
@@ -224,6 +236,20 @@ def uol():
     return out
 
 
+def capitaland():
+    years = f"{datetime.now(SGT).year - 1}-{datetime.now(SGT).year}"
+    out = []
+    for r in json.loads(get(CAPITALAND_API.format(years=years)))["data"]:
+        try:
+            date = datetime.strptime(r["publishedDate"], "%d %b %Y").date()
+        except (KeyError, ValueError):
+            date = None
+        path = r.get("url", "").replace("/content/capitaland/global/en/", "/en/", 1)
+        out.append({"src": "CapitaLand", "date": date, "title": clean(r.get("title", "")),
+                    "url": urllib.parse.urljoin("https://www.capitaland.com", path), "blurb": ""})
+    return out
+
+
 def mnd_query(params):
     return json.loads(get(MND_API + "?" + urllib.parse.urlencode(params)))["data"]
 
@@ -264,6 +290,7 @@ def list_candidates(days):
         ("ST RSS", lambda: rss(ST_RSS, "ST")), ("BT RSS", lambda: rss(BT_RSS, "BT")),
         ("ST MND tag", st_mnd_tag), ("LTA", lta), ("MND", mnd), ("MOM", mom),
         ("BCA RSS", lambda: rss(BCA_RSS, "BCA")), ("Shimizu", shimizu), ("UOL", uol),
+        ("CapitaLand", capitaland),
     ]
     lines, stats, errors = [], [], []
     for name, fn in sources:
@@ -279,10 +306,12 @@ def list_candidates(days):
             if it["date"] and it["date"] < cutoff:
                 continue
             text = it["title"] + " " + it["blurb"]
-            # MND, BCA, Shimizu and UOL items skip the keyword filter: BCA is the
+            if it["src"] == "CapitaLand" and CAPITALAND_SKIP.search(it["title"]):
+                continue
+            # MND, BCA, Shimizu, UOL and CapitaLand items skip the keyword filter: BCA is the
             # regulator, and the watchlist firms' titles rarely say "Singapore" or
             # "construction" (the model applies the SG test and judges relevance).
-            is_mnd = it["src"].startswith(("MND", "ST-MND", "BCA", "Shimizu", "UOL"))
+            is_mnd = it["src"].startswith(("MND", "ST-MND", "BCA", "Shimizu", "UOL", "CapitaLand"))
             is_mom = it["src"] == "MOM"
             if is_mom and MOM_SKIP.search(it["title"]):
                 continue

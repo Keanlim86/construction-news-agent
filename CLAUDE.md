@@ -181,6 +181,23 @@ Skip any unreachable/paywalled source and continue.
     Auto-included; keep launches, GLS/land bids, earnings, project and
     sustainability news (usually cat. 9, 4 or 5) and discard arts-prize and
     hospitality items with no property/construction angle.
+  - **CapitaLand newsroom** (`capitaland.com/en/about-capitaland/newsroom.html`)
+    added 2026-11-20 at the user's request. The page renders its list
+    client-side, so `fetch_sources.py` calls the endpoint the page's JS uses:
+    `https://www.capitaland.com/api-v1/capitaland/newslisting.<selectors>.json`
+    (selectors in `CAPITALAND_API`, copied from clientlib-site JS: listFrom
+    tags, parentPages `.../news-releases/international`, preTags
+    `capitaland:international-newsroom`, year `<last>-<this>`, newest first,
+    limit 20). JSON `data[]` has `title`, `publishedDate` ("20 Nov 2026") and
+    a `/content/capitaland/global/en/...` `url`, mapped to the public
+    `https://www.capitaland.com/en/...` page (`text URL` reads it). If the
+    endpoint breaks, re-derive the selectors from the page's JS
+    (`let h="/api-v1/capitaland/newslisting"`). `CAPITALAND_SKIP` drops mall
+    promotions, festive campaigns, Ascott, overseas-trust results, routine REIT
+    "Business Updates" and credit ratings; the rest is auto-included. Keep SG
+    development, launch/sales, land, AEI/redevelopment, sustainability and
+    group-level company news; discard CSR and overseas-only items unless they
+    clear cat. 10.
 - **Category seeds**: safety, sustainability, manpower, disputes, tenders, plus
   dedicated queries:
   - Tech: `Singapore construction robots OR robotics OR automation OR autonomous machinery OR BIM`
