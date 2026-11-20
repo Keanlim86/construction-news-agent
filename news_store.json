@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-20T12:25:30+08:00",
+  "last_run": "2026-11-20T12:32:59+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1509,6 +1509,26 @@
       "category": "Media Features/Company News",
       "summary": "A UOL Group and CapitaLand Development consortium is launching Thomson Reserve, a 99-year leasehold, 1,268-unit development of six towers (21 and 30 storeys) on a 5ha site at Bright Hill Drive linked to Upper Thomson MRT; previews begin 17 Oct and launch is 31 Oct 2026, with prices from $2,608 psf.",
       "date_published": "2026-10-15",
+      "date_found": "2026-11-20",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.capitaland.com/en/about-capitaland/newsroom/news-releases/international/2026/october/thomson-reserve-sold-90-per-cent-launch.html",
+      "title": "UOL Group and CapitaLand Development sold over 90% of Thomson Reserve over launch weekend",
+      "source": "CapitaLand",
+      "category": "Media Features/Company News",
+      "summary": "UOL Group and CapitaLand Development sold 1,143 of Thomson Reserve's 1,268 units (over 90%) over its launch weekend at an average $2,900 psf, after a record 32,000 visitors over two weekends of previews; most buyers were Singaporeans.",
+      "date_published": "2026-10-31",
+      "date_found": "2026-11-20",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.capitaland.com/en/about-capitaland/newsroom/news-releases/international/2026/november/tampines-mall-completes-sgd24-million-asset-enhancement-initiative-with-21-new-brands-and-the-east-largest-beauty-cluster.html",
+      "title": "Tampines Mall completes S$24 million asset enhancement initiative",
+      "source": "CapitaLand",
+      "category": "Project Awards/Tenders",
+      "summary": "CapitaLand's Tampines Mall, open since 1995, is completing a S$24 million asset enhancement initiative with refreshed spaces and upgraded facilities, adding 21 new brands including a 14-brand beauty cluster.",
+      "date_published": "2026-11-10",
       "date_found": "2026-11-20",
       "is_new_today": true
     }
