@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-22T07:07:09+08:00",
+  "last_run": "2026-11-23T07:08:44+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1560,6 +1560,26 @@
       "summary": "US semiconductor equipment maker KLA officially opened its expanded Building 22B plant in Ang Mo Kio, adding about 210,000 sq ft of operational space, and outlined a further third expansion phase expected to support around 1,000 new jobs.",
       "date_published": "2026-11-20",
       "date_found": "2026-11-22",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/international/asean/vietnam-amends-law-speed-land-clearance-unblock-developer-projects",
+      "title": "Vietnam amends law to speed up land clearance, unblock developer projects",
+      "source": "The Business Times",
+      "category": "International/Regional News",
+      "summary": "Vietnam's National Assembly passed land law amendments on 21 Nov 2026 that overhaul the land-pricing mechanism and allow site clearance to begin before compensation plans are approved for priority projects, alongside revised housing and real estate business laws aimed at unblocking property and infrastructure development.",
+      "date_published": "2026-11-21",
+      "date_found": "2026-11-23",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.shimz.co.jp/en/company/about/news-release/2026/2026049.html",
+      "title": "Advancing the Philippines' Largest Public Infrastructure Project",
+      "source": "Shimizu Corporation",
+      "category": "Project Awards/Tenders",
+      "summary": "The sixth and final tunnel boring machine for Contract Package CP101 of the Metro Manila Subway Project was launched from Tandang Sora Station on 12 Nov 2026, with the Shimizu-led joint venture's overall project progress at 62% toward a scheduled end-2030 completion.",
+      "date_published": "2026-11-12",
+      "date_found": "2026-11-23",
       "is_new_today": true
     }
   ]
