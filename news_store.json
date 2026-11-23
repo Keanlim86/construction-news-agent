@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-23T07:08:44+08:00",
+  "last_run": "2026-11-24T07:08:00+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1570,7 +1570,7 @@
       "summary": "Vietnam's National Assembly passed land law amendments on 21 Nov 2026 that overhaul the land-pricing mechanism and allow site clearance to begin before compensation plans are approved for priority projects, alongside revised housing and real estate business laws aimed at unblocking property and infrastructure development.",
       "date_published": "2026-11-21",
       "date_found": "2026-11-23",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.shimz.co.jp/en/company/about/news-release/2026/2026049.html",
@@ -1580,6 +1580,36 @@
       "summary": "The sixth and final tunnel boring machine for Contract Package CP101 of the Metro Manila Subway Project was launched from Tandang Sora Station on 12 Nov 2026, with the Shimizu-led joint venture's overall project progress at 62% toward a scheduled end-2030 completion.",
       "date_published": "2026-11-12",
       "date_found": "2026-11-23",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/new-neighbourhood-planned-for-pasir-ris-hdb-to-keep-about-13ha-of-coastal-forested-habitats",
+      "title": "New neighbourhood planned for Pasir Ris; HDB to keep about 13ha of coastal, forested habitats",
+      "source": "The Straits Times",
+      "category": "Public Feedback/Community",
+      "summary": "HDB announced a new Pasir Ris Drive 4 neighbourhood on a 36ha forested and coastal site, proposing to preserve about 13ha of habitat after an environmental impact assessment and engagement with nature groups. About 20ha will be developed for housing, as no comparable brownfield alternative could be found within the needed timeframe.",
+      "date_published": "2026-11-23",
+      "date_found": "2026-11-24",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www1.bca.gov.sg/resources/newsroom/bca-has-introduced-an-escalator-safety-playbook-to-help-industry-stakeholders-strengthen-safety-awareness-and-promote-safer-escalator-use",
+      "title": "BCA Has Introduced an Escalator Safety Playbook to Help Industry Stakeholders Strengthen Safety Awareness and Promote Safer Escalator Use",
+      "source": "BCA",
+      "category": "Policy/Regulatory",
+      "summary": "BCA released an escalator safety playbook after data showed 97% of the 745 escalator incidents reported between January and September 2026 involved user behaviour, with seniors aged 60 and above accounting for about 60% of cases. The agency urged safe escalator use and reminded owners and managing agents to maintain equipment properly.",
+      "date_published": "2026-11-20",
+      "date_found": "2026-11-24",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/events-awards/enterprise-50/engineering-and-built-environment-enterprises-shine-e50-awards-millennium-3-takes-first-place",
+      "title": "Engineering and built-environment enterprises shine at E50 Awards; Millennium 3 takes first place",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "Raised-floor and building-solutions specialist Millennium 3 Building Products won top honours at the 32nd Enterprise 50 Awards, with fire-protection engineering firm Rico Engineering Works placing second and heavy-lift/steel-fabrication specialist Pollisum Group third. Organisers noted several winners, including Millennium 3, directly support the data-centre and AI computing construction boom.",
+      "date_published": "2026-11-23",
+      "date_found": "2026-11-24",
       "is_new_today": true
     }
   ]
