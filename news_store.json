@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-25T07:09:05+08:00",
+  "last_run": "2026-11-27T07:08:38+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1620,7 +1620,7 @@
       "summary": "CapitaLand Development, together with Far East Organization, Sino Group and Sing Holdings, has been awarded the White site at Town Hall Link in Jurong Lake District, next to the Jurong East MRT interchange, to develop a mixed-use project.",
       "date_published": "2026-11-24",
       "date_found": "2026-11-25",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/companies-markets/brc-asias-net-profit-rises-22-s115-1-million-fy2026",
@@ -1630,6 +1630,56 @@
       "summary": "Steel fabricator BRC Asia reported FY2026 net profit of S$115.1 million, up 22% year-on-year, as revenue rose 15% to S$1.79 billion on strong domestic construction demand and conversion of its sales order book.",
       "date_published": "2026-11-25",
       "date_found": "2026-11-25",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/housing/more-incentives-for-better-pedestrian-shelters-greener-building-retrofits-chee-hong-tat",
+      "title": "More incentives for better pedestrian shelters, greener building retrofits: Chee Hong Tat",
+      "source": "The Straits Times",
+      "category": "Policy/Regulatory",
+      "summary": "URA is widening GFA exemptions for roof eaves/sun-shading, covered linkways and basement M&E spaces effective 26 Nov 2026, and enhancing the Green Mark Incentive Scheme for Existing Buildings 2.0 with easier funding for energy-efficiency retrofits, Minister Chee Hong Tat announced at REDAS's 67th anniversary dinner.",
+      "date_published": "2026-11-26",
+      "date_found": "2026-11-27",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/singapore/balestier-market-set-for-makeover-with-new-dining-retail-options-grocer-space",
+      "title": "Balestier Market set for makeover with new dining, retail options, modern wet market",
+      "source": "The Straits Times",
+      "category": "Project Awards/Tenders",
+      "summary": "The Singapore Land Authority has awarded a five-year master tenancy for the century-old, conserved Balestier Market to Hua Hng Trading, which will redevelop it with a central dining hall, grocer space and other F&B/retail offerings starting after the current tenancy ends in April 2027.",
+      "date_published": "2026-11-26",
+      "date_found": "2026-11-27",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.straitstimes.com/tech/govtech-jtc-system-to-enable-secure-robot-operations-at-revamped-singtel-comcentre",
+      "title": "Singtel first in private sector to use GovTech system to enable secure robot, AI tasks",
+      "source": "The Straits Times",
+      "category": "New Technology/Innovation",
+      "summary": "Singtel and GovTech signed an MOU on 26 Nov 2026 to deploy JTC and GovTech's Open Digital Platform, which lets autonomous robots, AI systems and smart-building infrastructure interoperate, at Singtel's redeveloped One Comcentre headquarters due for completion by end-2028 — the platform's first private-sector use after earlier Government deployments at Punggol Digital District, Woodlands North Coast and JTC Summit.",
+      "date_published": "2026-11-26",
+      "date_found": "2026-11-27",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/events-awards/ey-entrepreneur-of-the-year-2026/constructing-legacy-beyond-built-environment",
+      "title": "Constructing a legacy beyond the built environment",
+      "source": "The Business Times",
+      "category": "Media Features/Company News",
+      "summary": "Profile of Woh Hup deputy chairman Neil Yong, recipient of the EY Impact Award of Excellence 2026, covering the construction firm's charity initiatives, prefabrication innovations, and its recent appointment as main contractor for Las Vegas Sands' new development beside Marina Bay Sands.",
+      "date_published": "2026-11-26",
+      "date_found": "2026-11-27",
+      "is_new_today": true
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/international/japans-data-centre-boom-faces-growing-revolt-urban-residents",
+      "title": "Japan's data centre boom faces growing revolt from urban residents",
+      "source": "The Business Times",
+      "category": "International/Regional News",
+      "summary": "Data centre construction near homes in the Tokyo metropolitan area has sparked resident complaints over noise, fumes and safety, legal action against a city and a building-certification firm over an alleged office-zoning loophole, and a government action plan due by year-end as Japan's data centre market is forecast to grow to US$33.4b by 2030.",
+      "date_published": "2026-11-26",
+      "date_found": "2026-11-27",
       "is_new_today": true
     }
   ]
