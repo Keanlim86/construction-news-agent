@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-11-27T07:08:38+08:00",
+  "last_run": "2026-11-28T07:07:44+08:00",
   "articles": [
     {
       "url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0904-four-arrested-and-21-assisting-in-investigations-for-employment-related-offences",
@@ -1640,7 +1640,7 @@
       "summary": "URA is widening GFA exemptions for roof eaves/sun-shading, covered linkways and basement M&E spaces effective 26 Nov 2026, and enhancing the Green Mark Incentive Scheme for Existing Buildings 2.0 with easier funding for energy-efficiency retrofits, Minister Chee Hong Tat announced at REDAS's 67th anniversary dinner.",
       "date_published": "2026-11-26",
       "date_found": "2026-11-27",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.straitstimes.com/singapore/balestier-market-set-for-makeover-with-new-dining-retail-options-grocer-space",
@@ -1650,7 +1650,7 @@
       "summary": "The Singapore Land Authority has awarded a five-year master tenancy for the century-old, conserved Balestier Market to Hua Hng Trading, which will redevelop it with a central dining hall, grocer space and other F&B/retail offerings starting after the current tenancy ends in April 2027.",
       "date_published": "2026-11-26",
       "date_found": "2026-11-27",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.straitstimes.com/tech/govtech-jtc-system-to-enable-secure-robot-operations-at-revamped-singtel-comcentre",
@@ -1660,7 +1660,7 @@
       "summary": "Singtel and GovTech signed an MOU on 26 Nov 2026 to deploy JTC and GovTech's Open Digital Platform, which lets autonomous robots, AI systems and smart-building infrastructure interoperate, at Singtel's redeveloped One Comcentre headquarters due for completion by end-2028 — the platform's first private-sector use after earlier Government deployments at Punggol Digital District, Woodlands North Coast and JTC Summit.",
       "date_published": "2026-11-26",
       "date_found": "2026-11-27",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/events-awards/ey-entrepreneur-of-the-year-2026/constructing-legacy-beyond-built-environment",
@@ -1670,7 +1670,7 @@
       "summary": "Profile of Woh Hup deputy chairman Neil Yong, recipient of the EY Impact Award of Excellence 2026, covering the construction firm's charity initiatives, prefabrication innovations, and its recent appointment as main contractor for Las Vegas Sands' new development beside Marina Bay Sands.",
       "date_published": "2026-11-26",
       "date_found": "2026-11-27",
-      "is_new_today": true
+      "is_new_today": false
     },
     {
       "url": "https://www.businesstimes.com.sg/international/japans-data-centre-boom-faces-growing-revolt-urban-residents",
@@ -1680,6 +1680,16 @@
       "summary": "Data centre construction near homes in the Tokyo metropolitan area has sparked resident complaints over noise, fumes and safety, legal action against a city and a building-certification firm over an alleged office-zoning loophole, and a government action plan due by year-end as Japan's data centre market is forecast to grow to US$33.4b by 2030.",
       "date_published": "2026-11-26",
       "date_found": "2026-11-27",
+      "is_new_today": false
+    },
+    {
+      "url": "https://www.businesstimes.com.sg/property/new-rules-gross-floor-area-free-building-space-developers",
+      "title": "New rules on gross floor area to free up building space for developers",
+      "source": "The Business Times",
+      "category": "Policy/Regulatory",
+      "summary": "URA is easing gross floor area exemption rules effective immediately, widening eligible roof eaves and sun-shading devices from 2m to 3m, exempting covered linkways, and extending M&E space exemptions to all basement floors; the Green Mark Incentive Scheme for Existing Buildings 2.0 is also being enhanced and extended to March 2030. Minister Chee Hong Tat announced the changes at REDAS' 67th anniversary dinner on 26 November 2026.",
+      "date_published": "2026-11-26",
+      "date_found": "2026-11-28",
       "is_new_today": true
     }
   ]
